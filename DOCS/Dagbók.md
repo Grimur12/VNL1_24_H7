@@ -10,7 +10,7 @@
 
 -Skoðuðum Verkefnalýsingu og fórum að gera rough sketch af Class Diagraminu, taka saman það sem þarf að vera í kerfinu til að byrja með.
 
---Skipulag
+# Skipulag
 
 -Ákváðum að við myndum mæta upp í HR á milli 9-9:30 og fara héðan 3:30 í það seinasta. Rest væri hægt að vinna heima í sitthvoru lagi
 
