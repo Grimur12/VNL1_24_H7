@@ -1,1 +1,6 @@
-## 11/25/2024 - Dagur 1
+## [25/11/2024]
+
+Fyrirlestur hjá Gylfa...
+Bjuggum til Git reikninga og Repo.
+Skoðuðum Verkefnalýsingu.
+...
