@@ -10,7 +10,7 @@ GitHub Desktop is a graphical user interface (GUI) that simplifies the use of Gi
 3) Then, you’ll receive an email from GitHub with a launch code. Open GitHub using the green button in the email and enter the code to verify your account.
 4) Once that’s done, you’ll have a GitHub account and can start creating and accessing "Repositories."
 
-- Additional setup information
+Additional setup information
 
 1) To create a "Repository," often just called a "Repo,"
 2) There is a dropdown menu on the left side of the screen in your GitHub area where you can click the green button that says "New."
@@ -23,7 +23,7 @@ GitHub Desktop is a graphical user interface (GUI) that simplifies the use of Gi
 
 ## "Cloning", "Commits", "Push", "Pull"
 
-- The following assumes that you have already downloaded and setup Github Deskop on your Local computer that you will be working on.
+The following assumes that you have already downloaded and setup Github Deskop on your Local computer that you will be working on.
 
 - Cloning
   1) Once you have either created or joined a GitHub repo you will need to clone it to you local computer to share code/documentation with your group members.
