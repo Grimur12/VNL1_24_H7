@@ -154,4 +154,8 @@ Source (https://medium.com/@sreekanth.thummala/choosing-the-right-git-branching-
 
 ## Resolving conflicts.
 
+When multiple developers are working on the same project, conflicts can occur when changes are made to the same part of a file in different branches or commits. Git cannot automatically decide which change should take precedence, so it flags these situations as conflicts that need to be resolved manually.
+
+A common conflict occurs when you create a new branch off main and start developing on that branch, sometime after that another group member pushes his changes that he made to a file to main, you finish developing and want to merge your branch back into main but now the file he changed has two different versions, the one you have without the new additions and the one the other group memeber made. Essentially to solve this "conflict", you will need to decide which version of that file you want to use when you push your changes to main.
+
 ## Common issues and resolutions to them
