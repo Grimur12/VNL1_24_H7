@@ -127,7 +127,7 @@ Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
 
   Feature Branching is a commonly used workflow that involves creating a new branch for a specific feature or change in the codebase. This allows developers to work on the feature independently without affecting   the main branch. When the feature is complete, it can be merged back into the main branch through a pull request. The pull request allows other team members to review the changes and suggest modifications or i   improvements before merging the feature into the main branch.
 
-  Feature Branching Workflow
+  - Feature Branching Workflow
   
   1) Create feature branches: Create a new branch for each feature or task you're working on. This branch should be created from the main branch.
   2) Work on the feature: After creating the feature branch, you can start implementing the new feature by making as many commits as necessary. The branch should only contain changes relating to that particular feature.
@@ -135,6 +135,22 @@ Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
   4) Review and approve: Other developers review the changes in the pull request and approve them if they are satisfied with the changes. Code review can help catch issues or mistakes before they are merged into the main branch.
   5) Merge the feature branch: Once you're done working on the feature, you can merge the feature branch back into the main branch.
   6) Clean up: After merging, you can delete the feature branch, as it is no longer needed.
+
+Source (https://tilburgsciencehub.com/topics/automation/version-control/advanced-git/git-branching-strategies/)
+
+- Trunk Based Development
+  Trunk Based Development promotes a single shared branch called “trunk” and eliminates long-living branches. There are two variations based on team size: smaller teams commit directly to the trunk, while larger   teams create short-lived feature branches. Frequent integration of smaller feature slices is encouraged to ensure regular merging.
+  
+  Pros:
+  - Encourages DevOps and unit testing best practices.
+  - Enhances collaboration and reduces merge conflicts.
+  - Allows for quick releases.
+  
+  Cons:
+  - Requires an experienced team that can slice features appropriately for regular integration.
+  - Relies on strong CI/CD practices to maintain stability.
+
+Source (https://medium.com/@sreekanth.thummala/choosing-the-right-git-branching-strategy-a-comparative-analysis-f5e635443423)
 
 ## Resolving conflicts.
 
