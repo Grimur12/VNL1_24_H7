@@ -158,4 +158,45 @@ When multiple developers are working on the same project, conflicts can occur wh
 
 A common conflict occurs when you create a new branch off main and start developing on that branch, sometime after that another group member pushes his changes that he made to a file to main, you finish developing and want to merge your branch back into main but now the file he changed has two different versions, the one you have without the new additions and the one the other group memeber made. Essentially to solve this "conflict", you will need to decide which version of that file you want to use when you push your changes to main.
 
+- A general plan to resolve conflicts
+  1) After getting a conflict message when pushing to or pulling from a branch you need to open the file in your IDE.
+  2) One part of that file represents the changes you made and the other represents the changes another group member made.
+  3) You need to figure out whether you want to either discard one for the other or combine them into one.
+  4) Once you've either combined the changes or discarded one you can commit and push that resolved filed onto the branch.
+
+- Some best practices to avoid conflicts
+  1) Communcation within the team, make sure that whenever you push a change to the GitHub Repository that you communicate that to your team, a simple "Hey i just pushed "X" to the Repo" is enough for the other group members to know that they may need to pull changes.
+  2) Before you start working on implementing something, check if anyone has pushed something new to the repo for you to pull. In addition to this you should check the git status frequently.
+  3) Breaking off into branches, pushing frequently by breaking your changes into smaller more manageable pieces can avoid conflicts or minimize the likelihood of them happening.
+
 ## Common issues and resolutions to them
+
+Some common issues and how to resolve them using GitHub Desktop.
+
+- Merge conflicts are the most common issues
+  1) GitHub Desktop will show you that there is a conflict in the file by displaying a "Conflicted" status on the file.
+  2) Click on the conflicted file. GitHub Desktop will show you a button to open the file in your IDE.
+  3) Open the file and manually resolve the conflict by choosing which version of the changes to keep (yours, theirs, or a combination).
+  4) Once resolved, save the file and return to GitHub Desktop.
+  5) Click "Mark as Resolved" for the file in GitHub Desktop.
+  6) Commit the resolution with a message like "Resolved merge conflict".
+ 
+- Push Rejected
+  1) This happens when your local branch is behind the remote branch so GitHub rejects your push.
+  2) You can resolve this in GitHub Desktop by navigating into the Repository and branch and pulling the latest changes from the remote branch into your local one.
+  3) This may cause some merge conflicts if you have made changes on your local branch which will need to be resolved.
+  4) You can then proceed with the normal commits and push methods.
+
+- Merge Conflict not resolved properly and files were overwritten
+  1) This is when you accidentally overwrite files in the remote repository when resolving a merge conflict and pushing local changes to remote.
+  2) GitHub keeps track of older versions of the repository so you can either go into a previous version and fetch the overwritten files.
+  3) Or in GitHub Desktop click on History and right click on the commit you made overwriting the file and press "Revert changes in commit".
+  4) This reversion will create a new commit which you need to push to revert to the older one.
+
+ - Git Repository/Branch not found
+  1) This can happen if a repository/branch is deleted or moved, may also appear if you change your local directories.
+  2) First verify that the repository/branch still exists on GitHub.
+  3) Check your local directory.
+  4) Assuming that the GitHub repository still exists the simplest way to resolve this is to clone the repository again.
+  5) If a branch has been deleted you can either fetch it from History or create it again.
+     
