@@ -9,7 +9,7 @@
 ## "Branching" og "Merging"
 
 ## "Branching Strategies"
-# Git flow...
+- Git flow...
 
 ## Að leysa úr árekstrum
 
