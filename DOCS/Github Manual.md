@@ -12,7 +12,7 @@ GitHub Desktop is a graphical user interface (GUI) that simplifies the use of Gi
 
 Additional setup information
 
-1) To create a "Repository," often just called a "Repo,"
+1) To create a "Repository," often just called a "Repo".
 2) There is a dropdown menu on the left side of the screen in your GitHub area where you can click the green button that says "New."
 3) There, you name the Repo and choose whether you want to include a .gitignore, README, and other options.
 4) To add collaborators to the Repo, start by going to the homepage of the Repo by clicking on it.
@@ -36,7 +36,7 @@ The following assumes that you have already downloaded and setup Github Deskop o
   1) Assuming you have already cloned the repository, you now are able to pull new files that have been pushed to the GitHub repo onto your local computer for you to work on in your own IDE.
   2) Before you start implementing something, it is recommended that you check if there are any new commits to the GitHub repository to avoid conflicts later down the line.
   3) To pull changes in GitHub Desktop, you first check your "Current Repository" and make sure that its the correct one, then you check if your "Current Branch" is the correct one.
-  4) After verifying the repo and branch you then press "Fetch Origin" and you can see the changes that have been made, after that you press the blue button on the top right of the screen called "Pull Origin"
+  4) After verifying the repo and branch you then press "Fetch Origin" and you can see the changes that have been made, after that you press the blue button on the top right of the screen called "Pull Origin".
   5) This will sync your local copy with the latest changes from the GitHub repo.
 
 - Commits
@@ -44,7 +44,7 @@ The following assumes that you have already downloaded and setup Github Deskop o
   2) To commit, open GitHub Desktop, and select the repository and branch where your changes are made.
   3) In the "Changes" tab, you will see a list of modified files. Add a commit message describing what changes you made in the box on the bottom left, you need a summary and then an optional more detailed description.
   4) Once you've written your message, click the "Commit to main" button (or the appropriate branch name) to save those changes locally.
-  5) This saves your work on your computer but doesn't share it with others in the repo yet
+  5) This saves your work on your computer but doesn't share it with others in the repo yet.
 
 - Pushing
   1) After committing your changes locally, you will need to push them to the GitHub repository so that your group members can see them.
@@ -125,7 +125,7 @@ Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
 
 - Feature Branching
 
-  Feature Branching is a commonly used workflow that involves creating a new branch for a specific feature or change in the codebase. This allows developers to work on the feature independently without affecting   the main branch. When the feature is complete, it can be merged back into the main branch through a pull request. The pull request allows other team members to review the changes and suggest modifications or i   improvements before merging the feature into the main branch.
+  Feature Branching is a commonly used workflow that involves creating a new branch for a specific feature or change in the codebase. This allows developers to work on the feature independently without affecting the main branch. When the feature is complete, it can be merged back into the main branch through a pull request. The pull request allows other team members to review the changes and suggest modifications or improvements before merging the feature into the main branch.
 
   - Feature Branching Workflow
     
@@ -139,7 +139,7 @@ Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
 Source (https://tilburgsciencehub.com/topics/automation/version-control/advanced-git/git-branching-strategies/)
 
 - Trunk Based Development
-  Trunk Based Development promotes a single shared branch called “trunk” and eliminates long-living branches. There are two variations based on team size: smaller teams commit directly to the trunk, while larger   teams create short-lived feature branches. Frequent integration of smaller feature slices is encouraged to ensure regular merging.
+  Trunk Based Development promotes a single shared branch called “trunk” and eliminates long-living branches. There are two variations based on team size: smaller teams commit directly to the trunk, while larger teams create short-lived feature branches. Frequent integration of smaller feature slices is encouraged to ensure regular merging.
   
   Pros:
   - Encourages DevOps and unit testing best practices.
