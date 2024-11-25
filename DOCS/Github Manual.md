@@ -128,13 +128,13 @@ Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
   Feature Branching is a commonly used workflow that involves creating a new branch for a specific feature or change in the codebase. This allows developers to work on the feature independently without affecting   the main branch. When the feature is complete, it can be merged back into the main branch through a pull request. The pull request allows other team members to review the changes and suggest modifications or i   improvements before merging the feature into the main branch.
 
   - Feature Branching Workflow
-  
-  1) Create feature branches: Create a new branch for each feature or task you're working on. This branch should be created from the main branch.
-  2) Work on the feature: After creating the feature branch, you can start implementing the new feature by making as many commits as necessary. The branch should only contain changes relating to that particular feature.
-  3) Create a pull request: When you're finished working on the feature branch, you create a pull request to merge the changes into the main branch.
-  4) Review and approve: Other developers review the changes in the pull request and approve them if they are satisfied with the changes. Code review can help catch issues or mistakes before they are merged into the main branch.
-  5) Merge the feature branch: Once you're done working on the feature, you can merge the feature branch back into the main branch.
-  6) Clean up: After merging, you can delete the feature branch, as it is no longer needed.
+    
+    1) Create feature branches: Create a new branch for each feature or task you're working on. This branch should be created from the main branch.
+    2) Work on the feature: After creating the feature branch, you can start implementing the new feature by making as many commits as necessary. The branch should only contain changes relating to that particular feature.
+    3) Create a pull request: When you're finished working on the feature branch, you create a pull request to merge the changes into the main branch.
+    4) Review and approve: Other developers review the changes in the pull request and approve them if they are satisfied with the changes. Code review can help catch issues or mistakes before they are merged into the main branch.
+    5) Merge the feature branch: Once you're done working on the feature, you can merge the feature branch back into the main branch.
+    6) Clean up: After merging, you can delete the feature branch, as it is no longer needed.
 
 Source (https://tilburgsciencehub.com/topics/automation/version-control/advanced-git/git-branching-strategies/)
 
