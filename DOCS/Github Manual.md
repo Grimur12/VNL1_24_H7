@@ -1,8 +1,7 @@
 ## Introduction
+Git is version control system that allows developers to track changes in their code over time, collaborate with others, and manage software development projects efficiently. Unlike traditional version control systems, Git stores data as snapshots of the entire project rather than just a series of file changes, making it faster and more flexible. It enables multiple developers to work on different parts of a project simultaneously without disrupting each other’s work. Git also allows easy branching and merging, making it ideal for handling different features, fixes, and experiments in parallel. With Git, you can manage your project's history, experiment with code, and roll back to earlier versions as needed.
 
-Git is a version control
-
-GitHub Desktop is ..
+GitHub Desktop is a graphical user interface (GUI) that simplifies the use of Git for new developers, especially those who prefer not to work with commandline. It integrates with GitHub, a cloud-based platform for hosting Git repositories, making it easier to clone, commit, push, and pull changes from repositories. GitHub Desktop provides a user-friendly interface that helps manage branches, view changes in files, and resolve conflicts. Built for both beginners and experienced developers, GitHub Desktop allows you to work more efficiently with Git and GitHub without knowing Git commandline commands.
 
 ## Creating your GitHub account.
 
@@ -96,7 +95,32 @@ GitHub Desktop is ..
 
 
 ## "Branching Strategies"
-- Git flow...
+
+- Git flow
+  The main idea behind the Git flow branching strategy is to isolate your work into different types of branches. There are five different branch types in total:
+
+  1) Main
+  2) Develop
+  3) Feature
+  4) Release
+  5) Hotfix
+  
+  The two primary branches in Git flow are main and develop. There are three types of supporting branches with different intended purposes: feature, release, and hotfix.
+
+The Git flow branching strategy comes with many benefits, but does introduce a few challenges.
+
+- The Benefits of Git Flow:
+
+  1) The various types of branches make it easy and intuitive to organize your work.
+  2) The systematic development process allows for efficient testing.
+  3) The use of release branches allows you to easily and continuously support multiple versions of production code.
+
+- The Challenges of Git Flow:
+
+  1) Depending on the complexity of the product, the Git flow model could overcomplicate and slow the development process and release cycle.
+  2) Because of the long development cycle, Git flow is historically not able to support Continuous Delivery or Continuous Integration.
+
+Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
 
 ## Resolving conflicts.
 
