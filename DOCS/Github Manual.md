@@ -11,7 +11,7 @@ GitHub Desktop er lei
 3) Eftir það færðu email frá GitHub með launch kóða, þú opnar GitHub með græna hnappinum í emailinu og skrifar inn þann kóða til að staðfesta reikninginn
 4) Þá ertu kominn með GitHub reikning og getur meðal annars stofnað og farið í "Repository"
 
--Viðbót við uppsetningu
+- Viðbót við uppsetningu
 
 1) Til að stofna "Repository" oft kallað bara "Repo",
 2) Það er dropdown menu vinstra megin á skjánum inná þínu svæði á GitHub þar sem þú getur ýtt á grænann hnapp sem heitir "New"
