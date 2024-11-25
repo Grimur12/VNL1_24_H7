@@ -18,6 +18,8 @@
 
 -Skoðuðum Verkefnalýsingu og fórum að gera rough sketch af Class Diagraminu, taka saman það sem þarf að vera í kerfinu til að byrja með.
 
+- Unnið var í GitHub Manualinu, functional requirements, user group analysis og class diagraminu.
+
 ## [26/11/2024 - Dagur 2]
 
 ....
