@@ -108,18 +108,18 @@ The following assumes that you have already downloaded and setup Github Deskop o
   
   The two primary branches in Git flow are main and develop. There are three types of supporting branches with different intended purposes: feature, release, and hotfix.
 
-The Git flow branching strategy comes with many benefits, but does introduce a few challenges.
+  The Git flow branching strategy comes with many benefits, but does introduce a few challenges.
 
-- The Benefits of Git Flow:
+  - The Benefits of Git Flow:
 
-  1) The various types of branches make it easy and intuitive to organize your work.
-  2) The systematic development process allows for efficient testing.
-  3) The use of release branches allows you to easily and continuously support multiple versions of production code.
+    1) The various types of branches make it easy and intuitive to organize your work.
+    2) The systematic development process allows for efficient testing.
+    3) The use of release branches allows you to easily and continuously support multiple versions of production code.
 
-- The Challenges of Git Flow:
+  - The Challenges of Git Flow:
 
-  1) Depending on the complexity of the product, the Git flow model could overcomplicate and slow the development process and release cycle.
-  2) Because of the long development cycle, Git flow is historically not able to support Continuous Delivery or Continuous Integration.
+    1) Depending on the complexity of the product, the Git flow model could overcomplicate and slow the development process and release cycle.
+    2) Because of the long development cycle, Git flow is historically not able to support Continuous Delivery or Continuous Integration.
 
 Source (https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy)
 
