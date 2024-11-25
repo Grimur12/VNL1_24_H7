@@ -1,6 +1,6 @@
 ## Introduction
 
-Git is ..
+Git is a version control
 
 GitHub Desktop is ..
 
@@ -55,11 +55,49 @@ GitHub Desktop is ..
 
 ## "Pull Requests" and "Code Reviews"
 
+- Pull Request
+  1) After pushing your changes to GitHub, if you're working on a different branch and want to merge your changes into the main branch, you need to create a Pull Request (PR).
+  2) To create a Pull Request, go to the GitHub website and navigate to the correct repository home screen.
+  3) On the repository page, click the "Pull Requests" tab located on the border below the repository name and then click the green "New Pull Request" button.
+  4) Select the branch you want to merge from (The branch you have been working on) and the branch you want to merge into (usually the main branch).
+  5) You then compare the branches and click "Create Pull Request".
+  6) Add a title and description, explaining the changes you've made.
+  7) Click "Create Pull Request" again now on the bottom right to submit it. Now others can review and discuss your changes before they are merged.
+  8) GitHub has a feature where it automatically checks if there are any conflicts if you were to merge directly without resolving anything.
+  9) If there is no conflict detected you can choose to skip Code Reviews and just merge directly by clicking "Merge Pull Request", this is however not recommended since others may have changed something.
+     
+- Code Reviews
+  1) After you’ve created a Pull Request, your team members will be notified and can review your changes.
+  2) Reviewers can leave comments on specific lines of code, suggest changes, or approve the changes.
+  3) To leave a comment, simply click on the Pull Request and type your feedback in the comment box.
+  4) If reviewers suggest changes, you can modify your code locally, commit the changes, and push them to the same branch. The Pull Request will automatically update with the new changes.
+  5) Once the reviewers approve the changes, the Pull Request can be merged into the main branch.
+  6) After merging, you may delete the feature branch if it is no longer needed, and everyone can pull the updated code from the main branch.
+
 ## "Branching" and "Merging"
+
+- Branching
+  1) In Git, a branch is a separate line of development allowing you to work on features without affecting the main project.
+  2) To create a new branch using GitHub Desktop, open the app and select your repository.
+  3) From the top bar, click on "Current Branch" and then "New Branch".
+  4) Give your new branch a name (TestBranch..) and click "Create Branch". Now all changes you make and commit, pushes and pulls are on that branch.
+  5) Any changes you make will be kept isolated in this branch, allowing you to work on new features or fixes without affecting the main branch or other branches people may be working on.
+  6) You can switch between branches at anytime by clicking on "Current Branch" and selecting the one you want.
+
+- Merging
+  1) After finishing the work you created the branch to do, you'll need to merge it into the main branch to include your changes in the project.
+  2) To merge a branch in GitHub Desktop, first, make sure you’re on the branch you want to merge into (usually main).
+  3) Then, click on the "Branch" menu at the top and select "Merge into Current Branch".
+  4) Choose the branch you want to merge from (TestBranch..), and click "Merge".
+  5) Git will attempt to merge the changes automatically. If there are no conflicts, the changes will be merged.
+  6) If there are conflicts, Git will notify you and ask you to resolve them manually before completing the merge.
+  7) Once merged, you can delete the branch if it’s no longer needed and push the changes to the GitHub repository to update everyone else’s copy.
+  8) Another way to do this is by creating a Pull Request as mentioned before.
+
 
 ## "Branching Strategies"
 - Git flow...
 
 ## Resolving conflicts.
 
-## Algeng vandarmál og lausnir
+## Common issues and resolutions to them
