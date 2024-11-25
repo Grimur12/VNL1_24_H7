@@ -1,5 +1,3 @@
-#Verklegt 1 - Dagbók
-
 # Skipulag
 
 -Ákváðum að við myndum mæta upp í HR á milli 9-9:30 og fara héðan 3:30 í það seinasta. Rest væri hægt að vinna heima í sitthvoru lagi
