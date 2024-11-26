@@ -39,16 +39,26 @@ End-of-day Results:
   - User Group Analysis is almost completed
 
 TODO:
-- Finish the Github Manual - [x]
-- Finish the Class Diagram - []
-- Finish the State Diagram - [] 
-- Finish the Use Cases - []
-- Finish the Functional Requirements - []
-- Finish the Group Analysis - []
+- [x] Finish the Github Manual
+- [ ] Finish the Class Diagram
+- [ ] Finish the State Diagram 
+- [ ] Finish the Use Case
+- [ ] Finish the Functional Requirements
+- [ ] Finish the Group Analysis 
 
 ## [26/11/2024 - Dagur 2]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Today's work:
+
+
 
 ## [27/11/2024 - Dagur 3]
 
