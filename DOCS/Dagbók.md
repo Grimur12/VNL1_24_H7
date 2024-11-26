@@ -45,7 +45,7 @@ TODO:
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
 - [ ] Finish the Use Case
-- [ ] Wireframe sketch of the TUI
+- [x] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
 - [x] Finish the User Group Analysis
 - [ ] Put everything together into a single pdf file to submit
@@ -70,6 +70,8 @@ Today's work:
 
 - Another main objective is to keep working on the Class Diagram
 - Once the list of objectives are completed the rest of the group will join in on the Class Diagram to give input
+- Olafur: Worked on the Wireframe sketch today and made user stories for Employee, Travel Destination, Housing and 
+maintenance reports from employee, contractor and supervisor.
 
 
 ## [27/11/2024 - Dagur 3]
