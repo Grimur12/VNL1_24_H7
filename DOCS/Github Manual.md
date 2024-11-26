@@ -55,7 +55,7 @@ The following assumes that you have already downloaded and setup Github Deskop o
 ## "Pull Requests" and "Code Reviews"
 
 - Pull Request
-  1) After pushing your changes to GitHub, if you're working on a different branch and want to merge your changes into the main branch, you need to create a Pull Request (PR).
+  1) After pushing your changes to GitHub, if you're working on a different branch and want to merge your changes into the main branch, you need to create a Pull Request.
   2) To create a Pull Request, go to the GitHub website and navigate to the correct repository home screen.
   3) On the repository page, click the "Pull Requests" tab located on the border below the repository name and then click the green "New Pull Request" button.
   4) Select the branch you want to merge from (The branch you have been working on) and the branch you want to merge into (usually the main branch).
@@ -67,11 +67,11 @@ The following assumes that you have already downloaded and setup Github Deskop o
      
 - Code Reviews
   1) After you’ve created a Pull Request, your team members will be notified and can review your changes.
-  2) Reviewers can leave comments on specific lines of code, suggest changes, or approve the changes.
-  3) To leave a comment, simply click on the Pull Request and type your feedback in the comment box.
-  4) If reviewers suggest changes, you can modify your code locally, commit the changes, and push them to the same branch. The Pull Request will automatically update with the new changes.
+  2) Reviewers can leave comments on the code, suggest changes, or approve the changes.
+  3) To leave a comment, click on the Pull Request and type your feedback in the comment box on the bottom of the screen.
+  4) If reviewers suggest changes, you (the one who created the pull request) can modify your code locally, commit the changes, and push them to the same branch. The Pull Request will automatically update with the new changes.
   5) Once the reviewers approve the changes, the Pull Request can be merged into the main branch.
-  6) After merging, you may delete the feature branch if it is no longer needed, and everyone can pull the updated code from the main branch.
+  6) After merging, you may delete the branch if it is no longer needed, and everyone can pull the updated code from the main branch.
 
 ## "Branching" and "Merging"
 
@@ -86,12 +86,12 @@ The following assumes that you have already downloaded and setup Github Deskop o
 - Merging
   1) After finishing the work you created the branch to do, you'll need to merge it into the main branch to include your changes in the project.
   2) To merge a branch in GitHub Desktop, first, make sure you’re on the branch you want to merge into (usually main).
-  3) Then, click on the "Branch" menu at the top and select "Merge into Current Branch".
-  4) Choose the branch you want to merge from (TestBranch..), and click "Merge".
-  5) Git will attempt to merge the changes automatically. If there are no conflicts, the changes will be merged.
-  6) If there are conflicts, Git will notify you and ask you to resolve them manually before completing the merge.
-  7) Once merged, you can delete the branch if it’s no longer needed and push the changes to the GitHub repository to update everyone else’s copy.
-  8) Another way to do this is by creating a Pull Request as mentioned before.
+  3) Then, clicking on "Current Branch" on the bottom of that dropdown you click "Choose a branch to merge into (usually main)).
+  4) Choose the branch you want to merge from (TestBranch..), and click "Create a Merge commit".
+  6) If there are conflicts, GitHub Desktop will notify you and ask you to resolve them manually before completing the merge.+
+  7) If there are no conflicts you simply push the merge commit.
+  8) Once merged, you can delete the branch if it’s no longer needed and push the changes to the GitHub repository to update everyone else’s copy.
+  9) Another way to do this is by creating a Pull Request as mentioned before.
 
 
 ## "Branching Strategies"
