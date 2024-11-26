@@ -44,7 +44,8 @@ TODO:
 - [ ] Finish the State Diagram 
 - [ ] Finish the Use Case
 - [ ] Finish the Functional Requirements
-- [ ] Finish the Group Analysis 
+- [ ] Finish the Group Analysis
+- [ ] Put everything together into a single pdf file to submit
 
 ## [26/11/2024 - Dagur 2]
 
