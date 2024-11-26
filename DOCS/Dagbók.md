@@ -43,8 +43,9 @@ TODO:
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
 - [ ] Finish the Use Case
+- [ ] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
-- [ ] Finish the Group Analysis
+- [ ] Finish the User Group Analysis
 - [ ] Put everything together into a single pdf file to submit
 
 ## [26/11/2024 - Dagur 2]
@@ -59,6 +60,14 @@ Mættir / In attendance:
 
 Today's work:
 
+- The main objective of the day is to complete the following
+  - Wireframe sketch
+  - Functional Requirements
+  - Use Cases
+  - User Group Analysis 
+
+- Another main objective is to keep working on the Class Diagram
+- Once the list of objectives are completed the rest of the group will join in on the Class Diagram to give input
 
 
 ## [27/11/2024 - Dagur 3]
