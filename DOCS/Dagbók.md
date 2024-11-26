@@ -16,6 +16,8 @@ Mættir / In attendance:
   - Pedro
   - Olafur
 
+Today's work:
+
 - The group went to Gylfi's lecture.
 
 - Each member created a GitHub account or already had one and joined the VNL1 GitHub repo.
