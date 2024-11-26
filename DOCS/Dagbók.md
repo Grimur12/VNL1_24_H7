@@ -45,9 +45,9 @@ TODO:
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
 - [ ] Finish the Use Case
-- [x] Wireframe sketch of the TUI
+- [ ] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
-- [x] Finish the User Group Analysis
+- [ ] Finish the User Group Analysis
 - [ ] Put everything together into a single pdf file to submit
 
 ## [26/11/2024 - Dagur 2]
@@ -73,6 +73,17 @@ Today's work:
 - Olafur: Worked on the Wireframe sketch today and made user stories for Employee, Travel Destination, Housing and 
 maintenance reports from employee, contractor and supervisor.
 
+- We got some input regarding the Class Diagram, the main objective and top priority of tomorrow is to split the diagrams into Model and the Layerd Class Diagram.
+
+TODO:
+- [x] Finish the Github Manual
+- [ ] Finish the Class Diagram
+- [ ] Finish the State Diagram 
+- [ ] Finish the Use Case
+- [x] Wireframe sketch of the TUI
+- [ ] Finish the Functional Requirements
+- [x] Finish the User Group Analysis
+- [ ] Put everything together into a single pdf file to submit
 
 ## [27/11/2024 - Dagur 3]
 
