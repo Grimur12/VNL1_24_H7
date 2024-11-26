@@ -47,7 +47,7 @@ TODO:
 - [ ] Finish the Use Case
 - [ ] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
-- [ ] Finish the User Group Analysis
+- [x] Finish the User Group Analysis
 - [ ] Put everything together into a single pdf file to submit
 
 ## [26/11/2024 - Dagur 2]
