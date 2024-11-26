@@ -8,6 +8,9 @@
 
 ## [25/11/2024 - Dagur 1]
 
+Mættir / In attendance:
+  -
+
 -Hópurinn fór í fyrirlesturinn hans Gylfa.
 
 -Hver og einn bjó til GitHub reikning og komu sér í Repoið.
