@@ -6,6 +6,8 @@
 
 - We will split up into pairs when we start coding, two people for each layer. The pairs and which pair takes what layer will be decided in Week 2.
 
+# Vika 1
+
 ## [25/11/2024 - Dagur 1]
 
 Mættir / In attendance:
@@ -73,3 +75,12 @@ Today's work:
 ## [27/11/2024 - Dagur 3]
 
 ....
+
+## [28/11/2024 - Dagur 4]
+
+....
+
+## [29/11/2024 - Dagur 5]
+
+....
+
