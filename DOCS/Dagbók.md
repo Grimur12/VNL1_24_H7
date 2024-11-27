@@ -1,6 +1,6 @@
 # Plan for the 3 week period
 
-- Decided that we will show up to HR between 9 and 9:30, and leave around 3:30 at the latest. If there is additional work we will finish it through discord or indivudually.
+- Decided that we will show up to HR between 9 and 9:30, and leave around 3:30 at the latest. If there is additional work we will finish it through discord or individually.
 
 - We have to know what each memeber is working on before going home so that everybody knows what to do and what our priorities are.
 
