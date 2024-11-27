@@ -75,6 +75,14 @@ maintenance reports from employee, contractor and supervisor.
 
 - We got some input regarding the Class Diagram, the main objective and top priority of tomorrow is to split the diagrams into Model and the Layerd Class Diagram.
 
+End-of-day Results:
+  - The User Group Analysis has been completed
+  - The Wireframe sketch of the TUI has been completed
+  - The core structure of the class and model diagrams have been mostly completed, its lacking in functionality
+  - Cardinalities and relationships in the Model Diagram are almost done
+  - Layered Class Diagram is lacking in functionality but the flow has been established
+
+
 TODO:
 - [x] Finish the Github Manual
 - [ ] Finish the Class Diagram
@@ -109,6 +117,13 @@ Today's work:
   - There was a bit of miscommunication regarding the use cases so there were duplicates and the wording was not cohesive, changes had to be made and the use cases are well on their way to be finished
   - Some time went into drawing up the State Diagram sketches in more detail than is wanted in the State Diagram, it became too cluttered so we had to restart the drawing and split them into seperate functionalities with only the core flow included.
 
+End-of-day Results:
+  - The Use Cases have been completed
+  - The Functional Requirements have been completed
+  - The State Diagram is well along its way to completion
+  - We have outlined the functionality of the UI Layer (How information will be displayed and how we gather user input)
+  - The Model Diagram is mostly complete, it just needs a final look to make sure all the variables are there and some changes need to be made with the methods.
+  - The Layered Class Diagram has more functionality but we need to move some methods from the Model Diagram into the relevant logic classes of the Class Diagram.
 
 TODO:
 - [x] Finish the Github Manual
