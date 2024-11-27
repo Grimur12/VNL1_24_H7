@@ -95,18 +95,28 @@ Mættir / In attendance:
   - Pedro
   - Olafur
 
-Today's work: ..........
+Today's work: 
 
+- The main objectives of the day:
+  - Get input on the refined model diagram and layered class diagram
+    - Use that input to finalize the structure so that only some functionality needs to be added inside the logic classes
+  - Start on the State Diagram, figure out how to structure it and decide what functionality we want to specify in that diagram
+  - Finish the Use cases.
+  - Finish the Functional Requirements.
+  - Sketch up ideas on how we will display the UI.
 
+- Issues: 
+  - There was a bit of miscommunication regarding the use cases so there were duplicates and the wording was not cohesive, changes had to be made and the use cases are well on their way to be finished
+  - Some time went into drawing up the State Diagram sketches in more detail than is wanted in the State Diagram, it became too cluttered so we had to restart the drawing and split them into seperate functionalities with only the core flow included.
 
 
 TODO:
 - [x] Finish the Github Manual
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
-- [ ] Finish the Use Case
+- [x] Finish the Use Case
 - [x] Wireframe sketch of the TUI
-- [ ] Finish the Functional Requirements
+- [x] Finish the Functional Requirements
 - [x] Finish the User Group Analysis
 - [ ] Put everything together into a single pdf file to submit
 
