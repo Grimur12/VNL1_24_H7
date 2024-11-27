@@ -87,7 +87,28 @@ TODO:
 
 ## [27/11/2024 - Dagur 3]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Today's work: ..........
+
+
+
+
+TODO:
+- [x] Finish the Github Manual
+- [ ] Finish the Class Diagram
+- [ ] Finish the State Diagram 
+- [ ] Finish the Use Case
+- [x] Wireframe sketch of the TUI
+- [ ] Finish the Functional Requirements
+- [x] Finish the User Group Analysis
+- [ ] Put everything together into a single pdf file to submit
 
 ## [28/11/2024 - Dagur 4]
 
