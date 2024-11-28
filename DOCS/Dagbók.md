@@ -44,7 +44,8 @@ TODO:
 - [x] Finish the Github Manual
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
-- [ ] Finish the Use Case
+- [ ] Finish the Use Cases
+- [ ] Finish the UX Goals
 - [ ] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
 - [ ] Finish the User Group Analysis
@@ -87,7 +88,8 @@ TODO:
 - [x] Finish the Github Manual
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
-- [ ] Finish the Use Case
+- [ ] Finish the Use Cases
+- [ ] Finish the UX Goals
 - [x] Wireframe sketch of the TUI
 - [ ] Finish the Functional Requirements
 - [x] Finish the User Group Analysis
@@ -129,7 +131,8 @@ TODO:
 - [x] Finish the Github Manual
 - [ ] Finish the Class Diagram
 - [ ] Finish the State Diagram 
-- [x] Finish the Use Case
+- [x] Finish the Use Cases
+- [ ] Finish the UX Goals
 - [x] Wireframe sketch of the TUI
 - [x] Finish the Functional Requirements
 - [x] Finish the User Group Analysis
@@ -137,7 +140,49 @@ TODO:
 
 ## [28/11/2024 - Dagur 4]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Today's work: 
+
+- The main objectives of the day:
+  - Finish the Layered Class Diagram, add all the functions for them and get final input from TA's
+  - Finish the Class Model Diagram and get input on the final design from TA's
+  - Get input on the Wirefram Happy Paths from TA's
+  - Finish the UX Goals
+  - Put the finalised UX Goals, Use Cases, FR, User Group Analysis, Wireframe Happy Path's and Diagrams into the report.
+
+- Issues: 
+  - The day went smoothly no real issues in design
+
+End-of-day Results:
+  - We got feedback from our TA's on our Diagrams and other designs
+  - Finished the Model Diagram
+  - Finished the Class Diagram, including parameters and return values.
+    - Good to mention here that this may very well change during the coding process as we further define our system or see a more efficient way to implement changes
+  - Finished the UX Goals
+  - Put everything together in a document that is ready to be submitted on friday
+
+- Tomorrow:
+  - Show up tomorrow see if we can add any text or spot any inconsistencies
+  - Define tasks for next weeks coding, split into pairs and assign layers to each pair
+  - Develop some pseudocode or a rough draft of how we want to implement these functions defined in the Diagrams.
+  
+TODO:
+- [x] Finish the Github Manual
+- [x] Finish the Class Diagram
+- [x] Finish the State Diagram 
+- [x] Finish the Use Cases
+- [x] Finish the UX Goals
+- [x] Wireframe sketch of the TUI
+- [x] Finish the Functional Requirements
+- [x] Finish the User Group Analysis
+- [x] Put everything together into a single pdf file to submit
 
 ## [29/11/2024 - Dagur 5]
 
