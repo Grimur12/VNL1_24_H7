@@ -185,7 +185,30 @@ TODO:
 - [x] Put everything together into a single pdf file to submit
 
 ## [29/11/2024 - Dagur 5]
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Iðunn
+  - Pedro
+  - Olafur
 
+Today's work: 
+
+- The main objectives of the day:
+  - TEXT
+
+- Issues: 
+  - TEXT
+
+End-of-day Results:
+  - TEXT
+
+- On Monday:
+  - TEXT
+
+- New TODO List for next week, not finalised. We might need to add some things further into development.
+TODO:
+- [x] TEXT
 
 # Vika 2
 
