@@ -195,7 +195,7 @@ Mættir / In attendance:
 Today's work: 
 
 - The main objectives of the day:
-  - TEXT
+  - Complete the report we need to send in today.
 
 - Issues: 
   - TEXT
