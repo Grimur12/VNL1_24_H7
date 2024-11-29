@@ -208,7 +208,20 @@ End-of-day Results:
 
 - New TODO List for next week, not finalised. We might need to add some things further into development.
 TODO:
-- [x] TEXT
+- [ ] Create an independent Data Layer
+  - [ ] Maintenance DB connection
+  - [ ] Employee DB connection
+  - [ ] Properties DB connection
+- [ ] Create an independent Logic Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
 
 # Vika 2
 
