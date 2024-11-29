@@ -198,6 +198,7 @@ Today's work:
   - Complete the report we need to send in today and look over the GitHub Manual document
   - Create a draft of the structure we want to have regarding the code for next weeks coding
   - Split into pairs, decide who wants to focus on what layer
+  - After drafting the structure split the layers into branches to start coding on monday
   - Create a new TODO list for next weeks coding.
  
 - Pairs and Layers:
