@@ -195,7 +195,15 @@ Mættir / In attendance:
 Today's work: 
 
 - The main objectives of the day:
-  - Complete the report we need to send in today.
+  - Complete the report we need to send in today and look over the GitHub Manual document
+  - Create a draft of the structure we want to have regarding the code for next weeks coding
+  - Split into pairs, decide who wants to focus on what layer
+  - Create a new TODO list for next weeks coding.
+ 
+- Pairs and Layers:
+  - Ólafur and Leonard are taking the UI Layer
+  - Pedro and Iðunn are taking the Logic Layer
+  - Grímur and Máni are taking the Data Layer
 
 - Issues: 
   - TEXT
@@ -204,7 +212,7 @@ End-of-day Results:
   - TEXT
 
 - On Monday:
-  - TEXT
+  - Start filling in the structure with code.
 
 - New TODO List for next week, not finalised. We might need to add some things further into development.
 TODO:
