@@ -188,6 +188,7 @@ TODO:
 Mættir / In attendance:
   - Grímur
   - Leonard
+  - Máni
   - Iðunn
   - Pedro
   - Olafur
