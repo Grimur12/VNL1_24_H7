@@ -1,0 +1,35 @@
+[
+    {
+        "ID": 1,
+        "name": "M\u00e1ni",
+        "socialSecurity": "060702-2690",
+        "address": "M\u00e1nat\u00fan 3",
+        "atHomePhone": "554-8989",
+        "gsmPhone": "885-2233",
+        "email": "mani@ru.is",
+        "workLocation": "HR",
+        "type": "Manager"
+    },
+    {
+        "ID": 2,
+        "name": "Gr\u00edmur",
+        "socialSecurity": "151002-2450",
+        "address": "Gr\u00edmsbrekka 15",
+        "atHomePhone": "588-2761",
+        "gsmPhone": "791-5588",
+        "email": "grimur@ru.is",
+        "workLocation": "HR",
+        "type": "Contractor"
+    },
+    {
+        "ID": 3,
+        "name": "Leonard",
+        "socialSecurity": "171203-2556",
+        "address": "Skuggabrekka 18",
+        "atHomePhone": "667-0093",
+        "gsmPhone": "992-8998",
+        "email": "leonard@ru.is",
+        "workLocation": "HR",
+        "type": "Employee"
+    }
+]

@@ -1,9 +1,9 @@
 # Define Managers, Employees and Contractors
 
 class Employee:
-    def __init__(self, name, socialSecurity, address, atHomePhone, gsmPhone, email, workLocation, type) -> None:
+    def __init__(self, ID, name, socialSecurity, address, atHomePhone, gsmPhone, email, workLocation, type) -> None:
         """ Defines variables for our Employees """
-        self.employeeID = 1 # need to calculate UNIQUE ID somewhere and store it...
+        self.employeeID = ID # need to calculate UNIQUE ID somewhere and store it...
         self.name = name
         self.socialSecurity = socialSecurity
         self.address = address
@@ -16,7 +16,7 @@ class Employee:
     def Employee_dict(self) -> dict:
         """ Returns all the variables in our Employee class into dictionary, needed for DB json writing """
         return {
-        "ID": self.ID,
+        "ID": self.employeeID,
         "name": self.name,
         "socialSecurity": self.socialSecurity,
         "address": self.address,
