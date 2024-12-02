@@ -237,7 +237,19 @@ TODO:
 
 ## [02/12/2024 - Dagur 1]
 
-....
+We started the day at 9:40 and split into 3 groups, working on different parts of the code.
+
+Leonard and Ólafur are working on the UI design.
+First we quickly mapped out what we what we want each input to do and what page it directs to.
+Then we watched a video on discord that shows the TUI from the previous year.
+From the video we got a general idea on how we want the TUI to look like.
+In the UI layer we have the TUI for general employees and managers.
+Leonard worked on making the TUI for general employees while Ólafur made the TUI for managers as well as refining Leonards work.
+We ran into 1 proplem for the day when printing the ASCII art we ran into a problem with some pipes not lining up propperly.
+
+Máni and Grímur...
+
+Iðunn and Pedro...
 
 ## [03/12/2024 - Dagur 2]
 
