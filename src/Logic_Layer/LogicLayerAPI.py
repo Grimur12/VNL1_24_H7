@@ -3,5 +3,14 @@ from LogicLayerMaintenanceLogic import LogicLayerMaintenanceLogic
 from LogicLayerPropertyLogic import LogicLayerPropertyLogic
 
 class LogicLayerAPI:
-    def __init__(self):
-        pass
+    def __init__(self, LogicLayerEmployeeLogic, LogicLayerMaintenanceLogic, LogicLayerPropertyLogic):
+
+        self.LogicLayerEmployeelogic = LogicLayerEmployeeLogic,
+        self.LogicLayerMaintenancelogic = LogicLayerMaintenanceLogic, 
+        self.LogicLayerPropertyLogic = LogicLayerPropertyLogic, 
+
+
+# we get a list of inputs from UI, then we need to create lists 
+# of the thing 
+# for example we should make lists like id, name etc.
+# then we need to send the data base the list like that. 
