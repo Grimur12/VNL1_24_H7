@@ -292,9 +292,9 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
-    - 
+    - t
   - Pedro and Iðunn are taking the Logic Layer
-    - 
+    - t
   - Grímur and Máni are taking the Data Layer
     - Completed implementing the Employee DB logic, we can write, load, update, remove, print and propagate employee data
     - Completed testing the Employee DB logic.
