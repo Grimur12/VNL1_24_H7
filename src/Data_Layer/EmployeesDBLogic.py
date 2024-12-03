@@ -23,8 +23,6 @@ class EmployeesDBLogic:
             else:
                 self.employees.append(Employee(*inCommonParameters))
 
-        # Need to split into contractor logic
-
     def saveEmployees(self) -> None:
         """ Function saves all instances of the employee class saved in self.employees in dictionary form into json Database """
 
@@ -38,7 +36,6 @@ class EmployeesDBLogic:
         with open(self.file_path, 'w') as file:
             json.dump(Employees, file, indent=4)
         
-        # Need to split into contractor logic
 
     def createEmployee(self, params) -> None:
         """ This function takes in a list of parameters and creates an employee and stores in the json DB """
@@ -58,8 +55,10 @@ class EmployeesDBLogic:
             if employee.employeeID == params[0]: # If employee is the same (check on ID)
                 if employee.type == "Contractor": # If its a contractor overwrite him with the contractor class
                     self.employees[index] = Contractor(*params)
+                    break
                 else: # If not Contractor then the employee is a General employee or a manager, same paramaters
                     self.employees[index] = Employee(*params)
+                    break
         # Finally update the DB
         self.saveEmployees()
         
@@ -74,8 +73,8 @@ class EmployeesDBLogic:
         # Remove that employee from the internal list
         if index_to_remove != -1:
             del self.employees[index_to_remove]
-        # Save the modified internal list to the DB
-        self.saveEmployees()
+            # Save the modified internal list to the DB
+            self.saveEmployees()
 
     def propagateData(self) -> list:
         """ Returns the internally stored employees list for other layers/classes to use """
