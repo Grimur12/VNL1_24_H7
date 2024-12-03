@@ -287,7 +287,7 @@ Mættir / In attendance:
   - Olafur
 
 
-- Some discussion about previous day and implementation of certain bits of code:
+Some discussion about previous day and implementation of certain bits of code:
   - Discussion about how we would implement the UI layer print statements
   - Either multiple larger print statements or automation with parameters for each UI display and choice
 
