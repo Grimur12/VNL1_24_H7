@@ -47,7 +47,7 @@ class EmployeesDBLogic:
         if params[8] == "Contractor":
             self.employees.append(Contractor(*params))
         else:
-            self.employess.append(Employee(*params))
+            self.employees.append(Employee(*params))
         self.saveEmployees()
 
     def updateEmployee(self, params) -> None:
