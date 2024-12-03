@@ -16,16 +16,24 @@ class EmployeesDBLogic:
             employees_list = json.load(employeeDBOpen)
         # Params 8 is a reference to "type" variable in the classes
         for employee in employees_list:
-            if list(employee.values())[8] == "Contractor":
-                self.employees.append(Contractor(*employee.values()))
+            inCommonParameters = list(employee.values())[:9] # First 9 are both in contractor and employee
+            independantParameters = list(employee.values())[9:] # Last 4 are contractor specific
+            if inCommonParameters[8] == "Contractor":
+                self.employees.append(Contractor(*independantParameters, *inCommonParameters))
             else:
-                self.employees.append(Employee(*employee.values()))
+                self.employees.append(Employee(*inCommonParameters))
 
         # Need to split into contractor logic
 
     def saveEmployees(self) -> None:
         """ Function saves all instances of the employee class saved in self.employees in dictionary form into json Database """
-        Employees = [employee.Employee_dict() for employee in self.employees] 
+
+        Employees = []
+        for employee in self.employees:
+            if employee.type == "Contractor":
+                Employees.append(employee.Contractor_dict())
+            else:
+                Employees.append(employee.Employee_dict())
 
         with open(self.file_path, 'w') as file:
             json.dump(Employees, file, indent=4)
@@ -48,13 +56,11 @@ class EmployeesDBLogic:
         for index, employee in enumerate(self.employees):
             if employee.employeeID == params[0]: # If employee is the same (check on ID)
                 if employee.type == "Contractor": # If its a contractor overwrite him with the contractor class
-                    self.employees = Contractor(*params)
+                    self.employees[index] = Contractor(*params)
                 else: # If not Contractor then the employee is a General employee or a manager, same paramaters
                     self.employees[index] = Employee(*params)
         # Finally update the DB
         self.saveEmployees()
-                
-
         
     def removeEmployee(self, ID) -> None:
         """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB"""
@@ -66,11 +72,25 @@ class EmployeesDBLogic:
                 break
         # Remove that employee from the internal list
         if index_to_remove != -1:
-            del self.employee[index_to_remove]
+            del self.employees[index_to_remove]
         # Save the modified internal list to the DB
         self.saveEmployees()
 
+    def printEmployees(self):
+        for employee in self.employees:
+            print("-------------------------------------------------------------------------------------------------------------")
+            if employee.type == "Contractor":
+                for key, value in employee.__dict__.items():
+                    print(f"{key}: {value}")
+            else:
+                for key, value in employee.__dict__.items():
+                    print(f"{key}: {value}")
 
-ui = EmployeesDBLogic()
-#ui.saveEmployees()
-ui.loadEmployeeLog()
+## Functionality Tests
+# ui = EmployeesDBLogic()
+# ui.loadEmployeeLog()
+# ui.printEmployees()
+# ui.updateEmployee([1,"Máni","060702-2690","Mántaún NÝTT 2", "5548989", "885-2233", "mani@ru.is", "HR", "Manager"])
+# ui.printEmployees()
+# ui.removeEmployee(1)
+# ui.printEmployees()

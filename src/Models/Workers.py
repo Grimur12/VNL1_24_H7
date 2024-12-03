@@ -28,18 +28,18 @@ class Employee:
         }
 
 class Contractor(Employee):
-    def __init__(self, *args, previousTask, performanceRating, contractorContact, openingHours) -> None:
-        super().__init__(self, *args)
+    def __init__(self, previousTask, performanceRating, contractorContact, openingHours, *args) -> None:
+        super().__init__(*args)
         self.previousTask = previousTask
         self.performanceRating = performanceRating
         self.contractorContact = contractorContact
         self.openingHours = openingHours
         
         
-    def contractor_dict(self) -> dict:
+    def Contractor_dict(self) -> dict:
         """ Returns all the variables in our Employee class into dictionary, needed for DB json writing """
         return {
-        "ID": self.ID,
+        "ID": self.employeeID,
         "name": self.name,
         "socialSecurity": self.socialSecurity,
         "address": self.address,

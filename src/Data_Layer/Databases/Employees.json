@@ -3,8 +3,8 @@
         "ID": 1,
         "name": "M\u00e1ni",
         "socialSecurity": "060702-2690",
-        "address": "M\u00e1nat\u00fan 3",
-        "atHomePhone": "554-8989",
+        "address": "M\u00e1nta\u00fan N\u00ddTT",
+        "atHomePhone": "5548989",
         "gsmPhone": "885-2233",
         "email": "mani@ru.is",
         "workLocation": "HR",
@@ -21,10 +21,9 @@
         "workLocation": "HR",
         "type": "Contractor",
         "previousTask": "HR Maintenance",
-        "performanceRating": "9",
-        "contractorContact": "Bossman",
+        "performanceRating": "Bossman",
+        "contractorContact": "9",
         "openingHours": "9AM - 5PM"
-
     },
     {
         "ID": 3,
