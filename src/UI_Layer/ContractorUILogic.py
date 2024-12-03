@@ -212,3 +212,29 @@ employee_make_a_report = f"""
 print(employee_make_a_report)
 # input b
 # input 8 in main menue
+
+
+# def defaultScreen(params):
+#     [title, 1, 2,3,4,5,6]
+#     spacenum = 160
+#     count_params = params.size() - 1
+#     print(spacenum * "-")
+#     for index,param in enumerate(params[1:]):
+#         default_param_print = f"| {index+1}. {param} {" " * spacenum - len(param)} |"
+
+#     print(spacenum * "-")
+#     employee_make_a_report = f"""
+# {RED}
+#                                                            --------------
+#                                                     |{params[0]} |
+#  -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# | 1.                  {param2}                                                                                                      |
+# | 2. Enter date and time                                                                                                                                      |
+# | 3. refer a contractor                                                                                                                                       |
+# | 4. write a report                                                                                                                                           |
+# | 5. is the task complete? Y/N                                                                                                                                |
+# | 6. Turn in report                                                                                                                                           |
+# | b. back                                                                                                                                                     |
+# | q. quit                                                                                                                                                     |
+#  -------------------------------------------------------------------------------------------------------------------------------------------------------------
+#                                                                                                                                                               """
