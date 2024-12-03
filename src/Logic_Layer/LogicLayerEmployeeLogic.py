@@ -4,6 +4,7 @@ class LogicLayerEmployeeLogic:
     def __init__(self, ):
         pass
 
+<<<<<<< Updated upstream
     def addEmployee(self, ):
         pass
 
@@ -18,3 +19,5 @@ class LogicLayerEmployeeLogic:
 
     def checkEmployeeErrors(self, ):
         pass
+=======
+>>>>>>> Stashed changes
