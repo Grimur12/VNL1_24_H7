@@ -50,7 +50,7 @@ class PropertiesDBLogic:
         with open(self.file_path, 'w') as file:
             json.dump(Properties, file, indent=4)
     
-    def propagateData(self) -> list:
+    def propagatePropertyData(self) -> list:
         """ Returns the internally stored employees list for other layers/classes to use """
         return self.properties
 
