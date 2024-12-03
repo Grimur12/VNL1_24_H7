@@ -76,7 +76,7 @@ class EmployeesDBLogic:
             # Save the modified internal list to the DB
             self.saveEmployees()
 
-    def propagateData(self) -> list:
+    def propagateEmployeeData(self) -> list:
         """ Returns the internally stored employees list for other layers/classes to use """
         return self.employees
 
