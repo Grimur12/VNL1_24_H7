@@ -48,6 +48,7 @@ class EmployeesDBLogic:
             self.employees.append(Contractor(*params))
         else:
             self.employess.append(Employee(*params))
+        self.saveEmployees()
 
     def updateEmployee(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """

@@ -1,0 +1,29 @@
+[
+    {
+        "propertyID": 2,
+        "nameOfProperty": "Mos\u00f3 Steinda Mansion",
+        "location": "Mosfellsb\u00e6r",
+        "availability": false,
+        "hasAPool": true,
+        "hasATub": true,
+        "hasOvens": false
+    },
+    {
+        "propertyID": 3,
+        "nameOfProperty": "Frenchie villa",
+        "location": "Toulouse",
+        "availability": true,
+        "hasAPool": true,
+        "hasATub": false,
+        "hasOvens": false
+    },
+    {
+        "propertyID": 1,
+        "nameOfProperty": "Bel-Air Mansion",
+        "location": "Malibu",
+        "availability": false,
+        "hasAPool": true,
+        "hasATub": true,
+        "hasOvens": true
+    }
+]
