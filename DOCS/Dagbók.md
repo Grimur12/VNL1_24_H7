@@ -207,11 +207,10 @@ Today's work:
   - Pedro and Iðunn are taking the Logic Layer
   - Grímur and Máni are taking the Data Layer
 
-- Issues: 
-  - TEXT
 
 End-of-day Results:
-  - TEXT
+  - Shorter day this day because we only had to change a few aspects of the report that was to be handed in.
+  - The class diagram was fixed a bit along with some text in the report itself.
 
 - On Monday:
   - Start filling in the structure with code.
@@ -237,23 +236,87 @@ TODO:
 
 ## [02/12/2024 - Dagur 1]
 
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
 We started the day at 9:40 and split into 3 groups, working on different parts of the code.
+The coding started with defining the Models that are needed to complete the rest of the code.
 
-Leonard and Ólafur are working on the UI design.
-First we quickly mapped out what we what we want each input to do and what page it directs to.
-Then we watched a video on discord that shows the TUI from the previous year.
-From the video we got a general idea on how we want the TUI to look like.
-In the UI layer we have the TUI for general employees and managers.
-Leonard worked on making the TUI for general employees while Ólafur made the TUI for managers as well as refining Leonards work.
-We ran into 1 proplem for the day when printing the ASCII art we ran into a problem with some pipes not lining up propperly.
+- Pairs and Layers EOD Results and work:
+  - Ólafur and Leonard are taking the UI Layer
+    - First we quickly mapped out what we what we want each input to do and what page it directs to.
+    - Then we watched a video on discord that shows the TUI from the previous year.
+    - From the video we got a general idea on how we want the TUI to look like.
+    - In the UI layer we have the TUI for general employees and managers.
+    - Leonard worked on making the TUI for general employees while Ólafur made the TUI for managers as well as refining Leonards work.
+    - We ran into 1 proplem for the day when printing the ASCII art we ran into a problem with some pipes not lining up propperly.
+  - Grímur and Máni are taking the Data Layer
+    - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write to json files.
+    - Mainly worked on Employee DB logic, we need to split that into the different parts of employees.
+  - Pedro and Iðunn are taking the Logic Layer
+    - 
 
-Máni and Grímur...
-
-Iðunn and Pedro...
+TODO:
+- [ ] Create an independent Data Layer
+  - [ ] Data Layer Wrapper
+  - [ ] Maintenance DB connection
+  - [ ] Employee DB connection
+  - [ ] Properties DB connection
+- [ ] Create an independent Logic Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
 
 ## [03/12/2024 - Dagur 2]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Olafur
+
+- Some discussion about previous day and implementation of certain bits of code:
+  - Discussion about how we would implement the UI layer print statements
+  - Either multiple larger print statements or automation with parameters for each UI display and choice
+
+Pairs and Layers EOD Results and Todays work: 
+  - Ólafur and Leonard are taking the UI Layer
+    - 
+  - Pedro and Iðunn are taking the Logic Layer
+    - 
+  - Grímur and Máni are taking the Data Layer
+    - Completed implementing the Employee DB logic, we can write, load, update, remove, print and propagate employee data
+    - Completed testing the Employee DB logic.
+    - Working on Property DB logic next
+
+
+TODO:
+- [ ] Create an independent Data Layer
+  - [ ] Data Layer Wrapper
+  - [ ] Maintenance DB connection
+  - [x] Employee DB connection
+  - [ ] Properties DB connection
+- [ ] Create an independent Logic Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
 
 ## [04/12/2024 - Dagur 3]
 
