@@ -60,8 +60,8 @@ class MaintenanceDBLogic:
         # Remove that maintenance from the internal list
         if index_to_remove != -1:
             del self.maintenance[index_to_remove]
-        # Save the modified internal list to the DB
-        self.saveMaintenance()
+            # Save the modified internal list to the DB
+            self.saveMaintenance()
 
         def removeMaintenanceSchedule(self, ID) -> None:
         """ We take in the ID of the maintenanceSchedule we want to remove, find it, delete it from the internal list and save the internal list to DB """
@@ -73,8 +73,8 @@ class MaintenanceDBLogic:
         # Remove that maintenanceSchedule from the internal list
         if index_to_remove != -1:
             del self.maintenanceSchedule[index_to_remove]
-        # Save the modified internal list to the DB
-        self.saveMaintenanceSchedule()
+            # Save the modified internal list to the DB
+            self.saveMaintenanceSchedule()
 
     def saveMaintenance(self) -> None:
         """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
