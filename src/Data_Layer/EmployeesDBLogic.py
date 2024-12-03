@@ -5,10 +5,10 @@ from Models.Workers import Employee
 from Models.Workers import Contractor
 
 class EmployeesDBLogic:
-    def __init__(self):
+    def __init__(self) -> None:
         self.employees = []
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
-        self.file_path = os.path.join(self.base_dir, 'Data_Layer/Databases', 'Employees.json')
+        self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Employees.json")
 
     def loadEmployeeLog(self) -> None:
         """ Function loads all saved employees from DB and turns back into class instances of Employee and saves it internally """
@@ -41,7 +41,7 @@ class EmployeesDBLogic:
         # Need to split into contractor logic
 
     def createEmployee(self, params) -> None:
-        """This function takes in a list of parameters and creates an employee and stores in the json DB"""
+        """ This function takes in a list of parameters and creates an employee and stores in the json DB """
         # Params should be a list of all the variables Employee() or Contractor() class needs to initialize in the correct order
         # Params 8 is a reference to "type" variable in the classes
         if params[8] == "Contractor":
@@ -50,7 +50,7 @@ class EmployeesDBLogic:
             self.employess.append(Employee(*params))
 
     def updateEmployee(self, params) -> None:
-        """This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB"""
+        """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
         # Need to split into instances of General Employee/Manger and Contractor as they have different parameters
         # Params 8 is a reference to "type" variable in the classes
         for index, employee in enumerate(self.employees):
@@ -63,7 +63,7 @@ class EmployeesDBLogic:
         self.saveEmployees()
         
     def removeEmployee(self, ID) -> None:
-        """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB"""
+        """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB """
         # Start with finding the index of the employee we want to remove in the self.employees internal list
         index_to_remove = -1
         for index, employee in enumerate(self.employees):
@@ -76,7 +76,11 @@ class EmployeesDBLogic:
         # Save the modified internal list to the DB
         self.saveEmployees()
 
-    def printEmployees(self):
+    def propagateData(self) -> list:
+        """ Returns the internally stored employees list for other layers/classes to use """
+        return self.employees
+
+    def printEmployees(self) -> None:
         for employee in self.employees:
             print("-------------------------------------------------------------------------------------------------------------")
             if employee.type == "Contractor":
