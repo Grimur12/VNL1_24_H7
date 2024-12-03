@@ -33,19 +33,19 @@ class MaintenanceDBLogic:
                 self.maintenance[index] = Maintenance(*params)
         self.saveMaintenance()
 
-    def updateMaintenanceSchedule(self) -> None:
+    def updateMaintenanceSchedule(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
         for index, schedule in enumerate(self.maintenanceSchedule):
             if schedule.maintenanceScheduleID == params[0]:
                 self.maintenanceSchedule[index] = MaintenanceSchedule(*params)
         self.saveMaintenanceSchedule()
 
-    def createMaintenanceSchedule(self) -> None:
+    def createMaintenanceSchedule(self, params) -> None:
         """ This function takes in a list of parameters and creates a maintenanceSchedule and stores in the json DB """
         self.maintenanceSchedule.append(MaintenanceSchedule(*params))
         self.saveMaintenanceSchedule()
 
-    def createMaintenance(self) -> None:
+    def createMaintenance(self, params) -> None:
         """ This function takes in a list of parameters and creates a maintenance and stores in the json DB """
         self.maintenance.append(Maintenance(*params))
         self.saveMaintenance()
