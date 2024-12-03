@@ -19,7 +19,12 @@
         "gsmPhone": "791-5588",
         "email": "grimur@ru.is",
         "workLocation": "HR",
-        "type": "Contractor"
+        "type": "Contractor",
+        "previousTask": "HR Maintenance",
+        "performanceRating": "9",
+        "contractorContact": "Bossman",
+        "openingHours": "9AM - 5PM"
+
     },
     {
         "ID": 3,

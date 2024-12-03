@@ -12,7 +12,7 @@ class Employee:
         self.email = email
         self.workLocation = workLocation 
         self.type = type # Type defines if employee is, general employee, manager or contractor
-
+        
     def Employee_dict(self) -> dict:
         """ Returns all the variables in our Employee class into dictionary, needed for DB json writing """
         return {
@@ -28,7 +28,7 @@ class Employee:
         }
 
 class Contractor(Employee):
-    def __init__(self, previousTask, performanceRating, contractorContact, openingHours, *args) -> None:
+    def __init__(self, *args, previousTask, performanceRating, contractorContact, openingHours) -> None:
         super().__init__(self, *args)
         self.previousTask = previousTask
         self.performanceRating = performanceRating
