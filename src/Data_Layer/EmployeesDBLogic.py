@@ -82,6 +82,7 @@ class EmployeesDBLogic:
         return self.employees
 
     def printEmployees(self) -> None:
+        """ Internal, prints out properties, for testing purposes in DB layer """
         for employee in self.employees:
             print("-------------------------------------------------------------------------------------------------------------")
             if employee.type == "Contractor":

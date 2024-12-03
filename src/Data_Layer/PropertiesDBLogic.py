@@ -55,6 +55,7 @@ class PropertiesDBLogic:
         return self.properties
 
     def printProperties(self) -> None:
+        """ Internal, prints out properties, for testing purposes in DB layer """
         for prop in self.properties:
             print("-------------------------------------------------------------------------------------------------------------")
             for key, value in prop.__dict__.items():
