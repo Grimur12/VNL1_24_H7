@@ -31,8 +31,8 @@ class PropertiesDBLogic:
         # Remove that property from the internal list
         if index_to_remove != -1:
             del self.properties[index_to_remove]
-        # Save the modified internal list to the DB
-        self.saveProperties()
+            # Save the modified internal list to the DB
+            self.saveProperties()
     
     def updateProperty(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
