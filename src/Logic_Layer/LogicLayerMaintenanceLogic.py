@@ -1,11 +1,18 @@
-
+#
 
 class LogicLayerMaintenanceLogic:
     def __init__(self):
-        pass
+        self.maintenance = []
 
-    def createMaintenance(self, ):
-        pass
+    def createMaintenance(self, property_ID, priority, deadline ):
+        maintenance = {
+            "maintenance_ID":
+            "property_ID": Property_ID,
+            "priority":
+            "deadline": deadline,
+
+        }
+
 
     def closeMaintenanceReport(self, ):
         pass
@@ -13,7 +20,7 @@ class LogicLayerMaintenanceLogic:
     def updateMaintenanceStatus(self, ):
         pass
 
-    def checkMaintenanceErrosrs(self, ):
+    def checkMaintenanceErrors(self, ):
         pass
 
     def filterMaintenance(self, ):
