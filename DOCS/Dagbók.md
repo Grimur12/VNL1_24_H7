@@ -259,7 +259,8 @@ The coding started with defining the Models that are needed to complete the rest
     - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write to json files.
     - Mainly worked on Employee DB logic, we need to split that into the different parts of employees.
   - Pedro and Iðunn are taking the Logic Layer
-    - t
+    - we worked on our files, set it up right and disgussed with the others how our layers are going to match because we are the middle layer(logic layer) to have a better idea how this is going to look like.
+    - we started on functions
 
 TODO:
 - [ ] Create an independent Data Layer
@@ -284,6 +285,8 @@ Mættir / In attendance:
   - Grímur
   - Leonard
   - Máni
+  - Iðunn
+  - Pedro
   - Olafur
 
 
@@ -296,7 +299,7 @@ Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard are taking the UI Layer
     - t
   - Pedro and Iðunn are taking the Logic Layer
-    - t
+    - we were starting on the logic layer employees, and write out our functions there.
   - Grímur and Máni are taking the Data Layer
     - Completed implementing the Employee DB logic, we can write, load, update, remove, print and propagate employee data
     - Completed testing the Employee DB logic.
