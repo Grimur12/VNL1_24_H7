@@ -259,7 +259,7 @@ The coding started with defining the Models that are needed to complete the rest
     - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write to json files.
     - Mainly worked on Employee DB logic, we need to split that into the different parts of employees.
   - Pedro and Iðunn are taking the Logic Layer
-    - 
+    - t
 
 TODO:
 - [ ] Create an independent Data Layer
@@ -286,9 +286,11 @@ Mættir / In attendance:
   - Máni
   - Olafur
 
+
 - Some discussion about previous day and implementation of certain bits of code:
   - Discussion about how we would implement the UI layer print statements
   - Either multiple larger print statements or automation with parameters for each UI display and choice
+
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
