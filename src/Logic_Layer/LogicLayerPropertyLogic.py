@@ -4,7 +4,6 @@ class LogicLayerPropertyLogic:
     def __init__(self):
         pass
 
-<<<<<<< Updated upstream
     def addProperty(self, ):
         pass
 
@@ -22,11 +21,3 @@ class LogicLayerPropertyLogic:
 
     def checkPropertiesErrors(self, ):
         pass
-=======
-
-
-
-
-
-    
->>>>>>> Stashed changes
