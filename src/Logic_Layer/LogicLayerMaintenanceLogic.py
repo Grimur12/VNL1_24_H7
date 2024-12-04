@@ -4,8 +4,9 @@ class LogicLayerMaintenanceLogic:
     def __init__(self):
         self.maintenance = []
 
-    def createMaintenance(self, property_ID, description, priority, deadline):
-        task = {
+    def createMaintenance(self, property_ID, priority, deadline ):
+        maintenance = {
+
             
         }
         self.maintenance.append(task)
