@@ -325,7 +325,41 @@ TODO:
 
 ## [04/12/2024 - Dagur 3]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Pairs and Layers EOD Results and Todays work: 
+  - Ólafur and Leonard are taking the UI Layer
+    - t
+  - Pedro and Iðunn are taking the Logic Layer
+    - t
+  - Grímur and Máni are taking the Data Layer
+    - Data layer nearly finished where the wrapper is good and has been tested. 
+    - After a discussion with the TA's we deleted all remove functions as they are difficult to implement fully and functionally.
+    - We also realized we need to implement a two file read system so the user can retrieve a file, exit it and then retrive it  - again without having a half written file from previous retrieve attempt.
+  TODO:
+- [ ] Create an independent Data Layer
+  - [x] Data Layer Wrapper
+  - [x] Maintenance DB connection
+  - [x] Employee DB connection
+  - [x] Properties DB connection
+  - [ ] Insert Return statements in DB
+  - [ ] Implement a two file read system
+- [ ] Create an independent Logic Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
 
 ## [05/12/2024 - Dagur 4]
 
