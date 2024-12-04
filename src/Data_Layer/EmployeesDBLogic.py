@@ -11,8 +11,12 @@ class EmployeesDBLogic:
 
     def loadEmployeeLog(self) -> list:
         """ Function loads all saved employees from DB and turns back into class instances of Employee and saves it internally """
-        with open(self.file_path, "r") as employeeDBOpen:
-            employees_list = json.load(employeeDBOpen)
+        employees_list = []
+        try:
+            with open(self.file_path, "r") as employeeDBOpen:
+                employees_list = json.load(employeeDBOpen)
+        except FileNotFoundError:
+            return []
         # Params 8 is a reference to "type" variable in the classes
         employees = []
         for employee in employees_list:

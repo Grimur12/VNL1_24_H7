@@ -1,0 +1,35 @@
+[
+    {
+        "employeeID": 1,
+        "name": "Grimur",
+        "socialSecurity": "203010-2540",
+        "address": "HR",
+        "atHomePhone": "773-9090",
+        "gsmPhone": "994-1234",
+        "email": "testing@ru.is",
+        "workLocation": "HR kaffihus",
+        "type": "General"
+    },
+    {
+        "employeeID": 2,
+        "name": "Grimur",
+        "socialSecurity": "203030-2350",
+        "address": "HR",
+        "atHomePhone": "883-9090",
+        "gsmPhone": "001-9090",
+        "email": "testing@ru.is",
+        "workLocation": "HR",
+        "type": "Manager"
+    },
+    {
+        "employeeID": 3,
+        "name": "Grimur",
+        "socialSecurity": "020201-2340",
+        "address": "Hr",
+        "atHomePhone": "882-1233",
+        "gsmPhone": "832-2322",
+        "email": "test@ru.is",
+        "workLocation": "hr",
+        "type": "Manager"
+    }
+]

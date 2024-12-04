@@ -15,6 +15,7 @@ class LogicLayerPropertyLogic:
             
         # self.properties.append(property_Data)
         # return True
+        pass
 
     def updateStatusOfProperty(self, property_ID, new_status):
         

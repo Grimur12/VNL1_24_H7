@@ -5,12 +5,13 @@ class LogicLayerMaintenanceLogic:
         self.maintenance = []
 
     def createMaintenance(self, property_ID, priority, deadline ):
-        maintenance = {
+        pass
+        # maintenance = {
 
             
-        }
-        self.maintenance.append(task)
-        return f" Task {task['id']} has been created now"
+        # }
+        # self.maintenance.append(task)
+        # return f" Task {task['id']} has been created now"
 
     def closeMaintenanceReport(self):
         pass

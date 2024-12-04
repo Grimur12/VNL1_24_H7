@@ -1,6 +1,6 @@
-from EmployeesDBLogic import EmployeesDBLogic
-from MaintenanceDBLogic import MaintenanceDBLogic
-from PropertiesDBLogic import PropertiesDBLogic
+from .EmployeesDBLogic import EmployeesDBLogic
+from .MaintenanceDBLogic import MaintenanceDBLogic
+from .PropertiesDBLogic import PropertiesDBLogic
 
 class DataLayerAPI:
     def __init__(self):
@@ -15,7 +15,8 @@ class DataLayerAPI:
         self.employeeDB.createContractor(params)
 
     def loadEmployeeLog(self) -> list:
-        return self.employeeDB.loadEmployeeLog()
+        employeeLog = self.employeeDB.loadEmployeeLog()
+        return employeeLog
 
     def updateEmployee(self, params) -> None:
         self.employeeDB.updateEmployee(params)

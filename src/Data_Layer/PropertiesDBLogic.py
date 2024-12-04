@@ -10,8 +10,12 @@ class PropertiesDBLogic:
 
     def loadPropertiesLog(self) -> list:
         """ Function loads all saved properties from DB and turns back into class instances of Property and saves it internally """
-        with open(self.file_path, "r") as propertyDBOpen:
-            property_list = json.load(propertyDBOpen)
+        property_list = []
+        try:
+            with open(self.file_path, "r") as propertyDBOpen:
+                property_list = json.load(propertyDBOpen)
+        except FileNotFoundError:
+            return []
 
         properties = []
         for prop in property_list:

@@ -13,16 +13,24 @@ class MaintenanceDBLogic:
 
     def loadMaintenanceLog(self) -> list:
         """ Function loads all saved maintenances from DB and turns back into class instances of Maintenance and saves it internally """
-        with open(self.maintenance_file_path, "r") as maintenanceDBOpen:
-            maintenance_list = json.load(maintenanceDBOpen)
+        maintenance_list = []
+        try:
+            with open(self.maintenance_file_path, "r") as maintenanceDBOpen:
+                maintenance_list = json.load(maintenanceDBOpen)
+        except FileNotFoundError:
+            return []
         maintenances = []
         for maint in maintenance_list:
             maintenances.append(Maintenance(*maint.values()))
         return maintenances
 
     def loadMaintenanceSchedule(self) -> list:
-        with open(self.maintenance_Schedule_file_path, "r") as maintenanceScheduleDBOpen:
-            maintenanceSchedule_list = json.load(maintenanceScheduleDBOpen)
+        maintenanceSchedule_list = []
+        try:
+            with open(self.maintenance_Schedule_file_path, "r") as maintenanceScheduleDBOpen:
+                maintenanceSchedule_list = json.load(maintenanceScheduleDBOpen)
+        except FileNotFoundError:
+            return []
         maintenanceSchedules = []
         for schedule in maintenanceSchedule_list:
             maintenanceSchedules.append(MaintenanceSchedule(*schedule.values()))
