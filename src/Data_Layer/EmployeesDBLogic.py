@@ -55,20 +55,20 @@ class EmployeesDBLogic:
         for index, employee in enumerate(employees):
             if employee.employeeID == params[0]: # If employee is the same (check on ID)
                 if employee.type == "Contractor": # If its a contractor overwrite him with the contractor class
-                    self.employees[index] = Contractor(*params)
+                    employees[index] = Contractor(*params)
                     break
                 else: # If not Contractor then the employee is a General employee or a manager, same paramaters
-                    self.employees[index] = Employee(*params)
+                    employees[index] = Employee(*params)
                     break
         # Finally update the DB
-        self.saveEmployees()
+        self.saveEmployees(employees)
         
     def removeEmployee(self, ID) -> None:
         """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB """
         # Start with finding the index of the employee we want to remove in the self.employees internal list
         employees = self.loadEmployeeLog()
-        new_employees = [employee for employee in employees if employee.employeeID != ID] # Remove the employee based on ID, (if its the same)
-        self.saveEmployees(new_employees)  # Save updated list to DB
+        employees = [employee for employee in employees if employee.employeeID != ID] # Remove the employee based on ID, (if its the same)
+        self.saveEmployees(employees)  # Save updated list to DB
 
     def printEmployees(self) -> None:
         """ Prints out all employees from the database """

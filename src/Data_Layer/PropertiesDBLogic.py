@@ -8,7 +8,7 @@ class PropertiesDBLogic:
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Properties.json")
 
-    def loadPropertiesLog(self) -> None:
+    def loadPropertiesLog(self) -> list:
         """ Function loads all saved properties from DB and turns back into class instances of Property and saves it internally """
         with open(self.file_path, "r") as propertyDBOpen:
             property_list = json.load(propertyDBOpen)
@@ -35,7 +35,7 @@ class PropertiesDBLogic:
         properties = self.loadPropertiesLog()
         for index, prop in enumerate(properties):
             if prop.propertyID == params[0]:
-                self.properties[index] = Property(*params)
+                properties[index] = Property(*params)
         self.saveProperties(properties)
 
     def saveProperties(self, properties) -> None:
