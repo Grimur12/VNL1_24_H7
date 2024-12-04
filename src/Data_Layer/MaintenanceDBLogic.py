@@ -63,7 +63,7 @@ class MaintenanceDBLogic:
             # Save the modified internal list to the DB
             self.saveMaintenance()
 
-        def removeMaintenanceSchedule(self, ID) -> None:
+    def removeMaintenanceSchedule(self, ID) -> None:
         """ We take in the ID of the maintenanceSchedule we want to remove, find it, delete it from the internal list and save the internal list to DB """
         index_to_remove = -1
         for index, schedule in enumerate(self.maintenanceSchedule):
@@ -80,7 +80,7 @@ class MaintenanceDBLogic:
         """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
         Maintenances = []
         for maint in self.maintenance:
-            Maintenances.append(maint.Maintenance_Dict()
+            Maintenances.append(maint.Maintenance_Dict())
 
         with open(self.maintenance_file_path, 'w') as file:
             json.dump(Maintenances, file, indent=4)
@@ -89,7 +89,7 @@ class MaintenanceDBLogic:
         """ Function saves all instances of the MaintenanceSchedule class saved in self.maintenanceschedule in dictionary form into json Database """
         MaintenanceSchedules = []
         for schedule in self.maintenanceSchedule:
-            MaintenanceSchedules.append(schedule.maintenanceSchedule_Dict()
+            MaintenanceSchedules.append(schedule.maintenanceSchedule_Dict())
 
         with open(self.maintenance_Schedule_file_path, 'w') as file:
             json.dump(MaintenanceSchedules, file, indent=4)

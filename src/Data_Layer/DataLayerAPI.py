@@ -6,7 +6,10 @@ class DataLayerAPI:
     def __init__(self):
         pass
 
-    def addEmployee(self, params) -> None:
+    def createEmployee(self, params) -> None:
+        EmployeesDBLogic.createEmployee(params)
+
+    def createContractor(self, params) -> None:
         EmployeesDBLogic.createEmployee(params)
 
     def loadEmployeeLog(self) -> None:
@@ -19,7 +22,7 @@ class DataLayerAPI:
         EmployeesDBLogic.removeEmployee(ID)
 
     def propagateEmployeeData(self) -> None:
-        return EmployeesDBLogic.propagateData()
+        return EmployeesDBLogic.propagateEmployeeData()
     
     def loadPropertiesLog(self) -> None:
         PropertiesDBLogic.loadPropertiesLog()
@@ -34,7 +37,7 @@ class DataLayerAPI:
         PropertiesDBLogic.updateProperty(params)
     
     def propagatePropertyData(self) -> list:
-        return PropertiesDBLogic.propagateData()
+        return PropertiesDBLogic.propagatePropertyData()
 
     def loadMaintenanceLog(self) -> None:
         MaintenanceDBLogic.loadMaintenanceLog()

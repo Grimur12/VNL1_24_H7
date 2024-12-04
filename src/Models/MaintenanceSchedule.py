@@ -3,7 +3,7 @@
 class MaintenanceSchedule:
     def __init__(self, ID, maintenanceIDreference, employee_ID, taskType, frequency):
         """ Defines variables for Maintenance Schedule """
-        self.maintenanceScheduleID = maintenanceScheduleID
+        self.maintenanceScheduleID = ID
         self.maintenanceIDreference = maintenanceIDreference
         self.employee_ID = employee_ID
         self.taskType = taskType
