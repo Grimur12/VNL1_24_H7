@@ -9,7 +9,7 @@ class EmployeesDBLogic:
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Employees.json")
 
-    def loadEmployeeLog(self) -> None:
+    def loadEmployeeLog(self) -> list:
         """ Function loads all saved employees from DB and turns back into class instances of Employee and saves it internally """
         with open(self.file_path, "r") as employeeDBOpen:
             employees_list = json.load(employeeDBOpen)
