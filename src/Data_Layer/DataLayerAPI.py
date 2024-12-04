@@ -20,9 +20,6 @@ class DataLayerAPI:
 
     def removeEmployee(self, ID) -> None:
         EmployeesDBLogic.removeEmployee(ID)
-
-    def propagateEmployeeData(self) -> None:
-        return EmployeesDBLogic.propagateEmployeeData()
     
     def loadPropertiesLog(self) -> None:
         PropertiesDBLogic.loadPropertiesLog()
@@ -35,9 +32,6 @@ class DataLayerAPI:
 
     def updateProperty(self, params) -> None:
         PropertiesDBLogic.updateProperty(params)
-    
-    def propagatePropertyData(self) -> list:
-        return PropertiesDBLogic.propagatePropertyData()
 
     def loadMaintenanceLog(self) -> None:
         MaintenanceDBLogic.loadMaintenanceLog()
@@ -62,11 +56,5 @@ class DataLayerAPI:
 
     def removeMaintenanceSchedule(self, ID) -> None:
         MaintenanceDBLogic.removeMaintenanceSchedule(ID)
-
-    def propagateMaintenanceData(self) -> list:
-        return MaintenanceDBLogic.propagateMaintenanceData()
-
-    def propagateMaintenanceScheduleData(self) -> list:
-        return MaintenanceDBLogic.propagateMaintenanceScheduleData()
 
 

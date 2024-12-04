@@ -4,11 +4,9 @@ import json
 from Models.Maintenance import Maintenance
 from Models.MaintenanceSchedule import MaintenanceSchedule
 
-class MaintenanceDBLogic:
+class MaintenanceDBLogic:s
 
     def __init__(self):
-        self.maintenance = []
-        self.maintenanceSchedule = []
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.maintenance_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Maintenance.json")
         self.maintenance_Schedule_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "MaintenanceSchedule.json")
@@ -17,87 +15,73 @@ class MaintenanceDBLogic:
         """ Function loads all saved maintenances from DB and turns back into class instances of Maintenance and saves it internally """
         with open(self.maintenance_file_path, "r") as maintenanceDBOpen:
             maintenance_list = json.load(maintenanceDBOpen)
+        maintenances = []
         for maint in maintenance_list:
-            self.maintenance.append(Maintenance(*maint.values()))
+            maintenances.append(Maintenance(*maint.values()))
+        return maintenances
 
     def loadMaintenanceSchedule(self) -> None:
         with open(self.maintenance_Schedule_file_path, "r") as maintenanceScheduleDBOpen:
             maintenanceSchedule_list = json.load(maintenanceScheduleDBOpen)
+        maintenanceSchedules = []
         for schedule in maintenanceSchedule_list:
-            self.maintenance.append(MaintenanceSchedule(*schedule.values()))
+            maintenanceSchedules.append(MaintenanceSchedule(*schedule.values()))
+        return maintenanceSchedules
 
     def updateMaintenanceStatus(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
-        for index, maint in enumerate(self.maintenance):
+        maintenances = self.loadMaintenanceLog()
+        for index, maint in enumerate(maintenances):
             if maint.maintenanceID == params[0]:
-                self.maintenance[index] = Maintenance(*params)
-        self.saveMaintenance()
+                maintenances[index] = Maintenance(*params)
+        self.saveMaintenance(maintenances)
 
     def updateMaintenanceSchedule(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
-        for index, schedule in enumerate(self.maintenanceSchedule):
+        maintenanceSchedules = self.loadMaintenanceSchedule()
+        for index, schedule in enumerate(maintenanceSchedules):
             if schedule.maintenanceScheduleID == params[0]:
-                self.maintenanceSchedule[index] = MaintenanceSchedule(*params)
-        self.saveMaintenanceSchedule()
+                maintenanceSchedules[index] = MaintenanceSchedule(*params)
+        self.saveMaintenanceSchedule(maintenanceSchedules)
 
     def createMaintenanceSchedule(self, params) -> None:
         """ This function takes in a list of parameters and creates a maintenanceSchedule and stores in the json DB """
-        self.maintenanceSchedule.append(MaintenanceSchedule(*params))
-        self.saveMaintenanceSchedule()
+        maintenanceSchedules = self.loadMaintenanceSchedule()
+        maintenanceSchedules.append(MaintenanceSchedule(*params))
+        self.saveMaintenanceSchedule(maintenanceSchedules)
 
     def createMaintenance(self, params) -> None:
         """ This function takes in a list of parameters and creates a maintenance and stores in the json DB """
-        self.maintenance.append(Maintenance(*params))
-        self.saveMaintenance()
+        maintenances = self.loadMaintenanceLog()
+        maintenances.append(Maintenance(*params))
+        self.saveMaintenance(maintenances)
 
     def removeMaintenance(self, ID) -> None:
         """ We take in the ID of the maintenance we want to remove, find it, delete it from the internal list and save the internal list to DB """
-        index_to_remove = -1
-        for index, maint in enumerate(self.maintenance):
-            if maint.maintenanceID == ID:
-                index_to_remove = index
-                break
-        # Remove that maintenance from the internal list
-        if index_to_remove != -1:
-            del self.maintenance[index_to_remove]
-            # Save the modified internal list to the DB
-            self.saveMaintenance()
+        maintenances = self.loadMaintenanceLog()
+        new_maintenances = [maintenance for maintenance in maintenances if maintenance.maintenanceID != ID] # Remove the maintenance based on ID, (if its the same)
+        self.saveMaintenance(new_maintenances)  # Save updated list to DB
 
     def removeMaintenanceSchedule(self, ID) -> None:
         """ We take in the ID of the maintenanceSchedule we want to remove, find it, delete it from the internal list and save the internal list to DB """
-        index_to_remove = -1
-        for index, schedule in enumerate(self.maintenanceSchedule):
-            if schedule.maintenanceScheduleID == ID:
-                index_to_remove = index
-                break
-        # Remove that maintenanceSchedule from the internal list
-        if index_to_remove != -1:
-            del self.maintenanceSchedule[index_to_remove]
-            # Save the modified internal list to the DB
-            self.saveMaintenanceSchedule()
+        maintenanceSchedules = self.loadMaintenanceSchedule()
+        new_maintenanceSchedules = [schedule for schedule in maintenanceSchedules if schedule.maintenanceID != ID] # Remove the maintenanceschedule based on ID, (if its the same)
+        self.saveMaintenance(new_maintenanceSchedules)  # Save updated list to DB
 
-    def saveMaintenance(self) -> None:
+    def saveMaintenance(self, maintenances) -> None:
         """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
         Maintenances = []
-        for maint in self.maintenance:
+        for maint in maintenances:
             Maintenances.append(maint.Maintenance_Dict())
 
         with open(self.maintenance_file_path, 'w') as file:
             json.dump(Maintenances, file, indent=4)
             
-    def saveMaintenanceSchedule(self) -> None:
+    def saveMaintenanceSchedule(self, schedule) -> None:
         """ Function saves all instances of the MaintenanceSchedule class saved in self.maintenanceschedule in dictionary form into json Database """
         MaintenanceSchedules = []
-        for schedule in self.maintenanceSchedule:
+        for schedule in schedule:
             MaintenanceSchedules.append(schedule.maintenanceSchedule_Dict())
 
         with open(self.maintenance_Schedule_file_path, 'w') as file:
             json.dump(MaintenanceSchedules, file, indent=4)
-
-    def propagateMaintenanceData(self) -> list:
-        """ Returns the internally stored Maintenance list for other layers/classes to use """
-        return self.maintenance
-
-    def propagateMaintenanceScheduleData(self) -> list:
-        """ Returns the internally stored MaintenanceSchedule list for other layers/classes to use """
-        return self.maintenanceSchedule

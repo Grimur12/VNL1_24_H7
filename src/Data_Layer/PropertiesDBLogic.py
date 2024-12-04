@@ -5,7 +5,6 @@ from Models.Property import Property
 
 class PropertiesDBLogic:
     def __init__(self) -> None:
-        self.properties = []
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Properties.json")
 
@@ -13,50 +12,45 @@ class PropertiesDBLogic:
         """ Function loads all saved properties from DB and turns back into class instances of Property and saves it internally """
         with open(self.file_path, "r") as propertyDBOpen:
             property_list = json.load(propertyDBOpen)
+
+        properties = []
         for prop in property_list:
-            self.properties.append(Property(*prop.values()))
+            properties.append(Property(*prop.values()))
+        return properties
 
     def createProperty(self, params) -> None:
         """ This function takes in a list of parameters and creates a property and stores in the json DB """
-        self.properties.append(Property(*params))
-        self.saveProperties()
+        properties = self.loadPropertiesLog()
+        properties.append(Property(*params))
+        self.saveProperties(properties)
 
     def removeProperty(self, ID) -> None:
         """ We take in the ID of the property we want to remove, find it, delete it from the internal list and save the internal list to DB """
-        index_to_remove = -1
-        for index, prop in enumerate(self.properties):
-            if prop.propertyID == ID:
-                index_to_remove = index
-                break
-        # Remove that property from the internal list
-        if index_to_remove != -1:
-            del self.properties[index_to_remove]
-            # Save the modified internal list to the DB
-            self.saveProperties()
+        properties = self.loadPropertiesLog()
+        properties = [property for property in properties if property.propertyID != ID] # Remove the property based on ID, (if its the same)
+        self.saveProperties(properties)  # Save updated list to DB
     
     def updateProperty(self, params) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
-        for index, prop in enumerate(self.properties):
+        properties = self.loadPropertiesLog()
+        for index, prop in enumerate(properties):
             if prop.propertyID == params[0]:
                 self.properties[index] = Property(*params)
-        self.saveProperties()
+        self.saveProperties(properties)
 
-    def saveProperties(self) -> None:
+    def saveProperties(self, properties) -> None:
         """ Function saves all instances of the Property class saved in self.properties in dictionary form into json Database """
         Properties = []
-        for prop in self.properties:
+        for prop in properties:
             Properties.append(prop.Property_dict())
 
         with open(self.file_path, 'w') as file:
             json.dump(Properties, file, indent=4)
-    
-    def propagatePropertyData(self) -> list:
-        """ Returns the internally stored employees list for other layers/classes to use """
-        return self.properties
 
     def printProperties(self) -> None:
         """ Internal, prints out properties, for testing purposes in DB layer """
-        for prop in self.properties:
+        properties = self.loadPropertiesLog()
+        for prop in properties:
             print("-------------------------------------------------------------------------------------------------------------")
             for key, value in prop.__dict__.items():
                 print(f"{key}: {value}")
