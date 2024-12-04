@@ -35,7 +35,7 @@ class EmployeesDBLogic:
 
         with open(self.file_path, 'w') as file:
             json.dump(Employees, file, indent=4)
-        
+
     def createEmployee(self, params) -> None:
         """ This function takes in a list of parameters and creates an employee and stores in the json DB """
         # Params should be a list of all the variables Employee() or Contractor() class needs to initialize in the correct order
@@ -44,7 +44,7 @@ class EmployeesDBLogic:
         if params[8] == "Contractor":
             employees.append(Contractor(*params))
         else:
-            employees.employees.append(Employee(*params))
+            employees.append(Employee(*params))
         self.saveEmployees(employees)
 
     def updateEmployee(self, params) -> None:
@@ -62,13 +62,6 @@ class EmployeesDBLogic:
                     break
         # Finally update the DB
         self.saveEmployees(employees)
-        
-    def removeEmployee(self, ID) -> None:
-        """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB """
-        # Start with finding the index of the employee we want to remove in the self.employees internal list
-        employees = self.loadEmployeeLog()
-        employees = [employee for employee in employees if employee.employeeID != ID] # Remove the employee based on ID, (if its the same)
-        self.saveEmployees(employees)  # Save updated list to DB
 
     def printEmployees(self) -> None:
         """ Prints out all employees from the database """
@@ -87,6 +80,4 @@ class EmployeesDBLogic:
 # ui.loadEmployeeLog()
 # ui.printEmployees()
 # ui.updateEmployee([1,"Máni","060702-2690","Mántaún NÝTT 2", "5548989", "885-2233", "mani@ru.is", "HR", "Manager"])
-# ui.printEmployees()
-# ui.removeEmployee(1)
 # ui.printEmployees()
