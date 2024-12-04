@@ -4,14 +4,14 @@ import json
 from Models.Maintenance import Maintenance
 from Models.MaintenanceSchedule import MaintenanceSchedule
 
-class MaintenanceDBLogic:s
+class MaintenanceDBLogic:
 
     def __init__(self):
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.maintenance_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Maintenance.json")
         self.maintenance_Schedule_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "MaintenanceSchedule.json")
 
-    def loadMaintenanceLog(self) -> None:
+    def loadMaintenanceLog(self) -> list:
         """ Function loads all saved maintenances from DB and turns back into class instances of Maintenance and saves it internally """
         with open(self.maintenance_file_path, "r") as maintenanceDBOpen:
             maintenance_list = json.load(maintenanceDBOpen)
@@ -20,7 +20,7 @@ class MaintenanceDBLogic:s
             maintenances.append(Maintenance(*maint.values()))
         return maintenances
 
-    def loadMaintenanceSchedule(self) -> None:
+    def loadMaintenanceSchedule(self) -> list:
         with open(self.maintenance_Schedule_file_path, "r") as maintenanceScheduleDBOpen:
             maintenanceSchedule_list = json.load(maintenanceScheduleDBOpen)
         maintenanceSchedules = []
@@ -59,14 +59,14 @@ class MaintenanceDBLogic:s
     def removeMaintenance(self, ID) -> None:
         """ We take in the ID of the maintenance we want to remove, find it, delete it from the internal list and save the internal list to DB """
         maintenances = self.loadMaintenanceLog()
-        new_maintenances = [maintenance for maintenance in maintenances if maintenance.maintenanceID != ID] # Remove the maintenance based on ID, (if its the same)
-        self.saveMaintenance(new_maintenances)  # Save updated list to DB
+        maintenances = [maintenance for maintenance in maintenances if maintenance.maintenanceID != ID] # Remove the maintenance based on ID, (if its the same)
+        self.saveMaintenance(maintenances)  # Save updated list to DB
 
     def removeMaintenanceSchedule(self, ID) -> None:
         """ We take in the ID of the maintenanceSchedule we want to remove, find it, delete it from the internal list and save the internal list to DB """
         maintenanceSchedules = self.loadMaintenanceSchedule()
-        new_maintenanceSchedules = [schedule for schedule in maintenanceSchedules if schedule.maintenanceID != ID] # Remove the maintenanceschedule based on ID, (if its the same)
-        self.saveMaintenance(new_maintenanceSchedules)  # Save updated list to DB
+        maintenanceSchedules = [schedule for schedule in maintenanceSchedules if schedule.maintenanceID != ID] # Remove the maintenanceschedule based on ID, (if its the same)
+        self.saveMaintenanceSchedule(maintenanceSchedules)  # Save updated list to DB
 
     def saveMaintenance(self, maintenances) -> None:
         """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
