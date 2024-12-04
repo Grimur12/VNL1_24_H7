@@ -235,11 +235,11 @@ TODO:
 # Vika 2
 
 ## [02/12/2024 - Dagur 1]
-
+Olafur: Started to work on writing out the UI for Manager and Contractor.
 ....
 
 ## [03/12/2024 - Dagur 2]
-
+Olafur: Finished writing out hte UI for Manager and Contractor. Though I most likely will need to polish it and add/remove stuff.
 ....
 
 ## [04/12/2024 - Dagur 3]
