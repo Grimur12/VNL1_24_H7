@@ -7,7 +7,7 @@ class LogicLayerMaintenanceLogic:
     def createMaintenance(self, property_ID, priority, deadline ):
         maintenance = {
             "maintenance_ID":
-            "property_ID": Property_ID,
+            "property_ID": property_ID,
             "priority":
             "deadline": deadline,
 
