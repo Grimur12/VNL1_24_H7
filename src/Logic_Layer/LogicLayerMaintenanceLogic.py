@@ -1,33 +1,41 @@
-#This is our Maintenance Logic 
+from Data_Layer.DataLayerAPI import DataLayerAPI
+from Models.Workers import *
+from .ErrorCheckers import ErrorCheckers
+
 
 class LogicLayerMaintenanceLogic:
     def __init__(self):
-        self.maintenance = []
+        self.DataLayerWrapper = DataLayerAPI()
+        self.Errors = ErrorCheckers()
+        self.tempmaintenance = None
 
-    def createMaintenance(self, property_ID, priority, deadline ):
+    #create a new maintenance
+    def createMaintenance(self):
         pass
-        # maintenance = {
 
-            
-        # }
-        # self.maintenance.append(task)
-        # return f" Task {task['id']} has been created now"
 
+
+
+
+    #close a finished maintenance report
     def closeMaintenanceReport(self):
         pass
 
+    #update maintenance status
     def updateMaintenanceStatus(self):
         pass
 
+    #filter maintenance by priority
     def filterMaintenance(self):
         pass
 
+    #get maintenance data
     def getMaintenanceData(self):
         return self.maintenance
     
+    #edit maintenance schedule
     def editMaintenanceSchedule(self):
         pass
-
 
     #check errors
     def checkMaintenanceErrors(self):

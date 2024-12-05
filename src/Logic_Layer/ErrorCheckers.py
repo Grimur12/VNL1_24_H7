@@ -1,6 +1,7 @@
 # Error checker class for all error checks
 
 class ErrorCheckers:
+
     def __init__(self) -> None:
         pass
 
@@ -59,4 +60,3 @@ class ErrorCheckers:
         if type != "Contractor":
             raise ValueError("Type is not Valid, must be a Contractor")
         return True
-

@@ -35,16 +35,27 @@ class UItest:
             self.display_temp_employee(temp)
             user_input = input("Information: ")
             try:
-                if self.logicLayerWrapper.validateEmployeeInput(user_input, count):
+                if self.logicLayerWrapper.validateEmployeeInput(user_input, count, temp):
                     count +=1
             except ValueError as error:
                 print(f"Error: {error}")
                 continue
         self.clear_terminal()
         self.display_temp_employee(temp)
-        self.logicLayerWrapper.createEmployee()
+        self.logicLayerWrapper.createEmployee(temp)
         print("You have successfully created the employee")
     
+
+    def updateEmployee(self, ID):
+        employee = self.LogicLayerWrapper.getemployeeByID(ID)
+        print(employee)
+        userInput = input("Press 0 to change name:")
+        newParam = input("Write new name:")
+        self.logicLayerWrapper.validateEmployeeInput(newParam, userInput, employee)
+
+
+
+
     def displayEmployees(self):
         employees = self.logicLayerWrapper.getEmployeeData()
         for employee in employees:
@@ -53,14 +64,14 @@ class UItest:
     def run(self):
         while True:
             print("Type 1 to create an Employee")
-            print("Type 2 to create a Contractor")
+            print("Type 2 to update Employee")
             print("Type 3 to view all Employees")
             print("q to quit")
             user_choice = input("Type 1 or q: ")
             if user_choice == "1":
                 self.createEmployee()
             elif user_choice == "2":
-                print("Not implemented... try again later")
+                self.updateEmployee()
             elif user_choice == "3":
                 self.displayEmployees()
             elif user_choice == "q":

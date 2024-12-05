@@ -1,41 +1,43 @@
-# Here is our Property Logic Layer
+from Data_Layer.DataLayerAPI import DataLayerAPI
+from Models.Workers import *
+from Models.Property import Property
+from .ErrorCheckers import ErrorCheckers
+
+# Property Logic class
 
 class LogicLayerPropertyLogic:
 
     def __init__(self):
-        #our list of properties
-        self.properties = []
+        self.DataLayerWrapper = DataLayerAPI()
+        self.Errors = ErrorCheckers()
+        self.temp_property = None
 
-    def create_Property(self, property_Data):
+    def createUniqueID(self)-> int:
+        currentProperty = self.DataLayerWrapper.loadPropertyLog()
+        if len(currentProperty) != 0:
+            newID = currentProperty[-1].propertyID + 1 # Assign new property to a new ID
+        else:
+            newID = 1
+        return newID
+    
+    def createTempProperty(self):
+        tempPropertyID = self.createUniqueID()
+        self.temp_property = Property(ID=tempPropertyID)
+        return self.temp_property
 
-        # for prop in self.properties:
-        #     prop["id"] == property_Data["id"]
-        #     return False
-        #     #add try except or raise whatever!
-            
-        # self.properties.append(property_Data)
-        # return True
+    def updateStatusOfProperty(self):
         pass
 
-    def updateStatusOfProperty(self, property_ID, new_status):
-        
-        for property in self.properties:
-            if property["id"] == property_ID:
-                
-                property["status"] = new_status
-                return True
-            
-        #if property wasnt found = return False.
-        return False
 
-    def filerProperties(self):
+
+
+
+
+    def filterProperties(self):
         pass
 
     def getPropertiesData(self):
         pass
-
-
-
 
     #check errors
     def checkPropertiesError():
