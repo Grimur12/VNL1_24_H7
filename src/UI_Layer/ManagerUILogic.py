@@ -272,7 +272,7 @@ manager_main_menu_contractors_request_maintenance_reports = f"""
 #MAIN MENU Input 3: Destinations Database
 manager_main_menu_destinations = f"""
 {RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
+                                                          |Destinations Database|
 ------------------------------------------------------------------------------------------------------------------------------------------------
 | Please select a role:                                                                                                                         |
 | 1. View Destinations                                                                                                                         
