@@ -261,15 +261,15 @@ manager_main_menu_contractors_request_maintenance_reports = f"""
 manager_main_menu_destinations = f"""
 {RED}                                                           ------------------
                                                           |Destinations Database|
--------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                    |
-| 1. View Destinations                                                                                                                     |
-| 2. Edit Destinations                                                                                                                     |
-| 3. Add Destinations                                                                                                                      |
-| 4. Remove Destination                                                                                                                    |
-| B. Back                                                                                                                                  |
-| Q. Quit                                                                                                                                  |
-------------------------------------------------------------------------------------------------------------------------------------------- """
+-------------------------------------------------------------------------------------------------------------------------------------
+| Please select a role:                                                                                                              |
+| 1. View Destinations                                                                                                               |
+| 2. Edit Destinations                                                                                                               |
+| 3. Add Destinations                                                                                                                |
+| 4. Remove Destination                                                                                                              |
+| B. Back                                                                                                                            |
+| Q. Quit                                                                                                                            |
+------------------------------------------------------------------------------------------------------------------------------------- """
 
 #Destinations Database INPUT 1: View Destinations
 manager_main_menu_destinations_view = f"""
