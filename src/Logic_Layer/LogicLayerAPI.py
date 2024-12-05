@@ -4,6 +4,7 @@ from LogicLayerPropertyLogic import LogicLayerPropertyLogic
 
 
 class LogicLayerAPI:
+    
     def __init__(self, LogicLayerEmployeeLogic, LogicLayerMaintenanceLogic, LogicLayerPropertyLogic):
 
         self.LogicLayerEmployeelogic = LogicLayerEmployeeLogic(),
@@ -13,7 +14,7 @@ class LogicLayerAPI:
 
 # here are functions of the Employee
 
-    def createEmployee(self, name, adress, socialSecurity, atHomePhone, GSM, email, workLocation, employeeType):
+    def createEmployee(self, ):
         self.
 
     def assign_task_to_employee(self, task):
@@ -26,9 +27,6 @@ class LogicLayerAPI:
         pass
 
     
-
-
-
 # here are functions with maintenence operations
 
     def create_maintenance(self):
@@ -49,16 +47,11 @@ class LogicLayerAPI:
     def edit_maintenance_schedule(self, maintenanceID, taskType, frequency):
         pass
 
+# functions that are about properties,
 
-
-    # functions that are about properties,
-
-    def updateStatusOfProperty(self, name, availability):
+    def updateStatusOfProperty(self, params):
         pass
 
-    def addProperty(self, nameOfProperty, locationOfProperty, availability, hasAPool, hasATub, hasOvens):
+    def addProperty(self, params):
         pass
 
-    def deleteProperty(self, propertyID):
-        pass
-    

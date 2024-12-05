@@ -9,8 +9,8 @@ class LogicLayerMaintenanceLogic:
 
             
         }
-        self.maintenance.append(task)
-        return f" Task {task['id']} has been created now"
+        self.maintenance.append(maintenance)
+        return f" Task {maintenance['id']} has been created now"
 
     def closeMaintenanceReport(self):
         pass
@@ -28,6 +28,7 @@ class LogicLayerMaintenanceLogic:
         pass
 
 
-    #check errors
-    def checkMaintenanceErrors(self):
-        pass
+    # #check errors
+    # def checkMaintenanceErrors(self):
+    #     pass
+    # DOUBLE CHECK ERROR CHECK

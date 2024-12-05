@@ -15,7 +15,9 @@ class ErrorCheckers:
         else:
             return True
         
-        if params[1].
+        if params[1].isnumeric():
+            return None
+        else: return True
 
         if "-" in params[2]:
             social_split = params[2].split("-")
@@ -24,7 +26,6 @@ class ErrorCheckers:
                     return True
         else:
             return None
-                    
     
     def checkContractorInput(self, params):
         
@@ -34,3 +35,8 @@ class ErrorCheckers:
             #If it passes check the rest of the unique contractor params
 
 
+    def checkManagaerInput(self, params):
+        pass
+
+
+    

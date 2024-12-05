@@ -7,6 +7,7 @@ class LogicLayerPropertyLogic:
         self.properties = []
 
     def create_Property(self, property_Data):
+        pass
 
         # for prop in self.properties:
         #     prop["id"] == property_Data["id"]
@@ -36,6 +37,7 @@ class LogicLayerPropertyLogic:
 
 
 
-    #check errors
-    def checkPropertiesError():
-        pass
+    # #check errors
+    # def checkPropertiesError():
+    #     pass
+    # DOUBLE CHECK - GOES TO FILE ERROR CHECK

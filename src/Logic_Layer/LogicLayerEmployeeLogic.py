@@ -74,7 +74,8 @@ class LogicLayerEmployeeLogic:
     
 
 
-    #check errors
-    def check_employee_Errors(self):
-        pass
-
+    # #check errors
+    # def check_employee_Errors(self):
+    #     pass
+    # DOUBLE CHECK ERROR CHECK
+    
