@@ -21,18 +21,19 @@ Mættir / In attendance:
 Today's work:
 
 - The group went to Gylfi's lecture.
-
 - Each member created a GitHub account or already had one and joined the VNL1 GitHub repo.
-
 - Some time was spent reading about Git / GitHub and how to use it.
-
 - We started with a rough outline of the GitHub repo / How it will be structured.
   
 - We split into different groups focusing on different tasks.
-  - The GitHub Manual
-  - Class Diagram
-  - Functional Requirements
-  - User Group analysis
+  - The GitHub Manual           (Grímur focused on this)
+  - Class Diagram               (Everyone focused on this together)
+      - Model Diagram          
+      - State Diagram          
+  - Functional Requirements     
+  - User Group analysis         (Leonard and Máni focused on this)  
+  - Wireframe                   (Ólafur focused on this)
+  - Use Cases                   
 
 End-of-day Results:
   - We have a rough idea about the Class Diagram and how to structure it / the code
@@ -167,6 +168,7 @@ End-of-day Results:
     - Good to mention here that this may very well change during the coding process as we further define our system or see a more efficient way to implement changes
   - Finished the UX Goals
   - Put everything together in a document that is ready to be submitted on friday
+  - We were able to finish everything and we worked well together
 
 - Tomorrow:
   - Show up tomorrow see if we can add any text or spot any inconsistencies
@@ -259,8 +261,9 @@ The coding started with defining the Models that are needed to complete the rest
     - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write to json files.
     - Mainly worked on Employee DB logic, we need to split that into the different parts of employees.
   - Pedro and Iðunn are taking the Logic Layer
-    - we worked on our files, set it up right and disgussed with the others how our layers are going to match because we are the middle layer(logic layer) to have a better idea how this is going to look like.
-    - we started on functions
+    - we worked on our files, set it up right and disgussed with the others how our layers are going to match because we are the middle layer(logic layer)
+      to have a better idea how this is going to look like.
+    - we started with functions and we needed to get information about how to do this and the three layer process.
 
 TODO:
 - [ ] Create an independent Data Layer
@@ -269,8 +272,8 @@ TODO:
   - [ ] Employee DB connection
   - [ ] Properties DB connection
 - [ ] Create an independent Logic Layer
-  - [ ] Split this into smaller taskss...
-  - [ ] Split this into smaller taskss...
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
   - [ ] Split this into smaller taskss...
@@ -299,7 +302,7 @@ Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard are taking the UI Layer
     - t
   - Pedro and Iðunn are taking the Logic Layer
-    - we were starting on the logic layer employees, and write out our functions there.
+    - we were starting on the logic layer employees, and write out our functions there and in the other layers.
   - Grímur and Máni are taking the Data Layer
     - Completed implementing the Employee DB logic, we can write, load, update, remove, print and propagate employee data
     - Completed testing the Employee DB logic.
@@ -313,8 +316,9 @@ TODO:
   - [x] Employee DB connection
   - [ ] Properties DB connection
 - [ ] Create an independent Logic Layer
-  - [ ] Split this into smaller taskss...
-  - [ ] Split this into smaller taskss...
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
+  - [x] Almost finishing the Employees Logic Layer 
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
   - [ ] Split this into smaller taskss...
@@ -337,11 +341,13 @@ Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard are taking the UI Layer
     - t
   - Pedro and Iðunn are taking the Logic Layer
-    - t
+    - today we finished our Employees Logic Layer. It took some time to finish it and we needed some help to understand it much better.
+    - We havent tested our connections but we will do that tomorrow. 
   - Grímur and Máni are taking the Data Layer
     - Data layer nearly finished where the wrapper is good and has been tested. 
     - After a discussion with the TA's we deleted all remove functions as they are difficult to implement fully and functionally.
-    - We also realized we need to implement a two file read system so the user can retrieve a file, exit it and then retrive it  - again without having a half written file from previous retrieve attempt.
+    - We also realized we need to implement a two file read system so the user can retrieve a file, exit it and then retrive it
+    - again without having a half written file from previous retrieve attempt.
   TODO:
 - [ ] Create an independent Data Layer
   - [x] Data Layer Wrapper
@@ -351,7 +357,9 @@ Pairs and Layers EOD Results and Todays work:
   - [ ] Insert Return statements in DB
   - [ ] Implement a two file read system
 - [ ] Create an independent Logic Layer
-  - [ ] Split this into smaller taskss...
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
+  - [x] Finishing the Employees Logic Layer 
   - [ ] Split this into smaller taskss...
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
@@ -363,7 +371,46 @@ Pairs and Layers EOD Results and Todays work:
 
 ## [05/12/2024 - Dagur 4]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Pairs and Layers EOD Results and Todays work:
+- Ólafur and Leonard have the UI
+    - 
+- Iðunn and Pedro have the LL
+    - today we were working on logic layer employee and we were focusing on the connections between
+      the wrapper and our other classes. it took some time because we got some failures come up but in
+      the end we were able to figure most of it out and we will continue tomorrow. Tomorrow we hope to
+      continue and test if we can use the same code for properties for create, view and more things.
+- Máni and Grímur have the DL
+    - 
+
+  TODO:
+- [ ] Create an independent Data Layer
+  - [x] Data Layer Wrapper
+  - [x] Maintenance DB connection
+  - [x] Employee DB connection
+  - [x] Properties DB connection
+  - [ ] Insert Return statements in DB
+  - [ ] Implement a two file read system
+- [ ] Create an independent Logic Layer
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
+  - [x] Finishing the Employees Logic Layer
+  - [x] Finish the Logic Layer Employee
+  - [ ] Finish the Logic Layer Maintenance
+  - [ ] Finish the logic layer Properties
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
 
 ## [06/12/2024 - Dagur 5]
 
