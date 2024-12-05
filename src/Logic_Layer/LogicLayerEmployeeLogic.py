@@ -22,7 +22,9 @@ class LogicLayerEmployeeLogic:
         self.temp_employee = Employee(ID=tempEmployeeID)
         return self.temp_employee
     
+
     def validateEmployeeInput(self, input, count, temp_employee):
+        print(f"Validation : {temp_employee}")
         if input == "":
             raise ValueError("Information field cannot be empty")
         if count == 0:  # Name
@@ -57,11 +59,11 @@ class LogicLayerEmployeeLogic:
         employeeLog = self.DataLayerWrapper.loadEmployeeLog()
         index_to_update = -1
         for index, employee in enumerate(employeeLog):
-            if employee == ID:
+            if employee.employeeID == int (ID):
                 index_to_update = index
         if index_to_update != -1:
-            return employeeLog[index_to_update]
-
+            employee = employeeLog[index_to_update]
+        return employee
 
     #get Employees Data
     def getEmployeeData(self):
@@ -76,15 +78,12 @@ class LogicLayerEmployeeLogic:
         self.DataLayerWrapper.createEmployee(params)
         return True
     
-    def updateEmployeeData(self, ID, input):
+    def updateEmployeeData(self,employee):
         # input can be name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType for employees 
-        employeeLog = self.DataLayerWrapper.loadEmployeeLog()
-        # employee = getEmployeebyID()ID
+        params = list(employee.__dict__.values())
+        self.DataLayerWrapper.updateEmployee(params)
         
                 
-
-
-
     #filter Employees                   
     def filterEmployees(self, workLocation: str = None, employeeType: str = None) -> list:
         pass

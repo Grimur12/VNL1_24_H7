@@ -23,12 +23,23 @@
     },
     {
         "employeeID": 3,
-        "name": "Grimur",
+        "name": "Pedro",
         "socialSecurity": "020201-2340",
         "address": "Hr",
         "atHomePhone": "882-1233",
         "gsmPhone": "832-2322",
         "email": "test@ru.is",
+        "workLocation": "hr",
+        "type": "Manager"
+    },
+    {
+        "employeeID": 4,
+        "name": "gr",
+        "socialSecurity": "090909-9090",
+        "address": "t",
+        "atHomePhone": "888-8888",
+        "gsmPhone": "999-9999",
+        "email": "t@i",
         "workLocation": "hr",
         "type": "Manager"
     }

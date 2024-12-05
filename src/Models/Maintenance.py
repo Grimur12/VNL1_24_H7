@@ -3,7 +3,7 @@
 class Maintenance:
     def __init__(self, contractors, startDate, statusMaintenance, standardMaintenance, totalCost, contractorCost, priority, managerApproval = 0, feedback = 0, endDate = 0,) -> None:
         """ Defines variables for Maintenances """
-        self.contractors = contractors
+        self.contractors = contractors [1,2,3,4,5]
         self.startDate = startDate
         self.endDate = endDate
         self.statusMaintenance = statusMaintenance
@@ -15,7 +15,6 @@ class Maintenance:
         self.priority = priority
         
         
-
     def Maintenance_Dict(self) -> dict:
         """ Returns all the variables in our Maintenance class into a dictionary """
         return {

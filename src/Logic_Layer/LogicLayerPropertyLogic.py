@@ -20,11 +20,14 @@ class LogicLayerPropertyLogic:
             newID = 1
         return newID
     
+    
     def createTempProperty(self):
         tempPropertyID = self.createUniqueID()
         self.temp_property = Property(ID=tempPropertyID)
         return self.temp_property
 
+
+    #update the status of properties
     def updateStatusOfProperty(self):
         pass
 
@@ -32,10 +35,11 @@ class LogicLayerPropertyLogic:
 
 
 
-
+    #filter properties by ID or other things.
     def filterProperties(self):
         pass
 
+    #get properties data
     def getPropertiesData(self):
         pass
 

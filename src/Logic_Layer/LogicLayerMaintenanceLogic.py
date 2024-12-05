@@ -14,9 +14,6 @@ class LogicLayerMaintenanceLogic:
         pass
 
 
-
-
-
     #close a finished maintenance report
     def closeMaintenanceReport(self):
         pass

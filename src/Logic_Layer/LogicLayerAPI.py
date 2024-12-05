@@ -10,8 +10,8 @@ class LogicLayerAPI:
 
 # here are functions of the Employee
 
-    def createEmployee(self):
-        self.LogicLayerEmployeelogic.createEmployee()
+    def createEmployee(self, employee):
+        self.LogicLayerEmployeelogic.createEmployee(employee)
 
     def getTempEmployee(self):
         return self.LogicLayerEmployeelogic.createTempEmployee()
@@ -33,8 +33,8 @@ class LogicLayerAPI:
     def get_employee_tasks(self):
         pass
 
-    def update_employee_data(self):
-        pass
+    def update_employee_data(self, employee):
+        self.LogicLayerEmployeelogic.updateEmployeeData(employee)
 
 # here are functions with maintenence operations
 

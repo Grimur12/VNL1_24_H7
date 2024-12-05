@@ -21,8 +21,6 @@ class DataLayerAPI:
     def updateEmployee(self, params) -> None:
         self.employeeDB.updateEmployee(params)
 
-    def removeEmployee(self, ID) -> None:
-        self.employeeDB.removeEmployee(ID)
     
     def loadPropertiesLog(self) -> list:
         return self.propertyDB.loadPropertiesLog()
@@ -30,8 +28,6 @@ class DataLayerAPI:
     def createProperty(self, params) -> None:
         self.propertyDB.createProperty(params)
 
-    def removeProperty(self, ID) -> None:
-        self.propertyDB.removeProperty(ID)
 
     def updateProperty(self, params) -> None:
         self.propertyDB.updateProperty(params)
