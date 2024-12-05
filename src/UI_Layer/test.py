@@ -66,8 +66,8 @@ Q: To Quit
 
 
     def employeeMenu(self):
+        self.clear_terminal()
         while True:
-            self.clear_terminal()
             print("Type 1 to create an Employee")
             print("Type 2 to create a Manager")
             print("Type 3 to create a Contractor")
@@ -86,20 +86,36 @@ Q: To Quit
 
             elif employee_user_choice in ["1","2","3"]:
                 self.createEmployee(employee_user_choice)
+                self.clear_terminal()
             elif employee_user_choice == "4":
                 ID = input("ID of the Employee to update: ")
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clear_terminal()
+                    continue
                 self.updateEmployee(ID)
+                self.clear_terminal()
             elif employee_user_choice == "5":
                 ID = input("ID of the Contractor to update: ")
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clear_terminal()
+                    continue
                 self.updateContractor(ID)
+                self.clear_terminal()
             elif employee_user_choice == "6":
+                self.clear_terminal()
                 self.displayEmployees()
             else:
                 print("Invalid Input")
 
     def propertyMenu(self):
+        self.clear_terminal()
         while True:
-            self.clear_terminal()
             print("Type 1 to create a Property")
             print("Type 2 to update a Property")
             print("Type 3 to view all Properties")
@@ -115,8 +131,8 @@ Q: To Quit
                 break
         
     def maintenanceMenu(self):
+        self.clear_terminal()
         while True:
-            self.clear_terminal()
             print("Type 1 to create a Maintenance Task")
             print("Type 2 to add a Maintenane Task to a Schedule")
             print("Type 3 to update a Maintenance Schedule")
@@ -152,17 +168,23 @@ Q: To Quit
             max_parameters = 8
         while count < max_parameters:
             self.display_temp_employee(temp, error_message)
-            user_input = input("Information: ")
+            userInput = input("Information: ")
+            if userInput.lower() == "q":
+                print("Quitting")
+                exit()
+            elif userInput.lower() == "b":
+                break
             try:
-                if self.logicLayerWrapper.validateEmployeeInput(user_input, count, temp):
+                if self.logicLayerWrapper.validateEmployeeInput(userInput, count, temp):
                     count +=1
                     error_message = None
             except ValueError as error:
                 error_message = error
                 continue
-        self.display_temp_employee(temp, error_message)
-        self.logicLayerWrapper.createEmployee(temp)
-        print("You have successfully created the employee")
+        if userInput.lower() != "b":
+            self.display_temp_employee(temp, error_message)
+            self.logicLayerWrapper.createEmployee(temp)
+            print("You have successfully created the employee")
 
     def updateEmployee(self, ID):
         while True:
@@ -179,7 +201,7 @@ Q: To Quit
         while True:
             self.updateEmployeeMenu(employee, error_message)
             userInput = input("Number of the attribute you want to change: ")
-
+            
             if userInput == "Q" or userInput == "q":
                 exit() ## QUIT...
             elif userInput == "B":
@@ -197,7 +219,8 @@ Q: To Quit
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        self.logicLayerWrapper.update_employee_data(employee)
+        if userInput.lower() != "b":
+            self.logicLayerWrapper.update_employee_data(employee)
 
     def updateContractor(self, ID):
         while True:
@@ -232,7 +255,8 @@ Q: To Quit
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        self.logicLayerWrapper.update_employee_data(employee)
+        if userInput.lower() != "b":
+            self.logicLayerWrapper.update_employee_data(employee)
 
     def displayEmployees(self):
         employees = self.logicLayerWrapper.getEmployeeData()
@@ -277,6 +301,7 @@ if __name__ == "__main__":
         initial_input = input("Choice: ")
         if initial_input.lower() == "q":
             print("Quitting")
+            break
         elif initial_input == "1":
             ui.clear_terminal()
             ui.run()
