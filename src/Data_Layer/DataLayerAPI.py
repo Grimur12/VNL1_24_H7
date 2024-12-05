@@ -8,18 +8,18 @@ class DataLayerAPI:
         self.maintenanceDB = MaintenanceDBLogic()
         self.propertyDB = PropertiesDBLogic()
 
-    def createEmployee(self, params) -> None:
-        self.employeeDB.createEmployee(params)
+    def createEmployee(self, employee) -> None:
+        self.employeeDB.createEmployee(employee)
 
-    def createContractor(self, params) -> None:
-        self.employeeDB.createContractor(params)
+    def createContractor(self, contractor) -> None:
+        self.employeeDB.createContractor(contractor)
 
     def loadEmployeeLog(self) -> list:
         employeeLog = self.employeeDB.loadEmployeeLog()
         return employeeLog
 
-    def updateEmployee(self, params) -> None:
-        self.employeeDB.updateEmployee(params)
+    def updateEmployee(self, employee) -> None:
+        self.employeeDB.updateEmployee(employee)
 
     
     def loadPropertiesLog(self) -> list:

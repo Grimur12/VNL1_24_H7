@@ -40,31 +40,27 @@ class EmployeesDBLogic:
         with open(self.file_path, 'w') as file:
             json.dump(Employees, file, indent=4)
 
-    def createEmployee(self, params) -> None:
+    def createEmployee(self, employee) -> None:
         """ This function takes in a list of parameters and creates an employee and stores in the json DB """
         # Params should be a list of all the variables Employee() or Contractor() class needs to initialize in the correct order
         employees = self.loadEmployeeLog()
-        employees.append(Employee(*params))
+        employees.append(employee)
         self.saveEmployees(employees)
     
-    def createContractor(self, params) -> None:
+    def createContractor(self, contractor) -> None:
         employees = self.loadEmployeeLog()
-        employees.append(Contractor(*params))
+        employees.append(contractor)
         self.saveEmployees(employees)
 
-    def updateEmployee(self, params) -> None:
+    def updateEmployee(self, employee) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
         # Need to split into instances of General Employee/Manger and Contractor as they have different parameters
         # Params 8 is a reference to "type" variable in the classes
         employees = self.loadEmployeeLog()
-        for index, employee in enumerate(employees):
-            if employee.employeeID == params[0]: # If employee is the same (check on ID)
-                if employee.type == "Contractor": # If its a contractor overwrite him with the contractor class
-                    employees[index] = Contractor(*params)
-                    break
-                else: # If not Contractor then the employee is a General employee or a manager, same paramaters
-                    employees[index] = Employee(*params)
-                    break
+        for index, empl in enumerate(employees):
+            if empl.employeeID == employee.employeeID: # If employee is the same (check on ID)
+                employees[index] = employee
+                break
         # Finally update the DB
         self.saveEmployees(employees)
 

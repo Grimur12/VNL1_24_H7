@@ -13,8 +13,8 @@ class LogicLayerAPI:
     def createEmployee(self, employee):
         self.LogicLayerEmployeelogic.createEmployee(employee)
 
-    def getTempEmployee(self):
-        return self.LogicLayerEmployeelogic.createTempEmployee()
+    def getTempEmployee(self, type_of_employee):
+        return self.LogicLayerEmployeelogic.createTempEmployee(type_of_employee)
 
     def validateEmployeeInput(self, user_input, count, temp_employee):
         return self.LogicLayerEmployeelogic.validateEmployeeInput(user_input, count, temp_employee)
@@ -27,6 +27,10 @@ class LogicLayerAPI:
         employee = self.LogicLayerEmployeelogic.getEmployeebyID(ID)
         return employee
 
+    def getContractorbyID(self, ID):
+        contractor = self.LogicLayerEmployeelogic.getContractorbyID(ID)
+        return contractor
+    
     def assign_task_to_employee(self):
         pass
 

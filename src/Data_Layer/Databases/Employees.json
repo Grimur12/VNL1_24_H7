@@ -23,7 +23,7 @@
     },
     {
         "employeeID": 3,
-        "name": "Pedro",
+        "name": "NAMECHANGED",
         "socialSecurity": "020201-2340",
         "address": "Hr",
         "atHomePhone": "882-1233",
@@ -34,13 +34,39 @@
     },
     {
         "employeeID": 4,
-        "name": "gr",
+        "name": "Grimur",
         "socialSecurity": "090909-9090",
         "address": "t",
         "atHomePhone": "888-8888",
         "gsmPhone": "999-9999",
         "email": "t@i",
         "workLocation": "hr",
+        "type": "Manager"
+    },
+    {
+        "ID": 5,
+        "name": "gr",
+        "socialSecurity": "021111-2332",
+        "address": "g",
+        "atHomePhone": "999-1111",
+        "gsmPhone": "222-2222",
+        "email": "g@r",
+        "workLocation": "HR",
+        "type": "Contractor",
+        "previousTask": "HR",
+        "performanceRating": "9",
+        "contractorContact": "222-1123",
+        "openingHours": "4-3"
+    },
+    {
+        "employeeID": 6,
+        "name": "g",
+        "socialSecurity": "022123-2332",
+        "address": "g",
+        "atHomePhone": "123-1233",
+        "gsmPhone": "123-3232",
+        "email": "g @",
+        "workLocation": "r",
         "type": "Manager"
     }
 ]

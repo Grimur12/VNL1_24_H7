@@ -1,7 +1,7 @@
 # Define Managers, Employees and Contractors
 
 class Employee:
-    def __init__(self, ID, name = None, socialSecurity = None, address = None, atHomePhone = None, gsmPhone = None, email = None, workLocation = None, type = None) -> None:
+    def __init__(self, ID = "", name = "", socialSecurity = "", address = "", atHomePhone = "", gsmPhone = "", email = "", workLocation = "", type = "") -> None:
         """ Defines variables for our Employees """
         self.employeeID = ID # need to calculate UNIQUE ID somewhere and store it...
         self.name = name
@@ -44,18 +44,17 @@ Type: {self.type}
 """
 
 class Contractor(Employee):
-    def __init__(self, previousTask = None, performanceRating = None, contractorContact = None, openingHours = None, *args) -> None:
-        super().__init__(self, *args)
+    def __init__(self, previousTask = "", performanceRating = "", contractorContact = "", openingHours = "", *args) -> None:
+        super().__init__(*args)
         self.previousTask = previousTask
         self.performanceRating = performanceRating
         self.contractorContact = contractorContact
         self.openingHours = openingHours
         
-        
-    def contractor_dict(self) -> dict:
+    def Contractor_dict(self) -> dict:
         """ Returns all the variables in our Employee class into dictionary, needed for DB json writing """
         return {
-        "ID": self.ID,
+        "ID": self.employeeID,
         "name": self.name,
         "socialSecurity": self.socialSecurity,
         "address": self.address,
