@@ -7,7 +7,10 @@ class ErrorCheckers:
     
     def checkNumber(self, input):
         """ Returns True if user input is a number, raises ValueError otherwise"""
-        if not input.isnumeric():
+        # Used to check both for input when changing information and as count.
+        try:
+            int(input)
+        except ValueError:
             raise ValueError("Input must be a valid number")
         return True
 

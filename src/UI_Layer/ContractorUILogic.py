@@ -1,195 +1,35 @@
-# Contractor UI Logic
-from Logic_Layer import LogicLayerAPI
+from os import system, name
+
+from Logic_Layer.LogicLayerAPI import LogicLayerAPI
+from .ViewUILogic import ViewUILogic
+from .Displays import Displays
 
 class ContractorUILogic:
     def __init__(self):
-        pass
+        self.LogicLayerWrapper = LogicLayerAPI()
+        self.ViewUI = ViewUILogic()
 
-RED = "\33[91m"
-BLUE = "\33[94m"
-GREEN = "\033[32m"
-YELLOW = "\033[93m"
-PURPLE = '\033[0;35m' 
-CYAN = "\033[36m"
-END = "\033[0m"
+    def run(self):
+        while True:
+            print("1: To access viewing features")
+            print("2: To access .... something with maintenance ....")
+            print("B to go Back")
+            print("Q to quit")
+            user_choice = input("Choice ")
+            # Exit out of the loop
 
-banner = f"""
-  {BLUE}          _____                    _____                    _____                            _____                    _____                    _____          
-         /\    \                  /\    \                  /\    \                          /\    \                  /\    \                  /\    \         
-        /::\____\                /::\    \                /::\____\                        /::\    \                /::\    \                /::\    \        
-       /::::|   |               /::::\    \              /::::|   |                       /::::\    \               \:::\    \              /::::\    \       
-      /:::::|   |              /::::::\    \            /:::::|   |                      /::::::\    \               \:::\    \            /::::::\    \      
-     /::::::|   |             /:::/\:::\    \          /::::::|   |                     /:::/\:::\    \               \:::\    \          /:::/\:::\    \     
-    /:::/|::|   |            /:::/__\:::\    \        /:::/|::|   |                    /:::/__\:::\    \               \:::\    \        /:::/__\:::\    \    
-   /:::/ |::|   |           /::::\   \:::\    \      /:::/ |::|   |                   /::::\   \:::\    \              /::::\    \      /::::\   \:::\    \   
-  /:::/  |::|   | _____    /::::::\   \:::\    \    /:::/  |::|   | _____            /::::::\   \:::\    \    ____    /::::::\    \    /::::::\   \:::\    \  
- /:::/   |::|   |/\    \  /:::/\:::\   \:::\    \  /:::/   |::|   |/\    \          /:::/\:::\   \:::\    \  /\   \  /:::/\:::\    \  /:::/\:::\   \:::\____\ 
-/:: /    |::|   /::\____\/:::/  \:::\   \:::\____\/:: /    |::|   /::\____\        /:::/  \:::\   \:::\____\/::\   \/:::/  \:::\____\/:::/  \:::\   \:::|    |
-\::/    /|::|  /:::/    /\::/    \:::\  /:::/    /\::/    /|::|  /:::/    /        \::/    \:::\  /:::/    /\:::\  /:::/    \::/    /\::/   |::::\  /:::|____|
- \/____/ |::| /:::/    /  \/____/ \:::\/:::/    /  \/____/ |::| /:::/    /          \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/  \/____|:::::\/:::/    / 
-         |::|/:::/    /            \::::::/    /           |::|/:::/    /                    \::::::/    /    \::::::/    /                 |:::::::::/    /  
-         |::::::/    /              \::::/    /            |::::::/    /                      \::::/    /      \::::/____/                  |::|\::::/    /   
-         |:::::/    /               /:::/    /             |:::::/    /                       /:::/    /        \:::\    \                  |::| \::/____/    
-         |::::/    /               /:::/    /              |::::/    /                       /:::/    /          \:::\    \                 |::|  ~|          
-         /:::/    /               /:::/    /               /:::/    /                       /:::/    /            \:::\    \                |::|   |          
-        /:::/    /               /:::/    /               /:::/    /                       /:::/    /              \:::\____\               \::|   |          
-        \::/    /                \::/    /                \::/    /                        \::/    /                \::/    /                \:|   |          
-         \/____/                  \/____/                  \/____/                          \/____/                  \/____/                  \|___|          
-                                                                                                                                                              """
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
 
-print(banner)
+            if user_choice.lower() == "b":
+                print("Going back")
+                break
 
-main_menu_1 = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                         |
-| 1. manager                                                                                                                                    |
-| 2. employee                                                                                                                                   |
--------------------------------------------------------------------------------------------------------------------------------------------------
- 
-                                                                                                                                                                                                                                                    """
-
-print(main_menu_1)
-#Input 1
-manager_main_menu = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                         |
-| 1. Employees Database                                                                                                                          
-| 2. Contractors Database
-| 3. Destinations Database
-| 4. Reports Database
-| B. Back
-| Q. Quit                                                                                                                                  |
-------------------------------------------------------------------------------------------------------------------------------------------------- """
-#MANAGER MAIN MENU, INPUT 1: Employees Databa
-manager_main_menu_employees = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                         |
-| 1. View Employees                                                                                                                         
-| 2. Edit Employee Data 
-| 3. Add Employee
-| 4. Delete Employee Data
-| B. Back
-| Q. Quit                                                                                                                                  |
-------------------------------------------------------------------------------------------------------------------------------------------------- """
-#MANAGER MAIN MENU, INPUT 2: Contractors Database
-manager_main_menu_contractors = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                         |
-| 1. Contractor Contacts
-| 2. Request Maintenance
-| 3. Check Maintenance Reports
-| B. Back
-| Q. Quit                                                                                                                                  |
-------------------------------------------------------------------------------------------------------------------------------------------------- """
-#MANAGER MAIN MENU, INPUT 3: Destinations Database
-manager_main_menu_destinations = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
-| Please select a role:                                                                                                                         |
-| 1. View Destinations                                                                                                                         
-| 2. Edit Destinations 
-| 3. Add Destinations
-| 4. Remove Destination
-| B. Back
-| Q. Quit                                                                                                                                  |
-------------------------------------------------------------------------------------------------------------------------------------------------- """
-
-print(main_menu_1)
-# input 2
-
-employee_main_menu = f"""
-{RED}                                                           ------------------
-                                                          |Welcome to NAN AIR|
--------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                        |
-| 1. view location                                                                                                                               |
-| 2. view properties                                                                                                                             |
-| 3. view employees                                                                                                                              |
-| 4. view contractors                                                                                                                            |
-| 5. view managers                                                                                                                               |
-| 6. view active tasks  	                                                                                                                     |
-| 7. make a report                                                                                                                               |
-| q. quit                                                                                                                       	             |
--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    """
-
-
-# input 1 (displays 6 locations)
-
-employee_view_location = f"""
-{RED}                                                           ------------------
-                                                          |Viewing locations|
--------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                        |
-| 1. Reykjavík                                                                                                                                   |
-| 2. Nuuk                                                                                                                                        | 
-| 3. Kulusuk                                                                                                                                     |
-| 4. Þórshöfn                                                                                                                                    |
-| 5. Tingwall                                                                                                                                    |
-| 6. Longyearbyen                                                                                                                                |
-| b. back                                                                                                                                        |
-| q. quit                                                                                                                       	             |
--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    """
-print(employee_view_location)
-# input 1
-
-employee_view_reykjavik = f"""e{RED}                                                           ------------------
-                                                          |Viewing properties in Reykjavik|
--------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                        |
-| 1. view property by ID                                                                                                                         |
-| b. back                                                                                                                                        | 
-| q. quit                                                                                                                                        |
--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    """
-print(employee_view_reykjavik)
-#input 1
-
-# Enter a property ID: (Sample F12345)
-viewing_property_by_ID = f"""
-{RED}                                                           ------------------
-                                                          |Viewing property F12345|
--------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                        |
-| 1. View employees                                                                                                                              |
-| 2. View manager                                                                                                                                |
-| 3. View contractors                                                                                                                            |
-| 4. View maintenance tasks                                                                                                                      |
-| b. back                                                                                                                                        | 
-| q. quit                                                                                                                                        |
--------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    """
-print(viewing_property_by_ID)
-# input b
-# input b
-# input b
-
-# --- Employee Details ---
-# ID: 7
-# Name:
-# Social Security:
-# Address:
-# Home Phone:
-# GSM Phone:
-# Email:
-# Work Location:
-# Type: General
-# ------------------------
-
-# Employee Number | Work Location | Type of Employee | GSM Phone |
-#   1
-#   2
-
-
-# Details of a specific employee (input mployee number): 1
-
-
-
-
-  
+            if user_choice == "1":
+                self.ViewUI.viewMenu()
+            elif user_choice == "2":
+                pass
+                #self.MAINTENANCE SOMETHING FUNCTION
+            else:
+                print("Invalid Input")
