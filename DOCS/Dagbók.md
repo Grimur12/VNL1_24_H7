@@ -29,7 +29,7 @@ Today's work:
   - The GitHub Manual           (Grímur focused on this)
   - Class Diagram               (Everyone focused on this together)
       - Model Diagram          
-      - State Diagram          
+      - State Diagram           (Iðunn and Pedro focused on this)
   - Functional Requirements     
   - User Group analysis         (Leonard and Máni focused on this)  
   - Wireframe                   (Ólafur focused on this)
@@ -40,6 +40,7 @@ End-of-day Results:
   - The GitHub Manual has been completed
   - The Functional Requirements list is almost completed
   - User Group Analysis is almost completed
+  - The only thing that was fully completed was the GitHub Manual
 
 TODO:
 - [x] Finish the Github Manual
@@ -65,12 +66,12 @@ Mættir / In attendance:
 Today's work:
 
 - The main objective of the day is to complete the following
-  - Wireframe sketch
-  - Functional Requirements
-  - Use Cases
+  - Wireframe sketch                (Ólafur was focusing on this)
+  - Functional Requirements         (Máni and Leonard were focusing on this)
+  - Use Cases                       (Everyone was focusing on this)
   - User Group Analysis 
 
-- Another main objective is to keep working on the Class Diagram
+- Another main objective is to keep working on the Class Diagram 
 - Once the list of objectives are completed the rest of the group will join in on the Class Diagram to give input
 - Olafur: Worked on the Wireframe sketch today and made user stories for Employee, Travel Destination, Housing and 
 maintenance reports from employee, contractor and supervisor.
@@ -168,7 +169,7 @@ End-of-day Results:
     - Good to mention here that this may very well change during the coding process as we further define our system or see a more efficient way to implement changes
   - Finished the UX Goals
   - Put everything together in a document that is ready to be submitted on friday
-  - We were able to finish everything and we worked well together
+  - We were able to finish everything together and we worked well together
 
 - Tomorrow:
   - Show up tomorrow see if we can add any text or spot any inconsistencies
@@ -276,7 +277,7 @@ TODO:
   - [x] Organizing the connections and wrappers
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
-  - [ ] Split this into smaller taskss...
+  - [ ] Setup and Organizing
   - [ ] Split this into smaller taskss...
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
@@ -300,7 +301,7 @@ Some discussion about previous day and implementation of certain bits of code:
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
-    - t
+    - One of the two was sick but did work from home, the UI layer's setup and organization was completed.
   - Pedro and Iðunn are taking the Logic Layer
     - we were starting on the logic layer employees, and write out our functions there and in the other layers.
   - Grímur and Máni are taking the Data Layer
@@ -321,8 +322,10 @@ TODO:
   - [x] Almost finishing the Employees Logic Layer 
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
-  - [ ] Split this into smaller taskss...
-  - [ ] Split this into smaller taskss...
+  - [x] Setup and Organizing
+  - [ ] Finish ContractorUI
+  - [ ] Finish EmployeeUI
+  - [ ] Finish ManagaerUI
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -339,7 +342,8 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
-    - t
+    - one of the group members were sick but they did work at home, the UI layer is in process.
+    - continuing with the UI layer, They finished the contractorUI
   - Pedro and Iðunn are taking the Logic Layer
     - today we finished our Employees Logic Layer. It took some time to finish it and we needed some help to understand it much better.
     - We havent tested our connections but we will do that tomorrow. 
@@ -363,7 +367,9 @@ Pairs and Layers EOD Results and Todays work:
   - [ ] Split this into smaller taskss...
   - [ ] Split this into smaller taskss...
 - [ ] Create an independent UI Layer
-  - [ ] Split this into smaller taskss...
+  - [x] Finish ContractorUI
+  - [ ] Finish EmployeeUI
+  - [ ] Finish ManagaerUI
   - [ ] Split this into smaller taskss...
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
@@ -381,14 +387,18 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work:
 - Ólafur and Leonard have the UI
-    - 
+    - one of the members was still sick so the process of UI was processing slower than the other parts
+    - the work of today on the UI layer was doing the managerUI
 - Iðunn and Pedro have the LL
     - today we were working on logic layer employee and we were focusing on the connections between
       the wrapper and our other classes. it took some time because we got some failures come up but in
       the end we were able to figure most of it out and we will continue tomorrow. Tomorrow we hope to
       continue and test if we can use the same code for properties for create, view and more things.
 - Máni and Grímur have the DL
-    - 
+    - They have finished the DL and they started helping out in the Logic Layer with connection problems that they were having.
+
+Issues:
+  - The connections have been a struggle to make everything work, we need alot of testing done.
 
   TODO:
 - [ ] Create an independent Data Layer
@@ -396,8 +406,8 @@ Pairs and Layers EOD Results and Todays work:
   - [x] Maintenance DB connection
   - [x] Employee DB connection
   - [x] Properties DB connection
-  - [ ] Insert Return statements in DB
-  - [ ] Implement a two file read system
+  - [x] Insert Return statements in DB
+  - [x] Implement a two file read system
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
@@ -406,7 +416,9 @@ Pairs and Layers EOD Results and Todays work:
   - [ ] Finish the Logic Layer Maintenance
   - [ ] Finish the logic layer Properties
 - [ ] Create an independent UI Layer
-  - [ ] Split this into smaller taskss...
+  - [x] Finish ContractorUI
+  - [ ] Finish EmployeeUI
+  - [ ] Finish ManagaerUI
   - [ ] Split this into smaller taskss...
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
@@ -424,41 +436,36 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard
+      -the goal of today was finishing the managerUI file,
   - Iðunn and Pedro
       - The plan for us today is to finish the other parts missing in logic layer or the majority of it. If we do not finish we will leave connection testing until next week.
+      - We are working on the Properties Logic file and we hope to finish it today and start on the Maintenance Logic.
   - Grímur and Máni
-
-
-
-
-
-
+      -Today we are focusing on connecting our system. Connecting the Logic Layer to the Datalayer.
+    
   TODO:
 - [ ] Create an independent Data Layer
   - [x] Data Layer Wrapper
   - [x] Maintenance DB connection
   - [x] Employee DB connection
   - [x] Properties DB connection
-  - [ ] Insert Return statements in DB
-  - [ ] Implement a two file read system
+  - [x] Insert Return statements in DB
+  - [x] Implement a two file read system
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
   - [x] Finishing the Employees Logic Layer
   - [x] Finish the Logic Layer Employee
   - [ ] Finish the Logic Layer Maintenance
-  - [ ] Finish the logic layer Properties
+  - [x] Finish the logic layer Properties
 - [ ] Create an independent UI Layer
-  - [ ] Split this into smaller taskss...
-  - [ ] Split this into smaller taskss...
+  - [x] Finish ContractorUI
+  - [ ] Finish EmployeeUI
+  - [x] Finish ManagaerUI
+  - [ ] Connecting the UI to Logic Layer
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
-
-
-
-
-
 
 
 # Vika 3
