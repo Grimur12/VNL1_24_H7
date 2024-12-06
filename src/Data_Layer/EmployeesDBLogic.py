@@ -17,6 +17,8 @@ class EmployeesDBLogic:
                 employees_list = json.load(employeeDBOpen)
         except FileNotFoundError:
             return []
+        except json.JSONDecodeError:
+            return []
         # Params 8 is a reference to "type" variable in the classes
         employees = []
         for employee in employees_list:
@@ -41,7 +43,7 @@ class EmployeesDBLogic:
             json.dump(Employees, file, indent=4)
 
     def createEmployee(self, employee) -> None:
-        """ This function takes in a list of parameters and creates an employee and stores in the json DB """
+        """  """
         # Params should be a list of all the variables Employee() or Contractor() class needs to initialize in the correct order
         employees = self.loadEmployeeLog()
         employees.append(employee)
@@ -75,10 +77,3 @@ class EmployeesDBLogic:
             else:
                 for key, value in employee.__dict__.items():
                     print(f"{key}: {value}")
-
-## Functionality Tests
-# ui = EmployeesDBLogic()
-# ui.loadEmployeeLog()
-# ui.printEmployees()
-# ui.updateEmployee([1,"Máni","060702-2690","Mántaún NÝTT 2", "5548989", "885-2233", "mani@ru.is", "HR", "Manager"])
-# ui.printEmployees()

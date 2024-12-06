@@ -9,43 +9,65 @@ class LogicLayerMaintenanceLogic:
         self.Errors = ErrorCheckers()
         self.tempmaintenance = None
 
-    def createUniqueID(self):
+    def createUniqueMaintenanceID(self):
         currentMaintenance = self.DataLayerWrapper.loadMaintenanceLog()
         if len(currentMaintenance) != 0:
             newID = currentMaintenance[-1].maintenanceID + 1 # Assign new maintenance to a new ID
         else:
             newID = 1
         return newID
-
-    #create a new maintenance
-    def createTemp_Maintenance(self):
-
-
-    #close a finished maintenance report
-    def closeMaintenanceReport(self):
-        pass
-
-    #update maintenance status
-    def updateMaintenanceStatus(self):
-        pass
-
-    #get maintenance data
-    def getMaintenanceData(self):
-        return self.maintenance
     
-    #edit maintenance schedule
+    def createUniqueMaintenanceScheduleID(self):
+        currentMaintenance = self.DataLayerWrapper.loadMaintenanceScheduleLog()
+        if len(currentMaintenance) != 0:
+            newID = currentMaintenance[-1].maintenanceID + 1 # Assign new maintenance to a new ID
+        else:
+            newID = 1
+        return newID
+
+    def createTempMaintenance(self):
+    # Create a new maintenance
+        pass
+
+    def createTempMaintenanceSchedule(self):
+    # Create a temporary maintenance schedule
+        pass
+
+    def validateMaintenanceInput(self):
+    # Validate the Maintenance Input
+        pass
+
+    def validateMaintenanceScheduleInput(self):
+    # Validate the Maintenance Schedule Input
+        pass
+
+    def closeMaintenanceReport(self):
+    # Close a finished maintenance report
+        pass
+
+    def updateMaintenanceStatus(self):
+    # Update maintenance status
+        pass
+
+    def getMaintenanceData(self):
+    # Get maintenance data
+        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
+        return maintenanceLog
+    
+
+    def getMaintenanceScheduleData(self):
+        maintenanceSchedules = self.DataLayerWrapper.loadMaintenanceLog()
+        return maintenanceSchedules
+    
+    def editMaintenanceData(self):
+    # Edit maintenance schedule
+        pass
+
     def editMaintenanceSchedule(self):
         pass
+    
+    def createMaintenance(self, maintenance):
+        self.DataLayerWrapper.createMaintenance(maintenance)
 
-
-
-
-
-    #check errors
-    def checkMaintenanceErrors(self):
-        pass
-
-
-    # #filter maintenance by priority
-    # def filterMaintenance(self):
-    #     pass
+    def createMaintenanceSchedule(self, maintenanceSchedule):
+        self.DataLayerWrapper.createMaintenanceSchedule(maintenanceSchedule)

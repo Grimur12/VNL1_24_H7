@@ -1,0 +1,11 @@
+[
+    {
+        "propertyID": 1,
+        "nameOfProperty": "NAME CHANGED TEST HR",
+        "location": "Iceland",
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
+    }
+]

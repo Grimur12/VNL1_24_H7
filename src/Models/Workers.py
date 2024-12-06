@@ -45,6 +45,7 @@ Type: {self.type}
 
 class Contractor(Employee):
     def __init__(self, previousTask = "", performanceRating = "", contractorContact = "", openingHours = "", *args) -> None:
+        ## need to change the contractor contact to employeeID not phone number
         super().__init__(*args)
         self.previousTask = previousTask
         self.performanceRating = performanceRating

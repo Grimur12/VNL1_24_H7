@@ -21,37 +21,32 @@ class DataLayerAPI:
     def updateEmployee(self, employee) -> None:
         self.employeeDB.updateEmployee(employee)
 
-    
     def loadPropertiesLog(self) -> list:
-        return self.propertyDB.loadPropertiesLog()
+        propertyLog = self.propertyDB.loadPropertiesLog()
+        return propertyLog
 
-    def createProperty(self, params) -> None:
-        self.propertyDB.createProperty(params)
+    def createProperty(self, property) -> None:
+        self.propertyDB.createProperty(property)
 
-
-    def updateProperty(self, params) -> None:
-        self.propertyDB.updateProperty(params)
+    def updateProperty(self, property) -> None:
+        self.propertyDB.updateProperty(property)
 
     def loadMaintenanceLog(self) -> list:
-        return self.maintenanceDB.loadMaintenanceLog()
+        maintenances = self.maintenanceDB.loadMaintenanceLog()
+        return maintenances
 
-    def loadMaintenanceSchedule(self) -> list:
-        return self.maintenanceDB.loadMaintenanceSchedule()
+    def loadMaintenanceScheduleLog(self) -> list:
+        maintenanceSchedules = self.maintenanceDB.loadMaintenanceScheduleLog()
+        return maintenanceSchedules
         
-    def updateMaintenanceStatus(self, params) -> None:
-        self.maintenanceDB.updateMaintenanceStatus(params)
+    def updateMaintenanceStatus(self, maintenance) -> None:
+        self.maintenanceDB.updateMaintenanceStatus(maintenance)
 
-    def updateMaintenanceSchedule(self, params) -> None:
-        self.maintenanceDB.updateMaintenanceSchedule(params)
+    def updateMaintenanceSchedule(self, maintenanceSchedule) -> None:
+        self.maintenanceDB.updateMaintenanceSchedule(maintenanceSchedule)
 
-    def createMaintenanceSchedule(self, params) -> None:
-        self.maintenanceDB.createMaintenanceSchedule(params)
+    def createMaintenanceSchedule(self, maintenanceSchedule) -> None:
+        self.maintenanceDB.createMaintenanceSchedule(maintenanceSchedule)
 
-    def createMaintenance(self, params) -> None:
-        self.maintenanceDB.createMaintenance(params)
-
-    def removeMaintenance(self, ID) -> None:
-        self.maintenanceDB.removeMaintenance(ID)
-
-    def removeMaintenanceSchedule(self, ID) -> None:
-        self.maintenanceDB.removeMaintenanceSchedule(ID)
+    def createMaintenance(self, maintenance) -> None:
+        self.maintenanceDB.createMaintenance(maintenance)

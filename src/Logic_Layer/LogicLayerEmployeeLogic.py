@@ -4,11 +4,12 @@ from .ErrorCheckers import ErrorCheckers
 
 class LogicLayerEmployeeLogic:
     def __init__(self):
-        # This list is to store our employees
+        #
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 
     def createUniqueID(self) -> int:
+        #here we create a new unique ID for the employees
         currentEmployees = self.DataLayerWrapper.loadEmployeeLog()
         if len(currentEmployees) != 0:
             newID = currentEmployees[-1].employeeID + 1 # Assign new employee with a unique ID
@@ -17,7 +18,6 @@ class LogicLayerEmployeeLogic:
         return newID
     
     def createTempEmployee(self, type_of_employee):
-
         #  Type of employee should be "1" for General Employee, "2 " for Manager, "3" for Contractor 
         tempEmployeeID = self.createUniqueID()
         if type_of_employee == "1": # General Employee
@@ -35,7 +35,7 @@ class LogicLayerEmployeeLogic:
 
     def validateEmployeeInput(self, input, count, temp_employee):
         # We dont have to check for ID and type since that is automatically assigned based on user choice
-        if self.Errors.checkNumber:
+        if self.Errors.checkNumber(count):
             count = int(count)
         if count == 1:  # Name
             self.Errors.errorCheckName(input)
@@ -99,8 +99,8 @@ class LogicLayerEmployeeLogic:
             else:
                 raise ValueError("No Contractor by that ID")
 
-    #get Employees Data
     def getEmployeeData(self):
+        #get Employees Data
         employeeLog = self.DataLayerWrapper.loadEmployeeLog()
         return employeeLog
         
@@ -129,11 +129,3 @@ class LogicLayerEmployeeLogic:
     #check errors
     def check_employee_Errors(self):
         pass
-
-
-                
-    # #filter Employees                   
-    # def filterEmployees(self, workLocation: str = None, employeeType: str = None) -> list:
-    #     pass
-    #     # for employee in loadEmployeeLog():
-    #     #     if workLocation

@@ -13,6 +13,7 @@ class ErrorCheckers:
 
     def checkEmpty(self, input):
         """ Returns True if user input is not empty, raises ValueError otherwise """
+        # We cant have empty as an input
         if input == "":
             raise ValueError("Input can not be empty")
         return True
@@ -66,20 +67,6 @@ class ErrorCheckers:
         if location.isnumeric():
             raise ValueError("Location must not be just a number")
         return True
-
-    # def errorCheckEmployeeType(self, type):
-    #     """ Checks if type user input is valid """
-    #     self.checkEmpty(type)
-    #     valid_types = ["General", "Manager"]
-    #     if type not in valid_types:
-    #         raise ValueError("Type is not Valid, must be a Manager, General or Contractor")
-    #     return True
-    
-    # def errorCheckContractorType(self, type):
-    #     self.checkEmpty(type)
-    #     if type != "Contractor":
-    #         raise ValueError("Type is not Valid, must be a Contractor")
-    #     return True
     
     def errorCheckEmployeePreviousTask(self, previousTask):
         ## ADD LATER
@@ -105,3 +92,9 @@ class ErrorCheckers:
             if "-" not in openingHours:
                 raise ValueError("Opening Hours need to be of the format X-X, E.X 9:30-5:30")
         return True
+
+    def errorCheckBoolean(self, input):
+        if input in ["True", "False"]:
+            return True
+        raise ValueError("Input should be either a True or False")
+        

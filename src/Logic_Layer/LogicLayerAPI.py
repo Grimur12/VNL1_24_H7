@@ -31,21 +31,30 @@ class LogicLayerAPI:
         contractor = self.LogicLayerEmployeelogic.getContractorbyID(ID)
         return contractor
     
-    def assign_task_to_employee(self):
-        pass
+    # def assign_task_to_employee(self):
+    #     pass
 
-    def get_employee_tasks(self):
-        pass
+    # def get_employee_tasks(self):
+    #     pass
+
+# A superior must be able to create and/or update tickets for properties they manage
+# A superior must be able to accept maintenance reports to close tickets
+# An employee must be able to register a maintenance report for an open ticket
+# An employee must be able to flag a ticket as ready for closing by a superior
+
 
     def update_employee_data(self, employee):
         self.LogicLayerEmployeelogic.updateEmployeeData(employee)
 
-# here are functions with maintenence operations
+# functions that are about maintenance
 
-    def create_maintenance(self):
-        self.LogicLayerMaintenanceLogic.createMaintenance()
+    def createMaintenance(self, maintenance):
+        self.LogicLayerMaintenancelogic.createMaintenance(maintenance)
+        
+    def createMaintenanceSchedule(self, maintenanceSchedule):
+        self.LogicLayerMaintenancelogic.createMaintenanceSchedule(maintenanceSchedule)
 
-    def close_maintenenca_report(self):
+    def closeMaintenanceReport(self):
         pass
 
     def update_maintenance_status(self):
@@ -60,11 +69,28 @@ class LogicLayerAPI:
     def edit_maintenance_schedule(self):
         pass
 
-    # functions that are about properties,
+    # functions that are about properties.
 
     def updateStatusOfProperty(self):
-        pass
+        self.LogicLayerPropertyLogic.updateStatusOfProperty(property)
 
-    def createProperty(self):
-        self.LogicLayerPropertyLogic.createProperty()
+    def createTempProperty(self):
+        return self.LogicLayerPropertyLogic.createTempProperty()
+        
+    def createProperty(self, tempProperty):
+        self.LogicLayerPropertyLogic.createProperty(tempProperty)
+
+    def validatePropertyInput(self, user_input, count, temp_property):
+        return self.LogicLayerPropertyLogic.validatePropertyInput(user_input, count, temp_property)
+    
+    def getPropertyData(self):
+        propertyLog = self.LogicLayerPropertyLogic.getPropertiesData()
+        return propertyLog
+    
+    def updateProperty(self, property):
+        self.LogicLayerPropertyLogic.updateProperty(property)
+
+    def getPropertyByID(self, ID):
+        property = self.LogicLayerPropertyLogic.getPropertyByID(ID)
+        return property
 

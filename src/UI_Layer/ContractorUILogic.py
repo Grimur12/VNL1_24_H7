@@ -148,7 +148,8 @@ employee_view_reykjavik = f"""e{RED}                                            
 | b. back                                                                                                                                        | 
 | q. quit                                                                                                                                        |
 -------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    """print()employee_view_reykjavik
+                                                                                                                                                    """
+print(employee_view_reykjavik)
 #input 1
 
 # Enter a property ID: (Sample F12345)
@@ -168,3 +169,27 @@ print(viewing_property_by_ID)
 # input b
 # input b
 # input b
+
+# --- Employee Details ---
+# ID: 7
+# Name:
+# Social Security:
+# Address:
+# Home Phone:
+# GSM Phone:
+# Email:
+# Work Location:
+# Type: General
+# ------------------------
+
+# Employee Number | Work Location | Type of Employee | GSM Phone |
+#   1
+#   2
+
+
+# Details of a specific employee (input mployee number): 1
+
+
+
+
+  
