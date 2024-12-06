@@ -1,4 +1,4 @@
-from Logic_Layer import LogicLayerAPI
+#from Logic_Layer import LogicLayerAPI
 
 class ContractorUILogic:
     def __init__(self):
@@ -38,18 +38,31 @@ banner = f"""
 
 print(banner)
 
-main_menu_1 = f"""
+def main_menu_select_role():
+    while True:  # Loop until a valid choice is made
+        try:
+            main_menu_select_role = input(f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
 ------------------------------------------------------------------------------------------------------------------------------------------------
 | Please select a role:                                                                                                                         |
-| 1. manager                                                                                                                                    |
-| 2. employee                                                                                                                                   |
+| 1. Manager                                                                                                                                    |
+| 2. Employee                                                                                                                                   |
 -------------------------------------------------------------------------------------------------------------------------------------------------
- 
-                                                                                                                                     """
+| INPUT: """)
+            if main_menu_select_role == '1':
+                manager_main_menu()
+                break  # Exit loop after selection
+            elif main_menu_select_role == '2':
+                print("Employee option selected. This feature is not implemented yet.")
+                break
+            else:
+                print("Invalid selection. Please select 1 for Manager or 2 for Employee.")
+        except ValueError:
+            print("Please enter a valid number.")
 
-print(main_menu_1)
+main_menu_select_role()
+
 #Input 1
 manager_main_menu = f"""
 {RED}                                                           ------------------
@@ -303,8 +316,7 @@ manager_main_menu_destinations_edit = f"""
 |-----------------------------------------------------------------------------------------------------------------------------------| """
 
 
-print(main_menu_1)
-#MAIN MENU Input 4: Reports Database
+##MAIN MENU Input 4: Reports Database
 manager_main_menu_reports = f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
@@ -316,5 +328,4 @@ manager_main_menu_reports = f"""
 | B. Back                                                                                                                           |
 | Q. Quit                                                                                                                           |
 ------------------------------------------------------------------------------------------------------------------------------------- """
-
-print(main_menu_1)
+#
