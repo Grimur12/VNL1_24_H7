@@ -414,7 +414,52 @@ Pairs and Layers EOD Results and Todays work:
 
 ## [06/12/2024 - Dagur 5]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Pairs and Layers EOD Results and Todays work:
+  - Ólafur and Leonard
+  - Iðunn and Pedro
+      - The plan for us today is to finish the other parts missing in logic layer or the majority of it. If we do not finish we will leave connection testing until next week.
+  - Grímur and Máni
+
+
+
+
+
+
+  TODO:
+- [ ] Create an independent Data Layer
+  - [x] Data Layer Wrapper
+  - [x] Maintenance DB connection
+  - [x] Employee DB connection
+  - [x] Properties DB connection
+  - [ ] Insert Return statements in DB
+  - [ ] Implement a two file read system
+- [ ] Create an independent Logic Layer
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
+  - [x] Finishing the Employees Logic Layer
+  - [x] Finish the Logic Layer Employee
+  - [ ] Finish the Logic Layer Maintenance
+  - [ ] Finish the logic layer Properties
+- [ ] Create an independent UI Layer
+  - [ ] Split this into smaller taskss...
+  - [ ] Split this into smaller taskss...
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
+
+
+
+
+
+
 
 # Vika 3
 
