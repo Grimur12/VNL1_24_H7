@@ -9,9 +9,17 @@ class LogicLayerMaintenanceLogic:
         self.Errors = ErrorCheckers()
         self.tempmaintenance = None
 
+    def createUniqueID(self):
+        currentMaintenance = self.DataLayerWrapper.loadMaintenanceLog()
+        if len(currentMaintenance) != 0:
+            newID = currentMaintenance[-1].maintenanceID + 1 # Assign new maintenance to a new ID
+        else:
+            newID = 1
+        return newID
+
     #create a new maintenance
-    def createMaintenance(self):
-        pass
+    def createTemp_Maintenance(self):
+
 
     #close a finished maintenance report
     def closeMaintenanceReport(self):
