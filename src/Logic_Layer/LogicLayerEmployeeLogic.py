@@ -118,13 +118,22 @@ class LogicLayerEmployeeLogic:
         # input can be name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType for employees 
         self.DataLayerWrapper.updateEmployee(employee)
         
-                
-    #filter Employees                   
-    def filterEmployees(self, workLocation: str = None, employeeType: str = None) -> list:
-        pass
-        # for employee in loadEmployeeLog():
-        #     if workLocation
+
+
+
+
+
+
+
     
     #check errors
     def check_employee_Errors(self):
         pass
+
+
+                
+    # #filter Employees                   
+    # def filterEmployees(self, workLocation: str = None, employeeType: str = None) -> list:
+    #     pass
+    #     # for employee in loadEmployeeLog():
+    #     #     if workLocation

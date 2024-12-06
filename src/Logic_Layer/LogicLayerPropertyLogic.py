@@ -32,17 +32,21 @@ class LogicLayerPropertyLogic:
         pass
 
 
-
-
-
-    #filter properties by ID or other things.
-    def filterProperties(self):
-        pass
-
     #get properties data
     def getPropertiesData(self):
         pass
 
+
+
+
+
+
+
+
     #check errors
     def checkPropertiesError():
         pass
+
+    # #filter properties by ID or other things.
+    # def filterProperties(self):
+    #     pass

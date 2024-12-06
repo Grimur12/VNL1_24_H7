@@ -13,17 +13,12 @@ class LogicLayerMaintenanceLogic:
     def createMaintenance(self):
         pass
 
-
     #close a finished maintenance report
     def closeMaintenanceReport(self):
         pass
 
     #update maintenance status
     def updateMaintenanceStatus(self):
-        pass
-
-    #filter maintenance by priority
-    def filterMaintenance(self):
         pass
 
     #get maintenance data
@@ -34,6 +29,15 @@ class LogicLayerMaintenanceLogic:
     def editMaintenanceSchedule(self):
         pass
 
+
+
+
+
     #check errors
     def checkMaintenanceErrors(self):
         pass
+
+
+    # #filter maintenance by priority
+    # def filterMaintenance(self):
+    #     pass
