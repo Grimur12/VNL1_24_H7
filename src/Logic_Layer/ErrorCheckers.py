@@ -1,4 +1,5 @@
 # Error checker class for all error checks
+from datetime import datetime
 
 class ErrorCheckers:
 
@@ -100,4 +101,51 @@ class ErrorCheckers:
         if input in ["True", "False"]:
             return True
         raise ValueError("Input should be either a True or False")
-        
+    
+    def checkErrorStartDate(self, input, datetime_format):
+        try:
+            conversion = datetime.strptime(input, datetime_format)
+            return conversion
+        except ValueError:
+            raise ValueError("Invalid Date format. Please input date as 'DD.MM.YYYY.HH:MM'.")
+            
+
+    def checkErrorEndDate(self, input, datetime_format, startDate): 
+
+        # Need to check if enddate inputted is in the valid format and if its at a later date than the start date
+        try:
+            conversion = datetime.strptime(input, datetime_format)
+
+            if conversion < startDate:
+                raise ValueError("End Date can not be before the Start Date")
+            return conversion
+        except ValueError:
+            raise ValueError("Invalid Date format. Please input date as 'DD.MM.YYYY.HH:MM'.")
+
+    def checkErrorStatusMaintenance(self, input):
+        if input.lower() in ["ongoing", "closed"]:
+            return True
+        raise ValueError("Maintenance Tasks can only either be Ongoing or Closed")
+
+    def checkErrorFeedback(self, input):
+        if input.isnumeric():
+            if int(input) >= 0 and int(input) <= 10:
+                return True
+        raise ValueError("Feedback should be a number ranging from 0-10")
+
+    def checkErrorPriority(self, input):
+        if input.lower() in ["low", "medium", "high"]:
+            return True
+        raise ValueError("Maintenance Tasks only have three priorties, Low, Medium and High")
+
+    def checkErrorTaskType(self, input):
+        # Type should be either Standard or Abnormal
+        if input.lower() in ["normal", "abnormal"]:
+            return True
+        raise ValueError("Task Type can only either be Normal or Abnormal")
+
+    def checkErrorFrequency(self, input):
+        # Frequency is going to be either Daily, Weekly, Monthly
+        if input.lower() in ["daily", "weekly", "monthly"]:
+            return True
+        raise ValueError("Frequency can only be: Daily, Weekly or Monthly")

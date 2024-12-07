@@ -7,5 +7,14 @@
         "hasAPool": "True",
         "hasATub": "True",
         "hasOvens": "False"
+    },
+    {
+        "propertyID": 2,
+        "nameOfProperty": "Kaffistofan",
+        "location": "Hafnafj\u00f6r\u00f0ur",
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
     }
 ]

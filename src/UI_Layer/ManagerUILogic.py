@@ -16,8 +16,8 @@ class ManagerUILogic:
             print("1: To create new Properties, Employees or Maintenance Tasks")
             print("2: To edit existent Properties, Employees or Maintenance Tasks")
             print("3: To view existent Properties, Employess or Maintenance Tasks")
-            print("B to go Back")
-            print("Q to quit")
+            print("B: To Go Back")
+            print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -26,6 +26,7 @@ class ManagerUILogic:
 
             if user_choice.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break
 
             if user_choice == "1":
@@ -39,7 +40,7 @@ class ManagerUILogic:
 
 
     def addMenu(self):
-        self.ViewingUI.clearTerminal
+        self.ViewingUI.clearTerminal()
         while True:
             print("1: To create a new General Employee")
             print("2: To create a new Manager")
@@ -47,6 +48,8 @@ class ManagerUILogic:
             print("4: To create a new Property")
             print("5: To create a new Maintenance Task")
             print("6: To create a new Maintenance Schedule")
+            print("B: To Go Back")
+            print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -55,6 +58,7 @@ class ManagerUILogic:
 
             if user_choice.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break
 
             if user_choice in ["1", "2", "3"]:
@@ -78,8 +82,10 @@ class ManagerUILogic:
             print("1: To edit an Employee or a Manager")
             print("2: To edit a Contractor")
             print("3: To edit a Property")
-            print("4: To Maintenance Task")
+            print("4: To edit a Maintenance Task")
             print("5: To edit a Maintenance Schedule")
+            print("B: To Go Back")
+            print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -88,10 +94,11 @@ class ManagerUILogic:
 
             if user_choice.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break
 
             if user_choice == "1":
-                ID = input("ID of the Property to edit: ")
+                ID = input("ID of the Employee you want to edit: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -100,9 +107,9 @@ class ManagerUILogic:
                     self.ViewingUI.clearTerminal()
                     continue
 
-                self.editEmployee(user_choice) # komið
+                self.editEmployee(ID) # komið
             elif user_choice == "2":
-                ID = input("ID of the Property to edit: ")
+                ID = input("ID of the Contractor you want to edit: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -113,7 +120,7 @@ class ManagerUILogic:
 
                 self.editContractor(ID) # komið
             elif user_choice == "3":
-                ID = input("ID of the Property to edit: ")
+                ID = input("ID of the Property you want to edit: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -124,7 +131,7 @@ class ManagerUILogic:
 
                 self.editProperty(ID) # komið
             elif user_choice == "4":
-                ID = input("ID of the Property to edit: ")
+                ID = input("ID of the Maintenance Task you want to edit: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -135,7 +142,7 @@ class ManagerUILogic:
 
                 self.editMaintenanceTask(ID)
             elif user_choice == "5":
-                ID = input("ID of the Property to edit: ")
+                ID = input("ID of the Maintenance Schedule you to edit: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -168,6 +175,7 @@ class ManagerUILogic:
                 exit()
             elif userInput.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break
 
             try:
@@ -194,6 +202,7 @@ class ManagerUILogic:
                 print("Quitting")
                 exit()
             elif userInput.lower() == "b":
+                self.ViewingUI.clearTerminal()
                 break
 
             try:
@@ -210,10 +219,57 @@ class ManagerUILogic:
             print("You have successfully created a new Property")
 
     def createMaintenanceTask(self):
-        pass
+        
+        count = 1
+        tempMaintenanceTask = self.LogicLayerWrapper.createTempMaintenance()
+        error_message = None
+        while count < 7:
+            self.Displays.display_temp_maintenanceTask(tempMaintenanceTask, error_message)
+            userInput = input("Information: ")
+            if userInput.lower() == "q":
+                print("Quitting")
+                exit()
+            elif userInput.lower() == "b":
+                self.ViewingUI.clearTerminal()
+                break
+
+            try:
+                if self.LogicLayerWrapper.validateMaintenanceTaskInput(userInput, count, tempMaintenanceTask):
+                    count +=1
+                    error_message = None
+            except ValueError as error:
+                error_message = error
+                continue
+        if userInput.lower() != "b":
+            self.Displays.display_temp_maintenanceTask(tempMaintenanceTask, error_message)
+            self.LogicLayerWrapper.createMaintenance(tempMaintenanceTask)
+            print("You have successfully created a new Maintenance Task")
 
     def createMaintenanceSchedule(self):
-        pass
+        count = 1
+        tempMaintenanceSchedule = self.LogicLayerWrapper.createTempMaintenanceSchedule()
+        error_message = None
+        while count < 4:
+            self.Displays.display_temp_maintenanceSchedule(tempMaintenanceSchedule, error_message)
+            userInput = input("Information: ")
+            if userInput.lower() == "q":
+                print("Quitting")
+                exit()
+            elif userInput.lower() == "b":
+                self.ViewingUI.clearTerminal()
+                break
+
+            try:
+                if self.LogicLayerWrapper.validateMaintenanceScheduleInput(userInput, count, tempMaintenanceSchedule):
+                    count +=1
+                    error_message = None
+            except ValueError as error:
+                error_message = error
+                continue
+        if userInput.lower() != "b":
+            self.Displays.display_temp_maintenanceSchedule(tempMaintenanceSchedule, error_message)
+            self.LogicLayerWrapper.createMaintenanceSchedule(tempMaintenanceSchedule)
+            print("You have successfully created a new Maintenance Task")
 
     def editEmployee(self, ID):
         while True:
@@ -235,6 +291,7 @@ class ManagerUILogic:
                 exit() ## QUIT...
             elif userInput.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break ## Go back one
             elif userInput.lower() == "d":
                 print("Saving Changes")
@@ -270,10 +327,11 @@ class ManagerUILogic:
             self.Displays.editContractorMenu(employee, error_message)
             userInput = input("Number of the attribute you want to change: ")
 
-            if userInput.lower() == "Q":
+            if userInput.lower() == "q":
                 exit() ## QUIT...
-            elif userInput.lower() == "B":
+            elif userInput.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break ## Go back one
             elif userInput.lower() == "d":
                 print("Saving Changes")
@@ -312,6 +370,7 @@ class ManagerUILogic:
                 exit() ## QUIT...
             elif userInput.lower() == "b":
                 print("Going back")
+                self.ViewingUI.clearTerminal()
                 break ## Go back one
             elif userInput.lower() == "d":
                 print("Saving Changes")

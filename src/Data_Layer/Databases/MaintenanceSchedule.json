@@ -1,0 +1,8 @@
+[
+    {
+        "maintenanceScheduleID": 1,
+        "maintenanceID": 1,
+        "taskType": "Normal",
+        "frequency": "Daily"
+    }
+]

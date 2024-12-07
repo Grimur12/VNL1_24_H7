@@ -12,12 +12,15 @@ class main:
 
 if __name__ == "__main__":
     start = main()
-    start.ViewUI.clearTerminal() 
-    while True:
+    invalid = False
+    while True: 
+        start.ViewUI.clearTerminal()
         print("1: If you are a Manager")
         print("2: If you are an Employee")
         print("3: If you are a Contractor")
-        print("Q: To quit")
+        print("Q: To quit\n")
+        if invalid:
+            print("Error: Invalid Input\n")
 
         initial_input = input("Choice: ")
         if initial_input.lower() == "q":
@@ -30,4 +33,5 @@ if __name__ == "__main__":
         elif initial_input == "3":
             start.ContractorUI.run()
         else:
-            print("Invalid Input.")
+            invalid = True
+            

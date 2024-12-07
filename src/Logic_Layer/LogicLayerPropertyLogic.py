@@ -28,6 +28,7 @@ class LogicLayerPropertyLogic:
     def validatePropertyInput(self, input, count, temp_property):
         if self.Errors.checkNumber(count):
             count = int(count)
+
         if count == 1:  # Name Of Property
             self.Errors.errorCheckName(input)
             temp_property.nameOfProperty = input
@@ -62,6 +63,13 @@ class LogicLayerPropertyLogic:
             else:
                 raise ValueError("No Property By that ID")
 
+    def getTasksForEmployeeID(self, ID):
+        # Takes in property ID
+        # probably best to call GetPropertyByID
+        #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        # Put logic to add together if property ID == property ID in the report and return that ..
+        #return tasks
+        pass
 
     #update the status of properties
     def updateProperty(self, property):

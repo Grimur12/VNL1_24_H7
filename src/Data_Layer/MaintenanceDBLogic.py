@@ -3,6 +3,9 @@ import os
 import json
 from Models.Maintenance import Maintenance
 from Models.MaintenanceSchedule import MaintenanceSchedule
+from datetime import datetime
+
+DATETIME_FORMAT = "%d.%m.%Y.%H:%M"
 
 class MaintenanceDBLogic:
 
@@ -24,6 +27,11 @@ class MaintenanceDBLogic:
         
         maintenances = []
         for maint in maintenance_list:
+            # We had to convert the datetime into string to save it, so now we need to convert that string back into datetime when loading in
+            if maint["startDate"]:
+                maint["startDate"] = datetime.strptime(maint["startDate"], DATETIME_FORMAT)
+            if maint["endDate"]:
+                maint["endDate"] = datetime.strptime(maint["endDate"], DATETIME_FORMAT)
             maintenances.append(Maintenance(*maint.values()))
         return maintenances
 
@@ -52,7 +60,7 @@ class MaintenanceDBLogic:
 
     def updateMaintenanceSchedule(self, maintenanceSchedule) -> None:
         """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
-        maintenanceSchedules = self.loadMaintenanceSchedule()
+        maintenanceSchedules = self.loadMaintenanceScheduleLog()
         for index, schedule in enumerate(maintenanceSchedules):
             if schedule.maintenanceScheduleID == maintenanceSchedule.maintenanceScheduleID:
                 maintenanceSchedules[index] = maintenanceSchedule
@@ -60,7 +68,7 @@ class MaintenanceDBLogic:
 
     def createMaintenanceSchedule(self, maintenanceSchedule) -> None:
         """ This function takes in a list of parameters and creates a maintenanceSchedule and stores in the json DB """
-        maintenanceSchedules = self.loadMaintenanceSchedule()
+        maintenanceSchedules = self.loadMaintenanceScheduleLog()
         maintenanceSchedules.append(maintenanceSchedule)
         self.saveMaintenanceSchedule(maintenanceSchedules)
 
@@ -74,6 +82,12 @@ class MaintenanceDBLogic:
         """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
         Maintenances = []
         for maint in maintenances:
+            # We cant store the datetime so we will convert the datetime into string when saving and convert it back when loading in
+            maint_dict = maint.Maintenance_Dict()
+            if maint.startDate:
+                maint.startDate = maint.startDate.strftime(DATETIME_FORMAT)
+            if maint.endDate:
+                maint.endDate = maint.endDate.strftime(DATETIME_FORMAT)
             Maintenances.append(maint.Maintenance_Dict())
 
         with open(self.maintenance_file_path, 'w') as file:

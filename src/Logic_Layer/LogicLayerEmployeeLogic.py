@@ -37,6 +37,7 @@ class LogicLayerEmployeeLogic:
         # We dont have to check for ID and type since that is automatically assigned based on user choice
         if self.Errors.checkNumber(count):
             count = int(count)
+
         if count == 1:  # Name
             self.Errors.errorCheckName(input)
             temp_employee.name = input
@@ -100,10 +101,41 @@ class LogicLayerEmployeeLogic:
                 raise ValueError("No Contractor by that ID")
 
     def getEmployeeData(self):
+        """ Load all the employees from the DB and filter out all the General Employess and Managers to return in a list format """
         #get Employees Data
         employeeLog = self.DataLayerWrapper.loadEmployeeLog()
-        return employeeLog
-        
+        filtered_employees = []
+        for employee in employeeLog:
+            if employee.type != "Contractor":
+                filtered_employees.append(employee)
+        return filtered_employees
+    
+    def getContractorData(self):
+        """ Load all employees from the DB and filter out all the contractors to return in a list format """
+        contractorlog = self.DataLayerWrapper.loadEmployeeLog()
+        filtered_contractors = []
+        for contractor in contractorlog:
+            if contractor.type == "Contractor":
+                filtered_contractors.append(contractor)
+        return filtered_contractors
+    
+    def getTasksForEmployeeID(self, ID):
+        # Takes in employee ID
+        # probably best to call GetEmployeeByID
+        #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        # Put logic to add together if employee ID == employee ID in the report and return that ..
+        #return tasks
+        pass
+
+    def getTasksForContractorID(self, ID):
+
+        # Takes in contractor ID
+        # probably best to call GetContractorByID
+        #tasks = self.DataLayerWrapper.loadMaintenanceReportLog()
+        # Put logic to add together if contractor ID == contractor ID in the report and return that ..
+        #return tasks
+        pass
+
     def createEmployee(self, temp_employee):
         # params should be either
         # [name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType] for employees 

@@ -1,0 +1,11 @@
+[
+    {
+        "maintenanceID": 1,
+        "propertyID": 1,
+        "startDate": "02.12.2024.12:30",
+        "endDate": "03.12.2024.12:30",
+        "statusMaintenance": "Closed",
+        "feedback": "8",
+        "priority": "Medium"
+    }
+]

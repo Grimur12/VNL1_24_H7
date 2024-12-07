@@ -1,7 +1,7 @@
 [
     {
         "employeeID": 1,
-        "name": "Kalli",
+        "name": "Kalli can",
         "socialSecurity": "203010-2540",
         "address": "HR",
         "atHomePhone": "773-9090",
@@ -67,6 +67,32 @@
         "gsmPhone": "123-3232",
         "email": "g @",
         "workLocation": "r",
+        "type": "Manager"
+    },
+    {
+        "ID": 7,
+        "name": "Kalli",
+        "socialSecurity": "021002-9090",
+        "address": "Brekkuvegur 10",
+        "atHomePhone": "998-2332",
+        "gsmPhone": "902-1232",
+        "email": "kalli@gmail.com",
+        "workLocation": "LagningarEHF",
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "10",
+        "contractorContact": "999-1223",
+        "openingHours": "9-5"
+    },
+    {
+        "employeeID": 8,
+        "name": "Gr",
+        "socialSecurity": "303030-1212",
+        "address": "HR",
+        "atHomePhone": "993-1212",
+        "gsmPhone": "333-1232",
+        "email": "gr@gr.is",
+        "workLocation": "HR",
         "type": "Manager"
     }
 ]

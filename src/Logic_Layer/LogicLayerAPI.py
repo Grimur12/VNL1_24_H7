@@ -22,6 +22,10 @@ class LogicLayerAPI:
     def getEmployeeData(self):
         employeeLog = self.LogicLayerEmployeelogic.getEmployeeData()
         return employeeLog
+    
+    def getContractorData(self):
+        contractorLog = self.LogicLayerEmployeelogic.getContractorData()
+        return contractorLog
 
     def getEmployeebyID(self, ID):
         employee = self.LogicLayerEmployeelogic.getEmployeebyID(ID)
@@ -31,6 +35,18 @@ class LogicLayerAPI:
         contractor = self.LogicLayerEmployeelogic.getContractorbyID(ID)
         return contractor
     
+    def getTasksForContractorID(self, ID):
+
+        # Takes in contractor ID
+        tasks = self.LogicLayerEmployeelogic.getTasksForContractorID(ID)
+        return tasks
+    
+    def getTasksForEmployeeID(self, ID):
+
+        # Takes in employee ID
+        tasks = self.LogicLayerEmployeelogic.getTasksForEmployeeID(ID)
+        return tasks
+
     # def assign_task_to_employee(self):
     #     pass
 
@@ -53,6 +69,34 @@ class LogicLayerAPI:
         
     def createMaintenanceSchedule(self, maintenanceSchedule):
         self.LogicLayerMaintenancelogic.createMaintenanceSchedule(maintenanceSchedule)
+
+    def validateMaintenanceTaskInput(self, user_input, count, temp_maintenanceTask):
+        return self.LogicLayerMaintenancelogic.validateMaintenanceTaskInput(user_input, count, temp_maintenanceTask)
+    
+    def validateMaintenanceScheduleInput(self, user_input, count, temp_maintenanceSchedule):
+        return self.LogicLayerMaintenancelogic.validateMaintenanceScheduleInput(user_input, count, temp_maintenanceSchedule)
+    
+    def createTempMaintenance(self):
+        return self.LogicLayerMaintenancelogic.createTempMaintenance()
+
+    def createTempMaintenanceSchedule(self):
+        return self.LogicLayerMaintenancelogic.createTempMaintenanceSchedule()
+    
+    def getMaintenanceTaskData(self):
+        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceData()
+        return maintenanceTask
+    
+    def getMaintenanceScheduleData(self):
+        maintenanceSchedules = self.LogicLayerMaintenancelogic.getMaintenanceScheduleData()
+        return maintenanceSchedules
+
+    def getMaintenanceTaskByID(self, ID):
+        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceTaskByID(ID)
+        return maintenanceTask
+    
+    def getMaintenanceScheduleByID(self, ID):
+        maintenanceSchedule = self.LogicLayerMaintenancelogic.getMaintenanceScheduleByID(ID)
+        return maintenanceSchedule
 
     def closeMaintenanceReport(self):
         pass
@@ -93,4 +137,9 @@ class LogicLayerAPI:
     def getPropertyByID(self, ID):
         property = self.LogicLayerPropertyLogic.getPropertyByID(ID)
         return property
+    
+    def getTasksForPropertyID(self, ID):
+        tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID)
+        return tasks
+    
 
