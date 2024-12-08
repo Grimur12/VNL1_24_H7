@@ -91,7 +91,7 @@ class ViewUILogic:
     def filterEmployees(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Employee")
-        print("2: To view all tasks an Employee has worked on") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all tasks an Employee has worked on")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -134,13 +134,16 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID) # Takes in x amount of Maintenance Tasks an employee has worked
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterContractors(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Contractor")
-        print("2: To view all tasks an Contractor has worked on") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all tasks a Contractor has worked on")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -182,13 +185,16 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForContractorID(ID)# Takes in x amount of Maintenance Tasks a contractor has worked 
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterProperties(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Property")
-        print("2: To view all Maintenance on a specific Property") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all Maintenance on a specific Property")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -230,8 +236,11 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID) # Takes in x amount of Maintenance Tasks done on specific property
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
     
     def filterMaintenanceTasks(self):
         print("\n-------------------------------------------------------")
@@ -264,6 +273,8 @@ class ViewUILogic:
                     self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterMaintenanceSchedules(self):
         print("\n-------------------------------------------------------")
@@ -296,6 +307,8 @@ class ViewUILogic:
                     self.Displays.printMaintenanceSchedule(task)
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")            
 
     def filterMaintenanceReports(self):
         print("\n-------------------------------------------------------")
@@ -328,3 +341,31 @@ class ViewUILogic:
                     self.Displays.printMaintenanceReport(report)
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
+    
+    def dateFilter(self, tasks):
+        print("\n-------------------------------------------------------")
+        print("1: To view tasks over a specific time period")
+        print("B: To Go Back")
+        print("Q: To Quit")
+        print("-------------------------------------------------------\n")
+        while True:
+            user_choice = input("Choice: ")
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
+
+            elif user_choice.lower() == "b":
+                print("Going back")
+                self.clearTerminal()
+                break
+
+            elif user_choice == "1":
+                startDate = input("Start Date: ")
+                endDate = input("End Date: ")
+                filtered_tasks = self.LogicLayerWrapper.filterMaintenanceTasksDates(tasks, startDate, endDate)
+                for filtered_task in filtered_tasks:
+                    self.Displays.printMaintenanceTask(filtered_task)
+            else:
+                print("Invalid Input")

@@ -117,14 +117,15 @@ class LogicLayerAPI:
     def getMaintenanceReportByID(self, ID):
         maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByID(ID)
         return maintenanceReport
+    
+    def filterMaintenanceTasksDates(self, tasks, startDate, endDate) -> list:
+        filtered_tasks = self.LogicLayerMaintenancelogic.filterMaintenanceTasksDates(tasks, startDate, endDate)
+        return filtered_tasks
 
     def closeMaintenanceReport(self):
         pass
 
     def update_maintenance_status(self):
-        pass
-
-    def create_a_report(self):
         pass
 
     def changeStatusOfReportAsReady(self):

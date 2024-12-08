@@ -115,13 +115,14 @@ class ErrorCheckers:
         # Need to check if enddate inputted is in the valid format and if its at a later date than the start date
         try:
             conversion = datetime.strptime(input, datetime_format)
-
-            if conversion < startDate:
-                raise ValueError("End Date can not be before the Start Date")
-            return conversion
         except ValueError:
             raise ValueError("Invalid Date format. Please input date as 'DD.MM.YYYY.HH:MM'.")
 
+        if conversion < startDate:
+                raise ValueError("End Date can not be before the Start Date")
+
+        return conversion
+    
     def checkErrorStatusMaintenance(self, input):
         if input.lower() in ["ongoing", "closed"]:
             return True

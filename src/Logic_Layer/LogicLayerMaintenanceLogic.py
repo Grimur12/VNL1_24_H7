@@ -208,17 +208,21 @@ class LogicLayerMaintenanceLogic:
             temp_maintenanceReport.contractorCost = input
         
         return True
-    
-    # def MaintenanceReport_Dict(self):
-    #     """ Returns all the variables in our MaintenanceReport class into dictionary, needed for DB json writing """
-    #     return {
-    #     "maintenanceReportID": self.maintenanceReportID, # Self assigned
-    #     "maintenanceID": self.maintenanceID, # Mandatory
-    #     "employeeID": self.employeeID, # Not Mandatory, If there is an employee you cant input a contractor
-    #     "contractorID": self.contractorID, # Not Mandatory, If there is a contractor you cant input an employee
-    #     "contractorCost": self.contractorCost, # Mandatory if there is a contractorID, but otherwise if employeeID you cant input anything here
-    #     "readyToClose": self.readyToClose # Likely not inputted at the start ? Just updateable after ?
-    #     }
+
+    def filterMaintenanceTasksDates(self, tasks, startDate, endDate) -> list:
+        """ Takes in a list of maintenance tasks and filteres them based on a specified start and end date"""
+        # First check if end and start date are correctly formatted
+        # Then filter after converting to datetime
+        datetime_format = "%d.%m.%Y.%H:%M" # We want the user to input something like 02.10.2024.12:30 which we then convert into datetime format.
+        startDate_converted = self.Errors.checkErrorStartDate(startDate, datetime_format) ## must be a valid date
+        endDate_converted =  self.Errors.checkErrorEndDate(endDate, datetime_format, startDate_converted) ## must be a valid date
+        # when error checking is done we know that both dates are valid and the end date is not before the start date
+        filtered_tasks = []
+        for task in tasks:
+            if task.startDate >= startDate_converted and task.endDate <= endDate_converted:
+                filtered_tasks.append(task)
+        return filtered_tasks
+
 
     def closeMaintenanceReport(self):
     # Close a finished maintenance report
