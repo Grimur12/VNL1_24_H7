@@ -221,6 +221,10 @@ class LogicLayerMaintenanceLogic:
         for task in tasks:
             if task.startDate >= startDate_converted and task.endDate <= endDate_converted:
                 filtered_tasks.append(task)
+
+        if len(filtered_tasks) == 0:
+            raise ValueError("No Maintenance Tasks over that time period")
+
         return filtered_tasks
 
 
