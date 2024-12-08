@@ -16,6 +16,7 @@ class ViewUILogic:
             print("3: To view all Properties")
             print("4: To view all Maintenance Tasks")
             print("5: To view all Scheduled Maintenance Tasks")
+            print("6: To view all Maintenance Reports")
             print("B: To Go Back")
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
@@ -44,6 +45,9 @@ class ViewUILogic:
             elif user_choice == "5":
                 self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceSchedules()
+            elif user_choice == "6":
+                self.displayMaintenanceReports()
+                self.filterMaintenanceReports()
             else:
                 print("Invalid Input")
             
@@ -78,6 +82,11 @@ class ViewUILogic:
         maintenanceSchedules = self.LogicLayerWrapper.getMaintenanceScheduleData()
         for schedule in maintenanceSchedules:
             self.Displays.printMaintenanceSchedule(schedule)
+
+    def displayMaintenanceReports(self):
+        maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
+        for report in maintenanceReports:
+            self.Displays.printMaintenanceReport(report)
 
     def filterEmployees(self):
         print("\n-------------------------------------------------------")
@@ -122,8 +131,9 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForEmployeeID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID) # Takes in x amount of Maintenance Tasks an employee has worked
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
 
@@ -169,8 +179,9 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForContractorID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForContractorID(ID)# Takes in x amount of Maintenance Tasks a contractor has worked 
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
 
@@ -216,8 +227,9 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForPropertyID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID) # Takes in x amount of Maintenance Tasks done on specific property
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
     
@@ -282,5 +294,37 @@ class ViewUILogic:
                 try:
                     task = self.LogicLayerWrapper.getMaintenanceScheduleByID(ID)
                     self.Displays.printMaintenanceSchedule(task)
+                except ValueError as error:
+                    print(error)
+
+    def filterMaintenanceReports(self):
+        print("\n-------------------------------------------------------")
+        print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+        print("B: To Go Back")
+        print("Q: To Quit")
+        print("-------------------------------------------------------\n")
+        while True:
+            user_choice = input("Choice: ")
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
+
+            elif user_choice.lower() == "b":
+                print("Going back")
+                self.clearTerminal()
+                break
+            
+            elif user_choice == "1":
+                ID = input("ID of the Maintenance Report you want to look up: ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+                try:
+                    report = self.LogicLayerWrapper.getMaintenanceReportByID(ID)
+                    self.Displays.printMaintenanceReport(report)
                 except ValueError as error:
                     print(error)

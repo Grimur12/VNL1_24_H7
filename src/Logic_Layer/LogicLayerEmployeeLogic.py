@@ -32,7 +32,6 @@ class LogicLayerEmployeeLogic:
             return None
         return temp_employee
     
-
     def validateEmployeeInput(self, input, count, temp_employee):
         # We dont have to check for ID and type since that is automatically assigned based on user choice
         if self.Errors.checkNumber(count):
@@ -82,8 +81,8 @@ class LogicLayerEmployeeLogic:
                 if employee.employeeID == int(ID) and employee.type != "Contractor":
                     index_to_update = index
             if index_to_update != -1:
-                employee = employeeLog[index_to_update]
-                return employee
+                employee_found = employeeLog[index_to_update]
+                return employee_found
             else:
                 raise ValueError("No Employee by that ID")
     
@@ -91,12 +90,12 @@ class LogicLayerEmployeeLogic:
         if self.Errors.checkNumber(ID):
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1
-            for index, employee in enumerate(employeeLog):
-                if employee.employeeID == int(ID) and employee.type == "Contractor":
+            for index, contractor in enumerate(employeeLog):
+                if contractor.employeeID == int(ID) and contractor.type == "Contractor": ## Making sure that the ID provided is a contractor, we can have the ID in the DB but it could be a General Employee or a Manager
                     index_to_update = index
             if index_to_update != -1:
-                employee = employeeLog[index_to_update]
-                return employee
+                contractor_found = employeeLog[index_to_update]
+                return contractor_found
             else:
                 raise ValueError("No Contractor by that ID")
 
@@ -120,21 +119,52 @@ class LogicLayerEmployeeLogic:
         return filtered_contractors
     
     def getTasksForEmployeeID(self, ID):
-        # Takes in employee ID
-        # probably best to call GetEmployeeByID
-        #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
-        # Put logic to add together if employee ID == employee ID in the report and return that ..
-        #return tasks
-        pass
+
+        # We take in the employee ID
+        # Find the employee
+        # Load in all maintenance reports
+        # If the employee is in a maintenance report we append the maintenance associated with that maintenance report into a list to return
+        employee = self.getEmployeebyID(ID)
+        maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
+        maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        employeeTasks = []
+        maintenanceTaskIDs = []
+        for report in maintenanceReportLog:
+            if report.employeeID == employee.employeeID:
+                maintenanceTaskIDs.append(report.maintenanceID)
+        # We have found all the maintenances that a employee has worked on now we need to append the maintenances
+        for maintenanceTask in maintenanceTaskLog:
+            if maintenanceTask.maintenanceID in maintenanceTaskIDs:
+                employeeTasks.append(maintenanceTask)
+                
+        if len(employeeTasks) == 0:
+            raise ValueError("This Employee has not worked on any Maintenance Tasks")
+            
+        return employeeTasks
 
     def getTasksForContractorID(self, ID):
 
-        # Takes in contractor ID
-        # probably best to call GetContractorByID
-        #tasks = self.DataLayerWrapper.loadMaintenanceReportLog()
-        # Put logic to add together if contractor ID == contractor ID in the report and return that ..
-        #return tasks
-        pass
+        # We take in the contractor ID
+        # Find the contractor
+        # Load in all maintenance reports
+        # If the contractor is in a maintenance report we append the maintenance associated with that maintenance report into a list to return
+        contractor = self.getContractorbyID(ID)
+        maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
+        maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        contractorTasks = []
+        maintenanceTaskIDs = []
+        for report in maintenanceReportLog:
+            if report.contractorID == contractor.employeeID:
+                maintenanceTaskIDs.append(report.maintenanceID)
+        # We have found all the maintenances that a contractor has worked on now we need to append the maintenances
+        for maintenanceTask in maintenanceTaskLog:
+            if maintenanceTask.maintenanceID in maintenanceTaskIDs:
+                contractorTasks.append(maintenanceTask)
+
+        if len(contractorTasks) == 0:
+            raise ValueError("This Contractor has not worked on any Maintenance Tasks")
+            
+        return contractorTasks
 
     def createEmployee(self, temp_employee):
         # params should be either

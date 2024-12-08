@@ -39,7 +39,7 @@ class EmployeesDBLogic:
             else:
                 Employees.append(employee.Employee_dict())
 
-        with open(self.file_path, 'w') as file:
+        with open(self.file_path, "w") as file:
             json.dump(Employees, file, indent=4)
 
     def createEmployee(self, employee) -> None:

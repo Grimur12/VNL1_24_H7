@@ -70,17 +70,29 @@ class LogicLayerAPI:
     def createMaintenanceSchedule(self, maintenanceSchedule):
         self.LogicLayerMaintenancelogic.createMaintenanceSchedule(maintenanceSchedule)
 
+    def createMaintenanceReport(self, maintenanceReport):
+        self.LogicLayerMaintenancelogic.createMaintenanceReport(maintenanceReport)
+
     def validateMaintenanceTaskInput(self, user_input, count, temp_maintenanceTask):
         return self.LogicLayerMaintenancelogic.validateMaintenanceTaskInput(user_input, count, temp_maintenanceTask)
     
     def validateMaintenanceScheduleInput(self, user_input, count, temp_maintenanceSchedule):
         return self.LogicLayerMaintenancelogic.validateMaintenanceScheduleInput(user_input, count, temp_maintenanceSchedule)
     
+    def validateMaintenanceReportEmployeeInput(self, user_input, count, temp_maintenanceReport):
+        return self.LogicLayerMaintenancelogic.validateMaintenanceReportEmployeeInput(user_input, count, temp_maintenanceReport)
+    
+    def validateMaintenanceReportContractorInput(self, user_input, count, temp_maintenanceReport):
+        return self.LogicLayerMaintenancelogic.validateMaintenanceReportContractorInput(user_input, count, temp_maintenanceReport)
+    
     def createTempMaintenance(self):
         return self.LogicLayerMaintenancelogic.createTempMaintenance()
 
     def createTempMaintenanceSchedule(self):
         return self.LogicLayerMaintenancelogic.createTempMaintenanceSchedule()
+    
+    def createTempMaintenanceReport(self):
+        return self.LogicLayerMaintenancelogic.createTempMaintenanceReport()
     
     def getMaintenanceTaskData(self):
         maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceData()
@@ -89,6 +101,10 @@ class LogicLayerAPI:
     def getMaintenanceScheduleData(self):
         maintenanceSchedules = self.LogicLayerMaintenancelogic.getMaintenanceScheduleData()
         return maintenanceSchedules
+    
+    def getMaintenanceReportData(self):
+        maintenanceReports = self.LogicLayerMaintenancelogic.getMaintenanceReportData()
+        return maintenanceReports
 
     def getMaintenanceTaskByID(self, ID):
         maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceTaskByID(ID)
@@ -97,6 +113,10 @@ class LogicLayerAPI:
     def getMaintenanceScheduleByID(self, ID):
         maintenanceSchedule = self.LogicLayerMaintenancelogic.getMaintenanceScheduleByID(ID)
         return maintenanceSchedule
+    
+    def getMaintenanceReportByID(self, ID):
+        maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByID(ID)
+        return maintenanceReport
 
     def closeMaintenanceReport(self):
         pass

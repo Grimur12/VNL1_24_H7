@@ -58,23 +58,35 @@ class LogicLayerPropertyLogic:
                 if property.propertyID == int(ID):
                     index_to_update = index
             if index_to_update != -1:
-                property = propertyLog[index_to_update]
-                return property
+                property_found = propertyLog[index_to_update]
+                return property_found
             else:
                 raise ValueError("No Property By that ID")
-
-    def getTasksForEmployeeID(self, ID):
+            
+    def getTasksForPropertyID(self, ID):
         # Takes in property ID
         # probably best to call GetPropertyByID
         #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
         # Put logic to add together if property ID == property ID in the report and return that ..
         #return tasks
-        pass
+        property = self.getPropertyByID(ID)
+        maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
+        tasksDoneOnProperty = []
+        for task in maintenanceTaskLog:
+            if task.propertyID == property.propertyID: # Check all the maintenance tasks we have in DB, to see if they were done on the property that was specified
+                tasksDoneOnProperty.append(task)
+        
+        if len(tasksDoneOnProperty) == 0:
+            raise ValueError("No Maintenance has been done on this Property")
+        
+        return tasksDoneOnProperty
 
+        
     #update the status of properties
     def updateProperty(self, property):
         # updateProperty = self.updateStatusOfProperty.
         self.DataLayerWrapper.updateProperty(property)
+
     #get properties data
     def getPropertiesData(self):
         getProperty = self.DataLayerWrapper.loadPropertiesLog()
