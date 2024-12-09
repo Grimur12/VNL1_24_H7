@@ -16,6 +16,8 @@ if __name__ == "__main__":
     invalid = False
     while True: 
         start.ViewUI.clearTerminal()
+        print("------------ Welcome to NAN air -----------")
+        print("Are you a manager, employee or a contractor")
         print("1: If you are a Manager")
         print("2: If you are an Employee")
         print("3: If you are a Contractor")
