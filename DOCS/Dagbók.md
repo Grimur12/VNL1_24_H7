@@ -492,6 +492,13 @@ The goal of today is to:
   - finish the Logic Layer
   - Get the UI layer almost finished or to finished position
   - We need to focus on connecting the branches and comment on our code.
+  - 
+
+Work done:
+  - our code is currently running but we want to make the program look nicer on the UI part, so we will be working on that
+  - we will see how pretty table works and maybe we will use that
+  - Maintenance layer has been done
+  - 
 
 
   TODO:
