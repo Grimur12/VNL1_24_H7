@@ -15,7 +15,7 @@ main_menu_1.align = 'l'
 print(main_menu_1)
 
 menu_1.field_names = ["View destination"]
-menu_1.add_row([])
+menu_1.add_row(["1. Reykjavik"])
 menu_1.add_row([])
 menu_1.add_row([])
 menu_1.add_row([])
