@@ -4,6 +4,7 @@ from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
 #from prettytable import PrettyTable
 
+
 class main:
     def __init__(self):
         self.ContractorUI = ContractorUILogic()
