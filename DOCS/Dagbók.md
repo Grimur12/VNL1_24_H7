@@ -372,9 +372,9 @@ TODO:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [x] Logic layer Wrapper connection
+  - [ ] Logic layer Wrapper connection
   - [ ] Maintenance Logiclayer connection
-  - [ ] Employee Logiclayer connection
+  - [X] Employee Logiclayer connection
   - [ ] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
   - [x] Setup and Organizing
@@ -453,10 +453,10 @@ Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard
       -the goal of today was finishing the managerUI file,
       -Olafur finished yesterday the look of the UI,
-      -is now trying to connect all the menus together. Progress is slow.
+      -We are now trying to connect all the menus together. Progress is slow.
   - Iðunn and Pedro
       - The plan for us today is to finish the other parts missing in logic layer or the majority of it. If we do not finish we will leave connection testing until next week.
-      - We are working on the Properties Logic file and we hope to finish it today and start on the Maintenance Logic.
+      - We are working on the Properties Logic file, finished it today and will start on the Maintenance Logic next.
   - Grímur and Máni
       -Today we are focusing on connecting our system. Connecting the Logic Layer to the Datalayer.
     
@@ -504,8 +504,9 @@ Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard
     - Today this group needs to get the UI layer going.
   - Iðunn and Pedro
-    Today we want to finish the Maintenance Layer.
+    - Today we want to finish the Maintenance Layer.
   - Grímur and Máni
+    - Today we helped other group members with the Logic and UI layer and worked on the journal and what to change in the Design Report.
     
 The goal of today is to:
   - finish the Logic Layer
