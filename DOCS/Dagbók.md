@@ -253,17 +253,16 @@ The coding started with defining the Models that are needed to complete the rest
 - Pairs and Layers EOD Results and work:
   - Ólafur and Leonard are taking the UI Layer
     - First we quickly mapped out what we what we want each input to do and what page it directs to.
-    - Then we watched a video on discord that shows the TUI from the previous year.
+    - Then we watched a video on Discord that shows the TUI from the previous year.
     - From the video we got a general idea on how we want the TUI to look like.
     - In the UI layer we have the TUI for general employees and managers.
     - Leonard worked on making the TUI for general employees while Ólafur made the TUI for managers as well as refining Leonards work.
-    - We ran into 1 proplem for the day when printing the ASCII art we ran into a problem with some pipes not lining up propperly.
+    - We ran into 1 proplem for the day when printing the ASCII art we ran into a problem with some pipes not lining up properly.
   - Grímur and Máni are taking the Data Layer
-    - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write to json files.
+    - We initialized the structure of the classes for each DataBase logic class and made dictionary functions for each model to then write into json files.
     - Mainly worked on Employee DB logic, we need to split that into the different parts of employees.
   - Pedro and Iðunn are taking the Logic Layer
-    - we worked on our files, set it up right and disgussed with the others how our layers are going to match because we are the middle layer(logic layer)
-      to have a better idea how this is going to look like.
+    - we worked on our files, set it up right and discussed with the others how our layers are going to match because we are the middle layer (logic layer) to have a better idea how this is going to look like.
     - we started with functions and we needed to get information about how to do this and the three layer process.
 
 TODO:
@@ -275,10 +274,17 @@ TODO:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [ ] Split this into smaller taskss...
+  - [ ] Logic layer Wrapper connection
+  - [ ] Maintenance Logiclayer connection
+  - [ ] Employee Logiclayer connection
+  - [ ] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
   - [ ] Setup and Organizing
-  - [ ] Split this into smaller taskss...
+  - [ ] Define all displays
+  - [ ] UI layer view class
+  - [ ] Maintenance UIlayer connection
+  - [ ] Employee UIlayer connection
+  - [ ] Properties  UIlayer connection
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -287,7 +293,6 @@ TODO:
 
 Mættir / In attendance:
   - Grímur
-  - Leonard
   - Máni
   - Iðunn
   - Pedro
@@ -301,14 +306,14 @@ Some discussion about previous day and implementation of certain bits of code:
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
-    - One of the two was sick but did work from home, the UI layer's setup and organization was completed.
+    - Leonard was sick but did some work from home, the UI layer's setup and organization was mainly worked on today and completed at the end of the day.
   - Pedro and Iðunn are taking the Logic Layer
-    - we were starting on the logic layer employees, and write out our functions there and in the other layers.
+    - we started on the logic layer employees, and wrote out our functions there and in the other layers.
+    - 
   - Grímur and Máni are taking the Data Layer
     - Completed implementing the Employee DB logic, we can write, load, update, remove, print and propagate employee data
     - Completed testing the Employee DB logic.
     - Working on Property DB logic next
-
 
 TODO:
 - [ ] Create an independent Data Layer
@@ -319,13 +324,17 @@ TODO:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [x] Almost finishing the Employees Logic Layer 
-  - [ ] Split this into smaller taskss...
+  - [ ] Logic layer Wrapper connection
+  - [ ] Maintenance Logiclayer connection
+  - [x] Employee Logiclayer connection
+  - [ ] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
   - [x] Setup and Organizing
-  - [ ] Finish ContractorUI
-  - [ ] Finish EmployeeUI
-  - [ ] Finish ManagaerUI
+  - [ ] Define all displays
+  - [ ] UI layer view class
+  - [ ] Maintenance UIlayer connection
+  - [ ] Employee UIlayer connection
+  - [ ] Properties  UIlayer connection
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -334,7 +343,6 @@ TODO:
 
 Mættir / In attendance:
   - Grímur
-  - Leonard
   - Máni
   - Iðunn
   - Pedro
@@ -342,8 +350,8 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work: 
   - Ólafur and Leonard are taking the UI Layer
-    - one of the group members were sick but they did work at home, the UI layer is in process.
-    - continuing with the UI layer, They finished the contractorUI
+    - Leonard was sick but he did some work at home, the UI layer is in process.
+    - continuing with the UI layer, we finished the contractorUI
   - Pedro and Iðunn are taking the Logic Layer
     - today we finished our Employees Logic Layer. It took some time to finish it and we needed some help to understand it much better.
     - We havent tested our connections but we will do that tomorrow. 
@@ -352,7 +360,8 @@ Pairs and Layers EOD Results and Todays work:
     - After a discussion with the TA's we deleted all remove functions as they are difficult to implement fully and functionally.
     - We also realized we need to implement a two file read system so the user can retrieve a file, exit it and then retrive it
     - again without having a half written file from previous retrieve attempt.
-  TODO:
+
+TODO:
 - [ ] Create an independent Data Layer
   - [x] Data Layer Wrapper
   - [x] Maintenance DB connection
@@ -363,14 +372,18 @@ Pairs and Layers EOD Results and Todays work:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [x] Finishing the Employees Logic Layer 
-  - [ ] Split this into smaller taskss...
-  - [ ] Split this into smaller taskss...
+  - [x] Logic layer Wrapper connection
+  - [ ] Maintenance Logiclayer connection
+  - [ ] Employee Logiclayer connection
+  - [ ] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
-  - [x] Finish ContractorUI
-  - [ ] Finish EmployeeUI
-  - [ ] Finish ManagaerUI
-  - [ ] Split this into smaller taskss...
+  - [x] Setup and Organizing
+  - [ ] Define all displays
+  - [ ] UI layer view class
+  - [ ] Maintenance UIlayer connection
+  - [ ] Employee UIlayer connection
+  - [ ] Properties UIlayer connection
+  - [x] Contractor UIlayer connection
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -379,7 +392,6 @@ Pairs and Layers EOD Results and Todays work:
 
 Mættir / In attendance:
   - Grímur
-  - Leonard
   - Máni
   - Iðunn
   - Pedro
@@ -387,7 +399,7 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work:
 - Ólafur and Leonard have the UI
-    - one of the members was still sick so the process of UI was processing slower than the other parts
+    - Leonard was still sick so the process of UI was processing slower than the other parts
     - the work of today on the UI layer was doing the managerUI
 - Iðunn and Pedro have the LL
     - today we were working on logic layer employee and we were focusing on the connections between
@@ -400,8 +412,8 @@ Pairs and Layers EOD Results and Todays work:
 Issues:
   - The connections have been a struggle to make everything work, we need alot of testing done.
 
-  TODO:
-- [ ] Create an independent Data Layer
+TODO:
+- [x] Create an independent Data Layer
   - [x] Data Layer Wrapper
   - [x] Maintenance DB connection
   - [x] Employee DB connection
@@ -411,15 +423,18 @@ Issues:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [x] Finishing the Employees Logic Layer
-  - [x] Finish the Logic Layer Employee
-  - [ ] Finish the Logic Layer Maintenance
-  - [ ] Finish the logic layer Properties
+  - [x] Logic layer Wrapper connection
+  - [ ] Maintenance Logiclayer connection
+  - [x] Employee Logiclayer connection
+  - [ ] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
-  - [x] Finish ContractorUI
-  - [ ] Finish EmployeeUI
-  - [ ] Finish ManagaerUI
-  - [ ] Split this into smaller taskss...
+  - [x] Setup and Organizing
+  - [ ] Define all displays
+  - [ ] UI layer view class
+  - [ ] Maintenance UIlayer connection
+  - [ ] Employee UIlayer connection
+  - [ ] Properties UIlayer connection
+  - [x] Contractor UIlayer connection
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -445,8 +460,8 @@ Pairs and Layers EOD Results and Todays work:
   - Grímur and Máni
       -Today we are focusing on connecting our system. Connecting the Logic Layer to the Datalayer.
     
-  TODO:
-- [ ] Create an independent Data Layer
+TODO:
+- [x] Create an independent Data Layer
   - [x] Data Layer Wrapper
   - [x] Maintenance DB connection
   - [x] Employee DB connection
@@ -456,15 +471,18 @@ Pairs and Layers EOD Results and Todays work:
 - [ ] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
-  - [x] Finishing the Employees Logic Layer
-  - [x] Finish the Logic Layer Employee
-  - [ ] Finish the Logic Layer Maintenance
-  - [x] Finish the logic layer Properties
+  - [x] Logic layer Wrapper connection
+  - [ ] Maintenance Logiclayer connection
+  - [x] Employee Logiclayer connection
+  - [x] Properties  Logiclayer connection
 - [ ] Create an independent UI Layer
-  - [x] Finish ContractorUI
-  - [ ] Finish EmployeeUI
-  - [x] Finish ManagaerUI
-  - [ ] Connecting the UI to Logic Layer
+  - [x] Setup and Organizing
+  - [ ] Define all displays
+  - [ ] UI layer view class
+  - [ ] Maintenance UIlayer connection
+  - [ ] Employee UIlayer connection
+  - [ ] Properties UIlayer connection
+  - [x] Contractor UIlayer connection
 - [ ] Successfully make Logic Layer talk to Data Layer
 - [ ] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
@@ -481,6 +499,7 @@ Mættir / In attendance:
   - Iðunn
   - Pedro
   - Olafur
+
 Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard
     - Today this group needs to get the UI layer going.
@@ -516,18 +535,27 @@ Work done:
   - [x] Finish the Logic Layer Employee
   - [x] Finish the Logic Layer Maintenance
   - [x] Finish the logic layer Properties
-- [ ] Create an independent UI Layer
-  - [x] Finish ContractorUI
-  - [ ] Finish EmployeeUI
-  - [x] Finish ManagaerUI
-  - [ ] Connecting the UI to Logic Layer
-- [ ] Successfully make Logic Layer talk to Data Layer
-- [ ] Successfully make UI Layer talk to Logic Layer
+- [x] Create an independent UI Layer
+  - [x] Setup and Organizing
+  - [x] Define all displays
+  - [x] UI layer view class
+  - [x] Maintenance UIlayer connection
+  - [x] Employee UIlayer connection
+  - [x] Properties UIlayer connection
+  - [x] Contractor UIlayer connection
+- [x] Successfully make Logic Layer talk to Data Layer
+- [x] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
-
-
-
-
+Extra checklist for week 3
+- [ ] Finish Maintenance Report
+- [ ] Add destinations
+- [ ] Fix Model Classes attributes
+- [ ] Finish Pretty Table UI
+- [ ] Change Error checkers to match new model class attributes
+- [ ] Finish all doc strings, returns type values and comments in the code
+- [ ] Make the model class diagram match the new model classes
+- [ ] Make the layered class diagram match the code
+- [ ] Check all boxes in the Requirements list in the Design report 
 
 
 ## [10/12/2024 - Dagur 2]
