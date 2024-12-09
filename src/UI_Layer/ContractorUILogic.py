@@ -12,7 +12,7 @@ class ContractorUILogic:
 
     def run(self):
         while True:
-            print("--- Contractor --------------------")
+            print("--- Contractor ---")
             print("1: To create a Maintenance Report")
             print("2: To mark a Maintenance Report as ready to close")
             print("3: To access viewing features")

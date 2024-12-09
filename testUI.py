@@ -1,23 +1,25 @@
 from prettytable import PrettyTable
-main_menu_1 = PrettyTable()
+mainMenu = PrettyTable()
 
-main_menu_1.field_names = ["Main menu"]
-main_menu_1.add_row(["1. View destinations"])
-main_menu_1.add_row(["2. View properties"])
-main_menu_1.add_row(["3. View employees"])
-main_menu_1.add_row(["4. View contractors"])
-main_menu_1.add_row(["5. View managers"])
-main_menu_1.add_row(["6. View active tasks"])
-main_menu_1.add_row(["7. Make a report"])
-main_menu_1.add_row(["b. Back"])
-main_menu_1.add_row(["q. Quit"])
-main_menu_1.align = 'l'
-print(main_menu_1)
+mainMenu.field_names = ["Main menu"]
+mainMenu.add_row(["1. View destinations"])
+mainMenu.add_row(["2. View properties"])
+mainMenu.add_row(["3. View employees"])
+mainMenu.add_row(["4. View contractors"])
+mainMenu.add_row(["5. View managers"])
+mainMenu.add_row(["6. View active tasks"])
+mainMenu.add_row(["7. Make a report"])
+mainMenu.add_row(["b. Back"])
+mainMenu.add_row(["q. Quit"])
+mainMenu.align = 'l'
+print(mainMenu)
 
-menu_1.field_names = ["View destination"]
-menu_1.add_row(["1. Reykjavik"])
-menu_1.add_row([])
-menu_1.add_row([])
-menu_1.add_row([])
-menu_1.add_row([])
-menu_1.add_row([])
+destionationMenu = PrettyTable()
+destinationMenu.add_row(["1. Reykjavik"])
+destinationMenu.add_row(["2. Nuuk"])
+destinationMenu.add_row(["3. Kulusuk"])
+destinationMenu.add_row([])
+destinationMenu.add_row([])
+destinationMenu.add_row([])
+
+destionationMenu.add
