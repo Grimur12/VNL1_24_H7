@@ -1,0 +1,62 @@
+[
+    {
+        "destinationID": 1,
+        "name": "Reykjav\u00c3\u00adk",
+        "country": "Iceland",
+        "timezone": "GMT",
+        "airportName": "Keflav\u00c3\u00adk-Airport",
+        "phone number": "990-3030",
+        "openingHours": "24/7",
+        "managerOfDestination": 2
+    },
+    {
+        "destinationID": 2,
+        "name": "Nuuk",
+        "country": "Greenland",
+        "timezone": "GMT",
+        "airportName": "Nuuk International Airport",
+        "phone number": "+299 32 60 05",
+        "openingHours": "24/7",
+        "managerOfDestination": 3
+    },
+    {
+        "destinationID": 3,
+        "name": "Kulusuk",
+        "country": "Greenland",
+        "timezone": "GMT",
+        "airportName": "Nuuk International Airport",
+        "phone number": "+299 98 69 88",
+        "openingHours": "24/7",
+        "managerOfDestination": 4
+    },
+    {
+        "destinationID": 4,
+        "name": "\u00c3\u017e\u00c3\u00b3rsh\u00c3\u00b6fn",
+        "country": "Faroe Islands",
+        "timezone": "GMT",
+        "airportName": "\u00c3\u017e\u00c3\u00b3rsh\u00c3\u00b6fn Airport",
+        "phone number": "468 1420",
+        "openingHours": "24/7",
+        "managerOfDestination": 6
+    },
+    {
+        "destinationID": 5,
+        "name": "Tingwall",
+        "country": "Shetland Islands",
+        "timezone": "GMT",
+        "airportName": "Tingwall Airport",
+        "phone number": "+44 1595 840246",
+        "openingHours": "24/7",
+        "managerOfDestination": 8
+    },
+    {
+        "destinationID": 6,
+        "name": "Longyearbyen",
+        "country": "Svalbard (Norway)",
+        "timezone": "CET",
+        "airportName": "Svalbard Airport",
+        "phone number": "+47 67 03 54 00",
+        "openingHours": "24/7",
+        "managerOfDestination": 11
+    }
+]
