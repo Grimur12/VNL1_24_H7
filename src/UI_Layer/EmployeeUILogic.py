@@ -11,6 +11,7 @@ class EmployeeUILogic:
         self.Displays = Displays()
 
     def run(self):
+        self.ViewingUI.clearTerminal()
         while True:
             print("-------------------Employee----------------------")
             print("1: To create a Maintenance Report")

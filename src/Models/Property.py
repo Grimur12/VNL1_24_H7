@@ -7,7 +7,7 @@ class Property:
         ## Add a extra information field, optional, to type something in
         self.propertyID = ID # ID calculate
         self.nameOfProperty = nameOfProperty
-        self.location = location
+        self.location = location # Reference to Destination ID
         self.availability = availability
         self.hasAPool = hasAPool
         self.hasATub = hasATub

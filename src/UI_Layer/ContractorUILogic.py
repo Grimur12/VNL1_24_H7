@@ -11,6 +11,7 @@ class ContractorUILogic:
         self.Displays = Displays()
 
     def run(self):
+        self.ViewingUI.clearTerminal()
         while True:
             print("------------------ Contractor ------------------")
             print("What do you want to do?")

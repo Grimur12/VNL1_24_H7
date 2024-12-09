@@ -13,11 +13,13 @@ class ManagerUILogic:
     def run(self):
         self.ViewingUI.clearTerminal()
         while True:
+            print("-------------------------Manager----------------------------")
             print("1: To create new Properties, Employees or Maintenance Tasks")
             print("2: To edit existent Properties, Employees or Maintenance Tasks")
             print("3: To view existent Properties, Employess or Maintenance Tasks")
             print("B: To Go Back")
-            print("Q: To Quit\n")
+            print("Q: To Quit")
+            print("------------------------------------------------------------")
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
