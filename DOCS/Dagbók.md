@@ -472,7 +472,55 @@ Pairs and Layers EOD Results and Todays work:
 
 ## [09/12/2024 - Dagur 1]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+Pairs and Layers EOD Results and Todays work:
+  - Ólafur and Leonard
+    - Today this group needs to get the UI layer going.
+  - Iðunn and Pedro
+    Today we want to finish the Maintenance Layer.
+  - Grímur and Máni
+    
+
+The goal of today is to:
+  - finish the Logic Layer
+  - Get the UI layer almost finished or to finished position
+  - We need to focus on connecting the branches and comment on our code.
+
+
+  TODO:
+- [x] Create an independent Data Layer
+  - [x] Data Layer Wrapper
+  - [x] Maintenance DB connection
+  - [x] Employee DB connection
+  - [x] Properties DB connection
+  - [x] Insert Return statements in DB
+  - [x] Implement a two file read system
+- [ ] Create an independent Logic Layer
+  - [x] Setup the classes 
+  - [x] Organizing the connections and wrappers
+  - [x] Finishing the Employees Logic Layer
+  - [x] Finish the Logic Layer Employee
+  - [ ] Finish the Logic Layer Maintenance
+  - [x] Finish the logic layer Properties
+- [ ] Create an independent UI Layer
+  - [x] Finish ContractorUI
+  - [ ] Finish EmployeeUI
+  - [x] Finish ManagaerUI
+  - [ ] Connecting the UI to Logic Layer
+- [ ] Successfully make Logic Layer talk to Data Layer
+- [ ] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
+
+
+
+
+
 
 ## [10/12/2024 - Dagur 2]
 
