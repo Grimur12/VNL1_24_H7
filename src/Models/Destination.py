@@ -1,7 +1,7 @@
 # Here is our Destination class
 
 class Destination:
-    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination,):
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
         """ Defines variables for Destination """
         self.name = name
         self.destinationID = destinationID
@@ -26,20 +26,25 @@ class Destination:
         }
 
 class Reykjavik(Destination):
-    pass
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass
 
 class Nuuk(Destination):
-    pass
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass
 
 class Kulusuk(Destination):
-    pass
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass
 
 class Thorshofn(Destination):
-    pass
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass
 
 class Tingwall(Destination):
-    pass
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass
 
 class Longyearbyen(Destination):
-    pass
-    
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
+        pass

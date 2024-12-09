@@ -4,7 +4,7 @@ from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
 
-# Here is the class for Manager UI Logic where we have all of the communication with the manager to the UI
+# Class for Manager UI Logic where we have all of the communication with the manager to the UI
 
 class ManagerUILogic:
     def __init__(self):
@@ -15,7 +15,7 @@ class ManagerUILogic:
     def run(self):
         self.ViewingUI.clearTerminal()
         while True:
-            # Here is a list of features the manager can choose to select/do
+            # List of features the manager can choose to select/do
             print("1: To create new Properties, Employees or Maintenance Tasks")
             print("2: To edit existent Properties, Employees or Maintenance Tasks")
             print("3: To view existent Properties, Employess or Maintenance Tasks")
@@ -107,7 +107,7 @@ class ManagerUILogic:
                 self.ViewingUI.clearTerminal()
                 break
 
-            # the user chooses option 1 
+            # the user chooses to edit an employee or manager
             if user_choice == "1":
                 ID = input("ID of the Employee you want to edit: ")
 
@@ -120,7 +120,7 @@ class ManagerUILogic:
 
                 self.editEmployee(ID) # komið
 
-            # user chooses option 2
+            # user chooses to edit contractor
             elif user_choice == "2":
                 ID = input("ID of the Contractor you want to edit: ")
 
@@ -133,7 +133,7 @@ class ManagerUILogic:
 
                 self.editContractor(ID) # komið
 
-            # user chooses option 3
+            # user chooses to edit Property
             elif user_choice == "3":
                 ID = input("ID of the Property you want to edit: ")
 
@@ -146,7 +146,7 @@ class ManagerUILogic:
 
                 self.editProperty(ID) # komið
 
-            # user chooses option 4
+            # user chooses to edit a maintenance task
             elif user_choice == "4":
                 ID = input("ID of the Maintenance Task you want to edit: ")
 
@@ -159,7 +159,7 @@ class ManagerUILogic:
 
                 self.editMaintenanceTask(ID)
 
-            # user chooses option 5
+            # user chooses to edit maintenance schedule
             elif user_choice == "5":
                 ID = input("ID of the Maintenance Schedule you to edit: ")
 

@@ -2,13 +2,15 @@ from .LogicLayerEmployeeLogic import LogicLayerEmployeeLogic
 from .LogicLayerMaintenanceLogic import LogicLayerMaintenanceLogic
 from .LogicLayerPropertyLogic import LogicLayerPropertyLogic
 
+# This is our Logic Layer and we have all our functions here below
+
 class LogicLayerAPI:
     def __init__(self):
         self.LogicLayerEmployeelogic = LogicLayerEmployeeLogic()
         self.LogicLayerMaintenancelogic = LogicLayerMaintenanceLogic()
         self.LogicLayerPropertyLogic = LogicLayerPropertyLogic()
 
-# here are functions of the Employee
+# All Employee Functions including create, view and change
 
     def createEmployee(self, employee):
         self.LogicLayerEmployeelogic.createEmployee(employee)
@@ -53,16 +55,10 @@ class LogicLayerAPI:
     # def get_employee_tasks(self):
     #     pass
 
-# A superior must be able to create and/or update tickets for properties they manage
-# A superior must be able to accept maintenance reports to close tickets
-# An employee must be able to register a maintenance report for an open ticket
-# An employee must be able to flag a ticket as ready for closing by a superior
-
-
     def update_employee_data(self, employee):
         self.LogicLayerEmployeelogic.updateEmployeeData(employee)
 
-# functions that are about maintenance
+# All Maintenance Functions including create, view and change
 
     def createMaintenance(self, maintenance):
         self.LogicLayerMaintenancelogic.createMaintenance(maintenance)
@@ -134,7 +130,7 @@ class LogicLayerAPI:
     def edit_maintenance_schedule(self):
         pass
 
-    # functions that are about properties.
+    # All Property Functions including create, view and change
 
     def updateStatusOfProperty(self):
         self.LogicLayerPropertyLogic.updateStatusOfProperty(property)

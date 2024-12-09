@@ -3,7 +3,7 @@ from Models.Workers import *
 from Models.Property import Property
 from .ErrorCheckers import ErrorCheckers
 
-# Property Logic class
+# Here is our Property Logic class that includes all of our functions
 
 class LogicLayerPropertyLogic:
 
@@ -81,7 +81,6 @@ class LogicLayerPropertyLogic:
         
         return tasksDoneOnProperty
 
-        
     #update the status of properties
     def updateProperty(self, property):
         # updateProperty = self.updateStatusOfProperty.
@@ -92,10 +91,6 @@ class LogicLayerPropertyLogic:
         getProperty = self.DataLayerWrapper.loadPropertiesLog()
         return getProperty
 
+    # Create a property
     def createProperty(self, tempProperty):
         self.DataLayerWrapper.createProperty(tempProperty)
-
-
-    #check errors
-    def checkPropertiesError():
-        pass

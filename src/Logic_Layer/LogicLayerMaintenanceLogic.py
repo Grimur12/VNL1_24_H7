@@ -5,6 +5,8 @@ from Models.MaintenanceReport import MaintenanceReport
 from .ErrorCheckers import ErrorCheckers
 from datetime import datetime
 
+# Here is our Maintenance Logic layer that includes all our functions
+
 class LogicLayerMaintenanceLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
@@ -48,7 +50,7 @@ class LogicLayerMaintenanceLogic:
         return temp_maintenanceSchedule
     
     def createTempMaintenanceReport(self):
-        # Crate a temporary maintenance Report
+    # Crate a temporary maintenance Report
         tempMaintenanceReportID = self.createUniqueMaintenanceReportID()
         temp_maintenanceReport = MaintenanceReport(ID=tempMaintenanceReportID)
         return temp_maintenanceReport

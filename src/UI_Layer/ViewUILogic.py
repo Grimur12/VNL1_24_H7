@@ -46,7 +46,7 @@ class ViewUILogic:
                 self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceSchedules()
             elif user_choice == "6":
-                self.displayMaintenanceReports()
+                self.displayMaintenanceReports() # Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceReports()
             else:
                 print("Invalid Input")

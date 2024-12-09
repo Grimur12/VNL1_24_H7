@@ -3,6 +3,7 @@ from UI_Layer.EmployeeUILogic import EmployeeUILogic
 from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
 
+# Main program
 
 class main:
     def __init__(self):

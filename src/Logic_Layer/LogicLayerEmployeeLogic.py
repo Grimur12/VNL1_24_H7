@@ -2,9 +2,10 @@ from Data_Layer.DataLayerAPI import DataLayerAPI
 from Models.Workers import Employee, Contractor
 from .ErrorCheckers import ErrorCheckers
 
+# Here is our Employee Logic File and contain all definitions
+
 class LogicLayerEmployeeLogic:
     def __init__(self):
-        #
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 
@@ -179,15 +180,3 @@ class LogicLayerEmployeeLogic:
     def updateEmployeeData(self,employee):
         # input can be name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType for employees 
         self.DataLayerWrapper.updateEmployee(employee)
-        
-
-
-
-
-
-
-
-    
-    #check errors
-    def check_employee_Errors(self):
-        pass
