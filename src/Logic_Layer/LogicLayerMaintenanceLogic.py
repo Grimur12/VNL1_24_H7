@@ -24,9 +24,11 @@ class LogicLayerMaintenanceLogic:
         if len(currentMaintenanceSchedules) != 0:
             newID = currentMaintenanceSchedules[-1].maintenanceScheduleID + 1 # Assign new maintenance to a new ID
         else:
-            newID = 1
-        return newID
-    
+            newID = 1     
+
+
+
+            
     def createUniqueMaintenanceReportID(self):
         currentMaintenanceReport = self.DataLayerWrapper.loadMaintenanceReportLog()
         if len(currentMaintenanceReport) != 0:

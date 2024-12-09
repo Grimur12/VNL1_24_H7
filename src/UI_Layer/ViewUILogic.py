@@ -89,13 +89,13 @@ class ViewUILogic:
             self.Displays.printMaintenanceReport(report)
 
     def filterEmployees(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Employee")
-        print("2: To view all tasks an Employee has worked on")
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific Employee")
+            print("2: To view all tasks an Employee has worked on")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -141,13 +141,13 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterContractors(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Contractor")
-        print("2: To view all tasks a Contractor has worked on")
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific Contractor")
+            print("2: To view all tasks a Contractor has worked on")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -192,13 +192,13 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterProperties(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Property")
-        print("2: To view all Maintenance on a specific Property")
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific Property")
+            print("2: To view all Maintenance on a specific Property")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -243,12 +243,11 @@ class ViewUILogic:
                 print("Invalid Input")
     
     def filterMaintenanceTasks(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceTask") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -277,12 +276,12 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterMaintenanceSchedules(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -311,12 +310,12 @@ class ViewUILogic:
                 print("Invalid Input")            
 
     def filterMaintenanceReports(self):
-        print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")
@@ -345,12 +344,12 @@ class ViewUILogic:
                 print("Invalid Input")
     
     def dateFilter(self, tasks):
-        print("\n-------------------------------------------------------")
-        print("1: To view tasks over a specific time period")
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view tasks over a specific time period")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
                 print("Qutting")

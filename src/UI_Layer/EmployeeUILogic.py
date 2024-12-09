@@ -12,11 +12,13 @@ class EmployeeUILogic:
 
     def run(self):
         while True:
+            print("-------------------Employee----------------------")
             print("1: To create a Maintenance Report")
             print("2: To mark a Maintenance Report as ready to close")
             print("3: To access viewing features")
             print("B: to go Back")
             print("Q: to quit")
+            print("-------------------------------------------------")
             user_choice = input("Choice ")
             # Exit out of the loop
 

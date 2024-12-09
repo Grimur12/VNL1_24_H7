@@ -9,7 +9,7 @@ class PropertiesDBLogic:
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Properties.json")
 
     def loadPropertiesLog(self) -> list:
-        """ Function loads all saved properties from DB and turns back into class instances of Property and saves it internally """
+        """ Loads all properties from json database, creates the classes again, stores in a list to return"""
         property_list = []
         try:
             with open(self.file_path, "r") as propertyDBOpen:
@@ -25,13 +25,13 @@ class PropertiesDBLogic:
         return properties
 
     def createProperty(self, property) -> None:
-        """ This function takes in a list of parameters and creates a property and stores in the json DB """
+        """ This function takes in an instance of a property and stores in the json DB """
         properties = self.loadPropertiesLog()
         properties.append(property)
         self.saveProperties(properties)
 
     def updateProperty(self, updated_property) -> None:
-        """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
+        """ This function takes in a property instance, finds old version of it by checking the ID, overwrites it and saves the properties again in the json DB"""
         properties = self.loadPropertiesLog()
         for index, prop in enumerate(properties):
             if prop.propertyID == updated_property.propertyID:
@@ -39,7 +39,7 @@ class PropertiesDBLogic:
         self.saveProperties(properties)
 
     def saveProperties(self, properties) -> None:
-        """ Function saves all instances of the Property class saved in self.properties in dictionary form into json Database """
+        """ Function saves all instances of the Property class received in the properties paramater in dictionary form into json Database """
         Properties = []
         for prop in properties:
             Properties.append(prop.Property_dict())

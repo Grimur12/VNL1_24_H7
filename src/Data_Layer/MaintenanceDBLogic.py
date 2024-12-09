@@ -11,13 +11,14 @@ DATETIME_FORMAT = "%d.%m.%Y.%H:%M"
 class MaintenanceDBLogic:
 
     def __init__(self):
+        """ Holds a reference to all Maintenance related Databases """
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.maintenance_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Maintenance.json")
         self.maintenance_Schedule_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "MaintenanceSchedule.json")
         self.maintenance_Report_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "MaintenanceReport.json")
 
     def loadMaintenanceLog(self) -> list:
-        """ Function loads all saved maintenances from DB and turns back into class instances of Maintenance and saves it internally """
+        """ Function loads all saved maintenances from DB and turns back into class instances of Maintenance and returns the entire list """
         maintenance_list = []
         try:
             with open(self.maintenance_file_path, "r") as maintenanceDBOpen:
@@ -38,6 +39,7 @@ class MaintenanceDBLogic:
         return maintenances
 
     def loadMaintenanceScheduleLog(self) -> list:
+        """ Function loads all saved maintenance schedules from DB and turns back into class instances of Maintenance Schedules and returns the entire list """
         maintenanceSchedule_list = []
         try:
             with open(self.maintenance_Schedule_file_path, "r") as maintenanceScheduleDBOpen:
@@ -53,6 +55,7 @@ class MaintenanceDBLogic:
         return maintenanceSchedules
 
     def loadMaintenanceReportLog(self) -> list:
+        """ Function loads all saved maintenance reports from DB and turns back into class instances of Maintenance Report and returns the entire list """
         maintenanceReport_list = []
         try:
             with open(self.maintenance_Report_file_path, "r") as maintenanceReportDBopen:
@@ -68,7 +71,7 @@ class MaintenanceDBLogic:
         return maintenanceReports
 
     def updateMaintenanceStatus(self, maintenanceTask) -> None:
-        """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
+        """ This function takes in a maintenance instance, finds old version of it by checking the ID, overwrites it and saves the maintenance again in the json DB"""
         maintenances = self.loadMaintenanceLog()
         for index, maint in enumerate(maintenances):
             if maint.maintenanceID == maintenanceTask.maintenanceID:
@@ -76,7 +79,7 @@ class MaintenanceDBLogic:
         self.saveMaintenance(maintenances)
 
     def updateMaintenanceSchedule(self, maintenanceSchedule) -> None:
-        """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
+        """ This function takes in a maintenanceSchedule instance, finds old version of it by checking the ID, overwrites it and saves the maintenanceSchedule again in the json DB"""
         maintenanceSchedules = self.loadMaintenanceScheduleLog()
         for index, schedule in enumerate(maintenanceSchedules):
             if schedule.maintenanceScheduleID == maintenanceSchedule.maintenanceScheduleID:
@@ -92,13 +95,13 @@ class MaintenanceDBLogic:
         self.saveMaintenanceReport(maintenanceReports)
 
     def createMaintenanceSchedule(self, maintenanceSchedule) -> None:
-        """ This function takes in a list of parameters and creates a maintenanceSchedule and stores in the json DB """
+        """ This function takes in an instance of maintenanceSchedule, adds it to the current database list and stores in the json DB """
         maintenanceSchedules = self.loadMaintenanceScheduleLog()
         maintenanceSchedules.append(maintenanceSchedule)
         self.saveMaintenanceSchedule(maintenanceSchedules)
 
     def createMaintenance(self, maintenance) -> None:
-        """ This function takes in a list of parameters and creates a maintenance and stores in the json DB """
+        """ This function takes in an instance of maintenance, adds it to the current database list and stores in the json DB """
         maintenances = self.loadMaintenanceLog()
         maintenances.append(maintenance)
         self.saveMaintenance(maintenances)
@@ -111,7 +114,7 @@ class MaintenanceDBLogic:
         self.saveMaintenanceReport(maintenanceReports)
 
     def saveMaintenance(self, maintenances) -> None:
-        """ Function saves all instances of the Maintenance class saved in self.maintenance in dictionary form into json Database """
+        """ Function saves all instances of the Maintenance class received in the maintenances parameter in dictionary form into json Database """
         Maintenances = []
         for maint in maintenances:
             # We cant store the datetime so we will convert the datetime into string when saving and convert it back when loading in
@@ -126,7 +129,7 @@ class MaintenanceDBLogic:
             json.dump(Maintenances, file, indent=4)
             
     def saveMaintenanceSchedule(self, schedules) -> None:
-        """ Function saves all instances of the MaintenanceSchedule class saved in self.maintenanceschedule in dictionary form into json Database """
+        """ Function saves all instances of the MaintenanceSchedule class received in the schedules paramater in dictionary form into json Database """
         MaintenanceSchedules = []
         for schedule in schedules:
             MaintenanceSchedules.append(schedule.maintenanceSchedule_Dict())

@@ -6,11 +6,12 @@ from Models.Workers import Contractor
 
 class EmployeesDBLogic:
     def __init__(self) -> None:
+        """ Holds reference to the Employees DB """
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Employees.json")
 
     def loadEmployeeLog(self) -> list:
-        """ Function loads all saved employees from DB and turns back into class instances of Employee and saves it internally """
+        """ Function loads all saved employees from DB and turns back into class instances of Employee and returns a list of them """
         employees_list = []
         try:
             with open(self.file_path, "r") as employeeDBOpen:
@@ -19,7 +20,6 @@ class EmployeesDBLogic:
             return []
         except json.JSONDecodeError:
             return []
-        # Params 8 is a reference to "type" variable in the classes
         employees = []
         for employee in employees_list:
             inCommonParameters = list(employee.values())[:9] # First 9 are both in contractor and employee
@@ -31,7 +31,7 @@ class EmployeesDBLogic:
         return employees
 
     def saveEmployees(self, employees) -> None:
-        """ Function saves all instances of the employee class saved in self.employees in dictionary form into json Database """
+        """ Function saves all instances of the employee class received in the employees (parameter) list, in dictionary form into json Database """
         Employees = []
         for employee in employees:
             if employee.type == "Contractor":
@@ -43,21 +43,20 @@ class EmployeesDBLogic:
             json.dump(Employees, file, indent=4)
 
     def createEmployee(self, employee) -> None:
-        """  """
-        # Params should be a list of all the variables Employee() or Contractor() class needs to initialize in the correct order
+        """ Function takes in an employee instance, loads all employees from DB, adds the employee to that list and saves it again into the DB  """
         employees = self.loadEmployeeLog()
         employees.append(employee)
         self.saveEmployees(employees)
     
     def createContractor(self, contractor) -> None:
+        """ Function takes in a contractor instance, loads all employees from DB, adds the employee to that list and saves it again into the DB  """
         employees = self.loadEmployeeLog()
         employees.append(contractor)
         self.saveEmployees(employees)
 
     def updateEmployee(self, employee) -> None:
-        """ This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB """
+        """ This function takes in an employee instance, finds old version of it by checking the ID, overwrites it and saves the employees again in the json DB"""
         # Need to split into instances of General Employee/Manger and Contractor as they have different parameters
-        # Params 8 is a reference to "type" variable in the classes
         employees = self.loadEmployeeLog()
         for index, empl in enumerate(employees):
             if empl.employeeID == employee.employeeID: # If employee is the same (check on ID)

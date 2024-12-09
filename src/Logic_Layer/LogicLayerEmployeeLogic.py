@@ -4,7 +4,6 @@ from .ErrorCheckers import ErrorCheckers
 
 class LogicLayerEmployeeLogic:
     def __init__(self):
-        #
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 
