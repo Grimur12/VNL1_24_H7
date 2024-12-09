@@ -1,6 +1,7 @@
 from Data_Layer.DataLayerAPI import DataLayerAPI
 from Models.Workers import *
 from Models.Property import Property
+from Models.Maintenance import Maintenance
 from .ErrorCheckers import ErrorCheckers
 
 # Property Logic class
@@ -11,7 +12,8 @@ class LogicLayerPropertyLogic:
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 
-    def createUniqueID(self)-> int:
+    def createUniqueID(self) -> int:
+        """ Function loads all Properties from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique ID int"""
     # Here we create a new unique ID for a Property
         currentProperty = self.DataLayerWrapper.loadPropertiesLog()
         if len(currentProperty) != 0:
@@ -20,12 +22,14 @@ class LogicLayerPropertyLogic:
             newID = 1
         return newID
     
-    def createTempProperty(self):
+    def createTempProperty(self) -> Property:
+        """ Function creates a temporary Property for the user to fill out, it is assigned a unique INT ID, returns a temporary Property"""
         tempPropertyID = self.createUniqueID()
         temp_property = Property(ID=tempPropertyID)
         return temp_property
     
-    def validatePropertyInput(self, input, count, temp_property):
+    def validatePropertyInput(self, input, count, temp_property) -> True:
+        """ Function checks for each attribute in the Property the user changes if it is of the desired format, returns True or raises ValuError"""
         if self.Errors.checkNumber(count):
             count = int(count)
 
@@ -49,7 +53,8 @@ class LogicLayerPropertyLogic:
             temp_property.hasOvens = input
         return True
 
-    def getPropertyByID(self, ID):
+    def getPropertyByID(self, ID) -> Property:
+        """ Function loads all Properties and tries to find the specified Property by ID in the DB, returns Property or raises ValueError"""
     # Check for property by property ID or name
         if self.Errors.checkNumber(ID):
             propertyLog = self.DataLayerWrapper.loadPropertiesLog()
@@ -63,7 +68,8 @@ class LogicLayerPropertyLogic:
             else:
                 raise ValueError("No Property By that ID")
             
-    def getTasksForPropertyID(self, ID):
+    def getTasksForPropertyID(self, ID) -> list[Maintenance]:
+        """ Function finds the Property, loads all maintenance tasks and filters out all the maintenance tasks a being done on a property, returns filtered list of maintenance tasks or raises ValuError"""
         # Takes in property ID
         # probably best to call GetPropertyByID
         #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
@@ -80,21 +86,22 @@ class LogicLayerPropertyLogic:
             raise ValueError("No Maintenance has been done on this Property")
         
         return tasksDoneOnProperty
-
         
     #update the status of properties
-    def updateProperty(self, property):
+    def updateProperty(self, property) -> None:
+        """ Function takes in a property already in DB and overwrites it with the new attributes and saves it in Employee DB """
         # updateProperty = self.updateStatusOfProperty.
         self.DataLayerWrapper.updateProperty(property)
 
     #get properties data
-    def getPropertiesData(self):
+    def getPropertiesData(self) -> None:
+        """ Load all the Properties from the DB to return in a list format """
         getProperty = self.DataLayerWrapper.loadPropertiesLog()
         return getProperty
 
-    def createProperty(self, tempProperty):
+    def createProperty(self, tempProperty) -> None:
+        """ Function takes in a completely filled out tempProperty and saves it in our Property DB"""
         self.DataLayerWrapper.createProperty(tempProperty)
-
 
     #check errors
     def checkPropertiesError():

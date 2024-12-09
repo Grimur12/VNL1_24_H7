@@ -8,7 +8,7 @@ class LogicLayerEmployeeLogic:
         self.Errors = ErrorCheckers()
 
     def createUniqueID(self) -> int:
-        """ Function loads all Employees from DB, finds the last assigned ID and iterates it by one, creating a new ID, returns unique id int"""
+        """ Function loads all Employees from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique id int"""
         #here we create a new unique ID for the employees
         currentEmployees = self.DataLayerWrapper.loadEmployeeLog()
         if len(currentEmployees) != 0:
@@ -18,7 +18,7 @@ class LogicLayerEmployeeLogic:
         return newID
     
     def createTempEmployee(self, type_of_employee) -> Employee:
-        """ Function creates a temporary employee based on user input for the user to fill out, it is assigned a unique INT, returns a temporary employee """
+        """ Function creates a temporary employee based on user input for the user to fill out, it is assigned a unique INT ID, returns a temporary employee """
         #  Type of employee should be "1" for General Employee, "2 " for Manager, "3" for Contractor 
         tempEmployeeID = self.createUniqueID()
         if type_of_employee == "1": # General Employee
@@ -34,7 +34,7 @@ class LogicLayerEmployeeLogic:
         return temp_employee
     
     def validateEmployeeInput(self, input, count, temp_employee) -> True:
-        """ Function checks for each attribute the employee changes if it is of the desired format, returns True or raises ValuError"""
+        """ Function checks for each attribute of the employee the user changes if it is of the desired format, returns True or raises ValuError"""
         # We dont have to check for ID and type since that is automatically assigned based on user choice
         if self.Errors.checkNumber(count):
             count = int(count)

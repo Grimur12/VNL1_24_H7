@@ -8,7 +8,7 @@ class PropertiesDBLogic:
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Properties.json")
 
-    def loadPropertiesLog(self) -> list:
+    def loadPropertiesLog(self) -> list[Property]:
         """ Loads all properties from json database, creates the classes again, stores in a list to return"""
         property_list = []
         try:
