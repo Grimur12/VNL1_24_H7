@@ -115,13 +115,14 @@ class ErrorCheckers:
         # Need to check if enddate inputted is in the valid format and if its at a later date than the start date
         try:
             conversion = datetime.strptime(input, datetime_format)
-
-            if conversion < startDate:
-                raise ValueError("End Date can not be before the Start Date")
-            return conversion
         except ValueError:
             raise ValueError("Invalid Date format. Please input date as 'DD.MM.YYYY.HH:MM'.")
 
+        if conversion < startDate:
+                raise ValueError("End Date can not be before the Start Date")
+
+        return conversion
+    
     def checkErrorStatusMaintenance(self, input):
         if input.lower() in ["ongoing", "closed"]:
             return True
@@ -149,3 +150,9 @@ class ErrorCheckers:
         if input.lower() in ["daily", "weekly", "monthly"]:
             return True
         raise ValueError("Frequency can only be: Daily, Weekly or Monthly")
+
+    def checkErrorContractorCost(self, input):
+        # Must be a number inside the string
+        if not input.isnumeric():
+            raise ValueError("Cost must be a valid number")
+        return True

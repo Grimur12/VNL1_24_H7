@@ -129,6 +129,23 @@ D: To Quit Chaning and Save Changes\n
         if error:
             print(f"Error: {error}\n")
 
+    def display_temp_maintenanceReport(self, temp, error = None):
+
+        self.clearTerminal()
+
+        print("\n--- Adding a new Maintenance Report ---")
+        print(f"maintenanceReportID: {temp.maintenanceReportID}")
+        print(f"maintenanceID: {temp.maintenanceID}")
+        print(f"employeeID: {temp.employeeID}")
+        print(f"contractorID: {temp.contractorID}")
+        print(f"contractorCost: {temp.contractorCost}")
+        print(f"readyToClose: {temp.readyToClose}")
+        print("--------------------------\n")
+
+        if error:
+            print(f"Error: {error}\n")
+
+
     def printProperty(self, property):
 
         print("\n--- Property Information ---")
@@ -195,7 +212,17 @@ D: To Quit Chaning and Save Changes\n
         print(f"Frequency of Maintenance Task: {schedule.frequency}")
         print("--------------------------\n")
 
-        
+    def printMaintenanceReport(self, report):
+
+        print("\n--- Maintenance Report Information ---")
+        print(f"Maintenance Report Number: {report.maintenanceReportID}")
+        print(f"Report on Maintenance Task Number: {report.maintenanceID}")
+        print(f"Employee Number of the Employee that took on the Task: {report.employeeID}")
+        print(f"Contractor Number of the Contractor that took the Task: {report.contractorID}")
+        print(f"Cost of the Contrator doing the Task: {report.contractorCost}")
+        print(f"Is the Maintenance Task ready to be closed: {report.readyToClose}")
+        print("--------------------------\n")
+
     def clearTerminal(self):
         ## Not exactly how i want it... clears everything, needs to show errors...
         if name == "nt":

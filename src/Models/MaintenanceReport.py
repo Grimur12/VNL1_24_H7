@@ -7,18 +7,23 @@
 ## After maintenance has been flagged as closed the manager can then accept it and then close the maintenance Task
 
 class MaintenanceReport:
-    def __init__(self, maintenanceReportID = "", maintenanceID = "", employeeID = "", contractorID = "", contractorCost = "", readyToClose = "") -> None:
-        self.maintenanceReportID = maintenanceReportID
+    def __init__(self, ID = "", maintenanceID = "", employeeID = "", contractorID = "", contractorCost = "", readyToClose = False) -> None:
+        self.maintenanceReportID = ID
         self.maintenanceID = maintenanceID
         self.employeeID = employeeID # Reference to employee that decides to take the task
-        self.contractor = contractorID # This is a contractor ID, reference to contractor
-        self.contractorcost = contractorCost
-        self.readyToClose = readyToClose
+        self.contractorID = contractorID # This is a contractor ID, reference to contractor
+        self.contractorCost = contractorCost
+        self.readyToClose = readyToClose # When creating a new maintenanceReport its always going to start off as False until the relevant employee, contractor marks it as ready to close
 
     def MaintenanceReport_Dict(self):
         """ Returns all the variables in our MaintenanceReport class into dictionary, needed for DB json writing """
         return {
-        "maintenanceReportID": self.maintenanceReportID
+        "maintenanceReportID": self.maintenanceReportID, # Self assigned
+        "maintenanceID": self.maintenanceID, # Mandatory
+        "employeeID": self.employeeID, # Not Mandatory, If there is an employee you cant input a contractor
+        "contractorID": self.contractorID, # Not Mandatory, If there is a contractor you cant input an employee
+        "contractorCost": self.contractorCost, # Mandatory if there is a contractorID, but otherwise if employeeID you cant input anything here
+        "readyToClose": self.readyToClose # Likely not inputted at the start ? Just updateable after ?
         }
 
 

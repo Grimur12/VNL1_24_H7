@@ -44,7 +44,7 @@ class PropertiesDBLogic:
         for prop in properties:
             Properties.append(prop.Property_dict())
 
-        with open(self.file_path, 'w') as file:
+        with open(self.file_path, "w") as file:
             json.dump(Properties, file, indent=4)
 
     def printProperties(self) -> None:

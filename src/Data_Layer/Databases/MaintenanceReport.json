@@ -1,0 +1,10 @@
+[
+    {
+        "maintenanceReportID": 1,
+        "maintenanceID": 1,
+        "employeeID": "",
+        "contractorID": 5,
+        "contractorCost": "10000",
+        "readyToClose": false
+    }
+]

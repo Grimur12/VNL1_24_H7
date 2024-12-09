@@ -4,8 +4,17 @@
         "propertyID": 1,
         "startDate": "02.12.2024.12:30",
         "endDate": "03.12.2024.12:30",
-        "statusMaintenance": "Closed",
+        "statusMaintenance": "Ongoing",
         "feedback": "8",
         "priority": "Medium"
+    },
+    {
+        "maintenanceID": 2,
+        "propertyID": 2,
+        "startDate": "02.10.2020.12:30",
+        "endDate": "02.11.2020.12:30",
+        "statusMaintenance": "Closed",
+        "feedback": "8",
+        "priority": "High"
     }
 ]

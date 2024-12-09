@@ -16,6 +16,7 @@ class ViewUILogic:
             print("3: To view all Properties")
             print("4: To view all Maintenance Tasks")
             print("5: To view all Scheduled Maintenance Tasks")
+            print("6: To view all Maintenance Reports")
             print("B: To Go Back")
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
@@ -44,6 +45,9 @@ class ViewUILogic:
             elif user_choice == "5":
                 self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceSchedules()
+            elif user_choice == "6":
+                self.displayMaintenanceReports()
+                self.filterMaintenanceReports()
             else:
                 print("Invalid Input")
             
@@ -79,10 +83,15 @@ class ViewUILogic:
         for schedule in maintenanceSchedules:
             self.Displays.printMaintenanceSchedule(schedule)
 
+    def displayMaintenanceReports(self):
+        maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
+        for report in maintenanceReports:
+            self.Displays.printMaintenanceReport(report)
+
     def filterEmployees(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Employee")
-        print("2: To view all tasks an Employee has worked on") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all tasks an Employee has worked on")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -122,15 +131,19 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForEmployeeID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID) # Takes in x amount of Maintenance Tasks an employee has worked
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterContractors(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Contractor")
-        print("2: To view all tasks an Contractor has worked on") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all tasks a Contractor has worked on")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -169,15 +182,19 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForContractorID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForContractorID(ID)# Takes in x amount of Maintenance Tasks a contractor has worked 
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterProperties(self):
         print("\n-------------------------------------------------------")
         print("1: To view additional information of a specific Property")
-        print("2: To view all Maintenance on a specific Property") # ongoing and closed, ## NOT IMPLEMENTED, NEED TO ADD MAINTENANCE REPORT LOGIC FIRST
+        print("2: To view all Maintenance on a specific Property")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -216,10 +233,14 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    task = self.LogicLayerWrapper.getTasksForPropertyID(ID)
-                    self.Displays.printMaintenanceTask(task)
+                    tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID) # Takes in x amount of Maintenance Tasks done on specific property
+                    for task in tasks:
+                        self.Displays.printMaintenanceTask(task)
+                    self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
     
     def filterMaintenanceTasks(self):
         print("\n-------------------------------------------------------")
@@ -252,6 +273,8 @@ class ViewUILogic:
                     self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")
 
     def filterMaintenanceSchedules(self):
         print("\n-------------------------------------------------------")
@@ -284,3 +307,65 @@ class ViewUILogic:
                     self.Displays.printMaintenanceSchedule(task)
                 except ValueError as error:
                     print(error)
+            else:
+                print("Invalid Input")            
+
+    def filterMaintenanceReports(self):
+        print("\n-------------------------------------------------------")
+        print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+        print("B: To Go Back")
+        print("Q: To Quit")
+        print("-------------------------------------------------------\n")
+        while True:
+            user_choice = input("Choice: ")
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
+
+            elif user_choice.lower() == "b":
+                print("Going back")
+                self.clearTerminal()
+                break
+            
+            elif user_choice == "1":
+                ID = input("ID of the Maintenance Report you want to look up: ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+                try:
+                    report = self.LogicLayerWrapper.getMaintenanceReportByID(ID)
+                    self.Displays.printMaintenanceReport(report)
+                except ValueError as error:
+                    print(error)
+            else:
+                print("Invalid Input")
+    
+    def dateFilter(self, tasks):
+        print("\n-------------------------------------------------------")
+        print("1: To view tasks over a specific time period")
+        print("B: To Go Back")
+        print("Q: To Quit")
+        print("-------------------------------------------------------\n")
+        while True:
+            user_choice = input("Choice: ")
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
+
+            elif user_choice.lower() == "b":
+                print("Going back")
+                self.clearTerminal()
+                break
+
+            elif user_choice == "1":
+                startDate = input("Start Date: ")
+                endDate = input("End Date: ")
+                filtered_tasks = self.LogicLayerWrapper.filterMaintenanceTasksDates(tasks, startDate, endDate)
+                for filtered_task in filtered_tasks:
+                    self.Displays.printMaintenanceTask(filtered_task)
+            else:
+                print("Invalid Input")

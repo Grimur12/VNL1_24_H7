@@ -44,7 +44,7 @@ class ManagerUILogic:
         while True:
             print("1: To create a new General Employee")
             print("2: To create a new Manager")
-            print("3: To create a new contractor")
+            print("3: To create a new Contractor")
             print("4: To create a new Property")
             print("5: To create a new Maintenance Task")
             print("6: To create a new Maintenance Schedule")
@@ -154,7 +154,6 @@ class ManagerUILogic:
                 self.editMaintenanceSchedule(ID)
             else:
                 print("Invalid Input")
-        pass
 
     
     def createEmployee(self,type_of_employee):
