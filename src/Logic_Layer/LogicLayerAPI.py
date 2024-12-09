@@ -58,6 +58,9 @@ class LogicLayerAPI:
         # Takes in employee ID
         tasks = self.LogicLayerEmployeelogic.getTasksForEmployeeID(ID)
         return tasks
+    
+    def exchangeManagersAtLocation(self, userInput_previous, temp_employee):
+        self.LogicLayerEmployeelogic.exchangeManagersAtLocation(userInput_previous, temp_employee)
 
     # def assign_task_to_employee(self):
     #     pass

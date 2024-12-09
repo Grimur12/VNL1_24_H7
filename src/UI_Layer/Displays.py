@@ -223,6 +223,12 @@ D: To Quit Chaning and Save Changes\n
         print(f"Is the Maintenance Task ready to be closed: {report.readyToClose}")
         print("--------------------------\n")
 
+    def overWriteManager(self):
+        print("\nDestination already has a Manager, Would you like to demote him to a General Employee or abort creating a new Manager")
+        print("1: To continue creating the new Manager, demoting the current one")
+        print("2: To stop the creation process of a new Manager")
+        print("Q: To Quit the Program")
+
     def clearTerminal(self):
         ## Not exactly how i want it... clears everything, needs to show errors...
         if name == "nt":

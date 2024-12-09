@@ -66,10 +66,10 @@ class ErrorCheckers:
         return True
 
     def errorCheckLocation(self, location) -> True:
-        """ Checks if location user input is valid, if so returns True, if not raises ValueError """
+        """ Checks if location user input is valid, (a int number), if so returns True, if not raises ValueError """
         self.checkEmpty(location)
-        if location.isnumeric():
-            raise ValueError("Location must not be just a number")
+        if not location.isnumeric():
+            raise ValueError("Location ID must be a number")
         return True
     
     def errorCheckEmployeePreviousTask(self, previousTask) -> True:

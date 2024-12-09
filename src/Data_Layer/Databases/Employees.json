@@ -7,7 +7,7 @@
         "atHomePhone": "773-9090",
         "gsmPhone": "994-1234",
         "email": "testing@ru.is",
-        "workLocation": "HR kaffihus",
+        "workLocation": 1,
         "type": "General"
     },
     {
@@ -18,7 +18,7 @@
         "atHomePhone": "883-9090",
         "gsmPhone": "001-9090",
         "email": "testing@ru.is",
-        "workLocation": "HR",
+        "workLocation": 1,
         "type": "Manager"
     },
     {
@@ -29,7 +29,7 @@
         "atHomePhone": "882-1233",
         "gsmPhone": "832-2322",
         "email": "test@ru.is",
-        "workLocation": "hr",
+        "workLocation": 2,
         "type": "Manager"
     },
     {
@@ -40,7 +40,7 @@
         "atHomePhone": "888-8888",
         "gsmPhone": "999-9999",
         "email": "t@i",
-        "workLocation": "hr",
+        "workLocation": 3,
         "type": "Manager"
     },
     {
@@ -51,7 +51,7 @@
         "atHomePhone": "999-1111",
         "gsmPhone": "222-2222",
         "email": "g@r",
-        "workLocation": "HR",
+        "workLocation": 4,
         "type": "Contractor",
         "previousTask": "HR",
         "performanceRating": "9",
@@ -66,7 +66,7 @@
         "atHomePhone": "123-1233",
         "gsmPhone": "123-3232",
         "email": "g @",
-        "workLocation": "r",
+        "workLocation": 4,
         "type": "Manager"
     },
     {
@@ -77,7 +77,7 @@
         "atHomePhone": "998-2332",
         "gsmPhone": "902-1232",
         "email": "kalli@gmail.com",
-        "workLocation": "LagningarEHF",
+        "workLocation": 5,
         "type": "Contractor",
         "previousTask": "",
         "performanceRating": "10",
@@ -92,7 +92,77 @@
         "atHomePhone": "993-1212",
         "gsmPhone": "333-1232",
         "email": "gr@gr.is",
-        "workLocation": "HR",
+        "workLocation": 5,
         "type": "Manager"
+    },
+    {
+        "employeeID": 9,
+        "name": "Grimur",
+        "socialSecurity": "023010-2390",
+        "address": "Svalbar\u00f0i 35",
+        "atHomePhone": "993-2323",
+        "gsmPhone": "112-3030",
+        "email": "Grimur@Svalbar\u00f0i.is",
+        "workLocation": "6",
+        "type": "General"
+    },
+    {
+        "employeeID": 10,
+        "name": "Grimur Replacement",
+        "socialSecurity": "030201-2221",
+        "address": "Svalbar\u00f0i 35 Replacement",
+        "atHomePhone": "992-2322",
+        "gsmPhone": "231-2323",
+        "email": "Grimur@Grimur.is",
+        "workLocation": 6,
+        "type": "General"
+    },
+    {
+        "employeeID": 11,
+        "name": "Manager of Svalbar\u00f0i :)",
+        "socialSecurity": "022322-2339",
+        "address": "Svalbar\u00f0i 993",
+        "atHomePhone": "993-2332",
+        "gsmPhone": "123-2332",
+        "email": "Manager@Svalbar\u00f0i.is",
+        "workLocation": 6,
+        "type": "Manager"
+    },
+    {
+        "employeeID": 12,
+        "name": "H\u00e1kon",
+        "socialSecurity": "112221-1233",
+        "address": "Svalbar\u00f0i 10",
+        "atHomePhone": "993-1223",
+        "gsmPhone": "221-1233",
+        "email": "Hakon@svalbar\u00f0i.is",
+        "workLocation": 6,
+        "type": "General"
+    },
+    {
+        "ID": 13,
+        "name": "S\u00edmon",
+        "socialSecurity": "211222-2322",
+        "address": "Svalbar\u00f0i 12",
+        "atHomePhone": "993-1233",
+        "gsmPhone": "122-1233",
+        "email": "simon@simon.is",
+        "workLocation": 6,
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "10",
+        "contractorContact": "111-2223",
+        "openingHours": "9:30-5:30"
+    },
+    {
+        "employeeID": 14,
+        "name": "Kalli",
+        "socialSecurity": "022122-1233",
+        "address": "Keflav\u00edk 20",
+        "atHomePhone": "892-1233",
+        "gsmPhone": "111-2222",
+        "email": "kalli@kef.is",
+        "workLocation": 1,
+        "type": "General"
     }
 ]

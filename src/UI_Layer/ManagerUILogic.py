@@ -158,10 +158,12 @@ class ManagerUILogic:
     
     def createEmployee(self,type_of_employee):
 
-        # Type of employee should be "1" for Employee, "2" for Contractor 
+        # Type of employee should be "1" for Employee, "2" for Manager, "3" for Contractor 
         count = 1
         temp = self.LogicLayerWrapper.getTempEmployee(type_of_employee)
         error_message = None
+        overWritten = False
+        aborted = False # Flag to see if user has pressed b or does not want to overwrite manager
         if type_of_employee == "3":
             max_parameters = 12
         else:
@@ -174,6 +176,7 @@ class ManagerUILogic:
                 exit()
             elif userInput.lower() == "b":
                 print("Going back")
+                aborted = True
                 self.ViewingUI.clearTerminal()
                 break
 
@@ -184,11 +187,36 @@ class ManagerUILogic:
             except ValueError as error:
                 error_message = error
                 continue
-        if userInput.lower() != "b":
+            except KeyError:
+                overWritten = self.overWriteManager(temp, userInput)
+                count += 1
+                if not overWritten: # If we aborted creating the new manager then we break
+                    aborted = True
+                    break
+            
+
+        if not aborted:
             self.Displays.display_temp_employee(temp, error_message)
             self.LogicLayerWrapper.createEmployee(temp)
             print("You have successfully created the employee")
-            
+
+    def overWriteManager(self, temp, userInput_previous) -> True:
+        """ Returns True if user decides to overwrite manager and False otherwise"""
+        while True:
+            self.Displays.overWriteManager()
+            userInput = input("Choice: ")
+            if userInput.lower() == "q":
+                print("Quitting")
+                exit()
+            elif userInput == "1":
+                self.LogicLayerWrapper.exchangeManagersAtLocation(userInput_previous, temp)
+                return True
+            elif userInput == "2":
+                print("Aborting the creation of a new Manager")
+                return False
+            else:
+                print("Invalid Input")
+
     def createProperty(self):
 
         count = 1

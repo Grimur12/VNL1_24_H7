@@ -2,6 +2,8 @@ from Data_Layer.DataLayerAPI import DataLayerAPI
 from Models.Workers import Employee, Contractor
 from .ErrorCheckers import ErrorCheckers
 from Models.Maintenance import Maintenance
+from Models.Destination import Destination
+
 class LogicLayerEmployeeLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
@@ -58,8 +60,15 @@ class LogicLayerEmployeeLogic:
             self.Errors.errorCheckEmail(input)
             temp_employee.email = input
         elif count == 7:  # Work Location
-            self.Errors.errorCheckLocation(input)
-            temp_employee.workLocation = input
+            # Check first if there exists a Manager at that Destination beforehand
+            self.Errors.checkNumber(input)
+            dest_ID = int(input)
+            if temp_employee.type == "Manager": # If the user is creating a manager, because a general employee can always work at any location
+                destination = self.checkIfDestinationExists(dest_ID) # See if we have Destination in DB
+                self.checkIfManagerAtDestination(destination) # See if there exists a Manager, if so we need to ask the user if we wants to overwrite That Manager
+                # If no errors were raised until this point, this is a valid destination with no Manager in it, so we need to update the destination manager and then save it
+                self.addManagerToDestination(destination, temp_employee)
+            temp_employee.workLocation = dest_ID
         # Beyond this point is contractor specific
         elif count == 8:  #
             self.Errors.errorCheckEmployeePreviousTask(input)
@@ -74,6 +83,45 @@ class LogicLayerEmployeeLogic:
             self.Errors.errorCheckEmployeeOpeningHours(input)
             temp_employee.openingHours = input
         return True
+    
+    def addManagerToDestination(self, destination, temp_employee) -> None:
+        """ Function takes in a destination and a temp_employee, it sets the temp_employees ID as the manager of that destination and saves the destination in the DB"""
+        destination.managerOfDestination = temp_employee.employeeID
+        self.DataLayerWrapper.updateDestination(destination)
+
+    def checkIfDestinationExists(self, dest_ID) -> Destination:
+        """ Function takes in a Destination ID and checks if we have a Destination by that ID in our Destination DB, raises ValueError if not found else returns Destination"""
+        destinations = self.DataLayerWrapper.loadDestinationsLog()
+        for dest in destinations:
+            if dest.destinationID == dest_ID:
+                return dest
+        raise ValueError("No Destination by that ID exists")
+
+    def checkIfManagerAtDestination(self, destination) -> True:
+        """ Functions takes in a Destination and checks if that Destination already has a Manager, raises KeyError if it has , returns True if not"""
+        if destination.managerOfDestination != "":
+            raise KeyError("This Destination already has a Manager")
+        else:
+            return True
+
+    def exchangeManagersAtLocation(self, destination_id, temp_employee) -> None:
+        """ Function takes in a destination_id as string and temp_employee, demotes the current manager of that destination to General Employee and updates that employee information, 
+        and makes the temp_employee the new manager and saves it to the destination DB and puts temp_employees worklocation as the destination """
+        destination = self.checkIfDestinationExists(int(destination_id)) # See if the destination exists and get the destination
+        current_manager_ID = destination.managerOfDestination # Get manager of that destination
+        employeeLog = self.DataLayerWrapper.loadEmployeeLog() # get employees
+        # Make the current manager a General Employee
+        for employee in employeeLog:
+            if employee.employeeID == current_manager_ID:
+                employee.type = "General"
+                self.DataLayerWrapper.updateEmployee(employee)
+                break
+        # Make the temp employee the new manager
+        destination.managerOfDestination = temp_employee.employeeID
+        temp_employee.workLocation = int(destination_id)
+        self.DataLayerWrapper.updateDestination(destination)
+        
+
 
     def getEmployeebyID(self, ID) -> Employee:
         """ Function loads all Employees and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""

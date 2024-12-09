@@ -1,6 +1,13 @@
 from .EmployeesDBLogic import EmployeesDBLogic
 from .MaintenanceDBLogic import MaintenanceDBLogic
 from .PropertiesDBLogic import PropertiesDBLogic
+from .DestinationDBLogic import DestinationDBLogic
+from Models.Maintenance import Maintenance
+from Models.MaintenanceReport import MaintenanceReport
+from Models.MaintenanceSchedule import MaintenanceSchedule
+from Models.Destination import Destination
+from Models.Property import Property
+from Models.Workers import *
 
 class DataLayerAPI:
     def __init__(self):
@@ -8,6 +15,7 @@ class DataLayerAPI:
         self.employeeDB = EmployeesDBLogic()
         self.maintenanceDB = MaintenanceDBLogic()
         self.propertyDB = PropertiesDBLogic()
+        self.destinationDB = DestinationDBLogic()
 
     # Employee DB Logic
     def createEmployee(self, employee) -> None:
@@ -28,7 +36,7 @@ class DataLayerAPI:
         self.employeeDB.updateEmployee(employee)
 
     # Property DB Logic   
-    def loadPropertiesLog(self) -> list:
+    def loadPropertiesLog(self) -> list[Property]:
         """ Loads all properties from json database, create the classes again, store in a list to return"""
         propertyLog = self.propertyDB.loadPropertiesLog()
         return propertyLog
@@ -42,17 +50,17 @@ class DataLayerAPI:
         self.propertyDB.updateProperty(property)
         
     # Maintenance Report, Maintenance Schedule and Maintenance Task DB Logic
-    def loadMaintenanceLog(self) -> list:
+    def loadMaintenanceLog(self) -> list[Maintenance]:
         """ Loads all Maintenances from json database, create the classes again, store in a list to return"""
         maintenances = self.maintenanceDB.loadMaintenanceLog()
         return maintenances
 
-    def loadMaintenanceScheduleLog(self) -> list:
+    def loadMaintenanceScheduleLog(self) -> list[MaintenanceSchedule]:
         """ Loads all Maintenance Schedules from json database, create the classes again, store in a list to return"""
         maintenanceSchedules = self.maintenanceDB.loadMaintenanceScheduleLog()
         return maintenanceSchedules
     
-    def loadMaintenanceReportLog(self) -> list:
+    def loadMaintenanceReportLog(self) -> list[MaintenanceReport]:
         """ Loads all Maintenance Reports from json database, create the classes again, store in a list to return"""
         maintenanceReports = self.maintenanceDB.loadMaintenanceReportLog()
         return maintenanceReports
@@ -80,3 +88,13 @@ class DataLayerAPI:
     def createMaintenanceReport(self, maintenanceReport) -> None:
         """ Takes in object Maintenance Report and stores it in our Maintenance Report json DB"""
         self.maintenanceDB.createMaintenanceReport(maintenanceReport)
+
+    # Destination DB Logic
+    def loadDestinationsLog(self) -> list[Destination]:
+        """ Loads all properties from json database, creates the classes again, stores in a list to return"""
+        destinations = self.destinationDB.loadDestinationsLog()
+        return destinations
+
+    def updateDestination(self, updated_destination) -> None:
+        """ This function takes in a property instance, finds old version of it by checking the ID, overwrites it and saves the properties again in the json DB"""
+        self.destinationDB.updateDestination(updated_destination)
