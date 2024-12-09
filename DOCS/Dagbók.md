@@ -488,7 +488,6 @@ Pairs and Layers EOD Results and Todays work:
     Today we want to finish the Maintenance Layer.
   - Grímur and Máni
     
-
 The goal of today is to:
   - finish the Logic Layer
   - Get the UI layer almost finished or to finished position
@@ -503,12 +502,12 @@ The goal of today is to:
   - [x] Properties DB connection
   - [x] Insert Return statements in DB
   - [x] Implement a two file read system
-- [ ] Create an independent Logic Layer
+- [x] Create an independent Logic Layer
   - [x] Setup the classes 
   - [x] Organizing the connections and wrappers
   - [x] Finishing the Employees Logic Layer
   - [x] Finish the Logic Layer Employee
-  - [ ] Finish the Logic Layer Maintenance
+  - [x] Finish the Logic Layer Maintenance
   - [x] Finish the logic layer Properties
 - [ ] Create an independent UI Layer
   - [x] Finish ContractorUI
