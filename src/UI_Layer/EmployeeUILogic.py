@@ -4,6 +4,8 @@ from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
 
+# Here is our class of Employee UI Logic where we have all of the employee communication with the UI.
+
 class EmployeeUILogic:
     def __init__(self):
         self.LogicLayerWrapper = LogicLayerAPI()
@@ -12,6 +14,8 @@ class EmployeeUILogic:
 
     def run(self):
         while True:
+            # Here is the menu for the employee
+            # All of his functions are here
             print("1: To create a Maintenance Report")
             print("2: To mark a Maintenance Report as ready to close")
             print("3: To access viewing features")
@@ -20,16 +24,21 @@ class EmployeeUILogic:
             user_choice = input("Choice ")
             # Exit out of the loop
 
+            # The user decides to quit
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # The user decides to go back in the program
             if user_choice.lower() == "b":
                 print("Going back")
                 break
 
+            # The user chooses to create a Maintenance Report
             if user_choice == "1":
                 self.createMaintenanceReport()
+            
+            # The user chooses to mark the Maintenance report as ready to close
             elif user_choice == "2":
                 ID = input("ID of the Maintenance Report you want to mark as ready to close: ")
 
@@ -41,6 +50,8 @@ class EmployeeUILogic:
                     continue
 
                 self.markMaintenanceReportAsClosed()
+
+            # The user chooses to access viewing features
             elif user_choice == "3":
                 self.ViewUI.viewMenu()
             else:

@@ -1,6 +1,7 @@
-# Error checker class for all error checks
 from datetime import datetime
 
+
+# Error checker class for all error checks in the logic layer. This is needed because we need to prevent errors
 class ErrorCheckers:
 
     def __init__(self) -> None:
@@ -60,6 +61,7 @@ class ErrorCheckers:
         
     def errorCheckEmail(self, email):
         """ Checks if email user input is valid """
+        #we cannot accept emails that do not contain @
         self.checkEmpty(email)
         if not "@" in email:
             raise ValueError("Email must contain an @")
@@ -80,6 +82,8 @@ class ErrorCheckers:
         return True
 
     def errorCheckEmployeePerformanceRating(self, performanceRating):
+        '''Checks if the performance rating is a number'''
+        # We are looking for a number rating, but A,B,C or anything else.
         if not performanceRating.isnumeric():
             raise ValueError("Performance Rating must be a number")
         
@@ -91,6 +95,7 @@ class ErrorCheckers:
         self.errorCheckPhone(contractorContact)
 
     def errorCheckEmployeeOpeningHours(self, openingHours):
+        ''' Checking if the opening hour has a "-" in it because it needs to be from some time to another'''
         self.checkEmpty(openingHours)
         if openingHours.isnumeric():
             if "-" not in openingHours:
@@ -98,11 +103,14 @@ class ErrorCheckers:
         return True
 
     def errorCheckBoolean(self, input):
+        ''' Checking if input is True or False in a boolean check'''
+        # We need to have either True or False, no other
         if input in ["True", "False"]:
             return True
         raise ValueError("Input should be either a True or False")
     
     def checkErrorStartDate(self, input, datetime_format):
+        ''' Checking if starting date is submitted in a right format'''
         try:
             conversion = datetime.strptime(input, datetime_format)
             return conversion
@@ -111,8 +119,8 @@ class ErrorCheckers:
             
 
     def checkErrorEndDate(self, input, datetime_format, startDate): 
-
-        # Need to check if enddate inputted is in the valid format and if its at a later date than the start date
+        ''' Checking if end date is submitted in a right format '''
+        
         try:
             conversion = datetime.strptime(input, datetime_format)
         except ValueError:

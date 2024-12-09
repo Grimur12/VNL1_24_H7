@@ -1,4 +1,4 @@
-#defining the classes of Destination
+# Here is our Destination class
 
 class Destination:
     def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination,):
@@ -24,4 +24,22 @@ class Destination:
         "openingHours": self.openingHours,
         "managerOfDestination": self.managerOfDestination
         }
+
+class Reykjavik(Destination):
+    pass
+
+class Nuuk(Destination):
+    pass
+
+class Kulusuk(Destination):
+    pass
+
+class Thorshofn(Destination):
+    pass
+
+class Tingwall(Destination):
+    pass
+
+class Longyearbyen(Destination):
+    pass
     

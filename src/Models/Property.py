@@ -1,4 +1,4 @@
-# Defining Property classes
+# Here is our Property class
 
 class Property:
     def __init__(self, ID, nameOfProperty = "", location = "", availability = "", hasAPool = "", hasATub = "", hasOvens = "") -> None:

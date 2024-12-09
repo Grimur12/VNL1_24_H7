@@ -1,4 +1,4 @@
-# Define Managers, Employees and Contractors
+# Here is our classes of employees
 
 class Employee:
     def __init__(self, ID = "", name = "", socialSecurity = "", address = "", atHomePhone = "", gsmPhone = "", email = "", workLocation = "", type = "") -> None:

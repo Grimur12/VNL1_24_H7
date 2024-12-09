@@ -4,6 +4,8 @@ from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
 
+# Here is our Contractor UI Logic File where we have all of the Contractor's communication with the UI.
+
 class ContractorUILogic:
     def __init__(self):
         self.LogicLayerWrapper = LogicLayerAPI()
@@ -11,6 +13,7 @@ class ContractorUILogic:
         self.Displays = Displays()
 
     def run(self):
+        #Here is the menu for the Contractor. In the menu you can view all of the things the contractor can do.
         while True:
             print("--- Contractor ---")
             print("1: To create a Maintenance Report")
@@ -20,16 +23,21 @@ class ContractorUILogic:
             print("Q: to quit")
             user_choice = input("Choice ")
 
+            # The user chooses to quit the program.
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # The user chooses to go back in the program.
             if user_choice.lower() == "b":
                 print("Going back")
                 break
-
+            
+            # The user chooses to create a maintenance report.
             if user_choice == "1":
                 self.createMaintenanceReport()
+
+            # The user chooses to mark a Maintenance report as ready to close.
             elif user_choice == "2":
                 ID = input("ID of the Maintenance Report you want to mark as ready to close: ")
 
@@ -41,11 +49,14 @@ class ContractorUILogic:
                     continue
 
                 self.markMaintenanceReportAsClosed()
+
+            # If user chooses to access viewing features.
             elif user_choice == "3":
                 self.ViewUI.viewMenu()
             else:
                 print("Invalid Input")
 
+    # Here is the function to create a maintenance report
     def createMaintenanceReport(self):
         count = 1
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport()

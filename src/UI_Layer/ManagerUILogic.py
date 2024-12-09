@@ -4,6 +4,8 @@ from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
 
+# Here is the class for Manager UI Logic where we have all of the communication with the manager to the UI
+
 class ManagerUILogic:
     def __init__(self):
         self.LogicLayerWrapper = LogicLayerAPI()
@@ -13,6 +15,7 @@ class ManagerUILogic:
     def run(self):
         self.ViewingUI.clearTerminal()
         while True:
+            # Here is a list of features the manager can choose to select/do
             print("1: To create new Properties, Employees or Maintenance Tasks")
             print("2: To edit existent Properties, Employees or Maintenance Tasks")
             print("3: To view existent Properties, Employess or Maintenance Tasks")
@@ -20,10 +23,12 @@ class ManagerUILogic:
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
+            # The user chooses to quit
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # The user chooses to go back
             if user_choice.lower() == "b":
                 print("Going back")
                 self.ViewingUI.clearTerminal()
@@ -38,10 +43,11 @@ class ManagerUILogic:
             else:
                 print("Invalid Input")
 
-
+    # Definition of the menu that comes when the user chooses to create (option1)
     def addMenu(self):
         self.ViewingUI.clearTerminal()
         while True:
+            # Main menu of create employee, contractor, property
             print("1: To create a new General Employee")
             print("2: To create a new Manager")
             print("3: To create a new Contractor")
@@ -52,10 +58,12 @@ class ManagerUILogic:
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
+            #user chooses to quit
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # user chooses to go back
             if user_choice.lower() == "b":
                 print("Going back")
                 self.ViewingUI.clearTerminal()
@@ -88,15 +96,18 @@ class ManagerUILogic:
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
 
+            #user chooses to quit
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # user chooses to go back
             if user_choice.lower() == "b":
                 print("Going back")
                 self.ViewingUI.clearTerminal()
                 break
 
+            # the user chooses option 1 
             if user_choice == "1":
                 ID = input("ID of the Employee you want to edit: ")
 
@@ -108,6 +119,8 @@ class ManagerUILogic:
                     continue
 
                 self.editEmployee(ID) # komið
+
+            # user chooses option 2
             elif user_choice == "2":
                 ID = input("ID of the Contractor you want to edit: ")
 
@@ -119,6 +132,8 @@ class ManagerUILogic:
                     continue
 
                 self.editContractor(ID) # komið
+
+            # user chooses option 3
             elif user_choice == "3":
                 ID = input("ID of the Property you want to edit: ")
 
@@ -130,6 +145,8 @@ class ManagerUILogic:
                     continue
 
                 self.editProperty(ID) # komið
+
+            # user chooses option 4
             elif user_choice == "4":
                 ID = input("ID of the Maintenance Task you want to edit: ")
 
@@ -141,6 +158,8 @@ class ManagerUILogic:
                     continue
 
                 self.editMaintenanceTask(ID)
+
+            # user chooses option 5
             elif user_choice == "5":
                 ID = input("ID of the Maintenance Schedule you to edit: ")
 
@@ -155,7 +174,7 @@ class ManagerUILogic:
             else:
                 print("Invalid Input")
 
-    
+    # Definition of create employee
     def createEmployee(self,type_of_employee):
 
         # Type of employee should be "1" for Employee, "2" for Contractor 

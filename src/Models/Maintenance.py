@@ -1,4 +1,4 @@
-#defining the class Maintenence
+# Here is our Maintenance class
 
 class Maintenance:
     def __init__(self, ID, propertyID = "" ,startDate = "", endDate = "", statusMaintenance = "", feedback = "", priority = "") -> None:

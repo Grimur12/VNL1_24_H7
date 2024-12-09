@@ -1,4 +1,4 @@
-#defining the Maintenance schedule classes.
+# Here is our Maintenance Schedule class
 
 class MaintenanceSchedule:
     def __init__(self, ID, maintenanceID = "", taskType = "", frequency = ""):
