@@ -38,7 +38,7 @@ banner = f"""
 
 print(banner)
 
-def main_menu_select_role():
+def main_menu():
     while True:  # Loop until a valid choice is made
         try:
             main_menu_select_role = input(f"""
@@ -51,8 +51,7 @@ def main_menu_select_role():
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | INPUT: """)
             if main_menu_select_role == '1':
-                print("Manage position selected.")
-                break  # Exit loop after selection
+                manager_main_menu() #call the manager menu function
             elif main_menu_select_role == '2':
                 print("Employee option selected. This feature is not implemented yet.")
                 break
@@ -61,13 +60,11 @@ def main_menu_select_role():
         except ValueError:
             print("Please enter a valid number.")
 
-main_menu_select_role()
-
 #Input 1
 def manager_main_menu():
     while True:
         try:            
-            manager_main_menu = input (f"""
+            menu_choice = input (f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
 ----------------------------------------------
@@ -80,22 +77,26 @@ def manager_main_menu():
 | Q. Quit                                    |                                                                                              
 ------------------------------------------------------------------------------------------------------------------------------------------------- 
 | INPUT: """)
-            if manager_main_menu == '1':
-                print("Emplyees Database selected.")
-                break
-            elif manager_main_menu == '2':
+            if menu_choice == '1':
+                manager_main_menu_employees()
+            elif menu_choice == '2':
                 manager_main_menu_contractors()
-                break
+            elif menu_choice == 'B' or menu_choice == 'b':
+                return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                exit()
             else:
-                print("Invalid selection. Please try again...")
+                print("Invalid selection. Please choose a valid option.")
         except ValueError:
             print("Please enter a valid number.")
-manager_main_menu()
+            
+
 #MAIN MENU Input 1: Employees Databa
 def manager_main_menu_employees():
     while True:
         try:
-            manager_main_menu_employees = f"""
+            menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Employees Database|
 --------------------------------------
@@ -106,14 +107,15 @@ def manager_main_menu_employees():
 | 4. Delete Employee Data            |
 | B. Back                            |
 | Q. Quit                            |
--------------------------------------- """
-            if manager_main_menu_employees == '1':
-                break
-            elif manager_main_menu_employees == '2':
+------------------------------------------------------------------------------------------------------------------------------------------------
+| INPUT: """)
+            if menu_choice == '1':
+                manager_main_menu_employees_list()
+            elif menu_choice == '2':
                 pass
-            elif manager_main_menu_employees == '3':
-                pass
-            elif manager_main_menu_employees == '4':
+            elif menu_choice == 'b':
+                return
+            elif menu_choice == '4':
                 pass
             else:
                 print("Invalid selection. Please try again...")
@@ -122,7 +124,10 @@ def manager_main_menu_employees():
 
 
 #Employees Database INPUT 1 
-manager_main_menu_employees_list = f"""
+def manager_main_menu_employees_list():
+        while True:
+            try:
+                menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Viewing Employees|
 
@@ -136,7 +141,14 @@ manager_main_menu_employees_list = f"""
 |------------------------------------------------------------------------------------------------------------------------------------------------
 | B. Back                                                                                                                                       |
 | Q. Quit                                                                                                                                       |
-------------------------------------------------------------------------------------------------------------------------------------------------- """
+------------------------------------------------------------------------------------------------------------------------------------------------- 
+| INPUT: """)
+                if menu_choice == '1':
+                    pass
+                if menu_choice == 'b':
+                    return
+            except ValueError:
+                print("Please enter a valid selection.")
 #Employees Database INPUT 2
 manager_main_menu_employees_edit = f"""
 {RED}                                                           ------------------
@@ -217,7 +229,10 @@ manager_main_menu_employees_delete = f"""
 
 
 #MAIN MENU Input 2: Contractors Database
-manager_main_menu_contractors = f"""
+def manager_main_menu_contractors():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Contractors Database|
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -227,8 +242,14 @@ manager_main_menu_contractors = f"""
 | 3. Check Maintenance Reports                                                                                                              |
 | B. Back                                                                                                                                   |
 | Q. Quit                                                                                                                                   |
---------------------------------------------------------------------------------------------------------------------------------------------- """
-
+--------------------------------------------------------------------------------------------------------------------------------------------- 
+| INPUT: """)
+            if menu_choice == '1':
+                    manager_main_menu_contractors_contacts()
+            elif menu_choice == 'b':
+                return
+        except ValueError:
+            print("Please input valid option.")
 #Contractors Database: INPUT 1
 manager_main_menu_contractors_contacts = f"""
 {RED}                                                     ---------------------
@@ -360,3 +381,4 @@ manager_main_menu_reports = f"""
 | Q. Quit                                                                                                                           |
 ------------------------------------------------------------------------------------------------------------------------------------- """
 #
+main_menu()
