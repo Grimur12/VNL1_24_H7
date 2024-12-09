@@ -437,6 +437,8 @@ Mættir / In attendance:
 Pairs and Layers EOD Results and Todays work:
   - Ólafur and Leonard
       -the goal of today was finishing the managerUI file,
+      -Olafur finished yesterday the look of the UI,
+      -is now trying to connect all the menus together. Progress is slow.
   - Iðunn and Pedro
       - The plan for us today is to finish the other parts missing in logic layer or the majority of it. If we do not finish we will leave connection testing until next week.
       - We are working on the Properties Logic file and we hope to finish it today and start on the Maintenance Logic.
