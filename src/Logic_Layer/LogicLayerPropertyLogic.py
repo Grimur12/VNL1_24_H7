@@ -3,7 +3,6 @@ from Models.Workers import *
 from Models.Property import Property
 from Models.Maintenance import Maintenance
 from .ErrorCheckers import ErrorCheckers
-
 # Property Logic class
 
 class LogicLayerPropertyLogic:
@@ -37,8 +36,9 @@ class LogicLayerPropertyLogic:
             self.Errors.errorCheckName(input)
             temp_property.nameOfProperty = input
         elif count == 2:  # Location of property
-            self.Errors.errorCheckLocation(input)
-            temp_property.location = input
+            self.Errors.checkNumber(input)
+            self.checkIfDestinationExists(int(input))
+            temp_property.location = int(input)
         elif count == 3:  # Availability of Property
             self.Errors.errorCheckBoolean(input)
             temp_property.availability = input
@@ -67,6 +67,14 @@ class LogicLayerPropertyLogic:
                 return property_found
             else:
                 raise ValueError("No Property By that ID")
+            
+    def checkIfDestinationExists(self, dest_ID) -> True:
+        """ Function takes in destination ID, returns True if it finds destination in DB otherwise raises ValueError"""
+        destinations = self.DataLayerWrapper.loadDestinationsLog()
+        for dest in destinations:
+            if dest.destinationID == dest_ID:
+                return True
+        raise ValueError("No Destination By that ID")
             
     def getTasksForPropertyID(self, ID) -> list[Maintenance]:
         """ Function finds the Property, loads all maintenance tasks and filters out all the maintenance tasks a being done on a property, returns filtered list of maintenance tasks or raises ValuError"""

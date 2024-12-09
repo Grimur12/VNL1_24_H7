@@ -9,7 +9,7 @@
 
 
 class Destination:
-    def __init__(self, ID, name, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination,):
+    def __init__(self, ID, name, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination):
         """ Defines variables for Destination """
         self.destinationID = ID
         self.name = name

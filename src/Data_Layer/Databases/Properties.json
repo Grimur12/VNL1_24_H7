@@ -2,7 +2,7 @@
     {
         "propertyID": 1,
         "nameOfProperty": "NAME CHANGED TEST HR",
-        "location": "Iceland",
+        "location": 1,
         "availability": "True",
         "hasAPool": "True",
         "hasATub": "True",
@@ -11,10 +11,19 @@
     {
         "propertyID": 2,
         "nameOfProperty": "Kaffistofan",
-        "location": "Hafnafj\u00f6r\u00f0ur",
-        "availability": "False",
+        "location": 2,
+        "availability": "True",
         "hasAPool": "True",
         "hasATub": "True",
         "hasOvens": "False"
+    },
+    {
+        "propertyID": 3,
+        "nameOfProperty": "House 1",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "false",
+        "hasATub": "true",
+        "hasOvens": "false"
     }
 ]

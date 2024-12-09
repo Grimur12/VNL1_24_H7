@@ -64,13 +64,6 @@ class ErrorCheckers:
         if not "@" in email:
             raise ValueError("Email must contain an @")
         return True
-
-    def errorCheckLocation(self, location) -> True:
-        """ Checks if location user input is valid, (a int number), if so returns True, if not raises ValueError """
-        self.checkEmpty(location)
-        if not location.isnumeric():
-            raise ValueError("Location ID must be a number")
-        return True
     
     def errorCheckEmployeePreviousTask(self, previousTask) -> True:
         """ .. not fully implemented """
@@ -87,10 +80,6 @@ class ErrorCheckers:
         elif int(performanceRating) < 0 or int(performanceRating) > 10:
                 raise ValueError("Must be a number from 0-10")
         return True
-
-    def errorCheckContractorContact(self, contractorContact) -> True:
-        """ Checks if Contractor Contact is a valid phone number, if so returns True, if not raises ValueError"""
-        self.errorCheckPhone(contractorContact)
 
     def errorCheckEmployeeOpeningHours(self, openingHours) -> True:
         """ Checks if opening hours are of the correct format, if so returns True, if not raises ValueError """

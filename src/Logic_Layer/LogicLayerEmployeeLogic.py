@@ -63,8 +63,8 @@ class LogicLayerEmployeeLogic:
             # Check first if there exists a Manager at that Destination beforehand
             self.Errors.checkNumber(input)
             dest_ID = int(input)
+            destination = self.checkIfDestinationExists(dest_ID) # See if we have Destination in DB
             if temp_employee.type == "Manager": # If the user is creating a manager, because a general employee can always work at any location
-                destination = self.checkIfDestinationExists(dest_ID) # See if we have Destination in DB
                 self.checkIfManagerAtDestination(destination) # See if there exists a Manager, if so we need to ask the user if we wants to overwrite That Manager
                 # If no errors were raised until this point, this is a valid destination with no Manager in it, so we need to update the destination manager and then save it
                 self.addManagerToDestination(destination, temp_employee)
@@ -76,9 +76,10 @@ class LogicLayerEmployeeLogic:
         elif count == 9:
             self.Errors.errorCheckEmployeePerformanceRating(input)
             temp_employee.performanceRating = input
-        elif count == 10:
-            self.Errors.errorCheckContractorContact(input)
-            temp_employee.contractorContact = input
+        elif count == 10: # We should get a reference to an already existant either General Employee or Manager
+            self.Errors.checkNumber(input)
+            self.getEmployeebyID(int(input))
+            temp_employee.contractorContact = int(input)
         elif count == 11:
             self.Errors.errorCheckEmployeeOpeningHours(input)
             temp_employee.openingHours = input
@@ -121,10 +122,8 @@ class LogicLayerEmployeeLogic:
         temp_employee.workLocation = int(destination_id)
         self.DataLayerWrapper.updateDestination(destination)
         
-
-
     def getEmployeebyID(self, ID) -> Employee:
-        """ Function loads all Employees and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
+        """ Function loads all Employees and tries to find the specified employee by ID in the DB, returns Employee if found or raises ValueError"""
         if self.Errors.checkNumber(ID):
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1

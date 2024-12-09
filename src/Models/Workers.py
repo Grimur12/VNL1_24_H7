@@ -66,7 +66,7 @@ class Contractor(Employee):
         "type": self.type,
         "previousTask": self.previousTask,
         "performanceRating": self.performanceRating,
-        "contractorContact": self.contractorContact,
+        "contractorContact": self.contractorContact, # Reference to employeeID of an employee
         "openingHours": self.openingHours
         }
     
