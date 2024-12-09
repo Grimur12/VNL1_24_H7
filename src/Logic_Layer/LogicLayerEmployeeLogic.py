@@ -1,5 +1,5 @@
 from Data_Layer.DataLayerAPI import DataLayerAPI
-from Models.Workers import *
+from Models.Workers import Employee, Contractor
 from .ErrorCheckers import ErrorCheckers
 
 class LogicLayerEmployeeLogic:
