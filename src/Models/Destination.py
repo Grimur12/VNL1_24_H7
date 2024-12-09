@@ -1,7 +1,7 @@
 #defining the classes of Destination
 
 class Destination:
-    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination,):
+    def __init__(self, name, destinationID, country, timezone, airportName, phoneNumber, openingHours, managerOfDestination) -> None:
         """ Defines variables for Destination """
         self.name = name
         self.destinationID = destinationID

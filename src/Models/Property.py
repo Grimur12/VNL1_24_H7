@@ -18,7 +18,7 @@ class Property:
         return {
         "propertyID": self.propertyID,
         "nameOfProperty": self.nameOfProperty,
-        "location": self.location,
+        "location": self.location,  
         "availability": self.availability,
         "hasAPool": self.hasAPool,
         "hasATub": self.hasATub,

@@ -1,13 +1,14 @@
 from Data_Layer.DataLayerAPI import DataLayerAPI
 from Models.Workers import Employee, Contractor
 from .ErrorCheckers import ErrorCheckers
-
+from Models.Maintenance import Maintenance
 class LogicLayerEmployeeLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 
     def createUniqueID(self) -> int:
+        """ Function loads all Employees from DB, finds the last assigned ID and iterates it by one, creating a new ID, returns unique id int"""
         #here we create a new unique ID for the employees
         currentEmployees = self.DataLayerWrapper.loadEmployeeLog()
         if len(currentEmployees) != 0:
@@ -16,7 +17,8 @@ class LogicLayerEmployeeLogic:
             newID = 1
         return newID
     
-    def createTempEmployee(self, type_of_employee):
+    def createTempEmployee(self, type_of_employee) -> Employee:
+        """ Function creates a temporary employee based on user input for the user to fill out, it is assigned a unique INT, returns a temporary employee """
         #  Type of employee should be "1" for General Employee, "2 " for Manager, "3" for Contractor 
         tempEmployeeID = self.createUniqueID()
         if type_of_employee == "1": # General Employee
@@ -31,7 +33,8 @@ class LogicLayerEmployeeLogic:
             return None
         return temp_employee
     
-    def validateEmployeeInput(self, input, count, temp_employee):
+    def validateEmployeeInput(self, input, count, temp_employee) -> True:
+        """ Function checks for each attribute the employee changes if it is of the desired format, returns True or raises ValuError"""
         # We dont have to check for ID and type since that is automatically assigned based on user choice
         if self.Errors.checkNumber(count):
             count = int(count)
@@ -72,7 +75,8 @@ class LogicLayerEmployeeLogic:
             temp_employee.openingHours = input
         return True
 
-    def getEmployeebyID(self, ID):
+    def getEmployeebyID(self, ID) -> Employee:
+        """ Function loads all Employees and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
         if self.Errors.checkNumber(ID):
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1
@@ -85,7 +89,8 @@ class LogicLayerEmployeeLogic:
             else:
                 raise ValueError("No Employee by that ID")
     
-    def getContractorbyID(self, ID):
+    def getContractorbyID(self, ID) -> Contractor:
+        """ Function loads all Employees and tries to find the specified Contractor by ID in the DB, returns Contractor or raises ValueError"""
         if self.Errors.checkNumber(ID):
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1
@@ -98,7 +103,7 @@ class LogicLayerEmployeeLogic:
             else:
                 raise ValueError("No Contractor by that ID")
 
-    def getEmployeeData(self):
+    def getEmployeeData(self) -> list[Employee]:
         """ Load all the employees from the DB and filter out all the General Employess and Managers to return in a list format """
         #get Employees Data
         employeeLog = self.DataLayerWrapper.loadEmployeeLog()
@@ -108,7 +113,7 @@ class LogicLayerEmployeeLogic:
                 filtered_employees.append(employee)
         return filtered_employees
     
-    def getContractorData(self):
+    def getContractorData(self) -> list[Contractor]:
         """ Load all employees from the DB and filter out all the contractors to return in a list format """
         contractorlog = self.DataLayerWrapper.loadEmployeeLog()
         filtered_contractors = []
@@ -117,8 +122,8 @@ class LogicLayerEmployeeLogic:
                 filtered_contractors.append(contractor)
         return filtered_contractors
     
-    def getTasksForEmployeeID(self, ID):
-
+    def getTasksForEmployeeID(self, ID) -> Maintenance:
+        """ Function finds the Employee, loads all maintenance reports and tasks and filters out all the maintenance tasks an employee has worked, returns filtered list of maintenance tasks or raises ValuError"""
         # We take in the employee ID
         # Find the employee
         # Load in all maintenance reports
@@ -141,7 +146,8 @@ class LogicLayerEmployeeLogic:
             
         return employeeTasks
 
-    def getTasksForContractorID(self, ID):
+    def getTasksForContractorID(self, ID) -> list[Maintenance]:
+        """ Function finds the Contractor, loads all maintenance reports and tasks and filters out all the maintenance tasks a contractor has worked, returns filtered list of maintenance tasks or raises ValuError"""
 
         # We take in the contractor ID
         # Find the contractor
@@ -165,17 +171,18 @@ class LogicLayerEmployeeLogic:
             
         return contractorTasks
 
-    def createEmployee(self, temp_employee):
-        # params should be either
+    def createEmployee(self, temp_employee) -> None:
+        """ Function takes in a completely filled out temp_employee and saves it in our Employee DB"""
         # [name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType] for employees 
         # [name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType, previousTask, performanceRating, contractorContact, openingHours] for contractors
         if temp_employee == "Contractor":
             self.DataLayerWrapper.createContractor(temp_employee)
         else:
             self.DataLayerWrapper.createEmployee(temp_employee)
-        return True
+        
     
-    def updateEmployeeData(self,employee):
+    def updateEmployeeData(self, employee) -> None:
+        """ Function takes in employee already in DB and overwrites it with the new attributes and saves it in Employee DB """
         # input can be name, address, socialSecurity, atHomePhone, gsm, email, workLocation, employeeType for employees 
         self.DataLayerWrapper.updateEmployee(employee)
         

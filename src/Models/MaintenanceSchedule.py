@@ -1,7 +1,7 @@
 #defining the Maintenance schedule classes.
 
 class MaintenanceSchedule:
-    def __init__(self, ID, maintenanceID = "", taskType = "", frequency = ""):
+    def __init__(self, ID, maintenanceID = "", taskType = "", frequency = "") -> None:
         """ Defines variables for Maintenance Schedule """
         # We reference the maintenanceID in the shcedule
         self.maintenanceScheduleID = ID
