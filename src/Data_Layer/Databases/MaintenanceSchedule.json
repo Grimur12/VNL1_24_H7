@@ -3,7 +3,7 @@
         "maintenanceScheduleID": 1,
         "maintenanceID": 2,
         "taskType": "Normal",
-        "frequency": "Daily",
+        "frequency": "Monthly",
         "startDate": "12.02.2022.12:30"
     }
 ]
