@@ -571,8 +571,11 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work:
  - Ólafur and Leonard
+   - This group was focusing on finishing the tables on the pretty tables (menus)
  - Iðunn and Pedro
+    this group was focusing on the UI and trying to make it look better aestetically.
  - Máni and Grímur
+   - this group was focusing on commenting our code and doc string our code.
 
 Work done:
  - the goal of today is to work on our todo list here below because there are some things that need to be done.
@@ -591,7 +594,7 @@ Extra checklist for week 3
 - [ ] Fix Model Classes attributes
 - [ ] Finish Pretty Table UI
 - [ ] Change Error checkers to match new model class attributes
-- [ ] Finish all doc strings, returns type values and comments in the code
+- [x] Finish all doc strings, returns type values and comments in the code
 - [ ] Make the model class diagram match the new model classes
 - [ ] Make the layered class diagram match the code
 - [ ] Check all boxes in the Requirements list in the Design report
