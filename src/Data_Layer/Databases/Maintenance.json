@@ -2,19 +2,41 @@
     {
         "maintenanceID": 1,
         "propertyID": 1,
-        "startDate": "02.12.2024.12:30",
-        "endDate": "03.12.2024.12:30",
-        "statusMaintenance": "Ongoing",
-        "feedback": "8",
-        "priority": "Medium"
+        "description": "Building a new basement on Property",
+        "startDate": "20.10.2023.12:00",
+        "endDate": "20.10.2024.12:00",
+        "statusMaintenance": "Closed",
+        "priority": "ASAP",
+        "recurring": "True"
     },
     {
         "maintenanceID": 2,
         "propertyID": 2,
-        "startDate": "02.10.2020.12:30",
-        "endDate": "02.11.2020.12:30",
+        "description": "Fixing the Sink",
+        "startDate": "02.10.2021.12:30",
+        "endDate": "20.02.2023.12:30",
+        "statusMaintenance": "Ongoing",
+        "priority": "Now",
+        "recurring": "False"
+    },
+    {
+        "maintenanceID": 3,
+        "propertyID": 3,
+        "description": "Fixing the Sink",
+        "startDate": "02.10.2024.12:30",
+        "endDate": "03.10.2024.12:30",
         "statusMaintenance": "Closed",
-        "feedback": "8",
-        "priority": "High"
+        "priority": "ASAP",
+        "recurring": "False"
+    },
+    {
+        "maintenanceID": 4,
+        "propertyID": 1,
+        "description": "Gardening",
+        "startDate": "02.02.2023.12:00",
+        "endDate": "02.03.2023.12:00",
+        "statusMaintenance": "Ongoing",
+        "priority": "Now",
+        "recurring": "True"
     }
 ]

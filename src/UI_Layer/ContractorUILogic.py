@@ -11,13 +11,12 @@ class ContractorUILogic:
         self.Displays = Displays()
 
     def run(self):
-        self.ViewingUI.clearTerminal()
+        self.ViewUI.clearTerminal()
         while True:
             print("------------------ Contractor ------------------")
             print("What do you want to do?")
             print("1: To create a Maintenance Report")
-            print("2: To mark a Maintenance Report as ready to close")
-            print("3: To access viewing features")
+            print("2: To access viewing features")
             print("B: to go Back")
             print("Q: to quit")
             print("-------------------------------------------------")
@@ -34,17 +33,6 @@ class ContractorUILogic:
             if user_choice == "1":
                 self.createMaintenanceReport()
             elif user_choice == "2":
-                ID = input("ID of the Maintenance Report you want to mark as ready to close: ")
-
-                if ID.lower() == "q":
-                    print("Quitting")
-                    exit()
-                elif ID.lower() == "b":
-                    self.ViewUI.clearTerminal()
-                    continue
-
-                self.markMaintenanceReportAsClosed()
-            elif user_choice == "3":
                 self.ViewUI.viewMenu()
             else:
                 print("Invalid Input")
@@ -53,7 +41,8 @@ class ContractorUILogic:
         count = 1
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport()
         error_message = None
-        while count < 4:
+        aborted = False
+        while count < 5:
             self.Displays.display_temp_maintenanceReport(tempMaintenanceReport, error_message)
             userInput = input("Information : ")
             if userInput.lower() == "q":
@@ -61,6 +50,7 @@ class ContractorUILogic:
                 exit()
             elif userInput.lower() == "b":
                 self.ViewUI.clearTerminal()
+                aborted = True
                 break
 
             try:
@@ -70,13 +60,12 @@ class ContractorUILogic:
             except ValueError as error:
                 error_message = error
                 continue
-        
-        if userInput.lower() != "b":
+            except KeyError as error:
+                print(error)
+                aborted = True
+                break
+
+        if not aborted:
             self.Displays.display_temp_maintenanceReport(tempMaintenanceReport, error_message)
             self.LogicLayerWrapper.createMaintenanceReport(tempMaintenanceReport)
             print("You have successfully created a new Maintenance Report")
-
-    def markMaintenanceReportAsClosed(self):
-        print("Not implemented ")
-        # Mark maintenance report as ready to be closed,
-        # The manager can look at the report see it as ready to be closed and then close the maintenance task assoicated with the maintenance report ??

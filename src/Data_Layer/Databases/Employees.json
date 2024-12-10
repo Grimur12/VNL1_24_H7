@@ -179,5 +179,16 @@
         "performanceRating": "10",
         "contractorContact": 4,
         "openingHours": "9-4"
+    },
+    {
+        "employeeID": 16,
+        "name": "Mo Salah",
+        "socialSecurity": "271356-2730",
+        "address": "Glaustavegur 13",
+        "atHomePhone": "566-7567",
+        "gsmPhone": "785-3756",
+        "email": "salah@ru.is",
+        "workLocation": 2,
+        "type": "General"
     }
 ]
