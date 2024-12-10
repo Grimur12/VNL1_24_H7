@@ -16,11 +16,11 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         while True:
             # List of features the manager can choose to select/do
-            print("1: To create new Properties, Employees or Maintenance Tasks")
-            print("2: To edit existent Properties, Employees or Maintenance Tasks")
-            print("3: To view existent Properties, Employess or Maintenance Tasks")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print("1: Create new Properties, Employees or Maintenance Tasks")
+            print("2: Edit existent Properties, Employees or Maintenance Tasks")
+            print("3: View existent Properties, Employess or Maintenance Tasks")
+            print("B: Go Back")
+            print("Q: Quit\n")
             user_choice = input("Choice: ")
 
             # The user chooses to quit
@@ -48,14 +48,14 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         while True:
             # Main menu of create employee, contractor, property
-            print("1: To create a new General Employee")
-            print("2: To create a new Manager")
-            print("3: To create a new Contractor")
-            print("4: To create a new Property")
-            print("5: To create a new Maintenance Task")
-            print("6: To create a new Maintenance Schedule")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print("1: Create a new General Employee")
+            print("2: Create a new Manager")
+            print("3: Create a new Contractor")
+            print("4: Create a new Property")
+            print("5: Create a new Maintenance Task")
+            print("6: Create a new Maintenance Schedule")
+            print("B: Go Back")
+            print("Q: Quit\n")
             user_choice = input("Choice: ")
 
             #user chooses to quit
@@ -87,13 +87,13 @@ class ManagerUILogic:
         # Edit Maintenance Schedule
         self.ViewingUI.clearTerminal()
         while True:
-            print("1: To edit an Employee or a Manager")
-            print("2: To edit a Contractor")
-            print("3: To edit a Property")
-            print("4: To edit a Maintenance Task")
-            print("5: To edit a Maintenance Schedule")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print("1: Edit an Employee or a Manager")
+            print("2: Edit a Contractor")
+            print("3: Edit a Property")
+            print("4: Edit a Maintenance Task")
+            print("5: Edit a Maintenance Schedule")
+            print("B: Go Back")
+            print("Q: Quit\n")
             user_choice = input("Choice: ")
 
             #user chooses to quit

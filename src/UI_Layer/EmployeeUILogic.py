@@ -16,12 +16,12 @@ class EmployeeUILogic:
         while True:
             # Here is the menu for the employee
             # All of his functions are here
-            print("1: To create a Maintenance Report")
-            print("2: To mark a Maintenance Report as ready to close")
-            print("3: To access viewing features")
-            print("B: to go Back")
-            print("Q: to quit")
-            user_choice = input("Choice ")
+            print("1: Create a Maintenance Report")
+            print("2: Mark a Maintenance Report as ready to close")
+            print("3: Access viewing features")
+            print("B: Go Back")
+            print("Q: Quit")
+            user_choice = input("Choice: ")
             # Exit out of the loop
 
             # The user decides to quit

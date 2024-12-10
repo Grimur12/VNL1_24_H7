@@ -16,12 +16,12 @@ class ContractorUILogic:
         #Here is the menu for the Contractor. In the menu you can view all of the things the contractor can do.
         while True:
             print("--- Contractor ---")
-            print("1: To create a Maintenance Report")
-            print("2: To mark a Maintenance Report as ready to close")
-            print("3: To access viewing features")
-            print("B: to go Back")
-            print("Q: to quit")
-            user_choice = input("Choice ")
+            print("1: Create a Maintenance Report")
+            print("2: Mark a Maintenance Report as ready to close")
+            print("3: Access viewing features")
+            print("B: Go Back")
+            print("Q: Quit")
+            user_choice = input("Choice: ")
 
             # The user chooses to quit the program.
             if user_choice.lower() == "q":

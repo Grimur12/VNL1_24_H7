@@ -18,10 +18,10 @@ if __name__ == "__main__":
     while True: 
         start.ViewUI.clearTerminal()
         print("------------ Welcome to NAN air -----------")
-        print("Are you a manager, employee or a contractor")
-        print("1: If you are a Manager")
-        print("2: If you are an Employee")
-        print("3: If you are a Contractor")
+        print("Are you a manager, employee or a contractor?")
+        print("1: Manager")
+        print("2: Employee")
+        print("3: Contractor")
         print("Q: To quit\n")
         if invalid:
             print("Error: Invalid Input\n")
