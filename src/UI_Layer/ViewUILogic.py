@@ -17,6 +17,7 @@ class ViewUILogic:
             print("4: To view all Maintenance Tasks")
             print("5: To view all Scheduled Maintenance Tasks")
             print("6: To view all Maintenance Reports")
+            print("7: To view all Destinations")
             print("B: To Go Back")
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
@@ -48,6 +49,9 @@ class ViewUILogic:
             elif user_choice == "6":
                 self.displayMaintenanceReports()
                 self.filterMaintenanceReports()
+            elif user_choice == "7":
+                self.displayDestinations()
+                self.filterDestinations()
             else:
                 print("Invalid Input")
             
@@ -87,6 +91,11 @@ class ViewUILogic:
         maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
         for report in maintenanceReports:
             self.Displays.printMaintenanceReport(report)
+
+    def displayDestinations(self):
+        destinations = self.LogicLayerWrapper.getDestinationData()
+        for destination in destinations:
+            self.Displays.printDestination(destination)
 
     def filterEmployees(self):
         while True:
@@ -312,7 +321,7 @@ class ViewUILogic:
     def filterMaintenanceReports(self):
         while True:
             print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+            print("1: To view additional information of a specific MaintenanceReport")
             print("B: To Go Back")
             print("Q: To Quit")
             print("-------------------------------------------------------\n")
@@ -342,6 +351,74 @@ class ViewUILogic:
                     print(error)
             else:
                 print("Invalid Input")
+
+    def filterDestinations(self):
+        while True:
+            print("\n-------------------------------------------------------")
+            print("1: To view information about Employees at a specific Destination")
+            print("2: To view information about Contractors at a specific Destination")
+            print("3: To view information about Properties at a specific Destination")
+            print("B: To Go Back")
+            print("Q: To Quit")
+            print("-------------------------------------------------------\n")
+            user_choice = input("Choice: ")
+            if user_choice.lower() == "q":
+                print("Qutting")
+                exit()
+
+            elif user_choice.lower() == "b":
+                print("Going back")
+                self.clearTerminal()
+                break
+            
+            elif user_choice == "1": 
+                ID = input("ID of the Destination you want to show Employee information for ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+                try:
+                    destination = self.LogicLayerWrapper.getDestinationByID(ID)
+                    print("Nothing more implemented here go back")
+                    # Try giving Display employees a list of employees on that location ? then call the filter employees ?
+                except ValueError as error:
+                    print(error)
+            elif user_choice == "2":
+                ID = input("ID of the Destination you want to show Contractor information for ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+                try:
+                    destination = self.LogicLayerWrapper.getDestinationByID(ID)
+                    print("Nothing more implemented here go back")
+                    # Try giving Display Contractor a list of contractors on that location ? then call the filter contractors ?
+                except ValueError as error:
+                    print(error)
+            elif user_choice == "3":
+                ID = input("ID of the Destination you want to show Property information for ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+                try:
+                    destination = self.LogicLayerWrapper.getDestinationByID(ID)
+                    print("Nothing more implemented here go back")
+                    # Try giving Display properties a list of properties on that location ? then call the filter properties ?
+                except ValueError as error:
+                    print(error)
+            else:
+                print("Invalid Input")
+
     
     def dateFilter(self, tasks):
         while True:

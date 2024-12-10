@@ -62,17 +62,6 @@ class LogicLayerAPI:
     def exchangeManagersAtLocation(self, userInput_previous, temp_employee):
         self.LogicLayerEmployeelogic.exchangeManagersAtLocation(userInput_previous, temp_employee)
 
-    # def assign_task_to_employee(self):
-    #     pass
-
-    # def get_employee_tasks(self):
-    #     pass
-
-# A superior must be able to create and/or update tickets for properties they manage
-# A superior must be able to accept maintenance reports to close tickets
-# An employee must be able to register a maintenance report for an open ticket
-# An employee must be able to flag a ticket as ready for closing by a superior
-
 
     def update_employee_data(self, employee) -> None:
         """ Function takes in instance of employee that is already in the DB and updates the attributes of it in the DB"""
@@ -206,4 +195,10 @@ class LogicLayerAPI:
         tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID)
         return tasks
     
+    def getDestinationData(self):
+        destinations = self.LogicLayerEmployeelogic.getDestinationData()
+        return destinations
 
+    def getDestinationByID(self, ID):
+        destination = self.LogicLayerEmployeelogic.getDestinationByID(ID)
+        return destination

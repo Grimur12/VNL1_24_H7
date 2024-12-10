@@ -275,6 +275,19 @@ D: To Quit Chaning and Save Changes\n
         print(f"Feedback on the completed work: {report.supervisorFeedback}")
         print("--------------------------\n")
 
+    def printDestination(self, destination):
+        
+        print("\n--- Destination Information ---")
+        print(f"Destination Number: {destination.destinationID}")
+        print(f"Name: {destination.name}")
+        print(f"Country: {destination.country}")
+        print(f"Timezone: {destination.timezone}")
+        print(f"Airport Name: {destination.airportName}")
+        print(f"Phone Number: {destination.phoneNumber}")
+        print(f"Opening Hours: {destination.openingHours}")
+        print(f"Manager Of Destination: {destination.managerOfDestination}")
+        print("--------------------------\n")
+
     def overWriteManager(self):
         print("\nDestination already has a Manager, Would you like to demote him to a General Employee or abort creating a new Manager")
         print("1: To continue creating the new Manager, demoting the current one")
