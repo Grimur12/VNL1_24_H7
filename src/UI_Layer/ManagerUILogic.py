@@ -40,7 +40,6 @@ class ManagerUILogic:
             else:
                 print("Invalid Input")
 
-
     def addMenu(self):
         self.ViewingUI.clearTerminal()
         while True:
@@ -86,6 +85,7 @@ class ManagerUILogic:
             print("3: To edit a Property")
             print("4: To edit a Maintenance Task")
             print("5: To edit a Maintenance Schedule")
+            print("6: To close a Maintenance Task")
             print("B: To Go Back")
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
@@ -154,6 +154,25 @@ class ManagerUILogic:
 
                     continue
                 self.editMaintenanceSchedule(ID)
+            elif user_choice == "6":
+                ID = input("ID of the Maintenance Task you to close: ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    exit()
+                elif ID.lower() == "b":
+                    self.ViewingUI.clearTerminal()
+                    continue
+
+                try:
+                    user_feedback = input("Feedback on the Task you want to close: ") 
+                    self.LogicLayerWrapper.closeMaintenanceTask(ID, user_feedback)
+                except ValueError as error:
+                    print(error)
+
+                except KeyError as error:
+                    print(error)
+                    continue
             else:
                 print("Invalid Input")
 
@@ -252,7 +271,7 @@ class ManagerUILogic:
         count = 1
         tempMaintenanceTask = self.LogicLayerWrapper.createTempMaintenance()
         error_message = None
-        while count < 7:
+        while count < 8:
             self.Displays.display_temp_maintenanceTask(tempMaintenanceTask, error_message)
             userInput = input("Information: ")
             if userInput.lower() == "q":
@@ -278,7 +297,7 @@ class ManagerUILogic:
         count = 1
         tempMaintenanceSchedule = self.LogicLayerWrapper.createTempMaintenanceSchedule()
         error_message = None
-        while count < 4:
+        while count < 5:
             self.Displays.display_temp_maintenanceSchedule(tempMaintenanceSchedule, error_message)
             userInput = input("Information: ")
             if userInput.lower() == "q":
@@ -420,10 +439,50 @@ class ManagerUILogic:
             self.LogicLayerWrapper.updateProperty(property)
 
     def editMaintenanceTask(self, ID):
-        pass
+        while True:
+            try:
+                maintenanceTask = self.LogicLayerWrapper.getMaintenanceTaskByID(ID)
+                self.LogicLayerWrapper.canEditMaintenanceTask(maintenanceTask)
+                break
+                
+            except ValueError as error:
+                print(f"Error: {error}")
+                ID = input("ID of the Maintenance Task to edit: ")
+                continue
+                
+        error_message = None
+        while True:
+            self.Displays.editMaintenanceTaskMenu(maintenanceTask, error_message)
+            userInput = input("Number of the attribute you want to change: ")
+
+            if userInput.lower() == "q":
+                exit() ## QUIT...
+            elif userInput.lower() == "b":
+                print("Going back")
+                self.ViewingUI.clearTerminal()
+                break ## Go back one
+            elif userInput.lower() == "d":
+                print("Saving Changes")
+                break
+
+            elif userInput in ["2", "6"]:
+
+                newParam = input("New Information: ").strip()
+                try:
+                    self.LogicLayerWrapper.validateMaintenanceTaskInput(newParam, userInput, maintenanceTask)
+                    error_message = None
+                except ValueError as error:
+                    error_message = error
+                    continue
+            else:
+                error_message = "Not a Valid Choice, Try Again"
+        if userInput.lower() != "b":
+            self.LogicLayerWrapper.updateMaintenance(maintenanceTask)
 
     def editMaintenanceSchedule(self, ID):
         pass
+
+        
 
 # Manager features
 # Add employee

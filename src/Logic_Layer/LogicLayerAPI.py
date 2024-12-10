@@ -155,14 +155,15 @@ class LogicLayerAPI:
         filtered_tasks = self.LogicLayerMaintenancelogic.filterMaintenanceTasksDates(tasks, startDate, endDate)
         return filtered_tasks
 
-    def closeMaintenanceReport(self):
-        pass
+    def closeMaintenanceTask(self, maintenanceID, user_feedback) -> None:
+        """ Function takes in a maintenance ID, and marks it as closed if it can be closed"""
+        self.LogicLayerMaintenancelogic.closeMaintenanceTask(maintenanceID, user_feedback)
 
-    def update_maintenance_status(self):
-        pass
+    def updateMaintenance(self, maintenanceTask):
+        self.LogicLayerMaintenancelogic.updateMaintenance(maintenanceTask)
 
-    def changeStatusOfReportAsReady(self):
-        pass
+    def canEditMaintenanceTask(self, maintenanceTask):
+        return self.LogicLayerMaintenancelogic.canEditMaintenanceTask(maintenanceTask)
 
     def edit_maintenance_schedule(self):
         pass

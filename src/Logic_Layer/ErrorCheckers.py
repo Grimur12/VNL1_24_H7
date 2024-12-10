@@ -121,18 +121,11 @@ class ErrorCheckers:
             return True
         raise ValueError("Maintenance Tasks can only either be Ongoing or Closed")
 
-    def checkErrorFeedback(self, input) -> True:
-        """ Checks if the input (feedback), is a number between 0 and 10, if so returns True, if not raises ValueError"""
-        if input.isnumeric():
-            if int(input) >= 0 and int(input) <= 10:
-                return True
-        raise ValueError("Feedback should be a number ranging from 0-10")
-
     def checkErrorPriority(self, input) -> True:
         """ Checks if input (priority) is one of the three possible priorities, if so returns True, if not raises ValueError"""
-        if input.lower() in ["low", "medium", "high"]:
+        if input.lower() in ["asap", "now", "emergency"]:
             return True
-        raise ValueError("Maintenance Tasks only have three priorties, Low, Medium and High")
+        raise ValueError("Maintenance Tasks only have three priorties, ASAP, Now or Emergency")
 
     def checkErrorTaskType(self, input) -> True:
         """ Checks if Task Type is one of two possible, if so returns True, if not raises ValueError"""

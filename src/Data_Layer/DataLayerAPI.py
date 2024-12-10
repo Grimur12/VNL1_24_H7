@@ -65,16 +65,16 @@ class DataLayerAPI:
         maintenanceReports = self.maintenanceDB.loadMaintenanceReportLog()
         return maintenanceReports
         
-    def updateMaintenanceStatus(self, maintenance) -> None:
-        """ ... IS this needed ?"""
-        self.maintenanceDB.updateMaintenanceStatus(maintenance)
+    def updateMaintenance(self, maintenance) -> None:
+        """ Function takes in a maintenance with updated attributes, saves it in the maintenance DB"""
+        self.maintenanceDB.updateMaintenance(maintenance)
 
     def updateMaintenanceSchedule(self, maintenanceSchedule) -> None:
         """ ... IS this needed ?"""
         self.maintenanceDB.updateMaintenanceSchedule(maintenanceSchedule)
 
     def updateMaintenanceReport(self, maintenanceReport) -> None:
-        """ ... IS this needed ?"""
+        """ Function takes in a maintenance Report with updated attributes, saves it in the maintenance DB?"""
         self.maintenanceDB.updateMaintenanceReport(maintenanceReport)
 
     def createMaintenanceSchedule(self, maintenanceSchedule) -> None:

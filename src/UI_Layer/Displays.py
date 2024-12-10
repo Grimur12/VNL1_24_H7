@@ -69,6 +69,29 @@ B: To Go Back
 Q: To Quit
 D: To Quit Chaning and Save Changes\n
 ------""")
+        if error:
+            print(f"Error: {error} \n")
+        
+    def editMaintenanceTaskMenu(self, maintenanceTask, error = None):
+
+        self.clearTerminal()
+        print(f"""
+--- Updating Maintenance Task {maintenanceTask.maintenanceID} ---
+Maintenance Number: {maintenanceTask.maintenanceID}
+Maintenance done on Property Number: {maintenanceTask.propertyID}
+2.Description of Task: {maintenanceTask.description}
+Start Date: {maintenanceTask.startDate}
+End Date: {maintenanceTask.endDate}
+Status of Maintenance: {maintenanceTask.statusMaintenance}
+6.Priorty: {maintenanceTask.priority}
+Recurring: {maintenanceTask.recurring}
+B: To Go Back
+Q: To Quit
+D: To Quit Chaning and Save Changes\n
+------""")
+        if error:
+            print(f"Error: {error}\n")
+
 
     def display_temp_employee(self, temp, error = None):
 
@@ -105,11 +128,12 @@ D: To Quit Chaning and Save Changes\n
         print("\n--- Adding a new Maintenance Task ---")
         print(f"Maintenance Number: {temp.maintenanceID}")
         print(f"Maintenance done on Property Number: {temp.propertyID}")
+        print(f"Description of Task: {temp.description}")
         print(f"Start Date: {temp.startDate}")
         print(f"End Date: {temp.endDate}")
         print(f"Status of Maintenance: {temp.statusMaintenance}")
-        print(f"Feedback: {temp.feedback}")
         print(f"Priorty: {temp.priority}")
+        print(f"Recurring: {temp.recurring}")
         print("--------------------------\n")
 
         if error:
@@ -124,6 +148,7 @@ D: To Quit Chaning and Save Changes\n
         print(f"Scheduled on Maintenance Task Number: {temp.maintenanceID}")
         print(f"Type of Maintenance Task: {temp.taskType}")
         print(f"Frequency of Maintenance Task: {temp.frequency}")
+        print(f"Start Date of Scheduled Maintenance: {temp.startDate}")
         print("--------------------------\n")
 
         if error:
@@ -137,9 +162,12 @@ D: To Quit Chaning and Save Changes\n
         print(f"maintenanceReportID: {temp.maintenanceReportID}")
         print(f"maintenanceID: {temp.maintenanceID}")
         print(f"employeeID: {temp.employeeID}")
+        print(f"materialCost: {temp.materialCost}")
         print(f"contractorID: {temp.contractorID}")
         print(f"contractorCost: {temp.contractorCost}")
         print(f"readyToClose: {temp.readyToClose}")
+        print(f"supervisorClosed: {temp.supervisorClosed}")
+        print(f"supervisorFeedback: {temp.supervisorFeedback}")
         print("--------------------------\n")
 
         if error:
@@ -196,11 +224,12 @@ D: To Quit Chaning and Save Changes\n
         print("\n--- Maintenance Task Information ---")
         print(f"Maintenance Number: {task.maintenanceID}")
         print(f"Maintenance done on Property Number: {task.propertyID}")
+        print(f"Description of Task: {task.description}")
         print(f"Start Date: {task.startDate}")
         print(f"End Date: {task.endDate}")
         print(f"Status of Maintenance: {task.statusMaintenance}")
-        print(f"Feedback: {task.feedback}")
         print(f"Priorty: {task.priority}")
+        print(f"Recurring: {task.recurring}")
         print("--------------------------\n")
 
     def printMaintenanceSchedule(self, schedule):
@@ -210,6 +239,7 @@ D: To Quit Chaning and Save Changes\n
         print(f"Scheduled on Maintenance Task Number: {schedule.maintenanceID}")
         print(f"Type of Maintenance Task: {schedule.taskType}")
         print(f"Frequency of Maintenance Task: {schedule.frequency}")
+        print(f"Start Date of Scheduled Maintenance: {schedule.startDate}")
         print("--------------------------\n")
 
     def printMaintenanceReport(self, report):
@@ -218,9 +248,12 @@ D: To Quit Chaning and Save Changes\n
         print(f"Maintenance Report Number: {report.maintenanceReportID}")
         print(f"Report on Maintenance Task Number: {report.maintenanceID}")
         print(f"Employee Number of the Employee that took on the Task: {report.employeeID}")
+        print(f"Cost of materials: {report.materialCost}")
         print(f"Contractor Number of the Contractor that took the Task: {report.contractorID}")
         print(f"Cost of the Contrator doing the Task: {report.contractorCost}")
         print(f"Is the Maintenance Task ready to be closed: {report.readyToClose}")
+        print(f"Supervisor Has accepted the work done: {report.supervisorClosed}")
+        print(f"Feedback on the completed work: {report.supervisorFeedback}")
         print("--------------------------\n")
 
     def overWriteManager(self):
@@ -230,7 +263,6 @@ D: To Quit Chaning and Save Changes\n
         print("Q: To Quit the Program")
 
     def clearTerminal(self):
-        ## Not exactly how i want it... clears everything, needs to show errors...
         if name == "nt":
             system("cls")
         else:
