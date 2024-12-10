@@ -215,7 +215,6 @@ class ManagerUILogic:
                     aborted = True
                     break
             
-
         if not aborted:
             self.Displays.display_temp_employee(temp, error_message)
             self.LogicLayerWrapper.createEmployee(temp)

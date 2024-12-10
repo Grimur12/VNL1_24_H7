@@ -2,6 +2,7 @@
 from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .Displays import Displays
+from prettytable import PrettyTable
 
 class ViewUILogic:
     def __init__(self):
@@ -32,7 +33,7 @@ class ViewUILogic:
                 break
 
             elif user_choice == "1":
-                self.displayEmployees() # Show them the complete list and then ask if they want any more filtering....
+                self.displayEmployeesPretty() # Show them the complete list and then ask if they want any more filtering....
                 self.filterEmployees()
             elif user_choice == "2":
                 self.displayContractors() # Show them the complete list and then ask if they want any more fliltering...
@@ -61,6 +62,16 @@ class ViewUILogic:
             system("cls")
         else:
             system("clear")
+
+    def displayEmployeesPretty(self):
+        employeespretty = PrettyTable()
+        employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        employees = self.LogicLayerWrapper.getEmployeeData()
+        for employee in employees:
+            self.Displays.printEmployeePretty(employee, employeespretty)
+        employeespretty.right_padding_width = 1
+        employeespretty.align = 'l'
+        print(employeespretty)
 
     def displayEmployees(self):
         employees = self.LogicLayerWrapper.getEmployeeData()
