@@ -480,7 +480,45 @@ class ManagerUILogic:
             self.LogicLayerWrapper.updateMaintenance(maintenanceTask)
 
     def editMaintenanceSchedule(self, ID):
-        pass
+        while True:
+            try:
+                maintenanceSchedule = self.LogicLayerWrapper.getMaintenanceScheduleByID(ID)
+                self.LogicLayerWrapper.canEditMaintenanceSchedule(maintenanceSchedule)
+                break
+                
+            except ValueError as error:
+                print(f"Error: {error}")
+                ID = input("ID of the Maintenance Task to edit: ")
+                continue
+                
+        error_message = None
+        while True:
+            self.Displays.editMaintenanceScheduleMenu(maintenanceSchedule, error_message)
+            userInput = input("Number of the attribute you want to change: ")
+
+            if userInput.lower() == "q":
+                exit() ## QUIT...
+            elif userInput.lower() == "b":
+                print("Going back")
+                self.ViewingUI.clearTerminal()
+                break ## Go back one
+            elif userInput.lower() == "d":
+                print("Saving Changes")
+                break
+
+            elif userInput == "3":
+
+                newParam = input("New Information: ").strip()
+                try:
+                    self.LogicLayerWrapper.validateMaintenanceScheduleInput(newParam, userInput, maintenanceSchedule)
+                    error_message = None
+                except ValueError as error:
+                    error_message = error
+                    continue
+            else:
+                error_message = "Not a Valid Choice, Try Again"
+        if userInput.lower() != "b":
+            self.LogicLayerWrapper.updateMaintenanceSchedule(maintenanceSchedule)
 
         
 

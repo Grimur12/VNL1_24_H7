@@ -171,6 +171,16 @@ class LogicLayerMaintenanceLogic:
             temp_maintenanceSchedule.startDate = conversion
         return True
 
+    def canEditMaintenanceSchedule(self, maintenanceSchedule):
+        """ Function finds the maintenance associated with the schedule and sees if it is closed, if so raise ValueError else return True"""
+        maintenancelog = self.DataLayerWrapper.loadMaintenanceLog()
+        for maintenance in maintenancelog:
+            if maintenance.maintenanceID == maintenanceSchedule.maintenanceID and maintenance.statusMaintenance.lower() == "closed":
+                raise ValueError("Can not edit a Schedule for a maintenance Task that has been closed")
+        return True
+                
+
+
     def getStartDateMaintenanceTask(self, maintenanceID):
         """ Function loads all maintenances, finds the specified maintenance and returns the start date or raises ValueError if no maintenance is found"""
         maintenances = self.DataLayerWrapper.loadMaintenanceLog()
@@ -337,6 +347,8 @@ class LogicLayerMaintenanceLogic:
     def updateMaintenance(self, maintenance):
         self.DataLayerWrapper.updateMaintenance(maintenance)
         
+    def updateMaintenanceSchedule(self, schedule):
+        self.DataLayerWrapper.updateMaintenanceSchedule(schedule)
 
     def getMaintenanceData(self) -> list[Maintenance]:
         """ Function Loads all the Maintenance Tasks from the maintenance DB and returns a list of those Maintenance Tasks"""

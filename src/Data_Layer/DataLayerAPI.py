@@ -70,7 +70,7 @@ class DataLayerAPI:
         self.maintenanceDB.updateMaintenance(maintenance)
 
     def updateMaintenanceSchedule(self, maintenanceSchedule) -> None:
-        """ ... IS this needed ?"""
+        """ Function updates the maintenance Schedule it receives in the DB """
         self.maintenanceDB.updateMaintenanceSchedule(maintenanceSchedule)
 
     def updateMaintenanceReport(self, maintenanceReport) -> None:

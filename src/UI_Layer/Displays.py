@@ -9,8 +9,8 @@ class Displays:
         """ Turns the class into a string to print out with, mainly for UI display """
         self.clearTerminal()
         print(f"""
---- Updating employee {contractor.employeeID} ---
-You can not change Employee's ID, Social Security or Type
+--- Updating Contractor {contractor.employeeID} ---
+You can not change Contractor's ID, Social Security or Type
 Contractor Number: {contractor.employeeID}
 1.Name: {contractor.name}
 Social Security: {contractor.socialSecurity}
@@ -57,7 +57,7 @@ D: To Quit Chaning and Save Changes\n
         
         self.clearTerminal()
         print(f"""
---- Updating employee {property.propertyID} ---
+--- Updating Property {property.propertyID} ---
 Property Number: {property.propertyID}
 1.Name: {property.nameOfProperty}
 2.Location: {property.location}
@@ -77,6 +77,7 @@ D: To Quit Chaning and Save Changes\n
         self.clearTerminal()
         print(f"""
 --- Updating Maintenance Task {maintenanceTask.maintenanceID} ---
+You can not change the Number, Maintenance done on Property, Start- or EndDate, Status or if its recurring or not
 Maintenance Number: {maintenanceTask.maintenanceID}
 Maintenance done on Property Number: {maintenanceTask.propertyID}
 2.Description of Task: {maintenanceTask.description}
@@ -85,6 +86,24 @@ End Date: {maintenanceTask.endDate}
 Status of Maintenance: {maintenanceTask.statusMaintenance}
 6.Priorty: {maintenanceTask.priority}
 Recurring: {maintenanceTask.recurring}
+B: To Go Back
+Q: To Quit
+D: To Quit Chaning and Save Changes\n
+------""")
+        if error:
+            print(f"Error: {error}\n")
+
+    def editMaintenanceScheduleMenu(self, schedule, error = None):
+
+        self.clearTerminal()
+        print(f"""
+--- Updating Maintenance Schedule {schedule.maintenanceScheduleID} ---
+You can not change Schedule Number, Scheduled Task, Type of Maintenance Task or the Start Date
+Maintenance Schedule Number: {schedule.maintenanceScheduleID}
+Scheduled on Maintenance Task Number: {schedule.maintenanceID}
+Type of Maintenance Task: {schedule.taskType}
+3.Frequency of Maintenance Task: {schedule.frequency}
+Start Date of Scheduled Maintenance: {schedule.startDate}
 B: To Go Back
 Q: To Quit
 D: To Quit Chaning and Save Changes\n

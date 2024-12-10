@@ -164,9 +164,13 @@ class LogicLayerAPI:
 
     def canEditMaintenanceTask(self, maintenanceTask):
         return self.LogicLayerMaintenancelogic.canEditMaintenanceTask(maintenanceTask)
+    
+    def canEditMaintenanceSchedule(self, maintenanceSchedule):
+        return self.LogicLayerMaintenancelogic.canEditMaintenanceSchedule(maintenanceSchedule)
 
-    def edit_maintenance_schedule(self):
-        pass
+    def updateMaintenanceSchedule(self, schedule) -> None:
+        """ Function takes in a schedule with updated values, and saves it in the maintenanceSchedule DB"""
+        self.LogicLayerMaintenancelogic.updateMaintenanceSchedule(schedule)
 
     # functions that are about properties.
 
