@@ -122,60 +122,101 @@ class LogicLayerEmployeeLogic:
         temp_employee.workLocation = int(destination_id)
         self.DataLayerWrapper.updateDestination(destination)
         
-    def getEmployeebyID(self, ID) -> Employee:
-        """ Function loads all Employees and tries to find the specified employee by ID in the DB, returns Employee if found or raises ValueError"""
+    def getEmployeebyID(self, ID, destination = None) -> Employee:
+        """ Function loads all Employees and tries to find the specified employee by ID in the DB, if there is a destination specified it filters by that first, returns Employee if found or raises ValueError"""
         if self.Errors.checkNumber(ID):
+            destination_filter = False # Flag to determine if function should filter based on destination aswell
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1
+
+            if destination is not None: # If destination is not None we filter by destination otherwise we do not
+                destination_filter = True
+
             for index, employee in enumerate(employeeLog):
-                if employee.employeeID == int(ID) and employee.type != "Contractor":
-                    index_to_update = index
+                if destination_filter: # If we do have a destination we apply the destination filter aswell
+                    if employee.employeeID == int(ID) and employee.type != "Contractor" and employee.workLocation == destination.destinationID:
+                        index_to_update = index
+                        break
+                else:
+                    if employee.employeeID == int(ID) and employee.type != "Contractor":
+                        index_to_update = index
+                        break
             if index_to_update != -1:
                 employee_found = employeeLog[index_to_update]
                 return employee_found
             else:
                 raise ValueError("No Employee by that ID")
     
-    def getContractorbyID(self, ID) -> Contractor:
+    def getContractorbyID(self, ID, destination = None) -> Contractor:
         """ Function loads all Employees and tries to find the specified Contractor by ID in the DB, returns Contractor or raises ValueError"""
         if self.Errors.checkNumber(ID):
+            destination_filter = False # Flag to determine if function should filter based on destination aswell
             employeeLog = self.DataLayerWrapper.loadEmployeeLog()
             index_to_update = -1
+
+            if destination is not None: # If destination is not None we filter by destination otherwise we do not
+                destination_filter = True
+
             for index, contractor in enumerate(employeeLog):
-                if contractor.employeeID == int(ID) and contractor.type == "Contractor": ## Making sure that the ID provided is a contractor, we can have the ID in the DB but it could be a General Employee or a Manager
-                    index_to_update = index
+                if destination_filter: # If we do have a destination we apply the destination filter aswell
+                    if contractor.employeeID == int(ID) and contractor.type == "Contractor" and contractor.workLocation == destination.destinationID: ## Making sure that the ID provided is a contractor, we can have the ID in the DB but it could be a General Employee or a Manager
+                        index_to_update = index
+                        break
+                else:
+                    if contractor.employeeID == int(ID) and contractor.type == "Contractor": ## Making sure that the ID provided is a contractor, we can have the ID in the DB but it could be a General Employee or a Manager
+                        index_to_update = index
+                        break
+
             if index_to_update != -1:
                 contractor_found = employeeLog[index_to_update]
                 return contractor_found
             else:
                 raise ValueError("No Contractor by that ID")
 
-    def getEmployeeData(self) -> list[Employee]:
+    def getEmployeeData(self, destination = None) -> list[Employee]:
         """ Load all the employees from the DB and filter out all the General Employess and Managers to return in a list format """
         #get Employees Data
         employeeLog = self.DataLayerWrapper.loadEmployeeLog()
+        destination_filter = False
         filtered_employees = []
+
+        if destination is not None:
+            destination_filter = True
+
         for employee in employeeLog:
-            if employee.type != "Contractor":
-                filtered_employees.append(employee)
+            if destination_filter:
+                if employee.type != "Contractor" and employee.workLocation == destination.destinationID:
+                    filtered_employees.append(employee)
+            else:
+                if employee.type != "Contractor":
+                    filtered_employees.append(employee)
         return filtered_employees
     
-    def getContractorData(self) -> list[Contractor]:
+    def getContractorData(self, destination = None) -> list[Contractor]:
         """ Load all employees from the DB and filter out all the contractors to return in a list format """
         contractorlog = self.DataLayerWrapper.loadEmployeeLog()
+        destination_filter = False
         filtered_contractors = []
+
+        if destination is not None:
+            destination_filter = True
+
         for contractor in contractorlog:
-            if contractor.type == "Contractor":
-                filtered_contractors.append(contractor)
+            if destination_filter:
+                if contractor.type == "Contractor" and contractor.workLocation == destination_filter:
+                    filtered_contractors.append(contractor)
+            else:
+                if contractor.type == "Contractor":
+                    filtered_contractors.append(contractor)
         return filtered_contractors
     
-    def getTasksForEmployeeID(self, ID) -> Maintenance:
+    def getTasksForEmployeeID(self, ID, destination = None) -> Maintenance:
         """ Function finds the Employee, loads all maintenance reports and tasks and filters out all the maintenance tasks an employee has worked, returns filtered list of maintenance tasks or raises ValuError"""
         # We take in the employee ID
         # Find the employee
         # Load in all maintenance reports
         # If the employee is in a maintenance report we append the maintenance associated with that maintenance report into a list to return
-        employee = self.getEmployeebyID(ID)
+        employee = self.getEmployeebyID(ID, destination) # We get the employee either with destination specified, if no employee by that ID at that location it will raise a ValueError, otherwise it keeps going, if there was no destination specified it ignores it
         maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
         maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
         employeeTasks = []
@@ -193,14 +234,13 @@ class LogicLayerEmployeeLogic:
             
         return employeeTasks
 
-    def getTasksForContractorID(self, ID) -> list[Maintenance]:
+    def getTasksForContractorID(self, ID, destination = None) -> list[Maintenance]:
         """ Function finds the Contractor, loads all maintenance reports and tasks and filters out all the maintenance tasks a contractor has worked, returns filtered list of maintenance tasks or raises ValuError"""
-
         # We take in the contractor ID
         # Find the contractor
         # Load in all maintenance reports
         # If the contractor is in a maintenance report we append the maintenance associated with that maintenance report into a list to return
-        contractor = self.getContractorbyID(ID)
+        contractor = self.getContractorbyID(ID, destination) # We either have destination to filter or not, if the contractor is on that destination we get the tasks if not we raise ValueError that he dosent exist, because hes not at that location, if no destination is specified it does not matter
         maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
         maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
         contractorTasks = []

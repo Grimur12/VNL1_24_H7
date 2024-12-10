@@ -27,36 +27,36 @@ class LogicLayerAPI:
         """ Function validates the input of the user when creating and editing employees, returns true or raises ValueError """
         return self.LogicLayerEmployeelogic.validateEmployeeInput(user_input, count, temp_employee)
     
-    def getEmployeeData(self) -> list[Employee]:
+    def getEmployeeData(self, destination = None) -> list[Employee]:
         """ Function gets all of the employees currently stored in the DB if they are of the type Manager or General """
-        employeeLog = self.LogicLayerEmployeelogic.getEmployeeData()
+        employeeLog = self.LogicLayerEmployeelogic.getEmployeeData(destination)
         return employeeLog
     
-    def getContractorData(self) -> list[Contractor]:
+    def getContractorData(self, destination = None) -> list[Contractor]:
         """ Function gets all of the contractors currently stored in the employees DB """
-        contractorLog = self.LogicLayerEmployeelogic.getContractorData()
+        contractorLog = self.LogicLayerEmployeelogic.getContractorData(destination)
         return contractorLog
 
-    def getEmployeebyID(self, ID) -> Employee:
+    def getEmployeebyID(self, ID, destination = None) -> Employee:
         """ Loads the entire employees DB and tries to find if the employee exists in it, raises ValueError if it does not exist """
-        employee = self.LogicLayerEmployeelogic.getEmployeebyID(ID)
+        employee = self.LogicLayerEmployeelogic.getEmployeebyID(ID, destination)
         return employee
 
-    def getContractorbyID(self, ID) -> Contractor:
+    def getContractorbyID(self, ID, destination = None) -> Contractor:
         """ Loads the entire employees DB and tries to find if the contractor exists in it, raises ValueError if it does not exist """
-        contractor = self.LogicLayerEmployeelogic.getContractorbyID(ID)
+        contractor = self.LogicLayerEmployeelogic.getContractorbyID(ID, destination)
         return contractor
     
-    def getTasksForContractorID(self, ID) -> list[Maintenance]:
+    def getTasksForContractorID(self, ID, destination = None) -> list[Maintenance]:
         """ Loads maintenance Tasks and maintenance Reports and sees which maintenance Tasks a specific contractor has worked on and returns a list of tasks, otherwise raises ValueError"""
         # Takes in contractor ID
-        tasks = self.LogicLayerEmployeelogic.getTasksForContractorID(ID)
+        tasks = self.LogicLayerEmployeelogic.getTasksForContractorID(ID, destination)
         return tasks
     
-    def getTasksForEmployeeID(self, ID) -> list[Maintenance]:
+    def getTasksForEmployeeID(self, ID, destination = None) -> list[Maintenance]:
         """ Loads maintenance Tasks and maintenance Reports and sees which maintenance Tasks a specific contractor has worked on and returns a list of tasks, otherwise raises ValueError"""
         # Takes in employee ID
-        tasks = self.LogicLayerEmployeelogic.getTasksForEmployeeID(ID)
+        tasks = self.LogicLayerEmployeelogic.getTasksForEmployeeID(ID, destination)
         return tasks
     
     def exchangeManagersAtLocation(self, userInput_previous, temp_employee):
@@ -176,23 +176,23 @@ class LogicLayerAPI:
 
         return self.LogicLayerPropertyLogic.validatePropertyInput(user_input, count, temp_property)
     
-    def getPropertyData(self) -> list[Property]:
+    def getPropertyData(self, destination = None) -> list[Property]:
         """ Function loads all properties from DB and returns a list of Property objects"""
-        propertyLog = self.LogicLayerPropertyLogic.getPropertiesData()
+        propertyLog = self.LogicLayerPropertyLogic.getPropertiesData(destination)
         return propertyLog
     
     def updateProperty(self, property) -> None:
         """ Function takes in instance of Property that is already in the DB and updates the attributes of it in the DB"""
         self.LogicLayerPropertyLogic.updateProperty(property)
 
-    def getPropertyByID(self, ID) -> None:
+    def getPropertyByID(self, ID, destination = None) -> None:
         """ Function takes in ID of a Property, loads up the properties in the DB and tries to find it, returns Property or raises ValueError"""
-        property = self.LogicLayerPropertyLogic.getPropertyByID(ID)
+        property = self.LogicLayerPropertyLogic.getPropertyByID(ID, destination)
         return property
     
-    def getTasksForPropertyID(self, ID) -> list[Property]:
+    def getTasksForPropertyID(self, ID, destination = None) -> list[Property]:
         """ Function takes in ID of a Property, loads up the maintenances in the DB and tries to find the ones being done on that property, returns maintenance Tasks or raises ValueError"""
-        tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID)
+        tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID, destination)
         return tasks
     
     def getDestinationData(self):

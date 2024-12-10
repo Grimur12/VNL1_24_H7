@@ -64,15 +64,3 @@ class EmployeesDBLogic:
                 break
         # Finally update the DB
         self.saveEmployees(employees)
-
-    def printEmployees(self) -> None:
-        """ Prints out all employees from the database """
-        employees = self.loadEmployeeLog()  # Load current employees
-        for employee in employees:
-            print("-------------------------------------------------------------------------------------------------------------")
-            if employee.type == "Contractor":
-                for key, value in employee.__dict__.items():
-                    print(f"{key}: {value}")
-            else:
-                for key, value in employee.__dict__.items():
-                    print(f"{key}: {value}")

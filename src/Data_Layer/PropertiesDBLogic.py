@@ -46,11 +46,3 @@ class PropertiesDBLogic:
 
         with open(self.file_path, "w") as file:
             json.dump(Properties, file, indent=4)
-
-    def printProperties(self) -> None:
-        """ Internal, prints out properties, for testing purposes in DB layer """
-        properties = self.loadPropertiesLog()
-        for prop in properties:
-            print("-------------------------------------------------------------------------------------------------------------")
-            for key, value in prop.__dict__.items():
-                print(f"{key}: {value}")

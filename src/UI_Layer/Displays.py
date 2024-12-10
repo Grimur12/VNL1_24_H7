@@ -193,7 +193,6 @@ D: To Quit Chaning and Save Changes\n
         if error:
             print(f"Error: {error}\n")
 
-
     def printProperty(self, property):
 
         print("\n--- Property Information ---")

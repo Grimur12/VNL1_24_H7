@@ -63,9 +63,9 @@ class ManagerUILogic:
                 break
 
             if user_choice in ["1", "2", "3"]:
-                self.createEmployee(user_choice) # komið
+                self.createEmployee(user_choice)
             elif user_choice == "4":
-                self.createProperty() # komið
+                self.createProperty() 
             elif user_choice == "5":
                 self.createMaintenanceTask()
             elif user_choice == "6":

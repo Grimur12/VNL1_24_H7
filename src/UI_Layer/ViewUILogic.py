@@ -33,25 +33,18 @@ class ViewUILogic:
                 break
 
             elif user_choice == "1":
-                self.displayEmployeesPretty() # Show them the complete list and then ask if they want any more filtering....
                 self.filterEmployees()
             elif user_choice == "2":
-                self.displayContractors() # Show them the complete list and then ask if they want any more fliltering...
                 self.filterContractors()
             elif user_choice == "3":
-                self.displayProperties() # Show them the complete list and then ask if they want any more filtering....
                 self.filterProperties()
             elif user_choice == "4":
-                self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceTasks()
             elif user_choice == "5":
-                self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
                 self.filterMaintenanceSchedules()
             elif user_choice == "6":
-                self.displayMaintenanceReports()
                 self.filterMaintenanceReports()
             elif user_choice == "7":
-                self.displayDestinations()
                 self.filterDestinations()
             else:
                 print("Invalid Input")
@@ -63,28 +56,28 @@ class ViewUILogic:
         else:
             system("clear")
 
-    def displayEmployeesPretty(self):
+    def displayEmployeesPretty(self, destination = None):
         employeespretty = PrettyTable()
         employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
-        employees = self.LogicLayerWrapper.getEmployeeData()
+        employees = self.LogicLayerWrapper.getEmployeeData(destination)
         for employee in employees:
             self.Displays.printEmployeePretty(employee, employeespretty)
         employeespretty.right_padding_width = 1
         employeespretty.align = 'l'
         print(employeespretty)
 
-    def displayEmployees(self):
-        employees = self.LogicLayerWrapper.getEmployeeData()
+    def displayEmployees(self, destination = None):
+        employees = self.LogicLayerWrapper.getEmployeeData(destination)
         for employee in employees:
             self.Displays.printEmployee(employee)
 
-    def displayContractors(self):
-        contractors = self.LogicLayerWrapper.getContractorData()
+    def displayContractors(self, destination = None):
+        contractors = self.LogicLayerWrapper.getContractorData(destination)
         for contractor in contractors:
             self.Displays.printContractor(contractor)
 
-    def displayProperties(self):
-        properties = self.LogicLayerWrapper.getPropertyData()
+    def displayProperties(self, destination = None):
+        properties = self.LogicLayerWrapper.getPropertyData(destination)
         for property in properties:
             self.Displays.printProperty(property)
 
@@ -108,7 +101,9 @@ class ViewUILogic:
         for destination in destinations:
             self.Displays.printDestination(destination)
 
-    def filterEmployees(self):
+    def filterEmployees(self, destination = None):
+        self.displayEmployeesPretty(destination) # Show them the complete list and then ask if they want any more filtering....
+        # Function can receive a destination if user is asking for specific employees at a specific destination
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific Employee")
@@ -136,7 +131,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    employee = self.LogicLayerWrapper.getEmployeebyID(ID)
+                    employee = self.LogicLayerWrapper.getEmployeebyID(ID, destination)
                     self.Displays.printEmployee(employee)
                 except ValueError as error:
                     print(error)
@@ -151,7 +146,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID) # Takes in x amount of Maintenance Tasks an employee has worked
+                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID, destination) # Gets all the tasks for a specified employee
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
                     self.dateFilter(tasks) # get the datefilter
@@ -160,7 +155,8 @@ class ViewUILogic:
             else:
                 print("Invalid Input")
 
-    def filterContractors(self):
+    def filterContractors(self, destination = None):
+        self.displayContractors(destination) # Show them the complete list and then ask if they want any more fliltering...
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific Contractor")
@@ -188,7 +184,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    contractor = self.LogicLayerWrapper.getContractorbyID(ID)
+                    contractor = self.LogicLayerWrapper.getContractorbyID(ID, destination)
                     self.Displays.printContractor(contractor)
                 except ValueError as error:
                     print(error)
@@ -202,7 +198,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    tasks = self.LogicLayerWrapper.getTasksForContractorID(ID)# Takes in x amount of Maintenance Tasks a contractor has worked 
+                    tasks = self.LogicLayerWrapper.getTasksForContractorID(ID, destination) # Takes in x amount of Maintenance Tasks a contractor has worked 
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
                     self.dateFilter(tasks) # get the datefilter
@@ -211,7 +207,8 @@ class ViewUILogic:
             else:
                 print("Invalid Input")
 
-    def filterProperties(self):
+    def filterProperties(self, destination = None):
+        self.displayProperties(destination) # Show them the complete list and then ask if they want any more filtering....
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific Property")
@@ -239,7 +236,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    property = self.LogicLayerWrapper.getPropertyByID(ID)
+                    property = self.LogicLayerWrapper.getPropertyByID(ID, destination)
                     self.Displays.printProperty(property)
                 except ValueError as error:
                     print(error)
@@ -253,7 +250,7 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
-                    tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID) # Takes in x amount of Maintenance Tasks done on specific property
+                    tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID, destination) # Takes in x amount of Maintenance Tasks done on specific property
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
                     self.dateFilter(tasks) # get the datefilter
@@ -263,6 +260,7 @@ class ViewUILogic:
                 print("Invalid Input")
     
     def filterMaintenanceTasks(self):
+        self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
         while True:
             print("\n-------------------------------------------------------")
             print("B: To Go Back")
@@ -296,6 +294,7 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterMaintenanceSchedules(self):
+        self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
@@ -330,6 +329,7 @@ class ViewUILogic:
                 print("Invalid Input")            
 
     def filterMaintenanceReports(self):
+        self.displayMaintenanceReports()
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific MaintenanceReport")
@@ -364,6 +364,7 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterDestinations(self):
+        self.displayDestinations()
         while True:
             print("\n-------------------------------------------------------")
             print("1: To view information about Employees at a specific Destination")
@@ -382,7 +383,7 @@ class ViewUILogic:
                 self.clearTerminal()
                 break
             
-            elif user_choice == "1": 
+            elif user_choice == "1":  # Employees at Destination
                 ID = input("ID of the Destination you want to show Employee information for ")
 
                 if ID.lower() == "q":
@@ -392,12 +393,15 @@ class ViewUILogic:
                     self.clearTerminal()
                     continue
                 try:
+                    # In order to reuse the fiter functions for Employees, Contractors and Properties we need to give it a destination so that the GetTasksFor (Property, Contractors, Employees) can filter on the destination
+                    # This reduces duplicate code
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    print("Nothing more implemented here go back")
-                    # Try giving Display employees a list of employees on that location ? then call the filter employees ?
+                    #self.displayDestinationEmployees(destination)
+                    self.filterEmployees(destination) # Call the filterEmployees with the specific destination user wanted to look at
+                    
                 except ValueError as error:
                     print(error)
-            elif user_choice == "2":
+            elif user_choice == "2": # Contractors At Destination
                 ID = input("ID of the Destination you want to show Contractor information for ")
 
                 if ID.lower() == "q":
@@ -408,11 +412,11 @@ class ViewUILogic:
                     continue
                 try:
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    print("Nothing more implemented here go back")
+                    self.filterContractors(destination)
                     # Try giving Display Contractor a list of contractors on that location ? then call the filter contractors ?
                 except ValueError as error:
                     print(error)
-            elif user_choice == "3":
+            elif user_choice == "3": # Properties at Destination
                 ID = input("ID of the Destination you want to show Property information for ")
 
                 if ID.lower() == "q":
@@ -423,7 +427,7 @@ class ViewUILogic:
                     continue
                 try:
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    print("Nothing more implemented here go back")
+                    self.filterProperties(destination)
                     # Try giving Display properties a list of properties on that location ? then call the filter properties ?
                 except ValueError as error:
                     print(error)

@@ -25,5 +25,50 @@
         "hasAPool": "false",
         "hasATub": "true",
         "hasOvens": "false"
+    },
+    {
+        "propertyID": 4,
+        "nameOfProperty": "Igloo",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 5,
+        "nameOfProperty": "Igloo 2",
+        "location": 3,
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 6,
+        "nameOfProperty": "Red Mansion",
+        "location": 4,
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 7,
+        "nameOfProperty": "Penguin Mansion",
+        "location": 5,
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 8,
+        "nameOfProperty": "Manager House",
+        "location": 6,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
     }
 ]

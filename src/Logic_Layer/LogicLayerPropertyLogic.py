@@ -53,21 +53,35 @@ class LogicLayerPropertyLogic:
             temp_property.hasOvens = input
         return True
 
-    def getPropertyByID(self, ID) -> Property:
+    def getPropertyByID(self, ID, destination = None) -> Property:
         """ Function loads all Properties and tries to find the specified Property by ID in the DB, returns Property or raises ValueError"""
     # Check for property by property ID or name
         if self.Errors.checkNumber(ID):
+            destination_filter = False
             propertyLog = self.DataLayerWrapper.loadPropertiesLog()
             index_to_update = -1
+
+            if destination is not None:
+                 destination_filter = True
+
             for index, property in enumerate(propertyLog):
-                if property.propertyID == int(ID):
-                    index_to_update = index
+                if destination_filter: 
+
+                    if property.propertyID == int(ID) and property.location == destination.destinationID:
+                        index_to_update = index
+                        break
+                else:
+                    if property.propertyID == int(ID):
+                        index_to_update = index
+                        break
+
             if index_to_update != -1:
                 property_found = propertyLog[index_to_update]
                 return property_found
             else:
                 raise ValueError("No Property By that ID")
-            
+
+
     def checkIfDestinationExists(self, dest_ID) -> True:
         """ Function takes in destination ID, returns True if it finds destination in DB otherwise raises ValueError"""
         destinations = self.DataLayerWrapper.loadDestinationsLog()
@@ -76,14 +90,14 @@ class LogicLayerPropertyLogic:
                 return True
         raise ValueError("No Destination By that ID")
             
-    def getTasksForPropertyID(self, ID) -> list[Maintenance]:
+    def getTasksForPropertyID(self, ID, destination = None) -> list[Maintenance]:
         """ Function finds the Property, loads all maintenance tasks and filters out all the maintenance tasks a being done on a property, returns filtered list of maintenance tasks or raises ValuError"""
         # Takes in property ID
         # probably best to call GetPropertyByID
         #MaintenanceTasksLog = self.DataLayerWrapper.loadMaintenanceReportLog()
         # Put logic to add together if property ID == property ID in the report and return that ..
         #return tasks
-        property = self.getPropertyByID(ID)
+        property = self.getPropertyByID(ID, destination)
         maintenanceTaskLog = self.DataLayerWrapper.loadMaintenanceLog()
         tasksDoneOnProperty = []
         for task in maintenanceTaskLog:
@@ -102,15 +116,13 @@ class LogicLayerPropertyLogic:
         self.DataLayerWrapper.updateProperty(property)
 
     #get properties data
-    def getPropertiesData(self) -> None:
+    def getPropertiesData(self, destination = None) -> list[Property]:
         """ Load all the Properties from the DB to return in a list format """
         getProperty = self.DataLayerWrapper.loadPropertiesLog()
+        if destination is not None:
+            getProperty = [prop for prop in getProperty if prop.location == destination.destinationID]
         return getProperty
 
     def createProperty(self, tempProperty) -> None:
         """ Function takes in a completely filled out tempProperty and saves it in our Property DB"""
         self.DataLayerWrapper.createProperty(tempProperty)
-
-    #check errors
-    def checkPropertiesError():
-        pass
