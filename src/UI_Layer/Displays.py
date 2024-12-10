@@ -1,5 +1,6 @@
 
 from os import system, name
+from prettytable import PrettyTable
 # Need to make all these displays look better 
 class Displays:
     def __init__(self):
@@ -205,8 +206,11 @@ D: To Quit Chaning and Save Changes\n
         print(f"Ovens: {property.hasOvens}")
         print("--------------------------\n") 
 
-    def printEmployee(self, employee):
+    def printEmployeePretty(self, employee, employees):
+        employees.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.address ,employee.atHomePhone, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)
 
+    def printEmployee(self, employee):
+        
         print("\n--- Employee Information ---")
         print(f"Employee Number: {employee.employeeID}")
         print(f"Name: {employee.name}")
@@ -218,7 +222,6 @@ D: To Quit Chaning and Save Changes\n
         print(f"Work Location: {employee.workLocation}")
         print(f"Type: {employee.type}")
         print("--------------------------\n")
-
 
     def printContractor(self, contractor):
 
@@ -273,6 +276,19 @@ D: To Quit Chaning and Save Changes\n
         print(f"Is the Maintenance Task ready to be closed: {report.readyToClose}")
         print(f"Supervisor Has accepted the work done: {report.supervisorClosed}")
         print(f"Feedback on the completed work: {report.supervisorFeedback}")
+        print("--------------------------\n")
+
+    def printDestination(self, destination):
+        
+        print("\n--- Destination Information ---")
+        print(f"Destination Number: {destination.destinationID}")
+        print(f"Name: {destination.name}")
+        print(f"Country: {destination.country}")
+        print(f"Timezone: {destination.timezone}")
+        print(f"Airport Name: {destination.airportName}")
+        print(f"Phone Number: {destination.phoneNumber}")
+        print(f"Opening Hours: {destination.openingHours}")
+        print(f"Manager Of Destination: {destination.managerOfDestination}")
         print("--------------------------\n")
 
     def overWriteManager(self):

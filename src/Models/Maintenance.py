@@ -24,4 +24,4 @@ class Maintenance:
         "statusMaintenance": self.statusMaintenance,
         "priority": self.priority,
         "recurring": self.recurring
-        }
+        }   

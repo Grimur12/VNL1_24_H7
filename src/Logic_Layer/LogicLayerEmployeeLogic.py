@@ -234,13 +234,20 @@ class LogicLayerEmployeeLogic:
         self.DataLayerWrapper.updateEmployee(employee)
         
 
-
-
-
-
-
-
+    def getDestinationData(self):
+        destinations = self.DataLayerWrapper.loadDestinationsLog()
+        return destinations
     
-    #check errors
-    def check_employee_Errors(self):
-        pass
+    def getDestinationByID(self, ID) -> Destination:
+        """ Function loads all Destinations and tries to find the specified Destination by ID in the DB, returns Destination if found or raises ValueError"""
+        if self.Errors.checkNumber(ID):
+            destinationLog = self.DataLayerWrapper.loadDestinationsLog()
+            index_to_update = -1
+            for index, destination in enumerate(destinationLog):
+                if destination.destinationID == int(ID):
+                    index_to_update = index
+            if index_to_update != -1:
+                destination_found = destinationLog[index_to_update]
+                return destination_found
+            else:
+                raise ValueError("No Destination by that ID")
