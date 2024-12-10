@@ -18,7 +18,7 @@ class EmployeeUILogic:
             # All of his functions are here
             print("1: Create a Maintenance Report")
             print("2: Mark a Maintenance Report as ready to close")
-            print("3: Access viewing features")
+            print("3: Viewing features")
             print("B: Go Back")
             print("Q: Quit")
             user_choice = input("Choice: ")

@@ -1,5 +1,6 @@
 
 from os import system, name
+from prettytable import PrettyTable
 
 # Need to make all these displays look better 
 # Our display file where we have everything we want to display to the user.
@@ -81,9 +82,16 @@ D: To Quit Chaning and Save Changes\n
 
         self.clearTerminal()
 
-        print("\n--- Adding a new Employee ---")
-        print(temp)            
-        print("--------------------------\n")
+        #print("\n--- Adding a new Employee ---")
+        #print(temp)            
+        #print("--------------------------\n")
+
+        table = PrettyTable()
+        table.title = "Adding a New Employee"
+        table.field_names = "Field"
+        table.add_row("Employee ID")
+        table.add_row("Name")
+        table.add_row("Role")
 
         if error:
             print(f"Error: {error}\n")
@@ -92,15 +100,26 @@ D: To Quit Chaning and Save Changes\n
         
         self.clearTerminal()
 
-        print("\n--- Adding a new Property ---")
-        print(f"Property Number: {temp.propertyID}")
-        print(f"Name: {temp.nameOfProperty}")
-        print(f"Location: {temp.location}")
-        print(f"Availability: {temp.availability}")
-        print(f"Does it have a pool: {temp.hasAPool}")
-        print(f"Does it have a hot Tub: {temp.hasATub}")
-        print(f"Does it have ovens: {temp.hasOvens}")            
-        print("--------------------------\n")
+        #print("\n--- Adding a new Property ---")
+        #print(f"Property Number: {temp.propertyID}")
+        #print(f"Name: {temp.nameOfProperty}")
+        #print(f"Location: {temp.location}")
+        #print(f"Availability: {temp.availability}")
+        #print(f"Does it have a pool: {temp.hasAPool}")
+        #print(f"Does it have a hot Tub: {temp.hasATub}")
+        #print(f"Does it have ovens: {temp.hasOvens}")            
+        #print("--------------------------\n")
+
+        table = PrettyTable()
+        table.title = "Adding a New Property"
+        table.field_names = ["Field", "Value"]
+        table.add_row(["Property Number", temp.get("propertyID", "N/A")])
+        table.add_row(["Name", temp.get("nameOfProperty", "N/A")])
+        table.add_row(["Location", temp.get("location", "N/A")])
+        table.add_row(["Availability", temp.get("availability", "N/A")])
+        table.add_row(["Has Pool", temp.get("hasAPool", "N/A")])
+        table.add_row(["Has Hot Tub", temp.get("hasATub", "N/A")])
+        table.add_row(["Has Ovens", temp.get("hasOvens", "N/A")])
 
         if error:
             print(f"Error: {error}\n")

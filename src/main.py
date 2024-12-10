@@ -2,6 +2,7 @@ from UI_Layer.ContractorUILogic import ContractorUILogic
 from UI_Layer.EmployeeUILogic import EmployeeUILogic
 from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
+from prettytable import PrettyTable
 
 # Main program
 
@@ -16,13 +17,30 @@ if __name__ == "__main__":
     start = main()
     invalid = False
     while True: 
+ 
         start.ViewUI.clearTerminal()
-        print("------------ Welcome to NAN air -----------")
-        print("Are you a manager, employee or a contractor?")
-        print("1: Manager")
-        print("2: Employee")
-        print("3: Contractor")
-        print("Q: To quit\n")
+
+        # print("------------ Welcome to NAN Air ------------")
+        # print("--------------------------------------------")
+        # print("Are you a manager, employee or a contractor?")
+        # print("1: Manager")
+        # print("2: Employee")
+        # print("3: Contractor")
+        # print("Q: To quit\n")
+        # print("-------------------------------------------- ")
+        # print("-------------------------------------------- ")
+        
+        main_menu = PrettyTable()
+        main_menu.title = "Main Menu"
+        main_menu.header = False
+        main_menu.add_row(["1: Manager"])
+        main_menu.add_row(["2: Employee"])
+        main_menu.add_row(["3: Contractor"])
+        main_menu.add_row(["Q: Quit"])
+
+        main_menu.align = "l"
+        print(main_menu)
+
         if invalid:
             print("Error: Invalid Input\n")
 

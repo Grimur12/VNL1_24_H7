@@ -11,12 +11,12 @@ class ViewUILogic:
     def viewMenu(self):
         self.clearTerminal()
         while True:
-            print("1: To view all Employees")
-            print("2: To view all Contractors")
-            print("3: To view all Properties")
-            print("4: To view all Maintenance Tasks")
-            print("5: To view all Scheduled Maintenance Tasks")
-            print("6: To view all Maintenance Reports")
+            print("1: View all Employees")
+            print("2: View all Contractors")
+            print("3: View all Properties")
+            print("4: View all Maintenance Tasks")
+            print("5: View all Scheduled Maintenance Tasks")
+            print("6: View all Maintenance Reports")
             print("B: To Go Back")
             print("Q: To Quit\n")
             user_choice = input("Choice: ")
@@ -90,8 +90,8 @@ class ViewUILogic:
 
     def filterEmployees(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Employee")
-        print("2: To view all tasks an Employee has worked on")
+        print("1: View additional information of a specific Employee")
+        print("2: View all tasks an Employee has worked on")
         print("B: To Go Back")
         print("Q: To Quit")
         print("-------------------------------------------------------\n")
@@ -142,10 +142,10 @@ class ViewUILogic:
 
     def filterContractors(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Contractor")
-        print("2: To view all tasks a Contractor has worked on")
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View additional information of a specific Contractor")
+        print("2: View all tasks a Contractor has worked on")
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
@@ -193,10 +193,10 @@ class ViewUILogic:
 
     def filterProperties(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific Property")
-        print("2: To view all Maintenance on a specific Property")
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View additional information of a specific Property")
+        print("2: View all Maintenance on a specific Property")
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
@@ -244,9 +244,9 @@ class ViewUILogic:
     
     def filterMaintenanceTasks(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceTask") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View additional information of a specific MaintenanceTask") ## IS THIS NEEDED ?
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
@@ -278,9 +278,9 @@ class ViewUILogic:
 
     def filterMaintenanceSchedules(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
@@ -312,9 +312,9 @@ class ViewUILogic:
 
     def filterMaintenanceReports(self):
         print("\n-------------------------------------------------------")
-        print("1: To view additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
@@ -346,9 +346,9 @@ class ViewUILogic:
     
     def dateFilter(self, tasks):
         print("\n-------------------------------------------------------")
-        print("1: To view tasks over a specific time period")
-        print("B: To Go Back")
-        print("Q: To Quit")
+        print("1: View tasks over a specific time period")
+        print("B: Go Back")
+        print("Q: Quit")
         print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")

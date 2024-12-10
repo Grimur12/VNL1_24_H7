@@ -13,28 +13,28 @@ class ErrorCheckers:
         try:
             int(input)
         except ValueError:
-            raise ValueError("Input must be a valid number")
+            raise ValueError("Input must be a valid number, please try again.")
         return True
 
     def checkEmpty(self, input):
         '''Returns True if user input is not empty, raises ValueError otherwise'''
         # We cant have empty as an input
         if input == "":
-            raise ValueError("Input can not be empty")
+            raise ValueError("Input can not be empty, please try again.")
         return True
 
     def errorCheckName(self, name):
         '''Checks if name user input is valid'''
         self.checkEmpty(name)
         if name.isnumeric():
-            raise ValueError("Name must not be a number")
+            raise ValueError("Name must cannot be a number, please try again")
         return True
     
     def errorCheckAddress(self, address):
         ''' Checks if Address user input is valid '''
         self.checkEmpty(address)
         if address.isnumeric():
-            raise ValueError("Address must not be just a number")
+            raise ValueError("Address cannot be just a number, please try again.")
         return True
 
     def errorCheckSocialSecurity(self, socialSecurity):
@@ -46,7 +46,7 @@ class ErrorCheckers:
             if len(social_split[0]) == 6 and len(social_split[1]) == 4:
                 if social_split[0].isnumeric() and social_split[1].isnumeric():
                     return True
-        raise ValueError("Social Security Number is not of the correct format XXXXXX-XXXX")
+        raise ValueError("The Social Security Number entered is not in the correct format. Please try again in this format XXXXXX-XXXX")
 
     def errorCheckPhone(self, phoneNumber):
         ''' Checks if Phone number user input is valid '''
@@ -57,14 +57,14 @@ class ErrorCheckers:
             if len(phone_split[0]) == 3 and len(phone_split[1]) == 4:
                 if phone_split[0].isnumeric() and phone_split[1].isnumeric():
                     return True
-        raise ValueError("Phone number is not of the correct format XXX-XXXX")
+        raise ValueError("Phone number is not of the correct format li XXX-XXXX")
         
     def errorCheckEmail(self, email):
         ''' Checks if email user input is valid '''
         # We cannot accept emails that do not contain @
         self.checkEmpty(email)
         if not "@" in email:
-            raise ValueError("Email must contain an @")
+            raise ValueError("Email must contain an @, please try again.")
         return True
 
     def errorCheckLocation(self, location):

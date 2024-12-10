@@ -16,9 +16,11 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         while True:
             # List of features the manager can choose to select/do
+            print("What would you like to do today?")
+            print("--------------------------------------------------------")
             print("1: Create new Properties, Employees or Maintenance Tasks")
-            print("2: Edit existent Properties, Employees or Maintenance Tasks")
-            print("3: View existent Properties, Employess or Maintenance Tasks")
+            print("2: Edit Properties, Employees or Maintenance Tasks")
+            print("3: View Properties, Employess or Maintenance Tasks")
             print("B: Go Back")
             print("Q: Quit\n")
             user_choice = input("Choice: ")
