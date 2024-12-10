@@ -6,6 +6,7 @@ from Models.Maintenance import Maintenance
 from Models.MaintenanceReport import MaintenanceReport
 from Models.MaintenanceSchedule import MaintenanceSchedule
 from Models.Property import Property
+from Models.Destination import Destination
 
 class LogicLayerAPI:
     def __init__(self):
@@ -13,7 +14,7 @@ class LogicLayerAPI:
         self.LogicLayerMaintenancelogic = LogicLayerMaintenanceLogic()
         self.LogicLayerPropertyLogic = LogicLayerPropertyLogic()
 
-# here are functions of the Employee
+    # here are functions of the Employee
 
     def createEmployee(self, employee) -> None:
         """ Function takes in an object Employee and saves it in the DB """
@@ -59,9 +60,9 @@ class LogicLayerAPI:
         tasks = self.LogicLayerEmployeelogic.getTasksForEmployeeID(ID, destination)
         return tasks
     
-    def exchangeManagersAtLocation(self, userInput_previous, temp_employee):
+    def exchangeManagersAtLocation(self, userInput_previous, temp_employee) -> None:
+        """ Function takes in a Manager we are trying to create and the destination, and demotes the current one and adds the new manager"""
         self.LogicLayerEmployeelogic.exchangeManagersAtLocation(userInput_previous, temp_employee)
-
 
     def update_employee_data(self, employee) -> None:
         """ Function takes in instance of employee that is already in the DB and updates the attributes of it in the DB"""
@@ -148,13 +149,13 @@ class LogicLayerAPI:
         """ Function takes in a maintenance ID, and marks it as closed if it can be closed"""
         self.LogicLayerMaintenancelogic.closeMaintenanceTask(maintenanceID, user_feedback)
 
-    def updateMaintenance(self, maintenanceTask):
+    def updateMaintenance(self, maintenanceTask) -> None:
         self.LogicLayerMaintenancelogic.updateMaintenance(maintenanceTask)
 
-    def canEditMaintenanceTask(self, maintenanceTask):
+    def canEditMaintenanceTask(self, maintenanceTask) -> True:
         return self.LogicLayerMaintenancelogic.canEditMaintenanceTask(maintenanceTask)
     
-    def canEditMaintenanceSchedule(self, maintenanceSchedule):
+    def canEditMaintenanceSchedule(self, maintenanceSchedule) -> True:
         return self.LogicLayerMaintenancelogic.canEditMaintenanceSchedule(maintenanceSchedule)
 
     def updateMaintenanceSchedule(self, schedule) -> None:
@@ -173,7 +174,6 @@ class LogicLayerAPI:
 
     def validatePropertyInput(self, user_input, count, temp_property) -> True:
         """ Function validates the input of the user when creating and editing Property, returns true or raises ValueError """
-
         return self.LogicLayerPropertyLogic.validatePropertyInput(user_input, count, temp_property)
     
     def getPropertyData(self, destination = None) -> list[Property]:
@@ -185,7 +185,7 @@ class LogicLayerAPI:
         """ Function takes in instance of Property that is already in the DB and updates the attributes of it in the DB"""
         self.LogicLayerPropertyLogic.updateProperty(property)
 
-    def getPropertyByID(self, ID, destination = None) -> None:
+    def getPropertyByID(self, ID, destination = None) -> Property:
         """ Function takes in ID of a Property, loads up the properties in the DB and tries to find it, returns Property or raises ValueError"""
         property = self.LogicLayerPropertyLogic.getPropertyByID(ID, destination)
         return property
@@ -195,11 +195,13 @@ class LogicLayerAPI:
         tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID, destination)
         return tasks
     
-    def getDestinationData(self):
+    def getDestinationData(self) -> list[Destination]:
+        """ Function loads all destinations from DB """
         destinations = self.LogicLayerEmployeelogic.getDestinationData()
         return destinations
 
-    def getDestinationByID(self, ID):
+    def getDestinationByID(self, ID) -> Destination:
+        """ Function gets a certain destination by ID """
         destination = self.LogicLayerEmployeelogic.getDestinationByID(ID)
         return destination
     

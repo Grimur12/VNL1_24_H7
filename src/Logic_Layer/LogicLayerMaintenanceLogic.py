@@ -9,24 +9,23 @@ class LogicLayerMaintenanceLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
-        self.tempmaintenance = None
 
     def createUniqueMaintenanceID(self) -> int:
         """ Function loads all Maintenances from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique id int"""
         currentMaintenance = self.DataLayerWrapper.loadMaintenanceLog()
         if len(currentMaintenance) != 0:
-            newID = currentMaintenance[-1].maintenanceID + 1 # Assign new maintenance to a new ID
+            newID = currentMaintenance[-1].maintenanceID + 1 # Since we never delete from the DB we can go to the last maintenance in the list and find the ID of it and +1 to get a new unique ID
         else:
-            newID = 1
+            newID = 1 # If there are no maintenance already in the DB (list is empty) we simply start off with ID = 1
         return newID
     
     def createUniqueMaintenanceScheduleID(self) -> int:
         """ Function loads all Maintenance Schedules from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique id int"""
         currentMaintenanceSchedules = self.DataLayerWrapper.loadMaintenanceScheduleLog()
         if len(currentMaintenanceSchedules) != 0:
-            newID = currentMaintenanceSchedules[-1].maintenanceScheduleID + 1 # Assign new maintenance to a new ID
+            newID = currentMaintenanceSchedules[-1].maintenanceScheduleID + 1 # Since we never delete from the DB we can go to the last maintenance schedule in the list and find the ID of it and +1 to get a new unique ID
         else:
-            newID = 1  
+            newID = 1 # If there are no maintenance Schedules already in the DB (list is empty) we simply start off with ID = 1
         return newID   
             
     def createUniqueMaintenanceReportID(self) -> int:
@@ -35,28 +34,28 @@ class LogicLayerMaintenanceLogic:
         if len(currentMaintenanceReport) != 0:
             newID = currentMaintenanceReport[-1].maintenanceReportID + 1 # Since we never delete from the DB we can go to the last maintenance report in the list and find the ID of it and +1 to get a new unique ID
         else:
-            newID = 1 # If there are no maintenance Reports already in the DB we simply start off with ID = 1
+            newID = 1 # If there are no maintenance Reports already in the DB (list is empty) we simply start off with ID = 1
         return newID
 
     def createTempMaintenance(self) -> Maintenance:
         """ Function creates a temporary Maintenance Task based on user input for the user to fill out, it is assigned a unique INT ID, returns a temporary Maintenance Task """
         # Create a new maintenance
-        tempMaintenanceID = self.createUniqueMaintenanceID()
-        temp_maintenance = Maintenance(ID=tempMaintenanceID)
+        tempMaintenanceID = self.createUniqueMaintenanceID() # Fetch a unique id for the maintenance
+        temp_maintenance = Maintenance(ID=tempMaintenanceID) # Create a Maintenance with that unique ID, user inputs the rest
         return temp_maintenance
 
     def createTempMaintenanceSchedule(self) -> MaintenanceSchedule:
         """ Function creates a temporary Maintenance Schedule based on user input for the user to fill out, it is assigned a unique INT ID, returns a temporary Maintenance Schedule """
         # Create a temporary maintenance schedule
-        tempMaintenanceScheduleID = self.createUniqueMaintenanceScheduleID()
-        temp_maintenanceSchedule = MaintenanceSchedule(ID=tempMaintenanceScheduleID)
+        tempMaintenanceScheduleID = self.createUniqueMaintenanceScheduleID() # Fetch a unique id for maintenance schedule
+        temp_maintenanceSchedule = MaintenanceSchedule(ID=tempMaintenanceScheduleID) # Create a maintenance schedule with the unique id, user fills in the rest
         return temp_maintenanceSchedule
     
     def createTempMaintenanceReport(self) -> MaintenanceReport:
         """ Function creates a temporary Maintenance Report based on user input for the user to fill out, it is assigned a unique INT ID, returns a temporary Maintenance Report """
         # Crate a temporary maintenance Report
-        tempMaintenanceReportID = self.createUniqueMaintenanceReportID()
-        temp_maintenanceReport = MaintenanceReport(ID=tempMaintenanceReportID)
+        tempMaintenanceReportID = self.createUniqueMaintenanceReportID() # Fetches unique id for maintenance report
+        temp_maintenanceReport = MaintenanceReport(ID=tempMaintenanceReportID) # Create a maintenance report with the unique id, user inputs the rest
         return temp_maintenanceReport
 
     def validateMaintenanceTaskInput(self, input, count, temp_maintenanceTask) -> True:
@@ -99,57 +98,57 @@ class LogicLayerMaintenanceLogic:
     def getMaintenanceTaskByID(self, ID) -> Maintenance:
         """ Function loads all Maintenances and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
         # Check for maintenance Task by maintenance Task ID or name
-        if self.Errors.checkNumber(ID):
-            maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
+        if self.Errors.checkNumber(ID): # Checks if id is a number
+            maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog() # Load all maintenances
             index_to_update = -1
             for index, maintenance in enumerate(maintenanceLog):
-                if maintenance.maintenanceID == int(ID):
+                if maintenance.maintenanceID == int(ID): # Find the index of the maintenance specified in the list of maintenances
                     index_to_update = index
             if index_to_update != -1:
-                maintenance_found = maintenanceLog[index_to_update]
+                maintenance_found = maintenanceLog[index_to_update] # Extract the maintenance from the list
                 return maintenance_found
             else:
                 raise ValueError("No Maintenance Task By that ID")
             
     def getMaintenanceScheduleByID(self, ID) -> MaintenanceSchedule:
         """ Function loads all Maintenance Schedules and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
-        if self.Errors.checkNumber(ID):
-            maintenanceScheduleLog = self.DataLayerWrapper.loadMaintenanceScheduleLog()
+        if self.Errors.checkNumber(ID): # Checks if id is a number
+            maintenanceScheduleLog = self.DataLayerWrapper.loadMaintenanceScheduleLog() # Loads all the maintenance schedules
             index_to_update = -1
             for index, maintenanceSchedule in enumerate(maintenanceScheduleLog):
-                if maintenanceSchedule.maintenanceScheduleID == int(ID):
+                if maintenanceSchedule.maintenanceScheduleID == int(ID): # Find the index of the maintenance schedules that is specified in the list of maintenance schedules
                     index_to_update = index
             if index_to_update != -1:
-                maintenanceSchedule_found = maintenanceScheduleLog[index_to_update]
+                maintenanceSchedule_found = maintenanceScheduleLog[index_to_update] # Extract the maintenance schedule
                 return maintenanceSchedule_found
             else:
                 raise ValueError("No Maintenance Schedule By that ID")
             
     def getMaintenanceReportByID(self, ID) -> MaintenanceReport:
         """ Function loads all Maintenance Reports and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
-        if self.Errors.checkNumber(ID):
-            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        if self.Errors.checkNumber(ID): # Checks if id is a number
+            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog() # Loads all the Maintenance Reports
             index_to_update = -1
             for index, report in enumerate(maintenanceReportLog):
-                if report.maintenanceReportID == int(ID):
+                if report.maintenanceReportID == int(ID): # Find the index of the maintenance reports that is specified in the list of maintenance reports
                     index_to_update = index
             if index_to_update != -1:
-                maintenanceReport_found = maintenanceReportLog[index_to_update]
+                maintenanceReport_found = maintenanceReportLog[index_to_update] # Extract the maintenance report
                 return maintenanceReport_found
             else:
                 raise ValueError("No Maintenance Report By that ID")
 
     def checkIfPropertyIDinDB(self, ID) -> True:
         """ Function checks if the specified property is in the properties DB, returns True or raises ValueError"""
-        properties = self.DataLayerWrapper.loadPropertiesLog()
+        properties = self.DataLayerWrapper.loadPropertiesLog() # Load all properties
         for property in properties:
-            if property.propertyID == ID:
+            if property.propertyID == ID: # Find the specified property in properties DB
                 return True
         raise ValueError("That Property does not exist")
 
     def validateMaintenanceScheduleInput(self, input, count, temp_maintenanceSchedule) -> True:
         """ Function checks for each attribute in the Maintenance Schedule the user changes if it is of the desired format, returns True or raises ValuError"""
-    # Validate the Maintenance Schedule Input
+        # This function doubles as a validation for creating maintenance schedules and updating them, when editing maintenance schedules instead of count we get the number of the attribute the user wants to change, thats why we need to change it into an integer even though count would usually be an integer
         if self.Errors.checkNumber(count):
             count = int(count)
         datetime_format = "%d.%m.%Y.%H:%M" # We want the user to input something like 02.10.2024.12:30 which we then convert into datetime format.
@@ -165,58 +164,58 @@ class LogicLayerMaintenanceLogic:
             temp_maintenanceSchedule.frequency = input
         elif count == 4: # Start Date
             conversion = self.Errors.checkErrorStartDate(input, datetime_format) ## must be a valid date
-            maintenance_start_date = self.getStartDateMaintenanceTask(temp_maintenanceSchedule.maintenanceID)
-            if maintenance_start_date > conversion:
+            maintenance_start_date = self.getStartDateMaintenanceTask(temp_maintenanceSchedule.maintenanceID) # And we need the start date of the referenced maintenance
+            if maintenance_start_date > conversion: # The schedule start date should not be before the maintenance that is reference starts
                 raise ValueError(f"Start Date of Scheduled Maintenance can not be before the Maintenance Task Start Date {maintenance_start_date}")
             temp_maintenanceSchedule.startDate = conversion
         return True
 
-    def canEditMaintenanceSchedule(self, maintenanceSchedule):
+    def canEditMaintenanceSchedule(self, maintenanceSchedule) -> True:
         """ Function finds the maintenance associated with the schedule and sees if it is closed, if so raise ValueError else return True"""
-        maintenancelog = self.DataLayerWrapper.loadMaintenanceLog()
+        maintenancelog = self.DataLayerWrapper.loadMaintenanceLog() # Loads all mmaintenances
         for maintenance in maintenancelog:
+            # We reference the maintenanceID in the maintenance schedule so we find that maintenance via the reference and then check if its closed or not
             if maintenance.maintenanceID == maintenanceSchedule.maintenanceID and maintenance.statusMaintenance.lower() == "closed":
                 raise ValueError("Can not edit a Schedule for a maintenance Task that has been closed")
         return True
-                
 
-
-    def getStartDateMaintenanceTask(self, maintenanceID):
+    def getStartDateMaintenanceTask(self, maintenanceID) -> datetime:
         """ Function loads all maintenances, finds the specified maintenance and returns the start date or raises ValueError if no maintenance is found"""
-        maintenances = self.DataLayerWrapper.loadMaintenanceLog()
-        for maint in maintenances:
-            if maint.maintenanceID == maintenanceID:
-                return maint.startDate
+        maintenances = self.DataLayerWrapper.loadMaintenanceLog() # Load all the maintenances
+        for maint in maintenances: 
+            if maint.maintenanceID == maintenanceID: # Find the maintenance specified in the DB
+                return maint.startDate # Return the start date of that maintenance
         raise ValueError("No maintenance by that ID")
 
     def checkIfMaintenanceIDinDB(self, ID) -> Maintenance:
         """ Function checks if the specified Maintenance is in the Maintenance DB, returns Maintenance or raises ValueError"""
-        maintenances = self.DataLayerWrapper.loadMaintenanceLog()
+        maintenances = self.DataLayerWrapper.loadMaintenanceLog() # Load the maintenance log
         for maint in maintenances:
-            if maint.maintenanceID == ID:
-                return maint
+            if maint.maintenanceID == ID: # find the maintenance specified in the DB
+                return maint # and return it
         raise ValueError("There is no Maintenance Task by that ID")
     
     def checkIfMaintenanceIsClosed(self, ID) -> True:
         """ This function checks if a Maintenance Task that we know we have in our DB is closed or still ongoing, returns true if maintenance is not closed otherwise raises KeyError """
+        # Should not be called in isolation, needs prerequisite functionality (called in validation functions)
         task = self.getMaintenanceTaskByID(ID) # We know that if we call this function that the ID is already in the DB no need to check
-        if task.statusMaintenance.lower() == "closed":
+        if task.statusMaintenance.lower() == "closed": # Checks if the status we got from id is closed or not
             raise KeyError("You can not create a Maintenance Report on a closed Maintenance Task")
         return True
     
     def checkIfEmployeeIDinDB(self, ID) -> True:
         """ Function checks if the specified employee is in the employees DB, returns True or raises ValueError"""
-        employeeLog = self.DataLayerWrapper.loadEmployeeLog()
+        employeeLog = self.DataLayerWrapper.loadEmployeeLog() # Loads all the employees from the DB
         for employee in employeeLog:
-            if employee.type == "General" and employee.employeeID == ID:
+            if employee.type == "General" and employee.employeeID == ID: # Check the employees list for a General employee not a manager on a specific id
                 return True
         raise ValueError("No General Employee by that ID")
     
     def checkIfContractorIDinDB(self, ID) -> True:
         """ Function checks if the specified contractor is in the employeess DB, returns True or raises ValueError"""
-        employeeLog = self.DataLayerWrapper.loadEmployeeLog()
+        employeeLog = self.DataLayerWrapper.loadEmployeeLog() # Loads all the employees from the DB
         for employee in employeeLog:
-            if employee.type == "Contractor" and employee.employeeID == ID:
+            if employee.type == "Contractor" and employee.employeeID == ID: # check the employees for a contractor type and a specific id that was passed in as an argument
                 return True
         raise ValueError("No Contractor by that ID")
 
@@ -226,7 +225,7 @@ class LogicLayerMaintenanceLogic:
         # For employees creating the maintenance report we need them to input the maintenance Task ID, their ID, material costs and if its ready to close or not
         if self.Errors.checkNumber(count):
             count = int(count)
-
+        # This function doubles as a validation for creating maintenance report and updating them, when editing maintenance report instead of count we get the number of the attribute the user wants to change, thats why we need to change it into an integer even though count would usually be an integer
         if count == 1: # Maintenance ID
             self.Errors.checkNumber(input)
             maintenanceID = int(input)
@@ -247,7 +246,8 @@ class LogicLayerMaintenanceLogic:
     def checkIfMaintenanceReportExists(self, maintenanceID) -> True:
         """ Function takes in a Maintenance ID, checks if a maintenance Report has been made on that specific Maintenance Task, returns True if it has, else False"""
         maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
-        for report in maintenanceReportLog: # Go through the maintenance reports, check if there is a report on that maintenance 
+        # Maintenances are referenced on reports so we need to get the data from the maintenance reports not the maintenanace class since the reference is not the other way around
+        for report in maintenanceReportLog: # Go through the maintenance reports to check if there is a report on that maintenance 
             if report.maintenanceID == maintenanceID:
                 # Report found
                 return True
@@ -256,10 +256,11 @@ class LogicLayerMaintenanceLogic:
     def checkIfMaintenanceIsRecurring(self, maintenanceID) -> True:
         """ Function takes in maintenance ID, checks if that maintenance is recurring, if it is return True else raise KeyError """
         maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
+        # Function should only be used in the validate functions, needs prerequisite functions to work properly
         # At this point we know the maintenance exists and we know its not closed and we know a maintenace report exists for this maintenance so we just need to check if its recurring or not
         for maint in maintenanceLog:
-            if maint.maintenanceID == maintenanceID:
-                if maint.recurring.lower() == "true":
+            if maint.maintenanceID == maintenanceID: # Find the maintenance specified in the DB
+                if maint.recurring.lower() == "true": # Check if that maintenance is recurring or not
                     return True
         raise KeyError("You can not create duplicate Maintenance Reports on Maintenance Tasks that are not recurring")
 
@@ -269,7 +270,7 @@ class LogicLayerMaintenanceLogic:
         # User inputs maintenance ID, material Cost, contractor ID, contractor Cost and ready to close
         if self.Errors.checkNumber(count):
             count = int(count)
-
+        # This function doubles as a validation for creating reports and updating them, when editing reports instead of count we get the number of the attribute the user wants to change, thats why we need to change it into an integer even though count would usually be an integer
         if count == 1: # Adding the maintenanceID
             self.Errors.checkNumber(input)
             maintenanceID = int(input)
@@ -300,10 +301,10 @@ class LogicLayerMaintenanceLogic:
         # when error checking is done we know that both dates are valid and the end date is not before the start date
         filtered_tasks = []
         for task in tasks:
-            if task.startDate >= startDate_converted and task.endDate <= endDate_converted:
+            if task.startDate >= startDate_converted and task.endDate <= endDate_converted: # We add the task to the list we will return if its in the specified time period
                 filtered_tasks.append(task)
 
-        if len(filtered_tasks) == 0:
+        if len(filtered_tasks) == 0: # If we dont find any maintenance tasks over the the specified time period the list will be empty so we raise an error
             raise ValueError("No Maintenance Tasks over that time period")
 
         return filtered_tasks
@@ -319,7 +320,7 @@ class LogicLayerMaintenanceLogic:
             if maintenance.statusMaintenance.lower() == "closed": # Check if its already closed
                 raise KeyError("You can not close an already closed Maintenance Task")
             
-            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog() # Load all maintenance reports
             report_found = False # Flag to see if we found report, for raising KeyError
             # Now a Recurring maintenance Task can have multiple maintenance reports, if we want to close a recurring maintenance task we need to update all of the maintenance reports that were done on that maintenance task
             # So we create a list of the reports, there can be either one or multiple maintenance reports in this list
@@ -344,15 +345,16 @@ class LogicLayerMaintenanceLogic:
                 
         return True
 
-    def updateMaintenance(self, maintenance):
+    def updateMaintenance(self, maintenance) -> None:
+        """ Function takes in a maintenance instance that already exists in our DB and we overwrite the old one"""
         self.DataLayerWrapper.updateMaintenance(maintenance)
         
-    def updateMaintenanceSchedule(self, schedule):
+    def updateMaintenanceSchedule(self, schedule) -> None:
+        """ Function takes in a maintenance schedule instance that already exists in our DB and we overwrite the old one"""
         self.DataLayerWrapper.updateMaintenanceSchedule(schedule)
 
     def getMaintenanceData(self) -> list[Maintenance]:
         """ Function Loads all the Maintenance Tasks from the maintenance DB and returns a list of those Maintenance Tasks"""
-    # Get maintenance data
         maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
         return maintenanceLog
     

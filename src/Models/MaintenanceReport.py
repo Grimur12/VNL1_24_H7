@@ -8,15 +8,15 @@
 
 class MaintenanceReport:
     def __init__(self, ID = "", maintenanceID = "", employeeID = "", materialCost = "", contractorID = "", contractorCost = "", readyToClose = "True" , supervisorClosed = "False", supervisorFeedback = "") -> None:
-        self.maintenanceReportID = ID
-        self.maintenanceID = maintenanceID
+        self.maintenanceReportID = ID # Unique ID
+        self.maintenanceID = maintenanceID # Reference to a Maintenance ID
         self.employeeID = employeeID # Reference to employee that decides to take the task
-        self.materialCost = materialCost
+        self.materialCost = materialCost 
         self.contractorID = contractorID # This is a contractor ID, reference to contractor
         self.contractorCost = contractorCost
         self.readyToClose = readyToClose # When creating a new maintenanceReport its assumed that the task is ready to be closed since the task is finished
         self.supervisorClosed = supervisorClosed # If the supervisor accepts he closes the report and maintenance task and writes good feedback if not he denys the closing and writes some feedback on why.
-        self.supervisorFeedback = supervisorFeedback
+        self.supervisorFeedback = supervisorFeedback # Manager needs to provide feedback when closing a report
 
     def MaintenanceReport_Dict(self):
         """ Returns all the variables in our MaintenanceReport class into dictionary, needed for DB json writing """
@@ -31,39 +31,3 @@ class MaintenanceReport:
         "supervisorClosed": self.supervisorClosed,
         "supervisorFeedback": self.supervisorFeedback
         }
-
-
-
-#  It should possible to request, in a print-friendly format:
-# -All maintenance performed on a specified property over a specified date range
-# -An overview of all tasks completed by a specified contractor over a specified date
-# range
-# -An overview of all tasks completed by a specified employee over a specified date
-# range
-
-# Contractor registration:
-# -A superior must be able to register new contractors and change contractor info
-# -Employees must be able to find information on contractors
-# -When completing a maintenance report, it must be possible to reference at least one
-# contractor (if relevant)
-# -When filing a maintenance report, where a contractor is referenced, it should also be
-# possible to specify what the contractor was paid, and a superior should be able to add
-# comments on the ticket when they close it.
-
-# Recurring maintenance:
-# -When registering new tickets it should be possible to indicate whether they are
-# recurring, and if so then the interval (daily, weekly, monthly, annually), based on
-# an initial date thats also registered on the ticket
-
-# Ticket prioritization:
-# -It must be possible to prioritize tickets, with at least three levels of urgency:
-# Emergency, Now, As soon as possible. Hint: User testing could be helpful in
-# determining the best way to implement this.
-# -Superiors handle assigning priority levels to outstanding tickets and can modify it,
-# but they cannot modify it when a report has been turned in for that ticket.
-# Summaries and overviews: It should possible to request, in a print-friendly format:
-# -All maintenance performed on a specified property over a specified date range
-# -An overview of all tasks completed by a specified contractor over a specified date
-# range
-# -An overview of all tasks completed by a specified employee over a specified date
-# range

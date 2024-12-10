@@ -5,13 +5,13 @@ class Property:
         """Defines variables for our properties"""
         ## Add a "Fasteignanumer" / property id for users to input
         ## Add a extra information field, optional, to type something in
-        self.propertyID = ID # ID calculate
-        self.nameOfProperty = nameOfProperty
+        self.propertyID = ID # Unique ID of the property
+        self.nameOfProperty = nameOfProperty # Name of the property
         self.location = location # Reference to Destination ID
-        self.availability = availability
-        self.hasAPool = hasAPool
-        self.hasATub = hasATub
-        self.hasOvens = hasOvens 
+        self.availability = availability # If its available for rent
+        self.hasAPool = hasAPool # Does it have a Pool
+        self.hasATub = hasATub # Does it have a tub
+        self.hasOvens = hasOvens # Does it have Ovens
 
     def Property_dict(self) -> dict:
         """ Returns all the variables in our Property class into a dictionary"""
