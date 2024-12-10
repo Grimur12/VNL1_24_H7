@@ -27,7 +27,7 @@ class LogicLayerEmployeeLogic:
             temp_employee = Employee(ID=tempEmployeeID, type="General")
         elif type_of_employee == "2": # Manager
             temp_employee = Employee(ID=tempEmployeeID, type="Manager")
-        elif type_of_employee == "3":
+        elif type_of_employee == "3": # Contractor
             temp_employee = Contractor()
             temp_employee.employeeID = tempEmployeeID
             temp_employee.type = "Contractor"
