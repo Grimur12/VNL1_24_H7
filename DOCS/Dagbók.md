@@ -561,7 +561,42 @@ Extra checklist for week 3
 
 ## [10/12/2024 - Dagur 2]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Pairs and Layers EOD Results and Todays work:
+ - Ólafur and Leonard
+ - Iðunn and Pedro
+ - Máni and Grímur
+
+Work done:
+ - the goal of today is to work on our todo list here below because there are some things that need to be done.
+
+  TODO:
+- [x] Create an independent Data Layer
+- [x] Create an independent Logic Layer
+- [x] Create an independent UI Layer
+      
+- [x] Successfully make Logic Layer talk to Data Layer
+- [x] Successfully make UI Layer talk to Logic Layer
+- [ ] Test the system in its entirety
+Extra checklist for week 3
+- [ ] Finish Maintenance Report
+- [ ] Add destinations
+- [ ] Fix Model Classes attributes
+- [ ] Finish Pretty Table UI
+- [ ] Change Error checkers to match new model class attributes
+- [ ] Finish all doc strings, returns type values and comments in the code
+- [ ] Make the model class diagram match the new model classes
+- [ ] Make the layered class diagram match the code
+- [ ] Check all boxes in the Requirements list in the Design report 
+
+
 
 ## [11/12/2024 - Dagur 3]
 
