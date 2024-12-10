@@ -203,7 +203,7 @@ class LogicLayerEmployeeLogic:
 
         for contractor in contractorlog:
             if destination_filter:
-                if contractor.type == "Contractor" and contractor.workLocation == destination_filter:
+                if contractor.type == "Contractor" and contractor.workLocation == destination.destinationID:
                     filtered_contractors.append(contractor)
             else:
                 if contractor.type == "Contractor":
