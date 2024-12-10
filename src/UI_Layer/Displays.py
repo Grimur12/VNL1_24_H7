@@ -1,12 +1,17 @@
 
 from os import system, name
+
 # Need to make all these displays look better 
+# Our display file where we have everything we want to display to the user.
+
 class Displays:
     def __init__(self):
         pass
+        # DO WE NEED TO ADD SOMETHING HERE????????
 
     def editContractorMenu(self, contractor, error = None):
         """ Turns the class into a string to print out with, mainly for UI display """
+        # The display the manager sees when updating a contractor's information
         self.clearTerminal()
         print(f"""
 --- Updating employee {contractor.employeeID} ---
@@ -33,6 +38,7 @@ D: To Quit Chaning and Save Changes\n
 
     def editEmployeeMenu(self, employee, error = None):
         """ Turns the class into a string to print out with, mainly for UI display """
+        # Here is the display the manager sees when updating an employee's information
         self.clearTerminal()
         print(f"""
 --- Updating employee {employee.employeeID} ---
@@ -54,7 +60,8 @@ D: To Quit Chaning and Save Changes\n
             print(f"Error: {error} \n")
 
     def editPropertyMenu(self, property, error = None):
-        
+        '''Turns the class into a string to print out with, mainly for UI display '''
+        # Display of manager to edit property's information
         self.clearTerminal()
         print(f"""
 --- Updating employee {property.propertyID} ---

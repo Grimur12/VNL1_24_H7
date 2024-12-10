@@ -2,7 +2,7 @@ from .LogicLayerEmployeeLogic import LogicLayerEmployeeLogic
 from .LogicLayerMaintenanceLogic import LogicLayerMaintenanceLogic
 from .LogicLayerPropertyLogic import LogicLayerPropertyLogic
 
-# This is our Logic Layer and we have all our functions here below
+# This is our Logic Layer and we have all our functions found in the Logic layer here below
 
 class LogicLayerAPI:
     def __init__(self):

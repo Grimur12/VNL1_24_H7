@@ -8,7 +8,7 @@ class ErrorCheckers:
         pass
     
     def checkNumber(self, input):
-        # Returns True if user input is a number, raises ValueError otherwise
+        '''Returns True if user input is a number, raises ValueError otherwise'''
         # Used to check both for input when changing information and as count
         try:
             int(input)
@@ -17,28 +17,28 @@ class ErrorCheckers:
         return True
 
     def checkEmpty(self, input):
-        # Returns True if user input is not empty, raises ValueError otherwise
+        '''Returns True if user input is not empty, raises ValueError otherwise'''
         # We cant have empty as an input
         if input == "":
             raise ValueError("Input can not be empty")
         return True
 
     def errorCheckName(self, name):
-        # Checks if name user input is valid
+        '''Checks if name user input is valid'''
         self.checkEmpty(name)
         if name.isnumeric():
             raise ValueError("Name must not be a number")
         return True
     
     def errorCheckAddress(self, address):
-        # Checks if Address user input is valid 
+        ''' Checks if Address user input is valid '''
         self.checkEmpty(address)
         if address.isnumeric():
             raise ValueError("Address must not be just a number")
         return True
 
     def errorCheckSocialSecurity(self, socialSecurity):
-        # Checks if Social Security number user input is valid
+        '''Checks if Social Security number user input is valid'''
         # Format we want is XXXXXX-XXXX
         self.checkEmpty(socialSecurity)
         if "-" in socialSecurity:
@@ -49,7 +49,7 @@ class ErrorCheckers:
         raise ValueError("Social Security Number is not of the correct format XXXXXX-XXXX")
 
     def errorCheckPhone(self, phoneNumber):
-        # Checks if Phone number user input is valid 
+        ''' Checks if Phone number user input is valid '''
         # Format we want is XXX-XXXX
         self.checkEmpty(phoneNumber)
         if "-" in phoneNumber:
@@ -60,7 +60,7 @@ class ErrorCheckers:
         raise ValueError("Phone number is not of the correct format XXX-XXXX")
         
     def errorCheckEmail(self, email):
-        # Checks if email user input is valid 
+        ''' Checks if email user input is valid '''
         # We cannot accept emails that do not contain @
         self.checkEmpty(email)
         if not "@" in email:
@@ -68,21 +68,20 @@ class ErrorCheckers:
         return True
 
     def errorCheckLocation(self, location):
-        # Checks if location user input is valid
+        ''' Checks if location user input is valid '''
         self.checkEmpty(location)
         if location.isnumeric():
             raise ValueError("Location must not be just a number")
         return True
     
     def errorCheckEmployeePreviousTask(self, previousTask):
-        ## ADD LATER
-        # this function needs to check if we have that task in our Maintenance DB either by ID or name
+        ''' this function checks if we have that task in our Maintenance DB either by ID or name '''
         if previousTask.isnumeric():
             raise ValueError("previousTask can not be just numeric")
         return True
 
     def errorCheckEmployeePerformanceRating(self, performanceRating):
-        # Checks if the performance rating is a number
+        ''' Checks if the performance rating is a number '''
         # We are looking for a number rating, but A,B,C or anything else.
         if not performanceRating.isnumeric():
             raise ValueError("Performance Rating must be a number")
@@ -95,7 +94,7 @@ class ErrorCheckers:
         self.errorCheckPhone(contractorContact)
 
     def errorCheckEmployeeOpeningHours(self, openingHours):
-        # Checking if the opening hour has a "-" in it because it needs to be from some time to another
+        ''' Checking if the opening hour has a "-" in it because it needs to be from some time to another '''
         self.checkEmpty(openingHours)
         if openingHours.isnumeric():
             if "-" not in openingHours:
@@ -103,14 +102,14 @@ class ErrorCheckers:
         return True
 
     def errorCheckBoolean(self, input):
-        # Checking if input is True or False in a boolean check
+        ''' Checking if input is True or False in a boolean check '''
         # We need to have either True or False, no other
         if input in ["True", "False"]:
             return True
         raise ValueError("Input should be either a True or False")
     
     def checkErrorStartDate(self, input, datetime_format):
-        # Checking if starting date is submitted in a right format
+        ''' Checking if starting date is submitted in a right format '''
         try:
             conversion = datetime.strptime(input, datetime_format)
             return conversion
@@ -119,7 +118,7 @@ class ErrorCheckers:
             
 
     def checkErrorEndDate(self, input, datetime_format, startDate): 
-        # Checking if end date is submitted in a right format 
+        ''' Checking if end date is submitted in a right format '''
         try:
             conversion = datetime.strptime(input, datetime_format)
         except ValueError:
@@ -131,39 +130,39 @@ class ErrorCheckers:
         return conversion
     
     def checkErrorStatusMaintenance(self, input):
-        # Checking if the maintenance status is either ongoing or closed
+        ''' Checking if the maintenance status is either ongoing or closed '''
         if input.lower() in ["ongoing", "closed"]:
             return True
         raise ValueError("Maintenance Tasks can only either be Ongoing or Closed")
 
     def checkErrorFeedback(self, input):
-        # Checking if the feedback is a number and either 0-10
+        ''' Checking if the feedback is a number and either 0-10 '''
         if input.isnumeric():
             if int(input) >= 0 and int(input) <= 10:
                 return True
         raise ValueError("Feedback should be a number ranging from 0-10")
 
     def checkErrorPriority(self, input):
-        # Checking if the Priority is 'Emergency', 'Now' or 'As soon as possible' 
+        ''' Checking if the Priority is "Emergency", "Now" or "As soon as possible"    '''
         #CHANGE THE PARAMETERS BELOW
         if input.lower() in ["low", "medium", "high"]:
             return True
         raise ValueError("Maintenance Tasks only have three priorties, Low, Medium and High")
 
     def checkErrorTaskType(self, input):
-        # Checking if the task type is either normal or abnormal
+        ''' Checking if the task type is either normal or abnormal '''
         if input.lower() in ["normal", "abnormal"]:
             return True
         raise ValueError("Task Type can only either be Normal or Abnormal")
 
     def checkErrorFrequency(self, input):
-        # Checking if the frequency is either Daily, Weekly or Monthly
+        ''' Checking if the frequency is either Daily, Weekly or Monthly '''
         if input.lower() in ["daily", "weekly", "monthly"]:
             return True
         raise ValueError("Frequency can only be: Daily, Weekly or Monthly")
 
     def checkErrorContractorCost(self, input):
-        # Checking if the contractor cost is a number
+        ''' Checking if the contractor cost is a number '''
         if not input.isnumeric():
             raise ValueError("Cost must be a valid number")
         return True
