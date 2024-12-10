@@ -594,7 +594,8 @@ Extra checklist for week 3
 - [ ] Finish all doc strings, returns type values and comments in the code
 - [ ] Make the model class diagram match the new model classes
 - [ ] Make the layered class diagram match the code
-- [ ] Check all boxes in the Requirements list in the Design report 
+- [ ] Check all boxes in the Requirements list in the Design report
+- [ ] Change Priority values, need to be Emergency, now and soon as possible
 
 
 
