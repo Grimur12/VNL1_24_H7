@@ -8,7 +8,7 @@ class LogicLayerEmployeeLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
-
+    
     def createUniqueID(self) -> int:
         """ Function loads all Employees from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique id int"""
         #here we create a new unique ID for the employees

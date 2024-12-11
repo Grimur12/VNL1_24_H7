@@ -45,6 +45,8 @@ class ErrorCheckers:
             if len(social_split[0]) == 6 and len(social_split[1]) == 4: # Checks if the split strings are of the correct length for the format
                 if social_split[0].isnumeric() and social_split[1].isnumeric(): # And checks if they are for sure numbers
                     return True
+                else:
+                    raise ValueError("Social Security Number must be a valid number and of the correct format: E.x 020901-2690")
         raise ValueError("Social Security Number is not of the correct format XXXXXX-XXXX")
 
     def errorCheckPhone(self, phoneNumber) -> True:
@@ -109,7 +111,6 @@ class ErrorCheckers:
             return conversion
         except ValueError: # If it cant then its the wrong format
             raise ValueError("Invalid Date format. Please input date as 'DD.MM.YYYY.HH:MM'.")
-            
 
     def checkErrorEndDate(self, input, datetime_format, startDate) -> True: 
         """ Checks if enddate is of the correct datetime format and is not before startDate, if so returns True, if not raises ValueError"""
@@ -120,6 +121,9 @@ class ErrorCheckers:
 
         if conversion < startDate: # But we also have to check if the end date is less than the start Date, because the end date can not be before the start date....
                 raise ValueError("End Date can not be before the Start Date")
+        
+        if conversion == startDate: # Check also if its the exact same time
+            raise ValueError("End Date can not be at the exact same time as the Start Date")
 
         return conversion
     

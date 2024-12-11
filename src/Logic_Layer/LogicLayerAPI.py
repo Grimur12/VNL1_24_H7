@@ -162,6 +162,9 @@ class LogicLayerAPI:
         """ Function takes in a schedule with updated values, and saves it in the maintenanceSchedule DB"""
         self.LogicLayerMaintenancelogic.updateMaintenanceSchedule(schedule)
 
+    def getReadyToBeClosedMaintenanceTasks(self) -> list[Maintenance]:
+        tasks = self.LogicLayerMaintenancelogic.getReadyToBeClosedMaintenanceTasks()
+        return tasks
     # functions that are about properties.
 
     def createTempProperty(self) -> Property:

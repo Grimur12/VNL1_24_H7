@@ -353,6 +353,8 @@ class ViewUILogic:
         self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
         while True:
             print("\n-------------------------------------------------------")
+            print("1: To view additional information of a specific Maintenance Task")
+            print("2: To view all Maintenance Tasks that are ready to be closed (Through closing the Maintenance Report)")
             print("B: To Go Back")
             print("Q: To Quit")
             print("-------------------------------------------------------\n")
@@ -380,14 +382,21 @@ class ViewUILogic:
                     self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
+            elif user_choice == "2":
+                try:
+                    reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks()
+                    for report in reports:
+                        self.Displays.printMaintenanceReport(report)
+                except ValueError as error:
+                    print(error)
             else:
                 print("Invalid Input")
-
+    
     def filterMaintenanceSchedules(self):
         self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
         while True:
             print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
+            print("1: To view additional information of a specific Maintenance Schedule")
             print("B: To Go Back")
             print("Q: To Quit")
             print("-------------------------------------------------------\n")

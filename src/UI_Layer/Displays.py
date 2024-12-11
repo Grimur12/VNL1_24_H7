@@ -392,6 +392,7 @@ D: To Quit Chaning and Save Changes\n
         manager_edit_menu.add_row(["3: Edit a Property"])
         manager_edit_menu.add_row(["4: Edit a Maintenance Task"])
         manager_edit_menu.add_row(["5: Edit a Maintenance Schedule"])
+        manager_edit_menu.add_row(["6: To close a Maintenance Report"])
         manager_edit_menu.add_row(["B: Go Back"])
         manager_edit_menu.add_row(["Q: Quit"])
         manager_edit_menu.align = "l"

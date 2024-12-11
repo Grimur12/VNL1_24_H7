@@ -89,7 +89,7 @@ class LogicLayerMaintenanceLogic:
         
         return True
     
-    def canEditMaintenanceTask(self, maintenanceTask):
+    def canEditMaintenanceTask(self, maintenanceTask) -> True:
         """ Checks if maintenance is closed so you can edit it, returns True or raises ValueError"""
         if maintenanceTask.statusMaintenance.lower() == "closed":
             raise ValueError("Can not edit a closed Maintenance Task")
@@ -379,3 +379,27 @@ class LogicLayerMaintenanceLogic:
     def createMaintenanceReport(self, maintenanceReport) -> None:
         """ Function takes in a Maintenance Report and stores it in the Maintenance Report DB"""
         self.DataLayerWrapper.createMaintenanceReport(maintenanceReport)
+
+    def getReadyToBeClosedMaintenanceTasks(self) -> list[Maintenance]:
+        """ Function loads all maintenance reports finds all the maintenance ID's from them and returns the maintenance tasks that are ready to be closed via closing the maintenance report"""
+        # Load the data from the DB's
+        reportslog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        maintenances = self.DataLayerWrapper.loadMaintenanceLog()
+
+        maintenancesInReportsID = []
+        readyToBeClosedTasks = []
+        # First find all the maintenance ID's that are referenced in the reports
+        for report in reportslog:
+            maintenancesInReportsID.append(report.maintenanceID)
+        # Then add all the maintenance's that have reports on them to the list of maintenances ready to be closed
+        for maintenance in maintenances: # Check if maintenance has a report on it and that its not already closed
+            if maintenance.maintenanceID in maintenancesInReportsID and maintenance.statusMaintenance.lower() != "closed":
+                readyToBeClosedTasks.append(maintenance.maintenanceID)
+        # If there no maintenance reports have been made on the open maintenance tasks then there is nothing to close
+        if len(readyToBeClosedTasks) != 0:
+            raise ValueError("No Maintenance Reports have been made on open Maintenances. Nothing to close")
+
+        # Return all the maintenances that have reports on them, (meaning they are ready to be closed via closing the report)
+        return readyToBeClosedTasks
+
+        
