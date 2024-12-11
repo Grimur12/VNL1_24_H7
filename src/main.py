@@ -34,10 +34,14 @@ if __name__ == "__main__":
         main_menu = PrettyTable()
         main_menu.title = "---Welcome to NAN Air!---"
         main_menu.header = False
+        main_menu.add_row(["This is the Main Menu"])
+        main_menu.add_row(["Are you a Manager, Employee or a Contractor? "])
+        main_menu.add_row([""])
         main_menu.add_row(["1: Manager"])
         main_menu.add_row(["2: Employee"])
         main_menu.add_row(["3: Contractor"])
         main_menu.add_row(["Q: Quit"])
+        main_menu.add_row([""])
         main_menu.align = 'l'
         main_menu.max_table_width = 100
         main_menu.bottom_left_junction_char = '|'
@@ -50,7 +54,7 @@ if __name__ == "__main__":
         if invalid:
             print("Error: Invalid Input\n")
 
-        print("Are you a Manager, Employee or a Contractor?")
+        #print("Are you a Manager, Employee or a Contractor?")
 
         initial_input = input("Choice: ")
 
