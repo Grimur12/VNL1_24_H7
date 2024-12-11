@@ -68,6 +68,10 @@ class LogicLayerAPI:
         """ Function takes in instance of employee that is already in the DB and updates the attributes of it in the DB"""
         self.LogicLayerEmployeelogic.updateEmployeeData(employee)
 
+    def getManagers(self, destination = None) -> list[Employee]:
+        managers = self.LogicLayerEmployeelogic.getManagers(destination)
+        return managers
+
 # functions that are about maintenance
 
     def createMaintenance(self, maintenance) -> None:

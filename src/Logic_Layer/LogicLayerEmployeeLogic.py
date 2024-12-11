@@ -8,7 +8,7 @@ class LogicLayerEmployeeLogic:
     def __init__(self):
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
-    
+
     def createUniqueID(self) -> int:
         """ Function loads all Employees from DB, finds the last assigned ID and adds one to it, creating a new ID, returns unique id int"""
         #here we create a new unique ID for the employees
@@ -308,3 +308,19 @@ class LogicLayerEmployeeLogic:
                 return destination_found
             else: # If we havent found the employee then the index will remain -1 and we raise the error
                 raise ValueError("No Destination by that ID")
+    
+    def getManagers(self, destination = None) -> list[Employee]:
+        """ Function loads all employees, finds the managers to return, if destination is specified it returns the manager at that destination """
+        # There needs to be a manager in the DB for each location so we can assume that there always will be 6 managers
+        employeeLog = self.DataLayerWrapper.loadEmployeeLog()
+
+        managers = []
+        for employee in employeeLog:
+            if destination is not None: # If we have a destination we filter by that otherwise we dont
+                if employee.type == "Manager" and employee.workLocation == destination.destinationID:
+                    managers.append(employee)
+            else:
+                if employee.type == "Manager":
+                    managers.append(employee)
+        # We dont have to check if empty because there should always be 6 managers, 1 for each location..
+        return managers

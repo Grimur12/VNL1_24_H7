@@ -60,16 +60,18 @@ class ViewUILogic:
         employeespretty.max_width = 30 
         print(employeespretty)
 
-    # def displayEmployees(self, destination = None):
-    #     employees = self.LogicLayerWrapper.getEmployeeData(destination)
-    #     for employee in employees:
-    #         self.Displays.printEmployee(employee)
-
-    # def displayContractors(self, destination = None):
-    #     contractors = self.LogicLayerWrapper.getContractorData(destination)
-    #     for contractor in contractors:
-    #         self.Displays.printContractor(contractor)
-
+    def displayManagers(self, destination = None):
+        managerspretty = PrettyTable()
+        managerspretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        managers = self.LogicLayerWrapper.getManagers(destination)
+        for manager in managers:
+            managerspretty.add_row([manager.employeeID, manager.name, manager.socialSecurity, manager.address ,manager.atHomePhone, manager.gsmPhone, manager.email, manager.workLocation , manager.type], divider=True)        
+        managerspretty.align = 'l'
+        managerspretty.max_table_width = 120
+        managerspretty.min_table_width = 100
+        managerspretty.max_width = 30 
+        print(managerspretty)
+        
     def displayContractors(self, destination=None):
         contractors_pretty = PrettyTable()
         contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "Address", "Home Phone", "GSM Phone", "Email", "Work Location", "Type", "Previous Task", "Performance Rating", "Contractor Contact", "Opening Hours"]
@@ -198,6 +200,7 @@ class ViewUILogic:
             print("\n-------------------------------------------------------")
             print("1: To view additional information of a specific Employee")
             print("2: To view all tasks an Employee has worked on")
+            print("3: To view the Manager(s)")
             print("B: To Go Back")
             print("Q: To Quit")
             print("-------------------------------------------------------\n")
@@ -242,6 +245,8 @@ class ViewUILogic:
                     self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            elif user_choice == "3":
+                self.displayManagers(destination)
             else:
                 print("Invalid Input")
 

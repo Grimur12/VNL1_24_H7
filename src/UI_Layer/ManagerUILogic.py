@@ -308,6 +308,13 @@ class ManagerUILogic:
             except ValueError as error:
                 print(f"Error: {error}")
                 ID = input("ID of the Employee to edit: ")
+                if ID.lower() == "q":
+                    exit() ## QUIT...
+                elif ID.lower() == "b":
+                    print("Going back")
+                    self.ViewingUI.clearTerminal()
+                    break ## Go back one
+
                 continue
         
         error_message = None
@@ -348,6 +355,12 @@ class ManagerUILogic:
             except ValueError as error:
                 print(f"Error: {error}")
                 ID = input("ID of the Employee to edit: ")
+                if ID.lower() == "q":
+                    exit() ## QUIT...
+                elif ID.lower() == "b":
+                    print("Going back")
+                    self.ViewingUI.clearTerminal()
+                    break ## Go back one
                 continue
 
         error_message = None
@@ -388,6 +401,13 @@ class ManagerUILogic:
             except ValueError as error:
                 print(f"Error: {error}")
                 ID = input("ID of the Property to edit: ")
+                if ID.lower() == "q":
+                    exit() ## QUIT...
+                elif ID.lower() == "b":
+                    print("Going back")
+                    self.ViewingUI.clearTerminal()
+                    break ## Go back one
+
                 continue
         error_message = None
         while True:
@@ -428,6 +448,12 @@ class ManagerUILogic:
             except ValueError as error:
                 print(f"Error: {error}")
                 ID = input("ID of the Maintenance Task to edit: ")
+                if ID.lower() == "q":
+                    exit() ## QUIT...
+                elif ID.lower() == "b":
+                    print("Going back")
+                    self.ViewingUI.clearTerminal()
+                    break ## Go back one
                 continue
                 
         error_message = None
@@ -469,6 +495,12 @@ class ManagerUILogic:
             except ValueError as error:
                 print(f"Error: {error}")
                 ID = input("ID of the Maintenance Schedule to edit: ")
+                if ID.lower() == "q":
+                    exit() ## QUIT...
+                elif ID.lower() == "b":
+                    print("Going back")
+                    self.ViewingUI.clearTerminal()
+                    break ## Go back one
                 continue
                 
         error_message = None
