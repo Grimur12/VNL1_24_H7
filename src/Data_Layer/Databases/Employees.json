@@ -53,7 +53,7 @@
         "email": "g@r",
         "workLocation": 4,
         "type": "Contractor",
-        "previousTask": "HR",
+        "previousTask": "1",
         "performanceRating": "9",
         "contractorContact": 1,
         "openingHours": "4-3"
@@ -80,7 +80,7 @@
         "workLocation": 5,
         "type": "Contractor",
         "previousTask": "",
-        "performanceRating": "10",
+        "performanceRating": "",
         "contractorContact": 6,
         "openingHours": "9-5"
     },
@@ -150,7 +150,7 @@
         "workLocation": 6,
         "type": "Contractor",
         "previousTask": "",
-        "performanceRating": "10",
+        "performanceRating": "",
         "contractorContact": 14,
         "openingHours": "9:30-5:30"
     },
@@ -175,8 +175,8 @@
         "email": "Jonas@SVLB.ok",
         "workLocation": 5,
         "type": "Contractor",
-        "previousTask": "Working on in a soup kitchen",
-        "performanceRating": "10",
+        "previousTask": "",
+        "performanceRating": "",
         "contractorContact": 4,
         "openingHours": "9-4"
     },
@@ -190,5 +190,20 @@
         "email": "salah@ru.is",
         "workLocation": 2,
         "type": "General"
+    },
+    {
+        "ID": 17,
+        "name": "jonni",
+        "socialSecurity": "202322-1233",
+        "address": "HG KEF",
+        "atHomePhone": "993-1222",
+        "gsmPhone": "332-1222",
+        "email": "jonni@jonni.is",
+        "workLocation": 2,
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "",
+        "contractorContact": 9,
+        "openingHours": "9-3"
     }
 ]

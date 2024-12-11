@@ -66,20 +66,27 @@ class ErrorCheckers:
         return True
     
     def errorCheckEmployeePreviousTask(self, previousTask) -> True:
-        """ .. not fully implemented """
-        # this function needs to check if we have that task in our Maintenance DB either
-        if previousTask.isnumeric(): # Checks if the previous task is a number
-            raise ValueError("previousTask can not be just numeric")
+        """ Function checks if the previous task is a number """
+        # A Contractor can have one or many previous tasks so the user will input either 1 maintenance id or multiple
+        # So the input can be something like 2 if we have maintenance id 2 or 2,4,6
+        if "," in previousTask: # Meaning its a list of numbers
+            tasks = previousTask.split(",") # split into the maintenance numbers on
+            for task in tasks:
+                if not task.isnumeric():
+                    raise ValueError("Previous task should be a single integer or a list of integers in the format of 1,2,3,4 with no trailing commas")
+        elif not previousTask.isnumeric(): # Meaning its a single number
+            raise ValueError("Previous task should be a single integer or a list of integers in the format of 1,2,3,4 with no trailing commas")
         return True
 
-    def errorCheckEmployeePerformanceRating(self, performanceRating) -> True:
-        """ Checks if the performance rating is a number, if so returns True, if not raises ValueError"""
+    def errorCheckEmployeePerformanceRating(self, performanceRating, can_be_empty) -> True:
+        """ Checks if the performance rating is a number or a list of numbers, if so returns True, if not raises ValueError"""
         # Can be an empty field if there are no previous tasks
-        if not performanceRating.isnumeric(): # checks if its a number
-            raise ValueError("Performance Rating must be a number")
-        
-        elif int(performanceRating) < 0 or int(performanceRating) > 10: # And if its between 0 and 10 since we only take ratings on that scale
-                raise ValueError("Must be a number from 0-10")
+        if not can_be_empty: # this is either True or False, if it can be empty we just return dont need any errors if not we raise errors on wrong input
+            if not performanceRating.isnumeric(): # checks if its a number
+                raise ValueError("Performance Rating must be a number")
+            
+            elif int(performanceRating) < 0 or int(performanceRating) > 10: # And if its between 0 and 10 since we only take ratings on that scale
+                    raise ValueError("Must be a number from 0-10")
         return True
 
     def errorCheckEmployeeOpeningHours(self, openingHours) -> True:

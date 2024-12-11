@@ -71,10 +71,19 @@ class LogicLayerEmployeeLogic:
             temp_employee.workLocation = dest_ID
         # Beyond this point is contractor specific
         elif count == 8:  # Previous tasks of contractor
-            self.Errors.errorCheckEmployeePreviousTask(input)
-            temp_employee.previousTask = input
+            if input != "":
+                self.Errors.errorCheckEmployeePreviousTask(input)
+                tasks = input.split(",") # Will create a list of the maintenance ID's in a string format, we need to check if they exist
+                for task in tasks:
+                    self.checkIfMaintenanceExists(int(task))
+                # at this point we know all the previous tasks are valid and on existant maintenances so we add the string to the attribute
+                temp_employee.previousTask = input
         elif count == 9: # Performance rating of those previous tasks
-            self.Errors.errorCheckEmployeePerformanceRating(input)
+            if temp_employee.previousTask != "":
+                can_be_empty = False
+            else:
+                can_be_empty = True
+            self.Errors.errorCheckEmployeePerformanceRating(input, can_be_empty)
             temp_employee.performanceRating = input
         elif count == 10: # We should get a reference to an already existant either General Employee or Manager
             self.Errors.checkNumber(input) # Checks if its indeed a nubmer otherwise we cant integer it
@@ -85,6 +94,14 @@ class LogicLayerEmployeeLogic:
             temp_employee.openingHours = input
         return True
     
+    def checkIfMaintenanceExists(self, maintenance_ID) -> True:
+        """ Function takes in a maintenance id, loads all maintenances from the DB and checks if there exists a maintenance by that ID in the DB, returns true or raises a ValueError"""
+        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
+        for maint in maintenanceLog:
+            if maint.maintenanceID == maintenance_ID:
+                return True
+        raise ValueError("Contractor can not have a Maintenance that does not exist as a previous task")
+
     def addManagerToDestination(self, destination, temp_employee) -> None:
         """ Function takes in a destination and a temp_employee, it sets the temp_employees ID as the manager of that destination and saves the destination in the DB"""
         destination.managerOfDestination = temp_employee.employeeID # Set the destination manager as the manager employeeid we are creating
