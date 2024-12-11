@@ -148,6 +148,8 @@ class ManagerUILogic:
                 try:
                     user_feedback = input("Feedback on the Task you want to close: ") 
                     self.LogicLayerWrapper.closeMaintenanceTask(ID, user_feedback)
+                    print(f"Successfully closed Maintenance Task {ID}")
+                    self.ViewingUI.clearTerminal()
                 except ValueError as error:
                     print(error)
 

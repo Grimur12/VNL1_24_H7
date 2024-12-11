@@ -15,7 +15,7 @@
         "description": "Fixing the Sink",
         "startDate": "02.10.2021.12:30",
         "endDate": "20.02.2023.12:30",
-        "statusMaintenance": "Ongoing",
+        "statusMaintenance": "Closed",
         "priority": "Now",
         "recurring": "False"
     },
@@ -45,7 +45,7 @@
         "description": "Cleaning",
         "startDate": "02.03.2023.22:00",
         "endDate": "03.04.2023.22:00",
-        "statusMaintenance": "Ongoing",
+        "statusMaintenance": "Closed",
         "priority": "Now",
         "recurring": "False"
     }
