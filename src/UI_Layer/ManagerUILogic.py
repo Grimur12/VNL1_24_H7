@@ -63,6 +63,7 @@ class ManagerUILogic:
 
     def editMenu(self):
         # Edit Employee
+        # Edit Contractor
         # Edit Property
         # Edit Maintenance Task
         # Edit Maintenance Schedule
@@ -88,7 +89,7 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-                    continue
+                    break
 
                 self.editEmployee(ID) # komið
             elif user_choice == "2":
@@ -99,7 +100,7 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-                    continue
+                    break
 
                 self.editContractor(ID) # komið
             elif user_choice == "3":
@@ -110,7 +111,8 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-                    continue
+                    backed_out = True
+                    break
 
                 self.editProperty(ID) # komið
             elif user_choice == "4":
@@ -121,7 +123,8 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-                    continue
+                    backed_out = True
+                    break
 
                 self.editMaintenanceTask(ID)
             elif user_choice == "5":
@@ -132,8 +135,8 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-
-                    continue
+                    break
+                
                 self.editMaintenanceSchedule(ID)
             elif user_choice == "6":
                 ID = input("ID of the Maintenance Task you to close: ")
@@ -143,7 +146,7 @@ class ManagerUILogic:
                     exit()
                 elif ID.lower() == "b":
                     self.ViewingUI.clearTerminal()
-                    continue
+                    break
 
                 try:
                     user_feedback = input("Feedback on the Task you want to close: ") 
@@ -249,7 +252,6 @@ class ManagerUILogic:
             print("You have successfully created a new Property")
 
     def createMaintenanceTask(self):
-        
         count = 1
         tempMaintenanceTask = self.LogicLayerWrapper.createTempMaintenance()
         error_message = None
@@ -302,6 +304,7 @@ class ManagerUILogic:
             print("You have successfully created a new Maintenance Task")
 
     def editEmployee(self, ID):
+        backed_out = False
         while True:
             try:
                 employee = self.LogicLayerWrapper.getEmployeebyID(ID)
@@ -311,16 +314,17 @@ class ManagerUILogic:
                 print(f"Error: {error}")
                 ID = input("ID of the Employee to edit: ")
                 if ID.lower() == "q":
-                    exit() ## QUIT...
+                    exit()
                 elif ID.lower() == "b":
                     print("Going back")
                     self.ViewingUI.clearTerminal()
+                    backed_out = True
                     break ## Go back one
 
                 continue
         
         error_message = None
-        while True:
+        while True and not backed_out:
             self.Displays.editEmployeeMenu(employee, error_message)
             userInput = input("Number of the attribute you want to change: ")
             
@@ -345,8 +349,9 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        if userInput.lower() != "b":
-            self.LogicLayerWrapper.update_employee_data(employee)
+        if not backed_out:
+            if userInput.lower() != "b":
+                self.LogicLayerWrapper.update_employee_data(employee)
 
     def editContractor(self, ID):
         while True:
