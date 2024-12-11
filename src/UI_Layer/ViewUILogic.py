@@ -254,6 +254,7 @@ class ViewUILogic:
             # user can choose to view additional information on tasks of a specific contractor
             elif user_choice == "2":
                 # asking the id of that contractor
+                print("Be aware that ID of a contractor is ")
                 ID = input("ID of the Contractor you want to show tasks for: ")
 
                 # the user can choose to quit the program
