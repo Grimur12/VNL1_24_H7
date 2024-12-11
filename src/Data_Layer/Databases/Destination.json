@@ -1,10 +1,10 @@
 [
     {
         "destinationID": 1,
-        "name": "Reykjav\u00c3\u00adk",
+        "name": "Reykjavik",
         "country": "Iceland",
         "timezone": "GMT",
-        "airportName": "Keflav\u00c3\u00adk-Airport",
+        "airportName": "Keflavik-Airport",
         "phone number": "990-3030",
         "openingHours": "24/7",
         "managerOfDestination": 2
@@ -31,10 +31,10 @@
     },
     {
         "destinationID": 4,
-        "name": "\u00c3\u017e\u00c3\u00b3rsh\u00c3\u00b6fn",
+        "name": "Thorshofn",
         "country": "Faroe Islands",
         "timezone": "GMT",
-        "airportName": "\u00c3\u017e\u00c3\u00b3rsh\u00c3\u00b6fn Airport",
+        "airportName": "Thorshofn Airport",
         "phone number": "468 1420",
         "openingHours": "24/7",
         "managerOfDestination": 6

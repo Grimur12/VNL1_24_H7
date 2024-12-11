@@ -12,15 +12,7 @@ class ViewUILogic:
     def viewMenu(self):
         self.clearTerminal()
         while True:
-            print("1: To view all Employees")
-            print("2: To view all Contractors")
-            print("3: To view all Properties")
-            print("4: To view all Maintenance Tasks")
-            print("5: To view all Scheduled Maintenance Tasks")
-            print("6: To view all Maintenance Reports")
-            print("7: To view all Destinations")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print(self.Displays.ViewMenu())
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -56,53 +48,151 @@ class ViewUILogic:
         else:
             system("clear")
 
-    def displayEmployeesPretty(self, destination = None):
+    def displayEmployees(self, destination = None):
         employeespretty = PrettyTable()
         employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
         employees = self.LogicLayerWrapper.getEmployeeData(destination)
         for employee in employees:
-            self.Displays.printEmployeePretty(employee, employeespretty)
-        employeespretty.right_padding_width = 1
+            employeespretty.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.address ,employee.atHomePhone, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)        
         employeespretty.align = 'l'
+        employeespretty.max_table_width = 120
+        employeespretty.min_table_width = 100
+        employeespretty.max_width = 30 
         print(employeespretty)
 
-    def displayEmployees(self, destination = None):
-        employees = self.LogicLayerWrapper.getEmployeeData(destination)
-        for employee in employees:
-            self.Displays.printEmployee(employee)
+    # def displayEmployees(self, destination = None):
+    #     employees = self.LogicLayerWrapper.getEmployeeData(destination)
+    #     for employee in employees:
+    #         self.Displays.printEmployee(employee)
 
-    def displayContractors(self, destination = None):
+    # def displayContractors(self, destination = None):
+    #     contractors = self.LogicLayerWrapper.getContractorData(destination)
+    #     for contractor in contractors:
+    #         self.Displays.printContractor(contractor)
+
+    def displayContractors(self, destination=None):
+        contractors_pretty = PrettyTable()
+        contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "Address", "Home Phone", "GSM Phone", "Email", "Work Location", "Type", "Previous Task", "Performance Rating", "Contractor Contact", "Opening Hours"]
         contractors = self.LogicLayerWrapper.getContractorData(destination)
+
         for contractor in contractors:
-            self.Displays.printContractor(contractor)
+            contractors_pretty.add_row([contractor.employeeID, contractor.name, contractor.socialSecurity, contractor.address, contractor.atHomePhone, contractor.gsmPhone, contractor.email, contractor.workLocation, contractor.type, 
+                                        contractor.previousTask if contractor.previousTask else "N/A", 
+                                        contractor.performanceRating if contractor.performanceRating else "N/A", 
+                                        contractor.contractorContact, contractor.openingHours])
+        contractors_pretty.align = 'l'  
+        contractors_pretty.max_table_width = 120  
+        contractors_pretty.min_table_width = 100  
+        contractors_pretty.max_width = 30  
+        contractors_pretty.hrules = True 
+        contractors_pretty.vrules = True  
+
+        print(contractors_pretty)
 
     def displayProperties(self, destination = None):
+        propertiespretty = PrettyTable()
+        propertiespretty.field_names = ["Property Number", "Property Name", "Available for rental", "Pool Available", "Tub Available", "Ovens Available"]
         properties = self.LogicLayerWrapper.getPropertyData(destination)
         for property in properties:
-            self.Displays.printProperty(property)
+            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.availability,property.hasAPool,property.hasATub,property.hasOvens])
+        propertiespretty.align = 'l'
+        propertiespretty.max_width = 30
+        propertiespretty.max_table_width = 120  
+        propertiespretty.min_table_width = 100  
+        print(propertiespretty)
 
     def displayMaintenanceTasks(self):
         maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData()
+
+        # Create a PrettyTable instance
+        tasks_pretty = PrettyTable()
+        tasks_pretty.field_names = ["Task ID", "Property ID", "Description", "Start Date", "End Date", "Status", "Priority", "Recurring"]
+
+        # Add rows to the table
         for task in maintenanceTasks:
-            self.Displays.printMaintenanceTask(task)
+            tasks_pretty.add_row([task.maintenanceID,task.propertyID,task.description,task.startDate,task.endDate,task.statusMaintenance,task.priority,task.recurring])
+
+        # Table formatting options
+        tasks_pretty.align = "l"  
+        tasks_pretty.max_width = 30  
+        tasks_pretty.min_table_width = 100 
+        tasks_pretty.max_table_width = 120  
+        tasks_pretty.hrules = 1  
+
+        # Display the table
+        print(tasks_pretty)
 
     def displayMaintenanceSchedules(self):
         maintenanceSchedules = self.LogicLayerWrapper.getMaintenanceScheduleData()
+
+        schedules_pretty = PrettyTable()
+        schedules_pretty.field_names = ["Schedule ID", "Maintenance ID", "Task Type", "Frequency", "Start Date"]
+
+        # Add rows to the table
         for schedule in maintenanceSchedules:
-            self.Displays.printMaintenanceSchedule(schedule)
+            schedules_pretty.add_row([ schedule.maintenanceScheduleID, schedule.maintenanceID, schedule.taskType, schedule.frequency, schedule.startDate])
+
+        # Table formatting options
+        schedules_pretty.align = "l"  
+        schedules_pretty.max_width = 30  
+        schedules_pretty.min_table_width = 100  
+        schedules_pretty.max_table_width = 120 
+        schedules_pretty.hrules = 1  
+
+        # Display the table
+        print(schedules_pretty)
+
 
     def displayMaintenanceReports(self):
+        # Fetch maintenance report data
         maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
+
+        # Create a PrettyTable instance
+        maintenance_reports_pretty = PrettyTable()
+        maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Ready to Close", "Supervisor Closed", "Supervisor Feedback"]
+
+        # We need to change what the user sees based on whats inside the attribute
         for report in maintenanceReports:
-            self.Displays.printMaintenanceReport(report)
+            maintenance_reports_pretty.add_row([
+            report.maintenanceReportID,
+            report.maintenanceID,
+            report.employeeID if report.employeeID else "N/A",
+            report.materialCost,
+            report.contractorID if report.contractorID else "N/A",
+            report.contractorCost if report.contractorCost else "N/A",
+            "Yes" if report.readyToClose else "No",
+            "Yes" if report.supervisorClosed.lower() == "true" else "No",
+            report.supervisorFeedback if report.supervisorFeedback else "No Feedback Yet"
+            ])
+
+        # Table formatting 
+        maintenance_reports_pretty.align = "l"  
+        maintenance_reports_pretty.max_width = 30 
+        maintenance_reports_pretty.min_table_width = 100 
+        maintenance_reports_pretty.max_table_width = 120 
+        maintenance_reports_pretty.hrules = 1 
+
+        print(maintenance_reports_pretty)
 
     def displayDestinations(self):
         destinations = self.LogicLayerWrapper.getDestinationData()
+
+        destinations_pretty = PrettyTable()
+        destinations_pretty.field_names = ["Destination ID", "Name", "Country", "Timezone", "Airport Name", "Phone Number", "Opening Hours", "Manager ID"]
+
         for destination in destinations:
-            self.Displays.printDestination(destination)
+            destinations_pretty.add_row([destination.destinationID, destination.name, destination.country, destination.timezone, destination.airportName, destination.phoneNumber, destination.openingHours, destination.managerOfDestination])
+
+        destinations_pretty.align = "l" 
+        destinations_pretty.max_width = 30 
+        destinations_pretty.min_table_width = 100 
+        destinations_pretty.max_table_width = 120 
+        destinations_pretty.hrules = 1 
+
+        print(destinations_pretty)
 
     def filterEmployees(self, destination = None):
-        self.displayEmployeesPretty(destination) # Show them the complete list and then ask if they want any more filtering....
+        self.displayEmployees(destination) # Show them the complete list and then ask if they want any more filtering....
         # Function can receive a destination if user is asking for specific employees at a specific destination
         while True:
             print("\n-------------------------------------------------------")

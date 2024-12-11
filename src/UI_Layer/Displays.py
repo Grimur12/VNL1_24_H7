@@ -193,6 +193,7 @@ D: To Quit Chaning and Save Changes\n
         if error:
             print(f"Error: {error}\n")
 
+
     def printProperty(self, property):
 
         print("\n--- Property Information ---")
@@ -204,9 +205,6 @@ D: To Quit Chaning and Save Changes\n
         print(f"Hot Tub: {property.hasATub}")
         print(f"Ovens: {property.hasOvens}")
         print("--------------------------\n") 
-
-    def printEmployeePretty(self, employee, employees):
-        employees.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.address ,employee.atHomePhone, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)
 
     def printEmployee(self, employee):
         
@@ -301,3 +299,101 @@ D: To Quit Chaning and Save Changes\n
             system("cls")
         else:
             system("clear")
+
+    def ContractorMenu(self):
+        contractor_menu = PrettyTable()
+        contractor_menu.title = "Contractor Menu"
+        contractor_menu.header = False
+        contractor_menu.add_row(["1: Create a Maintenance Report"])
+        contractor_menu.add_row(["2: Viewing features"])
+        contractor_menu.add_row(["B: Go Back"])
+        contractor_menu.add_row(["Q: Quit"])
+
+        contractor_menu.align = "l"
+        return contractor_menu
+    
+    def EmployeeMenu(self):
+        employee_menu = PrettyTable()
+        employee_menu.title = " Employee Menu"
+        employee_menu.header = False
+        employee_menu.add_row(["1: Create a Maintenance Report"])
+        employee_menu.add_row(["2: Viewing features"])
+        employee_menu.add_row(["B: Go Back"])
+        employee_menu.add_row(["Q: Quit"])
+        employee_menu.align = "l"
+        return employee_menu
+
+    def MainMenu(self):
+        main_menu = PrettyTable()
+        main_menu.title = "---Welcome to NAN Air!---"
+        main_menu.header = False
+        main_menu.add_row(["1: Manager"])
+        main_menu.add_row(["2: Employee"])
+        main_menu.add_row(["3: Contractor"])
+        main_menu.add_row(["Q: Quit"])
+        main_menu.align = 'l'
+        main_menu.max_table_width = 100
+        main_menu.bottom_left_junction_char = '|'
+        main_menu.bottom_right_junction_char = '|'
+        
+        return main_menu
+    
+    def ViewMenu(self):
+        view_menu = PrettyTable()
+        view_menu.title = " Viewing menu - Manager Position"
+        view_menu.header = False
+        view_menu.add_row(["1: View all Employees"])
+        view_menu.add_row(["2: View all Contractors"])
+        view_menu.add_row(["3: View all Properties"])
+        view_menu.add_row(["4: View all Maintenance Tasks"])
+        view_menu.add_row(["5: View all Scheduled Maintenance Tasks"])
+        view_menu.add_row(["6: View all Maintenance Reports"])
+        view_menu.add_row(["7: View all Destinations"])
+        view_menu.add_row(["B: Go back"])
+        view_menu.add_row(["Q: Quit"])  
+
+        return view_menu
+    
+    def ManagerMainMenu(self):
+        manager_menu = PrettyTable()
+        manager_menu.title = "Manager menu"
+        manager_menu.header = False
+        manager_menu.add_row(["1: Create new Properties, Employees or Maintenance Tasks"])
+        manager_menu.add_row(["2: Edit Properties, Employees or Maintenance Tasks"])
+        manager_menu.add_row(["3: View Properties, Employess or Maintenance Tasks"])
+        manager_menu.add_row(["B: Go Back"])
+        manager_menu.add_row(["Q: Quit"])
+        manager_menu.align = "l"
+
+        return manager_menu
+    
+    def ManagerAddMenu(self):
+        manager_add_menu = PrettyTable()
+        manager_add_menu.title = "Create Menu - Manager position"
+        manager_add_menu.header = False
+        manager_add_menu.add_row(["1: Create a new General Employee "])
+        manager_add_menu.add_row(["2: Create a new Manager"])
+        manager_add_menu.add_row(["3: Create a new Contractor"])
+        manager_add_menu.add_row(["4: Create a new Property"])
+        manager_add_menu.add_row(["5: Create a new Maintenance Task"])
+        manager_add_menu.add_row(["5: Create a new Maintenance Schedule"])
+        manager_add_menu.add_row(["B: Go Back"])
+        manager_add_menu.add_row(["Q: Quit"])
+        manager_add_menu.align = "l"
+
+        return manager_add_menu
+
+    def ManagerEditMenu(self):
+        manager_edit_menu = PrettyTable()
+        manager_edit_menu.title = " Edit Menu - Manager Position "
+        manager_edit_menu.header = False
+        manager_edit_menu.add_row(["1: Edit an Employee or a Manager"])
+        manager_edit_menu.add_row(["2: Edit a Contractor"])
+        manager_edit_menu.add_row(["3: Edit a Property"])
+        manager_edit_menu.add_row(["4: Edit a Maintenance Task"])
+        manager_edit_menu.add_row(["5: Edit a Maintenance Schedule"])
+        manager_edit_menu.add_row(["B: Go Back"])
+        manager_edit_menu.add_row(["Q: Quit"])
+        manager_edit_menu.align = "l"
+        
+        return manager_edit_menu    

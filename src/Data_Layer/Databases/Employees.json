@@ -205,5 +205,16 @@
         "performanceRating": "",
         "contractorContact": 9,
         "openingHours": "9-3"
+    },
+    {
+        "employeeID": 18,
+        "name": "Grimur",
+        "socialSecurity": "202023-2322",
+        "address": "g",
+        "atHomePhone": "331-2322",
+        "gsmPhone": "889-2322",
+        "email": "dgrimur@i.",
+        "workLocation": 2,
+        "type": "General"
     }
 ]

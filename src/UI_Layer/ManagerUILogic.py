@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable
 
 class ManagerUILogic:
     def __init__(self):
@@ -13,13 +14,7 @@ class ManagerUILogic:
     def run(self):
         self.ViewingUI.clearTerminal()
         while True:
-            print("-------------------------Manager----------------------------")
-            print("1: To create new Properties, Employees or Maintenance Tasks")
-            print("2: To edit existent Properties, Employees or Maintenance Tasks")
-            print("3: To view existent Properties, Employess or Maintenance Tasks")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("------------------------------------------------------------")
+            print(self.Displays.ManagerMainMenu())
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -43,14 +38,7 @@ class ManagerUILogic:
     def addMenu(self):
         self.ViewingUI.clearTerminal()
         while True:
-            print("1: To create a new General Employee")
-            print("2: To create a new Manager")
-            print("3: To create a new Contractor")
-            print("4: To create a new Property")
-            print("5: To create a new Maintenance Task")
-            print("6: To create a new Maintenance Schedule")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print(self.Displays.ManagerAddMenu())
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -80,14 +68,7 @@ class ManagerUILogic:
         # Edit Maintenance Schedule
         self.ViewingUI.clearTerminal()
         while True:
-            print("1: To edit an Employee or a Manager")
-            print("2: To edit a Contractor")
-            print("3: To edit a Property")
-            print("4: To edit a Maintenance Task")
-            print("5: To edit a Maintenance Schedule")
-            print("6: To close a Maintenance Task")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+            print(self.Displays.ManagerEditMenu())
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":

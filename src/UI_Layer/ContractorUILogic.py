@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable
 
 class ContractorUILogic:
     def __init__(self):
@@ -13,13 +14,7 @@ class ContractorUILogic:
     def run(self):
         self.ViewUI.clearTerminal()
         while True:
-            print("------------------ Contractor ------------------")
-            print("What do you want to do?")
-            print("1: To create a Maintenance Report")
-            print("2: To access viewing features")
-            print("B: to go Back")
-            print("Q: to quit")
-            print("-------------------------------------------------")
+            print(self.Displays.ContractorMenu())
             user_choice = input("Choice ")
 
             if user_choice.lower() == "q":
@@ -36,7 +31,7 @@ class ContractorUILogic:
                 self.ViewUI.viewMenu()
             else:
                 print("Invalid Input")
-
+        
     def createMaintenanceReport(self):
         count = 1
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport()

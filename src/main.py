@@ -2,6 +2,8 @@ from UI_Layer.ContractorUILogic import ContractorUILogic
 from UI_Layer.EmployeeUILogic import EmployeeUILogic
 from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
+from prettytable import PrettyTable
+from UI_Layer.Displays import Displays
 
 class main:
     def __init__(self):
@@ -9,19 +11,15 @@ class main:
         self.EmployeeUI = EmployeeUILogic()
         self.ManagerUI = ManagerUILogic()
         self.ViewUI = ViewUILogic()
+        self.Displays = Displays()
 
 if __name__ == "__main__":
     start = main()
     invalid = False
     while True: 
         start.ViewUI.clearTerminal()
-        print("------------Welcome to NAN Air!-------------")
-        print("Are you a manager, employee or a contractor?")
-        print("1: If you are a Manager")
-        print("2: If you are an Employee")
-        print("3: If you are a Contractor")
-        print("Q: To quit\n")
-        print("--------------------------------------------")
+        print(start.Displays.MainMenu())
+
         if invalid:
             print("Error: Invalid Input\n")
 

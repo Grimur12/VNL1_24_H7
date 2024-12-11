@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable
 
 class EmployeeUILogic:
     def __init__(self):
@@ -11,14 +12,9 @@ class EmployeeUILogic:
         self.Displays = Displays()
 
     def run(self):
-        self.ViewUI.clearTerminal()
+        self.ViewUI.clearTerminal() 
         while True:
-            print("-------------------Employee----------------------")
-            print("1: To create a Maintenance Report")
-            print("2: To access viewing features")
-            print("B: to go Back")
-            print("Q: to quit")
-            print("-------------------------------------------------")
+            print(self.Displays.EmployeeMenu())
             user_choice = input("Choice ")
             # Exit out of the loop
 
