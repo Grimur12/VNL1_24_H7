@@ -4,7 +4,8 @@ from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
 from prettytable import PrettyTable
 
-# Main program
+# Here is our Main Menu
+# This is where our Program Starts
 
 class main:
     def __init__(self):
@@ -31,12 +32,17 @@ if __name__ == "__main__":
         # print("-------------------------------------------- ")
         
         main_menu = PrettyTable()
-        main_menu.title = "Main Menu"
+        main_menu.title = "---Welcome to NAN Air!---"
         main_menu.header = False
         main_menu.add_row(["1: Manager"])
         main_menu.add_row(["2: Employee"])
         main_menu.add_row(["3: Contractor"])
         main_menu.add_row(["Q: Quit"])
+        main_menu.align = 'l'
+        main_menu.max_table_width = 100
+        main_menu.bottom_left_junction_char = '|'
+        main_menu.bottom_right_junction_char = '|'
+
 
         main_menu.align = "l"
         print(main_menu)
@@ -44,7 +50,10 @@ if __name__ == "__main__":
         if invalid:
             print("Error: Invalid Input\n")
 
+        print("Are you a Manager, Employee or a Contractor?")
+
         initial_input = input("Choice: ")
+
         if initial_input.lower() == "q":
             print("Quitting")
             break

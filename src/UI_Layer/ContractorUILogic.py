@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable 
 
 # Here is our Contractor UI Logic File where we have all of the Contractor's communication with the UI.
 
@@ -15,12 +16,26 @@ class ContractorUILogic:
     def run(self):
         #Here is the menu for the Contractor. In the menu you can view all of the things the contractor can do.
         while True:
-            print("--- Contractor ---")
-            print("1: Create a Maintenance Report")
-            print("2: Mark a Maintenance Report as ready to close")
-            print("3: Access viewing features")
-            print("B: Go Back")
-            print("Q: Quit")
+            # print("--- Contractor ---")
+            # print("1: Create a Maintenance Report")
+            # print("2: Mark a Maintenance Report as ready to close")
+            # print("3: Access viewing features")
+            # print("B: Go Back")
+            # print("Q: Quit")
+
+            contractor_menu = PrettyTable()
+            contractor_menu.title = "Contractor Menu"
+            contractor_menu.header = False
+            contractor_menu.add_row(["1: Create a Maintenance Report"])
+            contractor_menu.add_row(["2: Mark a Maintenance Report as ready to close"])
+            contractor_menu.add_row(["3: Viewing features"])
+            contractor_menu.add_row(["B: Go Back"])
+            contractor_menu.add_row(["Q: Quit"])
+
+            contractor_menu.align = "l"
+            print(contractor_menu)
+
+            print("What would you like to do today?")
             user_choice = input("Choice: ")
 
             # The user chooses to quit the program.

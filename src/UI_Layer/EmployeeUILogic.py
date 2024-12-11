@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable 
 
 # Here is our class of Employee UI Logic where we have all of the employee communication with the UI.
 
@@ -14,15 +15,34 @@ class EmployeeUILogic:
 
     def run(self):
         while True:
-            # Here is the menu for the employee
+
+
+
             # All of his functions are here
-            print("1: Create a Maintenance Report")
-            print("2: Mark a Maintenance Report as ready to close")
-            print("3: Viewing features")
-            print("B: Go Back")
-            print("Q: Quit")
-            user_choice = input("Choice: ")
+            # print("1: Create a Maintenance Report")
+            # print("2: Mark a Maintenance Report as ready to close")
+            # print("3: Viewing features")
+            # print("B: Go Back")
+            # print("Q: Quit")
+
+
+
+            # Here is the menu for the employee, you can view here all of the things the employee can do
+            employee_m_menu = PrettyTable()
+            employee_m_menu.title = " Employee Menu"
+            employee_m_menu.header = False
+            employee_m_menu.add_row(["1: Create a Maintenance Report"])
+            employee_m_menu.add_row(["2: Mark a Maintenance Report as ready to close"])
+            employee_m_menu.add_row(["3: Viewing features"])
+            employee_m_menu.add_row(["B: Go Back"])
+            employee_m_menu.add_row(["Q: Quit"])
+
+            employee_m_menu.align = "l"
+            print(employee_m_menu)
             # Exit out of the loop
+
+            print("What would you like to do today?")
+            user_choice = input("Choice: ")
 
             # The user decides to quit
             if user_choice.lower() == "q":

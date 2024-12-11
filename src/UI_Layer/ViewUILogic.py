@@ -1,8 +1,9 @@
-# View UI Logic
 from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .Displays import Displays
 from prettytable import PrettyTable
+
+# here is the UI logic where the viewing and filtering functions are
 
 class ViewUILogic:
     def __init__(self):
@@ -12,7 +13,7 @@ class ViewUILogic:
     def viewMenu(self):
         self.clearTerminal()
         while True:
-
+            # here is the viewing menu of the manager, the user can see all of the things they are able to View
             main_menu = PrettyTable()
             main_menu.title = " Viewing menu - Manager Position"
             main_menu.header = False
@@ -37,12 +38,17 @@ class ViewUILogic:
             # print("B: To Go Back")
             # print("Q: To Quit\n")
 
+
+            # Here the user can choose what they want to view
+            print("Which one would you like to view?")
             user_choice = input("Choice: ")
 
+            # if the user chooses to quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # if the user chooses to go back in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
@@ -107,29 +113,53 @@ class ViewUILogic:
             self.Displays.printMaintenanceReport(report)
 
     def filterEmployees(self):
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific Employee")
-        print("2: View all tasks an Employee has worked on")
-        print("B: To Go Back")
-        print("Q: To Quit")
-        print("-------------------------------------------------------\n")
+
+        # Here is the information menu of the manager, this is if they want to filter employees additionally
+        info_menu_em = PrettyTable()
+        info_menu_em.title = " Additional Information on Employees - Manager Position"
+        info_menu_em.header = False
+        info_menu_em.add_row(["1: View information of a specific Employee by ID"])
+        info_menu_em.add_row(["2: View all tasks an Employee has worked on"])
+        info_menu_em.add_row(["B: Go Back"])
+        info_menu_em.add_row(["Q: Quit"])
+
+        info_menu_em.align = "l"
+        print(info_menu_em)
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific Employee")
+        # print("2: View all tasks an Employee has worked on")
+        # print("B: To Go Back")
+        # print("Q: To Quit")
+        # print("-------------------------------------------------------\n")
+
         while True:
+            # The user can choose what they want to do
             user_choice = input("Choice: ")
+
+            # User chooses to quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # The user chooses to go back in the program 
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
 
+            # The user chooses to filter additionally the employees
             elif user_choice == "1":
+                # asking what employee id they want to look up
                 ID = input("ID of the Employee you want to look up: ")
 
+                # if the user chooses to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+
+                # if the user chooses to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -139,12 +169,16 @@ class ViewUILogic:
                 except ValueError as error:
                     print(error)
 
+            # if the chooses to view tasks an employee has worked on
             elif user_choice == "2":
+                # asking for id of that employee
                 ID = input("ID of the Employee you want to show tasks for: ")
 
+                # user chooses to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                #user chooses to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -160,32 +194,54 @@ class ViewUILogic:
 
     def filterContractors(self):
 
+        # Here is the menu for additional information on contractors
+        # Here you can view specific contractor or a task a specific contractor has worked on
+
+        info_menu_co = PrettyTable()
+        info_menu_co.title = " Additional Information on Contractors - Manager Position"
+        info_menu_co.header = False
+        info_menu_co.add_row(["1: View information of a specific Contractor by ID"])
+        info_menu_co.add_row(["2: View all tasks an Contractor has worked on"])
+        info_menu_co.add_row(["B: Go Back"])
+        info_menu_co.add_row(["Q: Quit"])
+
+        info_menu_co.align = "l"
+        print(info_menu_co)
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific Contractor")
+        # print("2: View all tasks a Contractor has worked on")
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
+
 
         
-
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific Contractor")
-        print("2: View all tasks a Contractor has worked on")
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
         while True:
+            # asking the user what they want to do
             user_choice = input("Choice: ")
+            # user can choose to quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # user can choose to go back in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
             
+            # user can choose to look up information on a specific contractor
             elif user_choice == "1":
+                # program asks for the id of the contractor
                 ID = input("ID of the Contractor you want to look up: ")
 
+                # the user can choose to quit
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+
+                # the user can choose to go back
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -194,12 +250,17 @@ class ViewUILogic:
                     self.Displays.printContractor(contractor)
                 except ValueError as error:
                     print(error)
+
+            # user can choose to view additional information on tasks of a specific contractor
             elif user_choice == "2":
+                # asking the id of that contractor
                 ID = input("ID of the Contractor you want to show tasks for: ")
 
+                # the user can choose to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # the user can choose to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -210,33 +271,58 @@ class ViewUILogic:
                     self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            # if the input is something else than is on the table it is an invalid input
             else:
                 print("Invalid Input")
 
     def filterProperties(self):
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific Property")
-        print("2: View all Maintenance on a specific Property")
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
+
+        # here is the menu to filter properties by a specific ID or the maintenance task
+
+        info_menu_pr = PrettyTable()
+        info_menu_pr.title = " Additional Information on Properties - Manager Position"
+        info_menu_pr.header = False
+        info_menu_pr.add_row(["1: View information of a specific Property by ID"])
+        info_menu_pr.add_row(["2: View all Maintenance on a specific Property"])
+        info_menu_pr.add_row(["B: Go Back"])
+        info_menu_pr.add_row(["Q: Quit"])
+
+        info_menu_pr.align = "l"
+        print(info_menu_pr)
+
+
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific Property")
+        # print("2: View all Maintenance on a specific Property")
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
         while True:
+            # asking the choice of the user
             user_choice = input("Choice: ")
+            # the user can quit if they want 
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
 
+            # the user can choose to go back in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
             
+            # the user can choose to look up a property by their ID
             elif user_choice == "1":
+                # asking for the ID
                 ID = input("ID of the Property you want to look up: ")
 
+                # the user can choose to quit
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # the user can choose to go back
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -245,12 +331,17 @@ class ViewUILogic:
                     self.Displays.printProperty(property)
                 except ValueError as error:
                     print(error)
+
+            # the user can choose to look up the tasks on the property by ID
             elif user_choice == "2":
+                # asking for the ID of the property
                 ID = input("ID of the Property you want to show tasks for: ")
 
+                # The user can choose to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # the user can choose to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -261,32 +352,50 @@ class ViewUILogic:
                     self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
                     print(error)
+            # if the input of the user is not valid or not in the right form it will return invalid input
             else:
                 print("Invalid Input")
     
     def filterMaintenanceTasks(self):
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific MaintenanceTask") ## IS THIS NEEDED ?
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
+
+        # here is the filtering for maintenance tasks. here you can look up a maintenance task
+        info_menu_ma = PrettyTable()
+        info_menu_ma.title = " Additional Information on Maintenance Task - Manager Position"
+        info_menu_ma.header = False
+        info_menu_ma.add_row(["1: View information of a specific Maintenance Task by ID"])
+        info_menu_ma.add_row(["B: Go Back"])
+        info_menu_ma.add_row(["Q: Quit"])
+
+        info_menu_ma.align = "l"
+        print(info_menu_ma)
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific MaintenanceTask") ## IS THIS NEEDED ?
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
         while True:
+            # the option the user chose will be input
             user_choice = input("Choice: ")
+            #the user can choose to quit the program at any time
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
-
+            # the user can choose to go back in the program at any time
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
-            
+            # the user can choose to look up a task by the id
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Task you want to look up: ")
 
+                #user can quit at any moment
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # user can go back
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -295,29 +404,51 @@ class ViewUILogic:
                     self.Displays.printMaintenanceTask(task)
                 except ValueError as error:
                     print(error)
+            # anything else is an invalid input and will return invalid input.
             else:
                 print("Invalid Input")
 
     def filterMaintenanceSchedules(self):
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
+
+        # here is the menu to see additional information on a specific maintenance schedule
+
+        info_menu_ms = PrettyTable()
+        info_menu_ms.title = " Additional Information on Maintenance Schedule - Manager Position"
+        info_menu_ms.header = False
+        info_menu_ms.add_row(["1: View information of a Maintenance Schedule by ID"])
+        info_menu_ms.add_row(["B: Go Back"])
+        info_menu_ms.add_row(["Q: Quit"])
+
+        info_menu_ms.align = "l"
+        print(info_menu_ms)
+
+
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific MaintenanceSchedule") ## IS THIS NEEDED ?
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
+
+
+
         while True:
+            # user can choose here
             user_choice = input("Choice: ")
+            # user can choose to quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
-
+            # user can choose to go back in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
-            
+            # user can choose to view maintenance schedule by thei ID
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Schedule you want to look up: ")
-
+                # 
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
@@ -333,11 +464,23 @@ class ViewUILogic:
                 print("Invalid Input")            
 
     def filterMaintenanceReports(self):
-        print("\n-------------------------------------------------------")
-        print("1: View additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
+
+        info_menu_mr = PrettyTable()
+        info_menu_mr.title = " Additional Information on Maintenance Report - Manager Position"
+        info_menu_mr.header = False
+        info_menu_mr.add_row(["1: View additional information of a specific Maintenance Report"])
+        info_menu_mr.add_row(["B: Go Back"])
+        info_menu_mr.add_row(["Q: Quit"])
+
+        info_menu_mr.align = "l"
+        print(info_menu_mr)
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View additional information of a specific MaintenanceReport") ## IS THIS NEEDED ?
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
@@ -367,11 +510,24 @@ class ViewUILogic:
                 print("Invalid Input")
     
     def dateFilter(self, tasks):
-        print("\n-------------------------------------------------------")
-        print("1: View tasks over a specific time period")
-        print("B: Go Back")
-        print("Q: Quit")
-        print("-------------------------------------------------------\n")
+
+        date_filter = PrettyTable()
+        date_filter.title = " Additional Information on a time period - Manager Position"
+        date_filter.header = False
+        date_filter.add_row(["1: View tasks over a specific time period"])
+        date_filter.add_row(["B: Go Back"])
+        date_filter.add_row(["Q: Quit"])
+
+        date_filter.align = "l"
+        print(date_filter)
+
+
+
+        # print("\n-------------------------------------------------------")
+        # print("1: View tasks over a specific time period")
+        # print("B: Go Back")
+        # print("Q: Quit")
+        # print("-------------------------------------------------------\n")
         while True:
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":

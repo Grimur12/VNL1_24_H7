@@ -16,7 +16,8 @@ class ManagerUILogic:
     def run(self):
         self.ViewingUI.clearTerminal()
         while True:
-            # List of features the manager can choose to select/do
+
+
             # print("What would you like to do today?")
             # print("--------------------------------------------------------")
             # print("1: Create new Properties, Employees or Maintenance Tasks")
@@ -25,19 +26,21 @@ class ManagerUILogic:
             # print("B: Go Back")
             # print("Q: Quit\n")
 
-            main_menu = PrettyTable()
-            main_menu.title = "Manager menu"
-            main_menu.header = False
-            main_menu.add_row(["1: Create new Properties, Employees or Maintenance Tasks"])
-            main_menu.add_row(["2: Edit Properties, Employees or Maintenance Tasks"])
-            main_menu.add_row(["3: View Properties, Employess or Maintenance Tasks"])
-            main_menu.add_row(["B: Go Back"])
-            main_menu.add_row(["Q: Quit"])
 
-            main_menu.align = "l"
-            print(main_menu)
+            # Here is the manager menu and here they can see all of the things the manager is able to do.
+            manager_menu = PrettyTable()
+            manager_menu.title = "Manager menu"
+            manager_menu.header = False
+            manager_menu.add_row(["1: Create new Properties, Employees or Maintenance Tasks"])
+            manager_menu.add_row(["2: Edit Properties, Employees or Maintenance Tasks"])
+            manager_menu.add_row(["3: View Properties, Employess or Maintenance Tasks"])
+            manager_menu.add_row(["B: Go Back"])
+            manager_menu.add_row(["Q: Quit"])
+
+            manager_menu.align = "l"
+            print(manager_menu)
             print("What would you like to do today?")
-
+            # the user will be able to choose an option
             user_choice = input("Choice: ")
 
             # The user chooses to quit
@@ -51,6 +54,7 @@ class ManagerUILogic:
                 self.ViewingUI.clearTerminal()
                 break
 
+            # the user chooses to do the first, second or third option
             if user_choice == "1":
                 self.addMenu()
             elif user_choice == "2":
@@ -64,7 +68,8 @@ class ManagerUILogic:
     def addMenu(self):
         self.ViewingUI.clearTerminal()
         while True:
-            # Main menu of create employee, contractor, property
+
+
             # print("1: Create a new General Employee")
             # print("2: Create a new Manager")
             # print("3: Create a new Contractor")
@@ -74,22 +79,25 @@ class ManagerUILogic:
             # print("B: Go Back")
             # print("Q: Quit\n")
 
-            main_menu = PrettyTable()
-            main_menu.title = "Create Menu - Manager position"
-            main_menu.header = False
-            main_menu.add_row(["1: Create a new General Employee "])
-            main_menu.add_row(["2: Create a new Manager"])
-            main_menu.add_row(["3: Create a new Contractor"])
-            main_menu.add_row(["4: Create a new Property"])
-            main_menu.add_row(["5: Create a new Maintenance Task"])
-            main_menu.add_row(["5: Create a new Maintenance Schedule"])
-            main_menu.add_row(["B: Go Back"])
-            main_menu.add_row(["Q: Quit"])
 
-            main_menu.align = "l"
-            print(main_menu)
+            # Here is the create menu of the manager, here you can see all of the things the manager can create
+            create_m_menu = PrettyTable()
+            create_m_menu.title = "Create Menu - Manager position"
+            create_m_menu.header = False
+            create_m_menu.add_row(["1: Create a new General Employee "])
+            create_m_menu.add_row(["2: Create a new Manager"])
+            create_m_menu.add_row(["3: Create a new Contractor"])
+            create_m_menu.add_row(["4: Create a new Property"])
+            create_m_menu.add_row(["5: Create a new Maintenance Task"])
+            create_m_menu.add_row(["5: Create a new Maintenance Schedule"])
+            create_m_menu.add_row(["B: Go Back"])
+            create_m_menu.add_row(["Q: Quit"])
 
+            create_m_menu.align = "l"
+            print(create_m_menu)
 
+            # Here the user chooses an option in the input
+            print("What do you want to create?")
             user_choice = input("Choice: ")
 
             #user chooses to quit
@@ -103,38 +111,39 @@ class ManagerUILogic:
                 self.ViewingUI.clearTerminal()
                 break
 
+            # user chooses option 1-6.
             if user_choice in ["1", "2", "3"]:
-                self.createEmployee(user_choice) # komið
+                self.createEmployee(user_choice) 
             elif user_choice == "4":
-                self.createProperty() # komið
+                self.createProperty() 
             elif user_choice == "5":
                 self.createMaintenanceTask()
             elif user_choice == "6":
                 self.createMaintenanceSchedule()
+
+            # if an invalid input is put the system will let the user know.
             else:
                 print("Invalid Input")
 
     def editMenu(self):
-        # Edit Employee
-        # Edit Property
-        # Edit Maintenance Task
-        # Edit Maintenance Schedule
+
         self.ViewingUI.clearTerminal()
         while True:
 
-            main_menu = PrettyTable()
-            main_menu.title = " Edit Menu - Manager Position "
-            main_menu.header = False
-            main_menu.add_row(["1: Edit an Employee or a Manager"])
-            main_menu.add_row(["2: Edit a Contractor"])
-            main_menu.add_row(["3: Edit a Property"])
-            main_menu.add_row(["4: Edit a Maintenance Task"])
-            main_menu.add_row(["5: Edit a Maintenance Schedule"])
-            main_menu.add_row(["B: Go Back"])
-            main_menu.add_row(["Q: Quit"])
+            # here is the edit manager menu, here the manager can see all of the things they are able to edit.
+            edit_m_menu = PrettyTable()
+            edit_m_menu.title = " Edit Menu - Manager Position "
+            edit_m_menu.header = False
+            edit_m_menu.add_row(["1: Edit an Employee or a Manager"])
+            edit_m_menu.add_row(["2: Edit a Contractor"])
+            edit_m_menu.add_row(["3: Edit a Property"])
+            edit_m_menu.add_row(["4: Edit a Maintenance Task"])
+            edit_m_menu.add_row(["5: Edit a Maintenance Schedule"])
+            edit_m_menu.add_row(["B: Go Back"])
+            edit_m_menu.add_row(["Q: Quit"])
 
-            main_menu.align = "l"
-            print(main_menu)
+            edit_m_menu.align = "l"
+            print(edit_m_menu)
 
 
 
@@ -147,7 +156,8 @@ class ManagerUILogic:
             # print("Q: Quit\n")
 
 
-
+            # Here the user chooses an option to edit
+            print("What do you want to Edit")
             user_choice = input("Choice: ")
 
             #user chooses to quit
@@ -172,7 +182,7 @@ class ManagerUILogic:
                     self.ViewingUI.clearTerminal()
                     continue
 
-                self.editEmployee(ID) # komið
+                self.editEmployee(ID) 
 
             # user chooses to edit contractor
             elif user_choice == "2":
@@ -185,7 +195,7 @@ class ManagerUILogic:
                     self.ViewingUI.clearTerminal()
                     continue
 
-                self.editContractor(ID) # komið
+                self.editContractor(ID) 
 
             # user chooses to edit Property
             elif user_choice == "3":
@@ -198,7 +208,7 @@ class ManagerUILogic:
                     self.ViewingUI.clearTerminal()
                     continue
 
-                self.editProperty(ID) # komið
+                self.editProperty(ID) 
 
             # user chooses to edit a maintenance task
             elif user_choice == "4":
