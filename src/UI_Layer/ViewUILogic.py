@@ -448,7 +448,7 @@ class ViewUILogic:
             # user can choose to view maintenance schedule by thei ID
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Schedule you want to look up: ")
-                # 
+                # user can choose to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
