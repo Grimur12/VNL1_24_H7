@@ -81,6 +81,8 @@ def manager_main_menu():
                 manager_main_menu_employees()
             elif menu_choice == '2':
                 manager_main_menu_contractors()
+            elif menu_choice == '3':
+                manager_main_menu_destinations()
             elif menu_choice == 'B' or menu_choice == 'b':
                 return
             elif menu_choice == 'Q' or menu_choice == 'q':
@@ -112,9 +114,11 @@ def manager_main_menu_employees():
             if menu_choice == '1':
                 manager_main_menu_employees_list()
             elif menu_choice == '2':
-                pass
+                manager_main_menu_employees_edit()
             elif menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == '3':
+                manager_main_menu_employees_add()
             elif menu_choice == '4':
                 pass
             else:
@@ -150,13 +154,21 @@ def manager_main_menu_employees_list():
             except ValueError:
                 print("Please enter a valid selection.")
 #Employees Database INPUT 2
-manager_main_menu_employees_edit = f"""
+def manager_main_menu_employees_edit():
+        while True:
+            try:
+                menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Employees Database|
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | To edit data from NaN Airlines Employee, please put in Employe ID Number:                                                                   |
-| INPUT: 61330                                                                                                                                |
------------------------------------------------------------------------------------------------------------------------------------------------ """
+| Press ESC to go back.                                                                                                                       |
+-----------------------------------------------------------------------------------------------------------------------------------------------
+| INPUT: """)
+                if menu_choice == 'esc':
+                    return    
+            except ValueError:
+                    print("Please input numbers only.")
 #Employees Databa INPUT 2
 manager_main_menu_employees_edit = f"""
 {RED}                                                           ------------------
@@ -170,7 +182,10 @@ INPUT:ID 03361
 --------------------------------------------------------------------------------------------------------------------------------------------- """
 
 #Employees Databa INPUT 3
-manager_main_menu_employees_add = f"""
+def manager_main_menu_employees_add():
+        while True:
+            try:
+                menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Add Employee|
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -188,8 +203,13 @@ manager_main_menu_employees_add = f"""
 | /mphone = Input Employee's mobile number
 | /email = Input Employee's email
 --------------------------------------------------------------------------------------------------------------------------------------------|
-ID:
---------------------------------------------------------------------------------------------------------------------------------------------- """
+|ID: """)
+                if menu_choice == '/back':
+                    return
+                elif menu_choice == '/quit':
+                    break
+            except ValueError:
+                print("Invalid input. Please try again...")
 
 #Employees Database INPUT 4 
 manager_main_menu_employees_delete = f"""
@@ -248,8 +268,11 @@ def manager_main_menu_contractors():
                     manager_main_menu_contractors_contacts()
             elif menu_choice == 'b':
                 return
+            elif menu_choice == '3':
+                    manager_main_menu_contractors_request_maintenance_reports()
         except ValueError:
             print("Please input valid option.")
+
 #Contractors Database: INPUT 1
 def manager_main_menu_contractors_contacts():
     while True:
@@ -294,14 +317,17 @@ def manager_main_menu_contractors_request_maintenance_contractors():
 | B. Back                                                                                                                   |
 | Q. Quit                                                                                                                   |
 |---------------------------------------------------------------------------------------------------------------------------|
-|INPUT: """)
+ INPUT: """)
             if menu_choice == 'B' or menu_choice == 'b':
                 return
         except ValueError:
                 print("Please input valid option.")
 
 #Contractors Databa: INPUT 2
-manager_main_menu_contractors_request_maintenance_locations = f"""
+def manager_main_menu_contractors_request_maintenance_locations():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                     ----------------------
                                                           |Contractors Database|
 |------------------------------------------------------------------------|
@@ -313,11 +339,17 @@ manager_main_menu_contractors_request_maintenance_locations = f"""
 | B. Back                                                                |
 | Q. Quit                                                                |
 |------------------------------------------------------------------------|
-| INPUT:                                                                 |
-|------------------------------------------------------------------------| """
+ INPUT: """)
+            if menu_choice == 'B' or menu_choice == 'b':
+                return
+        except ValueError:
+            print("Please input valid option.")
 
 #Contractors Database: INPUT 3
-manager_main_menu_contractors_request_maintenance_reports = f"""
+def manager_main_menu_contractors_request_maintenance_reports():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                     ---------------------
                                                           |Contractor Database|
 |----------------------------------------------------------------------|
@@ -331,11 +363,17 @@ manager_main_menu_contractors_request_maintenance_reports = f"""
 | B. Back                                                              |
 | Q. Quit                                                              |
 |----------------------------------------------------------------------|
-|INPUT:                                                                |
-|----------------------------------------------------------------------| """
+ INPUT: """)
+            if menu_choice == 'B' or menu_choice == 'b':
+                return
+        except ValueError:
+            print("Please input valid option...")
 
 #MAIN MENU Input 3: Destinations Database
-manager_main_menu_destinations = f"""
+def manager_main_menu_destinations():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Destinations Database|
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -346,10 +384,23 @@ manager_main_menu_destinations = f"""
 | 4. Remove Destination                                                                                                              |
 | B. Back                                                                                                                            |
 | Q. Quit                                                                                                                            |
-------------------------------------------------------------------------------------------------------------------------------------- """
+-------------------------------------------------------------------------------------------------------------------------------------
+ INPUT: """)
+            if menu_choice == '1':
+                manager_main_menu_destinations_view()
+            elif menu_choice == '2':
+                manager_main_menu_destinations_edit()
+            elif menu_choice == 'B' or menu_choice == 'b':
+                return
+        except ValueError:
+            print("Please input valid option...")
+
 
 #Destinations Database INPUT 1: View Destinations
-manager_main_menu_destinations_view = f"""
+def manager_main_menu_destinations_view():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Destinations Database|
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -360,11 +411,19 @@ manager_main_menu_destinations_view = f"""
 | B. Back                                                                                                                           |
 | Q. Quit                                                                                                                           |
 |-----------------------------------------------------------------------------------------------------------------------------------|
-|INPUT:                                                                                                                             |
-|-----------------------------------------------------------------------------------------------------------------------------------| """
+ INPUT: """)
+            if menu_choice == 'B' or menu_choice == 'b':
+                return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                break
+        except ValueError:
+            print("Please input Valid option...")
 
 #Destinations Database INPUT 2 Edit Destinations
-manager_main_menu_destinations_edit = f"""
+def manager_main_menu_destinations_edit():
+    while True:
+        try:
+            menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Destinations Database|
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -376,8 +435,13 @@ manager_main_menu_destinations_edit = f"""
 | B. Back                                                                                                                           |
 | Q. Quit                                                                                                                           |
 |-----------------------------------------------------------------------------------------------------------------------------------|
-|INPUT:                                                                                                                             |
-|-----------------------------------------------------------------------------------------------------------------------------------| """
+ INPUT: """)
+            if menu_choice == 'B' or menu_choice == 'b':
+                return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                break
+        except ValueError:
+            print("Please input valid option...")
 
 
 ##MAIN MENU Input 4: Reports Database
