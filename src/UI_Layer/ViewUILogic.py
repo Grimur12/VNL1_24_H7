@@ -2,6 +2,7 @@
 from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .Displays import Displays
+from prettytable import PrettyTable
 
 class ViewUILogic:
     def __init__(self):
@@ -11,14 +12,31 @@ class ViewUILogic:
     def viewMenu(self):
         self.clearTerminal()
         while True:
-            print("1: View all Employees")
-            print("2: View all Contractors")
-            print("3: View all Properties")
-            print("4: View all Maintenance Tasks")
-            print("5: View all Scheduled Maintenance Tasks")
-            print("6: View all Maintenance Reports")
-            print("B: To Go Back")
-            print("Q: To Quit\n")
+
+            main_menu = PrettyTable()
+            main_menu.title = " Viewing menu - Manager Position"
+            main_menu.header = False
+            main_menu.add_row(["1: View all Employees"])
+            main_menu.add_row(["2: View all Contractors"])
+            main_menu.add_row(["3: View all Properties"])
+            main_menu.add_row(["4: View all Maintenance Tasks"])
+            main_menu.add_row(["5: View all Scheduled Maintenance Tasks"])
+            main_menu.add_row(["6: View all Maintenance Reports"])
+            main_menu.add_row(["B: Go back"])
+            main_menu.add_row(["Q: Quit"])
+
+            main_menu.align = "l"
+            print(main_menu)
+
+            # print("1: View all Employees")
+            # print("2: View all Contractors")
+            # print("3: View all Properties")
+            # print("4: View all Maintenance Tasks")
+            # print("5: View all Scheduled Maintenance Tasks")
+            # print("6: View all Maintenance Reports")
+            # print("B: To Go Back")
+            # print("Q: To Quit\n")
+
             user_choice = input("Choice: ")
 
             if user_choice.lower() == "q":
@@ -141,6 +159,10 @@ class ViewUILogic:
                 print("Invalid Input")
 
     def filterContractors(self):
+
+
+        
+
         print("\n-------------------------------------------------------")
         print("1: View additional information of a specific Contractor")
         print("2: View all tasks a Contractor has worked on")

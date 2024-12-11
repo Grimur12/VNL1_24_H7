@@ -3,6 +3,7 @@ from os import system, name
 from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 from .ViewUILogic import ViewUILogic
 from .Displays import Displays
+from prettytable import PrettyTable
 
 # Class for Manager UI Logic where we have all of the communication with the manager to the UI
 
@@ -16,13 +17,27 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         while True:
             # List of features the manager can choose to select/do
+            # print("What would you like to do today?")
+            # print("--------------------------------------------------------")
+            # print("1: Create new Properties, Employees or Maintenance Tasks")
+            # print("2: Edit Properties, Employees or Maintenance Tasks")
+            # print("3: View Properties, Employess or Maintenance Tasks")
+            # print("B: Go Back")
+            # print("Q: Quit\n")
+
+            main_menu = PrettyTable()
+            main_menu.title = "Manager menu"
+            main_menu.header = False
+            main_menu.add_row(["1: Create new Properties, Employees or Maintenance Tasks"])
+            main_menu.add_row(["2: Edit Properties, Employees or Maintenance Tasks"])
+            main_menu.add_row(["3: View Properties, Employess or Maintenance Tasks"])
+            main_menu.add_row(["B: Go Back"])
+            main_menu.add_row(["Q: Quit"])
+
+            main_menu.align = "l"
+            print(main_menu)
             print("What would you like to do today?")
-            print("--------------------------------------------------------")
-            print("1: Create new Properties, Employees or Maintenance Tasks")
-            print("2: Edit Properties, Employees or Maintenance Tasks")
-            print("3: View Properties, Employess or Maintenance Tasks")
-            print("B: Go Back")
-            print("Q: Quit\n")
+
             user_choice = input("Choice: ")
 
             # The user chooses to quit
@@ -50,14 +65,31 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         while True:
             # Main menu of create employee, contractor, property
-            print("1: Create a new General Employee")
-            print("2: Create a new Manager")
-            print("3: Create a new Contractor")
-            print("4: Create a new Property")
-            print("5: Create a new Maintenance Task")
-            print("6: Create a new Maintenance Schedule")
-            print("B: Go Back")
-            print("Q: Quit\n")
+            # print("1: Create a new General Employee")
+            # print("2: Create a new Manager")
+            # print("3: Create a new Contractor")
+            # print("4: Create a new Property")
+            # print("5: Create a new Maintenance Task")
+            # print("6: Create a new Maintenance Schedule")
+            # print("B: Go Back")
+            # print("Q: Quit\n")
+
+            main_menu = PrettyTable()
+            main_menu.title = "Create Menu - Manager position"
+            main_menu.header = False
+            main_menu.add_row(["1: Create a new General Employee "])
+            main_menu.add_row(["2: Create a new Manager"])
+            main_menu.add_row(["3: Create a new Contractor"])
+            main_menu.add_row(["4: Create a new Property"])
+            main_menu.add_row(["5: Create a new Maintenance Task"])
+            main_menu.add_row(["5: Create a new Maintenance Schedule"])
+            main_menu.add_row(["B: Go Back"])
+            main_menu.add_row(["Q: Quit"])
+
+            main_menu.align = "l"
+            print(main_menu)
+
+
             user_choice = input("Choice: ")
 
             #user chooses to quit
@@ -89,13 +121,33 @@ class ManagerUILogic:
         # Edit Maintenance Schedule
         self.ViewingUI.clearTerminal()
         while True:
-            print("1: Edit an Employee or a Manager")
-            print("2: Edit a Contractor")
-            print("3: Edit a Property")
-            print("4: Edit a Maintenance Task")
-            print("5: Edit a Maintenance Schedule")
-            print("B: Go Back")
-            print("Q: Quit\n")
+
+            main_menu = PrettyTable()
+            main_menu.title = " Edit Menu - Manager Position "
+            main_menu.header = False
+            main_menu.add_row(["1: Edit an Employee or a Manager"])
+            main_menu.add_row(["2: Edit a Contractor"])
+            main_menu.add_row(["3: Edit a Property"])
+            main_menu.add_row(["4: Edit a Maintenance Task"])
+            main_menu.add_row(["5: Edit a Maintenance Schedule"])
+            main_menu.add_row(["B: Go Back"])
+            main_menu.add_row(["Q: Quit"])
+
+            main_menu.align = "l"
+            print(main_menu)
+
+
+
+            # print("1: Edit an Employee or a Manager")
+            # print("2: Edit a Contractor")
+            # print("3: Edit a Property")
+            # print("4: Edit a Maintenance Task")
+            # print("5: Edit a Maintenance Schedule")
+            # print("B: Go Back")
+            # print("Q: Quit\n")
+
+
+
             user_choice = input("Choice: ")
 
             #user chooses to quit
