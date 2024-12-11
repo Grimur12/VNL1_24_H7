@@ -354,6 +354,7 @@ class ManagerUILogic:
                 self.LogicLayerWrapper.update_employee_data(employee)
 
     def editContractor(self, ID):
+        backed_out = True
         while True:
             try:
                 employee = self.LogicLayerWrapper.getContractorbyID(ID)
@@ -366,12 +367,13 @@ class ManagerUILogic:
                     exit() ## QUIT...
                 elif ID.lower() == "b":
                     print("Going back")
+                    backed_out = True
                     self.ViewingUI.clearTerminal()
                     break ## Go back one
                 continue
 
         error_message = None
-        while True:
+        while True and not backed_out:
             self.Displays.editContractorMenu(employee, error_message)
             userInput = input("Number of the attribute you want to change: ")
 
@@ -396,10 +398,12 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        if userInput.lower() != "b":
-            self.LogicLayerWrapper.update_employee_data(employee)
+        if not backed_out:
+            if userInput.lower() != "b":
+                self.LogicLayerWrapper.update_employee_data(employee)
 
     def editProperty(self, ID):
+        backed_out = False
         while True:
             try:
                 property = self.LogicLayerWrapper.getPropertyByID(ID)
@@ -412,12 +416,13 @@ class ManagerUILogic:
                     exit() ## QUIT...
                 elif ID.lower() == "b":
                     print("Going back")
+                    backed_out = True
                     self.ViewingUI.clearTerminal()
                     break ## Go back one
 
                 continue
         error_message = None
-        while True:
+        while True and not backed_out:
             self.Displays.editPropertyMenu(property, error_message)
             userInput = input("Number of the attribute you want to change: ")
 
@@ -442,10 +447,12 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        if userInput.lower() != "b":
-            self.LogicLayerWrapper.updateProperty(property)
+        if not backed_out:
+            if userInput.lower() != "b":
+                self.LogicLayerWrapper.updateProperty(property)
 
     def editMaintenanceTask(self, ID):
+        backed_out = False
         while True:
             try:
                 maintenanceTask = self.LogicLayerWrapper.getMaintenanceTaskByID(ID)
@@ -459,12 +466,13 @@ class ManagerUILogic:
                     exit() ## QUIT...
                 elif ID.lower() == "b":
                     print("Going back")
+                    backed_out = True
                     self.ViewingUI.clearTerminal()
                     break ## Go back one
                 continue
                 
         error_message = None
-        while True:
+        while True and not backed_out:
             self.Displays.editMaintenanceTaskMenu(maintenanceTask, error_message)
             userInput = input("Number of the attribute you want to change: ")
 
@@ -489,10 +497,12 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        if userInput.lower() != "b":
-            self.LogicLayerWrapper.updateMaintenance(maintenanceTask)
+        if not backed_out:
+            if userInput.lower() != "b":
+                self.LogicLayerWrapper.updateMaintenance(maintenanceTask)
 
     def editMaintenanceSchedule(self, ID):
+        backed_out = False
         while True:
             try:
                 maintenanceSchedule = self.LogicLayerWrapper.getMaintenanceScheduleByID(ID)
@@ -507,11 +517,12 @@ class ManagerUILogic:
                 elif ID.lower() == "b":
                     print("Going back")
                     self.ViewingUI.clearTerminal()
+                    backed_out = True
                     break ## Go back one
                 continue
                 
         error_message = None
-        while True:
+        while True and not backed_out:
             self.Displays.editMaintenanceScheduleMenu(maintenanceSchedule, error_message)
             userInput = input("Number of the attribute you want to change: ")
 
@@ -536,8 +547,9 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
-        if userInput.lower() != "b":
-            self.LogicLayerWrapper.updateMaintenanceSchedule(maintenanceSchedule)
+        if not backed_out:
+            if userInput.lower() != "b":
+                self.LogicLayerWrapper.updateMaintenanceSchedule(maintenanceSchedule)
 
         
 
