@@ -386,7 +386,7 @@ class ViewUILogic:
                 try:
                     reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks()
                     for report in reports:
-                        self.Displays.printMaintenanceReport(report)
+                        self.Displays.printMaintenanceTask(report)
                 except ValueError as error:
                     print(error)
             else:

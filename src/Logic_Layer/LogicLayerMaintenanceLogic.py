@@ -393,10 +393,11 @@ class LogicLayerMaintenanceLogic:
             maintenancesInReportsID.append(report.maintenanceID)
         # Then add all the maintenance's that have reports on them to the list of maintenances ready to be closed
         for maintenance in maintenances: # Check if maintenance has a report on it and that its not already closed
-            if maintenance.maintenanceID in maintenancesInReportsID and maintenance.statusMaintenance.lower() != "closed":
-                readyToBeClosedTasks.append(maintenance.maintenanceID)
+            if maintenance.maintenanceID in maintenancesInReportsID:
+                if maintenance.statusMaintenance.lower() == "ongoing":
+                    readyToBeClosedTasks.append(maintenance)
         # If there no maintenance reports have been made on the open maintenance tasks then there is nothing to close
-        if len(readyToBeClosedTasks) != 0:
+        if len(readyToBeClosedTasks) == 0:
             raise ValueError("No Maintenance Reports have been made on open Maintenances. Nothing to close")
 
         # Return all the maintenances that have reports on them, (meaning they are ready to be closed via closing the report)
