@@ -458,7 +458,7 @@ Pairs and Layers EOD Results and Todays work:
       - The plan for us today is to finish the other parts missing in logic layer or the majority of it. If we do not finish we will leave connection testing until next week.
       - We are working on the Properties Logic file, finished it today and will start on the Maintenance Logic next.
   - Grímur and Máni
-      -Today we are focusing on connecting our system. Connecting the Logic Layer to the Datalayer.
+      -Today we are focusing on connecting our system. Connecting the Logic Layer to the Datalayer. Implementing basic logic like loading and such
     
 TODO:
 - [x] Create an independent Data Layer
@@ -507,18 +507,26 @@ Pairs and Layers EOD Results and Todays work:
     - Today we want to finish the Maintenance Layer.
   - Grímur and Máni
     - Today we helped other group members with the Logic and UI layer and worked on the journal and what to change in the Design Report.
+    - Over the weekend
+      - Completed most of the Employee Logic
+      - Completed most of the Property logic
+      - Started on the Maintenance logic but need to gather more information on what exactly the system should be able to do with that 
     
 The goal of today is to:
   - finish the Logic Layer
   - Get the UI layer almost finished or to finished position
   - We need to focus on connecting the branches and comment on our code.
-  - 
+
+Issues:
+  - There was an issue with the Maintenance Logic, the model classes were wrong so we had to add a maintenance report model class
+  - Change the maintenance logic completely on how to create, edit, close etc...
+  - We also have not tied anything together with a Destination so we need to add a Destination DB and artifically populate it
+  - And make sure our system takes the destination into consideration, with getting data and such 
 
 Work done:
   - our code is currently running but we want to make the program look nicer on the UI part, so we will be working on that
   - we will see how pretty table works and maybe we will use that
-  - Maintenance layer has been done
-  - 
+  - Maintenance logic has been done
 
 
   TODO:
@@ -575,7 +583,9 @@ Pairs and Layers EOD Results and Todays work:
  - Iðunn and Pedro
     this group was focusing on the UI and trying to make it look better aestetically.
  - Máni and Grímur
-   - this group was focusing on commenting our code and doc string our code.
+   - Additional comments made to the code, added docstrings on newer functions and return types
+   - Finalizing the destination logic and maintenance logic, started on viewing by destination features
+   - Fixed issues with closng maintenance reports and minor model class issues
 
 Work done:
  - the goal of today is to work on our todo list here below because there are some things that need to be done.
@@ -589,8 +599,8 @@ Work done:
 - [x] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
 Extra checklist for week 3
-- [ ] Finish Maintenance Report
-- [ ] Add destinations
+- [x] Finish Maintenance Report
+- [x] Add destinations
 - [ ] Fix Model Classes attributes
 - [x] Finish Pretty Table UI
 - [ ] Change Error checkers to match new model class attributes
@@ -617,9 +627,25 @@ Today we hope to work on the to do list of week 3, we need to upgrade our design
 
 Pairs and Layers EOD Results and Todays work:
 Ólafur and Leonard
+  - Group worked together in changing the look of the UI (displays)
+  - Updated the Use cases and functional requirements, some of them were not correct initially and did not fit the desired system
+  - In charge of testing the entire system looking for bugs, errors in input, any crashes and noting it down to be fixed
+    
 Iðunn and Pedro
-Grímur and Máni
+  - The entire group worked together in changing the look of the UI (displays)
+  - Added prettytables
+  - Fixed the Model Class diagram to match it with the code models 
 
+Grímur and Máni
+  - Worked on fixing the Layered Class Diagram so that
+  - Finished Destination filtering, the group worked together in changing the UI look (displays)
+  - Fixed minor bugs in the program, with users not being able to go back on certain inputs.
+  - Fixing other minor bugs found when testing the functional requirements
+
+Issues:
+  - The UI is not fully completed looks wise but it is fully functional
+  - We are using While True loops and exit statements, TA's recommended not doing that so we have to change how the UI runs
+  - From while true loops into some break/quit mechanics via returning "b" or "q" if user inputs, therefore qutting or going back
 
  TODO:
 - [x] Create an independent Data Layer
@@ -630,11 +656,11 @@ Grímur and Máni
 - [x] Successfully make UI Layer talk to Logic Layer
 - [ ] Test the system in its entirety
 Extra checklist for week 3
-- [ ] Finish Maintenance Report
-- [ ] Add destinations
-- [ ] Fix Model Classes attributes
+- [x] Finish Maintenance Report
+- [x] Add destinations
+- [x] Fix Model Classes attributes
 - [x] Finish Pretty Table UI
-- [ ] Change Error checkers to match new model class attributes
+- [x] Change Error checkers to match new model class attributes
 - [x] Finish all doc strings, returns type values and comments in the code
 - [ ] Make the model class diagram match the new model classes
 - [ ] Make the layered class diagram match the code
