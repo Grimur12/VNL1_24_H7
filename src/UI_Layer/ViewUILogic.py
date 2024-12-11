@@ -335,6 +335,7 @@ class ViewUILogic:
             # the user can choose to look up the tasks on the property by ID
             elif user_choice == "2":
                 # asking for the ID of the property
+                print("Be aware that ID's of properties are starting from 1 and up.")
                 ID = input("ID of the Property you want to show tasks for: ")
 
                 # The user can choose to quit the program
@@ -389,6 +390,7 @@ class ViewUILogic:
                 break
             # the user can choose to look up a task by the id
             elif user_choice == "1":
+                print("Be aware that ID's of maintenance tasks are starting from 1 and up.")
                 ID = input("ID of the Maintenance Task you want to look up: ")
 
                 #user can quit at any moment
@@ -446,12 +448,14 @@ class ViewUILogic:
                 self.clearTerminal()
                 break
             # user can choose to view maintenance schedule by thei ID
-            elif user_choice == "1":
+            elif user_choice == "1": 
+                print("Be aware that ID's of maintenance schedules are starting from 1 and up.")
                 ID = input("ID of the Maintenance Schedule you want to look up: ")
                 # user can choose to quit the program
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # user can choose to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -460,15 +464,18 @@ class ViewUILogic:
                     self.Displays.printMaintenanceSchedule(task)
                 except ValueError as error:
                     print(error)
+            # an invalid input will lead to a return in invalid input
             else:
                 print("Invalid Input")            
 
     def filterMaintenanceReports(self):
 
+        # Here is the menu for the additional information on a maintenence reports
+
         info_menu_mr = PrettyTable()
         info_menu_mr.title = " Additional Information on Maintenance Report - Manager Position"
         info_menu_mr.header = False
-        info_menu_mr.add_row(["1: View additional information of a specific Maintenance Report"])
+        info_menu_mr.add_row(["1: View information of a specific Maintenance Report by ID"])
         info_menu_mr.add_row(["B: Go Back"])
         info_menu_mr.add_row(["Q: Quit"])
 
@@ -482,22 +489,26 @@ class ViewUILogic:
         # print("Q: Quit")
         # print("-------------------------------------------------------\n")
         while True:
+            # here they ask what they want to do
             user_choice = input("Choice: ")
+            # the user can choose to quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
-
+            # the user can choose to go back by one in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
-            
+            # the user can choose to look up a maintenance report by ID
             elif user_choice == "1":
+                print("Be aware that ID's of maintenance reports are starting from 1 and up.")
                 ID = input("ID of the Maintenance Report you want to look up: ")
-
+                # the user can choose to quit
                 if ID.lower() == "q":
                     print("Quitting")
                     exit()
+                # the user can choose to go back in the program
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -506,44 +517,50 @@ class ViewUILogic:
                     self.Displays.printMaintenanceReport(report)
                 except ValueError as error:
                     print(error)
+            # any invalid input is going to let the user know
             else:
                 print("Invalid Input")
     
     def dateFilter(self, tasks):
 
+        # Here is the menu for additional information on the time period
         date_filter = PrettyTable()
         date_filter.title = " Additional Information on a time period - Manager Position"
         date_filter.header = False
-        date_filter.add_row(["1: View tasks over a specific time period"])
+        date_filter.add_row(["1: View tasks over a specific time period by ID"])
         date_filter.add_row(["B: Go Back"])
         date_filter.add_row(["Q: Quit"])
 
         date_filter.align = "l"
         print(date_filter)
 
-
-
         # print("\n-------------------------------------------------------")
         # print("1: View tasks over a specific time period")
         # print("B: Go Back")
         # print("Q: Quit")
         # print("-------------------------------------------------------\n")
+
+
         while True:
+            # here they ask what the user wants to do
             user_choice = input("Choice: ")
+            # user can quit the program
             if user_choice.lower() == "q":
                 print("Qutting")
                 exit()
-
+            # user can go back in the program
             elif user_choice.lower() == "b":
                 print("Going back")
                 self.clearTerminal()
                 break
-
+            # user can choose to see maintenence schedule by ID
             elif user_choice == "1":
-                startDate = input("Start Date: ")
+                print(" be aware that Start Date and End Date needs to be in the form of X:XX or XX:XX")
+                startDate = input("Start Date: ") 
                 endDate = input("End Date: ")
                 filtered_tasks = self.LogicLayerWrapper.filterMaintenanceTasksDates(tasks, startDate, endDate)
                 for filtered_task in filtered_tasks:
                     self.Displays.printMaintenanceTask(filtered_task)
             else:
+                # any invalid input will lead to a notice of that, so user knows they are not doing it right.
                 print("Invalid Input")
