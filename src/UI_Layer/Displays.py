@@ -376,7 +376,7 @@ D: To Quit Chaning and Save Changes\n
         manager_add_menu.add_row(["3: Create a new Contractor"])
         manager_add_menu.add_row(["4: Create a new Property"])
         manager_add_menu.add_row(["5: Create a new Maintenance Task"])
-        manager_add_menu.add_row(["5: Create a new Maintenance Schedule"])
+        manager_add_menu.add_row(["6: Create a new Maintenance Schedule"])
         manager_add_menu.add_row(["B: Go Back"])
         manager_add_menu.add_row(["Q: Quit"])
         manager_add_menu.align = "l"
