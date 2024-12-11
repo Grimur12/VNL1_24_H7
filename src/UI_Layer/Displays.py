@@ -97,6 +97,7 @@ D: To Quit Chaning and Save Changes\n
         newEmployeePretty.bottom_right_junction_char = '|'
         newEmployeePretty.max_table_width = 100
 
+        print(newEmployeePretty)
 
         if error:
             print(f"Error: {error}\n")
@@ -128,6 +129,7 @@ D: To Quit Chaning and Save Changes\n
         newPropertyPretty.bottom_left_junction_char = '|'
         newPropertyPretty.bottom_right_junction_char = '|'
 
+        print(newPropertyPretty)
 
         if error:
             print(f"Error: {error}\n")
@@ -158,6 +160,8 @@ D: To Quit Chaning and Save Changes\n
         maintenancePretty.bottom_right_junction_char = '|'
         maintenancePretty.max_table_width = 100
 
+        print(maintenancePretty)
+
         if error:
             print(f"Error: {error}\n")
 
@@ -181,7 +185,7 @@ D: To Quit Chaning and Save Changes\n
         scheduelePretty.max_table_width = 100
         scheduelePretty.align = 'l'
 
-
+        print(scheduelePretty)
 
         if error:
             print(f"Error: {error}\n")
@@ -213,7 +217,7 @@ D: To Quit Chaning and Save Changes\n
         maintenanceReportPretty.bottom_left_junction_char = '|'
         maintenanceReportPretty.bottom_right_junction_char = '|'
 
-       
+        print(maintenanceReportPretty)
 
         if error:
             print(f"Error: {error}\n")
@@ -245,7 +249,7 @@ D: To Quit Chaning and Save Changes\n
         propertyPretty.bottom_left_junction_char = '|'
         propertyPretty.bottom_right_junction_char = '|'
         
-        #print(propertypretty)
+        print(propertyPretty)
 
 
         # print("\n--- Employee Information ---")
@@ -279,11 +283,8 @@ D: To Quit Chaning and Save Changes\n
         employeePretty.max_table_width = 100
         employeePretty.bottom_left_junction_char = '|'
         employeePretty.bottom_right_junction_char = '|'
-
-
     
-        #print(table)
-
+        print(employee)
 
 
     #     print("\n--- Contractor Information ---")
@@ -325,7 +326,7 @@ D: To Quit Chaning and Save Changes\n
         contractorPretty.bottom_left_junction_char = '|'
         contractorPretty.bottom_right_junction_char = '|'
 
-    #print(table)
+        print(contractorPretty)
 
 
     def printMaintenanceTask(self, task):
@@ -356,7 +357,7 @@ D: To Quit Chaning and Save Changes\n
         maintennanceTaskPretty.bottom_left_junction_char = '|'
         maintennanceTaskPretty.bottom_right_junction_char = '|'
 
-        #print(table)
+        print(maintennanceTaskPretty)
 
         
 
@@ -383,7 +384,7 @@ D: To Quit Chaning and Save Changes\n
         maintenanceScheduelePretty.bottom_right_junction_char = '|'
 
 
-        #print(table)
+        print(maintenanceScheduelePretty)
 
 
 
@@ -413,7 +414,7 @@ D: To Quit Chaning and Save Changes\n
         maintenanceReportPretty.bottom_right_junction_char = '|'
 
 
-        #print(table)
+        print(maintenanceReportPretty)
 
 
     def clearTerminal(self):
