@@ -682,13 +682,18 @@ Mættir / In attendance:
 Pairs and Layers EOD Results and Todays work:
 
 Ólafur and Leonard
+ - Ólafur was focusing on testing the program and seeing if it has any major mistakes we need to fix before we send it in
+ - Leonard was focusing on upgrading the functional requirements and use cases. 
 
 Iðunn and Pedro
  - pedro finished the model diagram completely
  - iðunn finished the state diagram completely
  - this group started testing the program completely to see if there were any visible errors.
+ - Iðunn finished the updated wireframe / happy path 
 
 Máni and Grímur 
+ - Grímur focused on updating the biggest mistakes we can upgrade before returning
+ - Máni focused on the UML Diagram, it is a huge diagram now so it is taking time
 
  TODO:
 - [x] Layers are all completed
@@ -704,8 +709,8 @@ Extra checklist for week 3
 - [x] Make the model class diagram match the new model classes
 - [ ] Make the layered class diagram match the code
 - [ ] Check all boxes in the Requirements list in the Design report
-- [ ] Change Priority values, need to be Emergency, now and soon as possible
-- [ ] finish the wireframe /happy paths 
+- [x] Change Priority values, need to be Emergency, now and soon as possible
+- [x] finish the wireframe /happy paths 
 - [ ] finish recording 10minute video
 - [ ] write comments in the code what couldve been better done if we had more time!!!
 - [ ] go over our pdf document
@@ -715,7 +720,7 @@ Final Return TODO:
 - [ ] finish pdf document
       - [x] User Group Analysis
       - [ ] Functional Requirements   GO OVER!!
-      - [ ] Wireframe / Happy paths
+      - [x] Wireframe / Happy paths
       - [ ] UML diagram
       - [x] Model Diagram
       - [x] State Diagram
