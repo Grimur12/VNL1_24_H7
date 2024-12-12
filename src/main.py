@@ -4,9 +4,11 @@ from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
 from prettytable import PrettyTable
 from UI_Layer.Displays import Displays
+from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 
 class main:
     def __init__(self):
+        self.logic_API = LogicLayerAPI()
         self.ContractorUI = ContractorUILogic()
         self.EmployeeUI = EmployeeUILogic()
         self.ManagerUI = ManagerUILogic()

@@ -422,6 +422,10 @@ class ViewUILogic:
                     reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks(destination)
                     for report in reports:
                         self.Displays.printMaintenanceTask(report)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
                     error_message = error
                     self.clearTerminal()

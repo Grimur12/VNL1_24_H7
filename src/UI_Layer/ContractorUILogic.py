@@ -7,9 +7,9 @@ from prettytable import PrettyTable
 
 class ContractorUILogic:
     def __init__(self):
-        self.LogicLayerWrapper = LogicLayerAPI()
-        self.ViewUI = ViewUILogic()
-        self.Displays = Displays()
+        self.LogicLayerWrapper = LogicLayerAPI() # Get the Wrapper from main, it was imported there
+        self.ViewUI = ViewUILogic() # Get the ViewUI from main, it was imported there
+        self.Displays = Displays # Get the Display from main, it was imported there
 
     def run(self):
         error_message = None
