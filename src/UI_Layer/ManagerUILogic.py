@@ -444,7 +444,7 @@ def manager_main_menu_destinations_edit():
             print("Please input valid option...")
 
 
-##MAIN MENU Input 4: Reports Database
+##MAIN MENU Input 4: Reports Database+-
 manager_main_menu_reports = f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
