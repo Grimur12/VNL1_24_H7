@@ -148,8 +148,8 @@ class ErrorCheckers:
 
     def checkErrorFrequency(self, input) -> True:
         """ Checks if input (Frequency) is one of three possible frequencies, if so returns True, if not raises ValueError"""
-        # Frequency is going to be either Daily, Weekly, Monthly
-        if input.lower() in ["daily", "weekly", "monthly"]:
+        # Frequency is going to be either Daily, Weekly, Monthly, Yearly
+        if input.lower() in ["daily", "weekly", "monthly", "yearly"]:
             return True
         raise ValueError("Frequency can only be: Daily, Weekly or Monthly")
 

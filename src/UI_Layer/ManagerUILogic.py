@@ -315,7 +315,7 @@ class ManagerUILogic:
         print("You have successfully created a new Maintenance Task")
 
     def editEmployee(self, ID):
-        done_message = "To Quit Changing and Save Changes\n"
+        done_message = "D: To Quit Changing and Save Changes\n"
         edit_message = "You can not change Employees ID, Social Security or Type"
         title_message = "Updating Employee Information"
         while True:
@@ -366,7 +366,7 @@ class ManagerUILogic:
             self.LogicLayerWrapper.update_employee_data(employee)
 
     def editContractor(self, ID):
-        done_message = "To Quit Changing and Save Changes\n"
+        done_message = "D: To Quit Changing and Save Changes\n"
         edit_message = "You can not change Contractors ID, Social Security or Type"
         title_message = "Updating Contractor Information"
         while True:
@@ -416,7 +416,7 @@ class ManagerUILogic:
             self.LogicLayerWrapper.update_employee_data(employee)
 
     def editProperty(self, ID):
-        done_message = "To Quit Changing and Save Changes\n"
+        done_message = "D: To Quit Changing and Save Changes\n"
         title_message = "Updating Property Information"
         while True:
             try:
@@ -465,7 +465,7 @@ class ManagerUILogic:
             self.LogicLayerWrapper.updateProperty(property)
 
     def editMaintenanceTask(self, ID):
-        done_message = "To Quit Changing and Save Changes\n"
+        done_message = "D: To Quit Changing and Save Changes\n"
         edit_message = "You can not change the Number, Maintenance done on Property, Start- or EndDate, Status or if its recurring or not"
         title_message = "Updating Maintenance Task Information"
         while True:
@@ -515,7 +515,7 @@ class ManagerUILogic:
             self.LogicLayerWrapper.updateMaintenance(maintenanceTask)
 
     def editMaintenanceSchedule(self, ID):
-        done_message = "To Quit Changing and Save Changes\n"
+        done_message = "D: To Quit Changing and Save Changes\n"
         edit_message = "You can not change Schedule Number, Scheduled Task, Type of Maintenance Task or the Start Date"
         title_message = "Updating Maintenance Schedule Information"
         while True:

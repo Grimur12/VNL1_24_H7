@@ -46,6 +46,10 @@ class LogicLayerEmployeeLogic:
             temp_employee.name = input
         elif count == 2:  # Social Security
             self.Errors.errorCheckSocialSecurity(input)
+            # Social security should be unique to a person even though
+            # in our system it does not need to be unique since we are searching on ID's not SSN
+            # but in general they should be unique
+            self.checkIfSocialSecurityExists(input)
             temp_employee.socialSecurity = input
         elif count == 3:  # Address
             self.Errors.errorCheckAddress(input)
@@ -94,6 +98,13 @@ class LogicLayerEmployeeLogic:
             temp_employee.openingHours = input
         return True
     
+    def checkIfSocialSecurityExists(self, input) -> True:
+        """ Function takes in a SSN, loads all employees and checks if we have a person with that SSN already, if so raise valueError if not return True"""
+        employeeLog = self.DataLayerWrapper.loadEmployeeLog()
+        for employee in employeeLog:
+            if employee.socialSecurity == input:
+                raise ValueError("This is another persons Social Security Number, please check if your input was correct")
+        return True
     def checkIfMaintenanceExists(self, maintenance_ID) -> True:
         """ Function takes in a maintenance id, loads all maintenances from the DB and checks if there exists a maintenance by that ID in the DB, returns true or raises a ValueError"""
         maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
