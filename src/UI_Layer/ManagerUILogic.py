@@ -44,16 +44,20 @@ def main_menu():
             main_menu_select_role = input(f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
 | Please select a role:                                                                                                                         |
 | 1. Manager                                                                                                                                    |
 | 2. Employee                                                                                                                                   |
+| Q. Quit                                                                                                                                       |
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | INPUT: """)
             if main_menu_select_role == '1':
                 manager_main_menu() #call the manager menu function
             elif main_menu_select_role == '2':
                 print("Employee option selected. This feature is not implemented yet.")
+                break
+            elif main_menu_select_role == 'Q' or main_menu_select_role == 'q':
+                print("Exiting program. Goodbye!")
                 break
             else:
                 print("Invalid selection. Please select 1 for Manager or 2 for Employee.")
@@ -67,14 +71,14 @@ def manager_main_menu():
             menu_choice = input (f"""
 {RED}                                                           ------------------
                                                           |Welcome to NAN AIR|
-----------------------------------------------
-| Hello, Manager. What would you like to do? |
-| 1. Employees Database                      |
-| 2. Contractors Database                    |
-| 3. Destinations Database                   |
-| 4. Reports Database                        |
-| B. Back                                    |
-| Q. Quit                                    |                                                                                              
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Hello, Manager. What would you like to do?                                                                                                    |
+| 1. Employees Database                                                                                                                         |
+| 2. Contractors Database                                                                                                                       |
+| 3. Destinations Database                                                                                                                      |
+| 4. Reports Database                                                                                                                           |
+| B. Back                                                                                                                                       |
+| Q. Quit                                                                                                                                       |
 ------------------------------------------------------------------------------------------------------------------------------------------------- 
 | INPUT: """)
             if menu_choice == '1':
@@ -101,14 +105,14 @@ def manager_main_menu_employees():
             menu_choice = input(f"""
 {RED}                                                           ------------------
                                                           |Employees Database|
---------------------------------------
-| Employee Database for NAN Airlines |
-| 1. View Employees                  |
-| 2. Edit Employee Data              |
-| 3. Add Employee                    |
-| 4. Delete Employee Data            |
-| B. Back                            |
-| Q. Quit                            |
+------------------------------------------------------------------------------------------------------------------------------------------------
+| Employee Database for NAN Airlines                                                                                                           |
+| 1. View Employees                                                                                                                            |
+| 2. Edit Employee Data                                                                                                                        |
+| 3. Add Employee                                                                                                                              |
+| 4. Delete Employee Data                                                                                                                      |  
+| B. Back                                                                                                                                      |
+| Q. Quit                                                                                                                                      |
 ------------------------------------------------------------------------------------------------------------------------------------------------
 | INPUT: """)
             if menu_choice == '1':
@@ -121,6 +125,9 @@ def manager_main_menu_employees():
                 manager_main_menu_employees_add()
             elif menu_choice == '4':
                 pass
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
             else:
                 print("Invalid selection. Please try again...")
         except ValueError:
@@ -149,8 +156,11 @@ def manager_main_menu_employees_list():
 | INPUT: """)
                 if menu_choice == '1':
                     pass
-                if menu_choice == 'B' or menu_choice == 'b':
+                elif menu_choice == 'B' or menu_choice == 'b':
                     return
+                elif menu_choice == 'Q' or menu_choice == 'q':
+                    print("Exiting program. Goodbye!")
+                    break
             except ValueError:
                 print("Please enter a valid selection.")
 #Employees Database INPUT 2
@@ -193,20 +203,21 @@ def manager_main_menu_employees_add():
 ---------------------------------------------------------------------------------------------------------------------------------------------
 |       |                             |                |                        |            |                   |                          | 
 --------------------------------------------------------------------------------------------------------------------------------------------|
-| /back = Go Back
-| /quit = Quit
-| /id = Input ID
-| /name = Input employee name
-| /location = Input Employee's location of work
-| /snumber = Input Social Security Number
-| /phone = Input employee's home number
-| /mphone = Input Employee's mobile number
-| /email = Input Employee's email
+| /back = Go Back                                                                                                                           |
+| /quit = Quit                                                                                                                              |
+| /id = Input ID                                                                                                                            |
+| /name = Input employee name                                                                                                               |
+| /location = Input Employee's location of work                                                                                             |
+| /snumber = Input Social Security Number                                                                                                   |
+| /phone = Input employee's home number                                                                                                     |
+| /mphone = Input Employee's mobile number                                                                                                  |
+| /email = Input Employee's email                                                                                                           |
 --------------------------------------------------------------------------------------------------------------------------------------------|
 |ID: """)
                 if menu_choice == '/back':
                     return
                 elif menu_choice == '/quit':
+                    print("Exiting program. Goodbye!")
                     break
             except ValueError:
                 print("Invalid input. Please try again...")
@@ -266,8 +277,11 @@ def manager_main_menu_contractors():
 | INPUT: """)
             if menu_choice == '1':
                     manager_main_menu_contractors_contacts()
-            elif menu_choice == 'b':
+            elif menu_choice == 'b' or menu_choice == 'B':
                 return
+            elif menu_choice == 'q' or menu_choice == 'Q':
+                print("Exiting program. Goodbye!")
+                break
             elif menu_choice == '3':
                     manager_main_menu_contractors_request_maintenance_reports()
         except ValueError:
@@ -296,6 +310,9 @@ def manager_main_menu_contractors_contacts():
 |INPUT: """)
             if menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
         except ValueError:
             print("Please input valid option.")
 
@@ -320,6 +337,9 @@ def manager_main_menu_contractors_request_maintenance_contractors():
  INPUT: """)
             if menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
         except ValueError:
                 print("Please input valid option.")
 
@@ -342,6 +362,9 @@ def manager_main_menu_contractors_request_maintenance_locations():
  INPUT: """)
             if menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
         except ValueError:
             print("Please input valid option.")
 
@@ -366,6 +389,9 @@ def manager_main_menu_contractors_request_maintenance_reports():
  INPUT: """)
             if menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
         except ValueError:
             print("Please input valid option...")
 
@@ -392,6 +418,9 @@ def manager_main_menu_destinations():
                 manager_main_menu_destinations_edit()
             elif menu_choice == 'B' or menu_choice == 'b':
                 return
+            elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
+                break
         except ValueError:
             print("Please input valid option...")
 
@@ -405,7 +434,7 @@ def manager_main_menu_destinations_view():
                                                           |Destinations Database|
 -------------------------------------------------------------------------------------------------------------------------------------
 |   Airport ID  |   Country     |   Airport     |   Flight Time |   Distance    |   Manager     | Manager Phone |   Manager Email   | 
-|-----------------------------------------------------------------------------------------------------------------------------------| 
+|--------------------------------- -------------------------------------------------------------------------------------------------| 
 |               |               |               |               |               |               |               |                   |
 |-----------------------------------------------------------------------------------------------------------------------------------|
 | B. Back                                                                                                                           |
@@ -415,6 +444,7 @@ def manager_main_menu_destinations_view():
             if menu_choice == 'B' or menu_choice == 'b':
                 return
             elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
                 break
         except ValueError:
             print("Please input Valid option...")
@@ -439,6 +469,7 @@ def manager_main_menu_destinations_edit():
             if menu_choice == 'B' or menu_choice == 'b':
                 return
             elif menu_choice == 'Q' or menu_choice == 'q':
+                print("Exiting program. Goodbye!")
                 break
         except ValueError:
             print("Please input valid option...")
