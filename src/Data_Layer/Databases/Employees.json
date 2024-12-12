@@ -249,5 +249,20 @@
         "email": "@",
         "workLocation": 6,
         "type": "General"
+    },
+    {
+        "ID": 22,
+        "name": "Karl Finnnur J\u00f3nsson",
+        "socialSecurity": "202232-2333",
+        "address": "H\u00e1aleiti 30",
+        "atHomePhone": "883-1234",
+        "gsmPhone": "993-1234",
+        "email": "Kalli@Kalli.is",
+        "workLocation": 1,
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "",
+        "contractorContact": 1,
+        "openingHours": "9-4"
     }
 ]

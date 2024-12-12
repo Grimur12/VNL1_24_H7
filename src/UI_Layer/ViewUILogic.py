@@ -80,17 +80,16 @@ class ViewUILogic:
         print(managerspretty)
         
     def displayContractors(self, destination=None):
+        # For displaying contractors in the pretty table we omit, Address, Home Phone, Previous Task and Performance Rating
+        # User can easily find that information through choosing to view additional information on that specific contractor
         contractors_pretty = PrettyTable()
-        contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "Address", "Home Phone", "GSM Phone", "Email", "Work Location", "Type", "Previous Task", "Performance Rating", "Contractor Contact", "Opening Hours"]
+        contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "GSM Phone", "Email", "Work Location", "Type", "Contractor Contact", "Opening Hours"]
         contractors = self.LogicLayerWrapper.getContractorData(destination)
 
         for contractor in contractors:
-            contractors_pretty.add_row([contractor.employeeID, contractor.name, contractor.socialSecurity, contractor.address, contractor.atHomePhone, contractor.gsmPhone, contractor.email, contractor.workLocation, contractor.type, 
-                                        contractor.previousTask if contractor.previousTask else "N/A", 
-                                        contractor.performanceRating if contractor.performanceRating else "N/A", 
-                                        contractor.contractorContact, contractor.openingHours])
+            contractors_pretty.add_row([contractor.employeeID, contractor.name, contractor.socialSecurity, contractor.gsmPhone, contractor.email, contractor.workLocation, contractor.type,  contractor.contractorContact, contractor.openingHours])
         contractors_pretty.align = 'l'  
-        contractors_pretty.max_table_width = 120  
+        contractors_pretty.max_table_width = 160 
         contractors_pretty.min_table_width = 100  
         contractors_pretty.max_width = 30  
         contractors_pretty.hrules = True 
@@ -106,7 +105,7 @@ class ViewUILogic:
             propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.availability,property.hasAPool,property.hasATub,property.hasOvens])
         propertiespretty.align = 'l'
         propertiespretty.max_width = 30
-        propertiespretty.max_table_width = 120  
+        propertiespretty.max_table_width = 140
         propertiespretty.min_table_width = 100
         propertiespretty.hrules = True 
         propertiespretty.vrules = True  
@@ -122,7 +121,7 @@ class ViewUILogic:
         tasks_pretty.align = "l"  
         tasks_pretty.max_width = 30  
         tasks_pretty.min_table_width = 100 
-        tasks_pretty.max_table_width = 120  
+        tasks_pretty.max_table_width = 150  
         tasks_pretty.hrules = True 
         tasks_pretty.vrules = True 
 
@@ -138,7 +137,7 @@ class ViewUILogic:
         schedules_pretty.align = "l"  
         schedules_pretty.max_width = 30  
         schedules_pretty.min_table_width = 100  
-        schedules_pretty.max_table_width = 120 
+        schedules_pretty.max_table_width = 140
         schedules_pretty.hrules = 1 
         schedules_pretty.hrules = True 
         schedules_pretty.vrules = True 
@@ -169,7 +168,7 @@ class ViewUILogic:
         maintenance_reports_pretty.align = "l"  
         maintenance_reports_pretty.max_width = 90
         maintenance_reports_pretty.min_table_width = 100 
-        maintenance_reports_pretty.max_table_width = 170
+        maintenance_reports_pretty.max_table_width = 150
         maintenance_reports_pretty.hrules = True 
         maintenance_reports_pretty.vrules = True 
 

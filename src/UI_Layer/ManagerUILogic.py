@@ -163,7 +163,7 @@ class ManagerUILogic:
         overWritten = False
         aborted = False # Flag to see if user has pressed b or does not want to overwrite manager
         title_message = ["Adding a new Employee","Adding a new Manager","Adding a new Contractor"] # Creating a list of the possible titles depending on what type of employee the user wants to create
-        input_message = ["Enter Name: ", "Enter Social Security Number: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email:", "Enter Work Location", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
+        input_message = ["Enter Name: ", "Enter Social Security Number: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email: ", "Enter Work Location: ", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
         if type_of_employee == "3":
             max_parameters = 12
         else:

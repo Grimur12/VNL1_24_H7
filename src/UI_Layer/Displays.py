@@ -199,8 +199,6 @@ class Displays:
         main_menu.add_row([""])
         main_menu.align = 'l'
         main_menu.max_table_width = 100
-        main_menu.bottom_left_junction_char = '|'
-        main_menu.bottom_right_junction_char = '|'
         
         return main_menu
     
@@ -216,7 +214,8 @@ class Displays:
         view_menu.add_row(["6: View all Maintenance Reports"])
         view_menu.add_row(["7: View all Destinations"])
         view_menu.add_row(["B: Go back"])
-        view_menu.add_row(["Q: Quit"])  
+        view_menu.add_row(["Q: Quit"])
+        view_menu.align = 'l'  
 
         return view_menu
     
