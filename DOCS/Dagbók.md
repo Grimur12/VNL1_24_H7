@@ -690,8 +690,9 @@ Pairs and Layers EOD Results and Todays work:
 Iðunn and Pedro
  - pedro finished the model diagram completely
  - iðunn finished the state diagram completely
- - this group started testing the program completely to see if there were any visible errors.
- - Iðunn finished the updated wireframe / happy path 
+ - this group started helping with testing the program completely to see if there were any visible errors.
+ - Iðunn finished the updated wireframe / happy path
+ - Started going over the pdf and upgrade text
 
 Máni and Grímur 
  - Grímur focused on updating the biggest mistakes we can upgrade before turning in the code
@@ -716,29 +717,24 @@ Extra checklist for week 3
 - [x] Change Priority values, need to be Emergency, now and soon as possible
 - [x] finish the wireframe /happy paths 
 - [ ] finish recording 10minute video
-- [ ] write comments in the code what couldve been better done if we had more time!!!
-- [ ] go over our pdf document
 
 
 Final Return TODO:
-- [ ] finish pdf document
- - [x] User Group Analysis
- - [ ] Functional Requirements   GO OVER!!
- - [x] Wireframe / Happy paths
- - [ ] UML diagram
- - [x] Model Diagram
- - [x] State Diagram
- - [ ] Use cases      GO OVER!!
-      
+- [x] finish pdf document 
+  - [x] User Group Analysis
+  - [ ] Functional Requirements
+  - [x] Wireframe / Happypaths
+  - [x]  UML diagram
+  - [x] Model Diagram
+  - [x] State Diagram
+  - [ ] Use cases 
+
 - [ ] Finish Code / Program Completely
 - [x] READme.md file that contains information about our program and how to start it etc.
 - [x] Requirements.txt file that contain all pip install packages
 - [ ] 10 minute introduction to the system video, best option is youtube file because files can be really big
       - [ ] LINK TO THE VIDEO is suppposed to be on READ ME file
 - [ ] RETURN This book report
-
-
-      
 
 
 ## [13/12/2024 - Dagur 5]
