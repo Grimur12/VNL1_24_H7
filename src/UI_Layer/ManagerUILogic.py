@@ -172,10 +172,10 @@ def manager_main_menu_employees_edit():
                                                           |Employees Database|
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | To edit data from NaN Airlines Employee, please put in Employe ID Number:                                                                   |
-| Press ESC to go back.                                                                                                                       |
+| Put in "B" and press enter to go back.                                                                                                                       |
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | INPUT: """)
-                if menu_choice == 'esc':
+                if menu_choice == 'B' or menu_choice == 'b':
                     return    
             except ValueError:
                     print("Please input numbers only.")
