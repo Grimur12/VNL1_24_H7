@@ -190,10 +190,13 @@ class Displays:
         main_menu = PrettyTable()
         main_menu.title = "---Welcome to NAN Air!---"
         main_menu.header = False
+        main_menu.add_row(["Are you a manager, employee or a contractor?"])
+        main_menu.add_row([""])
         main_menu.add_row(["1: Manager"])
         main_menu.add_row(["2: Employee"])
         main_menu.add_row(["3: Contractor"])
         main_menu.add_row(["Q: Quit"])
+        main_menu.add_row([""])
         main_menu.align = 'l'
         main_menu.max_table_width = 100
         main_menu.bottom_left_junction_char = '|'
