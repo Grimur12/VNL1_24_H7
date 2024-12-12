@@ -7,7 +7,8 @@ class DestinationDBLogic:
         """ Holds reference to the Destination DB """
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Destination.json")
-
+        # The destination DB is an artificial one
+        # The system depends on this destination DB, if deleted the system will not work since no features were implemented or meant to be implemented for it. It just assumes that there is a destination DB
     def loadDestinationsLog(self) -> list[Destination]:
         """ Loads all properties from json database, creates the classes again, stores in a list to return"""
         destination_list = [] # Start off with an empty list

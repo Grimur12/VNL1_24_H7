@@ -10,7 +10,7 @@ from Models.Property import Property
 from Models.Workers import *
 
 class DataLayerAPI:
-    def __init__(self):
+    def __init__(self) -> None:
         """ Holds a reference to our Database Logic"""
         self.employeeDB = EmployeesDBLogic()
         self.maintenanceDB = MaintenanceDBLogic()

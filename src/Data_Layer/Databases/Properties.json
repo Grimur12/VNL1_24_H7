@@ -79,5 +79,14 @@
         "hasAPool": "False",
         "hasATub": "True",
         "hasOvens": "False"
+    },
+    {
+        "propertyID": 10,
+        "nameOfProperty": "t",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
     }
 ]

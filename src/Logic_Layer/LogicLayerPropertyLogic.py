@@ -6,7 +6,8 @@ from .ErrorCheckers import ErrorCheckers
 
 class LogicLayerPropertyLogic:
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """ Holds the DataLayerAPI and ErrorCheckers"""
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 

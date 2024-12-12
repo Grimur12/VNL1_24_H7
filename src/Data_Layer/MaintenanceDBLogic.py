@@ -8,7 +8,7 @@ from datetime import datetime
 
 class MaintenanceDBLogic:
 
-    def __init__(self):
+    def __init__(self) -> None:
         """ Holds a reference to all Maintenance related Databases """
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.maintenance_file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Maintenance.json")
