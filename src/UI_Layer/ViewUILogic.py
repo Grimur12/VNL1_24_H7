@@ -9,44 +9,47 @@ class ViewUILogic:
         self.LogicLayerWrapper = LogicLayerAPI()
         self.Displays = Displays()
 
-    def viewMenu(self):
-        self.clearTerminal()
-        while True:
-            print(self.Displays.ViewMenu())
-            user_choice = input("Choice: ")
-
-            if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
-
-            elif user_choice.lower() == "b":
-                print("Going back")
-                self.clearTerminal()
-                break
-
-            elif user_choice == "1":
-                self.filterEmployees()
-            elif user_choice == "2":
-                self.filterContractors()
-            elif user_choice == "3":
-                self.filterProperties()
-            elif user_choice == "4":
-                self.filterMaintenanceTasks()
-            elif user_choice == "5":
-                self.filterMaintenanceSchedules()
-            elif user_choice == "6":
-                self.filterMaintenanceReports()
-            elif user_choice == "7":
-                self.filterDestinations()
-            else:
-                print("Invalid Input")
-            
     def clearTerminal(self):
-        ## Not exactly how i want it... clears everything, needs to show errors...
         if name == "nt":
             system("cls")
         else:
-            system("clear")
+            system("clear")    
+
+    def viewMenu(self):
+        self.clearTerminal()
+        # Instead of having a very long nested elif statement we will have a dictionary of valid options and we will check on key in that dictionary for the users choice
+        # Reduces code and makes it easier to read 
+        validOptions = {
+            "1": self.filterEmployees,
+            "2": self.filterContractors,
+            "3": self.filterProperties,
+            "4": self.filterMaintenanceTasks,
+            "5": self.filterMaintenanceSchedules,
+            "6": self.filterMaintenanceReports,
+            "7": self.filterDestinations
+        }
+        error_message = None
+        while True:
+            print(self.Displays.ViewMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+            user_choice = input("Choice: ")
+            # We check if the user wants to quit or go back to the previous menu
+            if user_choice.lower() == "q":
+                print("Quitting")
+                return "q"
+            elif user_choice.lower() == "b":
+                self.clearTerminal()
+                return "b"
+            # Then we check if we have the input as a key in our valid options dictionary and if he have it use the function inside of it which calls another menu
+            elif user_choice in validOptions:
+                result = validOptions[user_choice]() # Can not have the function directly in the dictionary it calls them, so we need to only call them after we have received the valid input by storing the reference
+                if result == "q":
+                    return "q" # We dont want to return Back even if user presses back because then we would go back to the main menu which we dont want
+            else:
+                error_message = "Invalid Input"
+                self.clearTerminal()
 
     def displayEmployees(self, destination = None):
         employeespretty = PrettyTable()
@@ -57,7 +60,7 @@ class ViewUILogic:
         employeespretty.align = 'l'
         employeespretty.max_table_width = 120
         employeespretty.min_table_width = 100
-        employeespretty.max_width = 30 
+        employeespretty.max_width = 30
         print(employeespretty)
 
     def displayManagers(self, destination = None):
@@ -69,7 +72,7 @@ class ViewUILogic:
         managerspretty.align = 'l'
         managerspretty.max_table_width = 120
         managerspretty.min_table_width = 100
-        managerspretty.max_width = 30 
+        managerspretty.max_width = 30
         print(managerspretty)
         
     def displayContractors(self, destination=None):
@@ -87,7 +90,7 @@ class ViewUILogic:
         contractors_pretty.min_table_width = 100  
         contractors_pretty.max_width = 30  
         contractors_pretty.hrules = True 
-        contractors_pretty.vrules = True  
+        contractors_pretty.vrules = True
 
         print(contractors_pretty)
 
@@ -100,56 +103,48 @@ class ViewUILogic:
         propertiespretty.align = 'l'
         propertiespretty.max_width = 30
         propertiespretty.max_table_width = 120  
-        propertiespretty.min_table_width = 100  
+        propertiespretty.min_table_width = 100
+        propertiespretty.hrules = True 
+        propertiespretty.vrules = True  
+  
         print(propertiespretty)
 
     def displayMaintenanceTasks(self):
         maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData()
-
-        # Create a PrettyTable instance
         tasks_pretty = PrettyTable()
         tasks_pretty.field_names = ["Task ID", "Property ID", "Description", "Start Date", "End Date", "Status", "Priority", "Recurring"]
-
-        # Add rows to the table
         for task in maintenanceTasks:
             tasks_pretty.add_row([task.maintenanceID,task.propertyID,task.description,task.startDate,task.endDate,task.statusMaintenance,task.priority,task.recurring])
-
-        # Table formatting options
         tasks_pretty.align = "l"  
         tasks_pretty.max_width = 30  
         tasks_pretty.min_table_width = 100 
         tasks_pretty.max_table_width = 120  
-        tasks_pretty.hrules = 1  
+        tasks_pretty.hrules = True 
+        tasks_pretty.vrules = True 
 
         # Display the table
         print(tasks_pretty)
 
     def displayMaintenanceSchedules(self):
         maintenanceSchedules = self.LogicLayerWrapper.getMaintenanceScheduleData()
-
         schedules_pretty = PrettyTable()
         schedules_pretty.field_names = ["Schedule ID", "Maintenance ID", "Task Type", "Frequency", "Start Date"]
-
-        # Add rows to the table
         for schedule in maintenanceSchedules:
             schedules_pretty.add_row([ schedule.maintenanceScheduleID, schedule.maintenanceID, schedule.taskType, schedule.frequency, schedule.startDate])
-
-        # Table formatting options
         schedules_pretty.align = "l"  
         schedules_pretty.max_width = 30  
         schedules_pretty.min_table_width = 100  
         schedules_pretty.max_table_width = 120 
-        schedules_pretty.hrules = 1  
+        schedules_pretty.hrules = 1 
+        schedules_pretty.hrules = True 
+        schedules_pretty.vrules = True 
 
         # Display the table
         print(schedules_pretty)
 
 
     def displayMaintenanceReports(self):
-        # Fetch maintenance report data
         maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
-
-        # Create a PrettyTable instance
         maintenance_reports_pretty = PrettyTable()
         maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Ready to Close", "Supervisor Closed", "Supervisor Feedback"]
 
@@ -167,128 +162,141 @@ class ViewUILogic:
             report.supervisorFeedback if report.supervisorFeedback else "No Feedback Yet"
             ])
 
-        # Table formatting 
         maintenance_reports_pretty.align = "l"  
         maintenance_reports_pretty.max_width = 30 
         maintenance_reports_pretty.min_table_width = 100 
         maintenance_reports_pretty.max_table_width = 120 
-        maintenance_reports_pretty.hrules = 1 
+        maintenance_reports_pretty.hrules = True 
+        maintenance_reports_pretty.vrules = True 
 
         print(maintenance_reports_pretty)
 
     def displayDestinations(self):
         destinations = self.LogicLayerWrapper.getDestinationData()
-
         destinations_pretty = PrettyTable()
         destinations_pretty.field_names = ["Destination ID", "Name", "Country", "Timezone", "Airport Name", "Phone Number", "Opening Hours", "Manager ID"]
-
         for destination in destinations:
             destinations_pretty.add_row([destination.destinationID, destination.name, destination.country, destination.timezone, destination.airportName, destination.phoneNumber, destination.openingHours, destination.managerOfDestination])
-
         destinations_pretty.align = "l" 
         destinations_pretty.max_width = 30 
         destinations_pretty.min_table_width = 100 
         destinations_pretty.max_table_width = 120 
-        destinations_pretty.hrules = 1 
+        destinations_pretty.hrules = True 
 
         print(destinations_pretty)
 
     def filterEmployees(self, destination = None):
-        self.displayEmployees(destination) # Show them the complete list and then ask if they want any more filtering....
+        self.clearTerminal()
         # Function can receive a destination if user is asking for specific employees at a specific destination
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific Employee")
-            print("2: To view all tasks an Employee has worked on")
-            print("3: To view the Manager(s)")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayEmployees(destination) # Show them the complete list and then ask if they want any more filtering....
+            print(self.Displays.filterEmployeesMenu()) # Always show the menu, even if an error was found
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
             user_choice = input("Choice: ")
+            # Handle initial Quit and go back user inputs
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
-
+                print("Quitting")
+                return "q"
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
 
-            elif user_choice == "1":
+            elif user_choice == "1": # User wants to Look up a specific Employee
                 ID = input("ID of the Employee you want to look up: ")
-
+                # If user changes his mind and wants to quit or go back from this point, if he goes back when picking ID he should go back to the main filter employees screen because he may have wanted to choose to show tasks instead of specific employee f.x
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     employee = self.LogicLayerWrapper.getEmployeebyID(ID, destination)
                     self.Displays.printEmployee(employee)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
-
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "2":
                 ID = input("ID of the Employee you want to show tasks for: ")
-
+                # If user changes his mind and wants to quit or go back from this point, if he goes back when picking ID he should go back to the main filter employees screen because he may have wanted to choose to specific employee instead of show tasks f.x
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
-                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID, destination) # Gets all the tasks for a specified employee
+                    tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID, destination) # Gets all the tasks for a specified employee from logic layer
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
-                    self.dateFilter(tasks) # get the datefilter
+                    self.dateFilter(tasks) # Open the dateFiter menu, see if user wants to do that aswell
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "3":
                 self.displayManagers(destination)
+                done_looking = input("Press any button if you are done: ")
+                if done_looking == "q":
+                    return "q"
+                self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()
+            
 
     def filterContractors(self, destination = None):
-        self.displayContractors(destination) # Show them the complete list and then ask if they want any more fliltering...
+        self.clearTerminal()
+        error_message = None
+        title_message = "Contractor Information"
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific Contractor")
-            print("2: To view all tasks a Contractor has worked on")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayContractors(destination) # Show them the complete list and then ask if they want any more fliltering...
+            print(self.Displays.filterContractorsMenu()) # Always show the menu, even if an error was found
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":
                 ID = input("ID of the Contractor you want to look up: ")
-
+                # If user changes his mind and wants to quit he quits, if he wants to go back he goes back to the displayContractors screen so he can choose another option from it
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
                 try:
                     contractor = self.LogicLayerWrapper.getContractorbyID(ID, destination)
-                    self.Displays.printContractor(contractor)
+                    self.Displays.printEmployee(contractor, title_message)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "2":
                 ID = input("ID of the Contractor you want to show tasks for: ")
-
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
@@ -298,263 +306,319 @@ class ViewUILogic:
                         self.Displays.printMaintenanceTask(task)
                     self.dateFilter(tasks) # get the datefilter
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()
 
     def filterProperties(self, destination = None):
-        self.displayProperties(destination) # Show them the complete list and then ask if they want any more filtering....
+        self.clearTerminal()
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific Property")
-            print("2: To view all Maintenance on a specific Property")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayProperties(destination) # Show them the complete list and then ask if they want any more filtering....
+            print(self.Displays.filterPropertiesMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":
                 ID = input("ID of the Property you want to look up: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     property = self.LogicLayerWrapper.getPropertyByID(ID, destination)
                     self.Displays.printProperty(property)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        print("Quitting")
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "2":
                 ID = input("ID of the Property you want to show tasks for: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID, destination) # Takes in x amount of Maintenance Tasks done on specific property
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
-                    self.dateFilter(tasks) # get the datefilter
+                    self.dateFilter(tasks) # get the datefilter menu
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()
     
     def filterMaintenanceTasks(self):
-        self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
+        self.clearTerminal()
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific Maintenance Task")
-            print("2: To view all Maintenance Tasks that are ready to be closed (Through closing the Maintenance Report)")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
+            print(self.Displays.filterMaintenanceMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Task you want to look up: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     task = self.LogicLayerWrapper.getMaintenanceTaskByID(ID)
                     self.Displays.printMaintenanceTask(task)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "2":
                 try:
                     reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks()
                     for report in reports:
                         self.Displays.printMaintenanceTask(report)
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()
     
     def filterMaintenanceSchedules(self):
-        self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
+        self.clearTerminal()
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific Maintenance Schedule")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
+            print(self.Displays.filterMaintenanceScheduleMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Schedule you want to look up: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     task = self.LogicLayerWrapper.getMaintenanceScheduleByID(ID)
                     self.Displays.printMaintenanceSchedule(task)
+                    done_looking = input("Press any button if you are done: ")
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")            
+                error_message = "Invalid Input"
+                self.clearTerminal()          
 
     def filterMaintenanceReports(self):
-        self.displayMaintenanceReports()
+        self.clearTerminal()
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view additional information of a specific MaintenanceReport")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayMaintenanceReports()
+            print(self.Displays.filterMaintenanceReportMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":
                 ID = input("ID of the Maintenance Report you want to look up: ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     report = self.LogicLayerWrapper.getMaintenanceReportByID(ID)
                     self.Displays.printMaintenanceReport(report)
+                    done_looking = input("Enter any button if you are done: ")
+                    if done_looking == "q":
+                        print("Quitting")
+                        return "q"
+                    self.clearTerminal()
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()      
 
     def filterDestinations(self):
-        self.displayDestinations()
+        self.clearTerminal()
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view information about Employees at a specific Destination")
-            print("2: To view information about Contractors at a specific Destination")
-            print("3: To view information about Properties at a specific Destination")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            self.displayDestinations()
+            print(self.Displays.filterDestinationMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None  
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
             
             elif user_choice == "1":  # Employees at Destination
                 ID = input("ID of the Destination you want to show Employee information for ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     # In order to reuse the fiter functions for Employees, Contractors and Properties we need to give it a destination so that the GetTasksFor (Property, Contractors, Employees) can filter on the destination
                     # This reduces duplicate code
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    #self.displayDestinationEmployees(destination)
-                    self.filterEmployees(destination) # Call the filterEmployees with the specific destination user wanted to look at
+                    result = self.filterEmployees(destination) # Call the filterEmployees with the specific destination user wanted to look at
+                    if result.lower() == "q":
+                        return "q"
+                    elif result.lower() == "b":
+                        self.clearTerminal()
+                        continue
                     
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "2": # Contractors At Destination
                 ID = input("ID of the Destination you want to show Contractor information for ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    self.filterContractors(destination)
+                    result = self.filterContractors(destination)
+                    if result.lower() == "q":
+                        return "q"
+                    elif result.lower() == "b":
+                        self.clearTerminal()
+                        continue
                     # Try giving Display Contractor a list of contractors on that location ? then call the filter contractors ?
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             elif user_choice == "3": # Properties at Destination
                 ID = input("ID of the Destination you want to show Property information for ")
 
                 if ID.lower() == "q":
                     print("Quitting")
-                    exit()
+                    return "q"
                 elif ID.lower() == "b":
                     self.clearTerminal()
                     continue
+
                 try:
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
-                    self.filterProperties(destination)
+                    result = self.filterProperties(destination)
+                    if result.lower() == "q":
+                        return "q"
+                    elif result.lower() == "b":
+                        self.clearTerminal()
+                        continue
                     # Try giving Display properties a list of properties on that location ? then call the filter properties ?
                 except ValueError as error:
-                    print(error)
+                    error_message = error
+                    self.clearTerminal()
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"
+                self.clearTerminal()   
 
-    
     def dateFilter(self, tasks):
+        error_message = None
         while True:
-            print("\n-------------------------------------------------------")
-            print("1: To view tasks over a specific time period")
-            print("B: To Go Back")
-            print("Q: To Quit")
-            print("-------------------------------------------------------\n")
+            print(self.Displays.FilterDateMenu())
+            if error_message:
+                print(f"Error: {error_message}")
+                error_message = None
+
             user_choice = input("Choice: ")
             if user_choice.lower() == "q":
-                print("Qutting")
-                exit()
+                print("Quitting")
+                return "q"
 
             elif user_choice.lower() == "b":
-                print("Going back")
                 self.clearTerminal()
-                break
+                return "b"
 
             elif user_choice == "1":
                 startDate = input("Start Date: ")
@@ -563,4 +627,4 @@ class ViewUILogic:
                 for filtered_task in filtered_tasks:
                     self.Displays.printMaintenanceTask(filtered_task)
             else:
-                print("Invalid Input")
+                error_message = "Invalid Input"

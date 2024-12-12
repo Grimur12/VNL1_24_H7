@@ -23,7 +23,7 @@
     },
     {
         "employeeID": 3,
-        "name": "NAMECHANGED",
+        "name": "Kalli J\u00f3n",
         "socialSecurity": "020201-2340",
         "address": "Hr",
         "atHomePhone": "882-1233",
@@ -67,7 +67,7 @@
         "gsmPhone": "123-3232",
         "email": "g @",
         "workLocation": 4,
-        "type": "Manager"
+        "type": "General"
     },
     {
         "ID": 7,
@@ -215,6 +215,28 @@
         "gsmPhone": "889-2322",
         "email": "dgrimur@i.",
         "workLocation": 2,
+        "type": "General"
+    },
+    {
+        "employeeID": 19,
+        "name": "Kalli",
+        "socialSecurity": "021223-2322",
+        "address": "Kallavegur 30",
+        "atHomePhone": "992-1233",
+        "gsmPhone": "221-2322",
+        "email": "Kalli@ru.is",
+        "workLocation": 4,
+        "type": "Manager"
+    },
+    {
+        "employeeID": 20,
+        "name": "Jon",
+        "socialSecurity": "021223-2322",
+        "address": "Jonroad",
+        "atHomePhone": "033-1233",
+        "gsmPhone": "213-2333",
+        "email": "jon@jon.com",
+        "workLocation": 5,
         "type": "General"
     }
 ]

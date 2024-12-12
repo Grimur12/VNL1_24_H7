@@ -155,6 +155,8 @@ class LogicLayerMaintenanceLogic:
         if count == 1:
             self.Errors.checkNumber(input) # Check if the maintenance ID is an int
             self.checkIfMaintenanceIDinDB(int(input)) # Check if we have that maintenance in our DB, cant schedule a maintenance that does not exist..
+            self.checkIfMaintenanceIsClosed(int(input)) # Check if the Maintenance we are trying to schedule is closed, we cant create a schedule on a closed maintenance
+            self.checkIfMaintenanceIsRecurring(int(input), True) # Check if its recurring using the schedule Flag to get the correct Error
             temp_maintenanceSchedule.maintenanceID = int(input)
         elif count == 2:
             self.Errors.checkErrorTaskType(input)
@@ -195,12 +197,15 @@ class LogicLayerMaintenanceLogic:
                 return maint # and return it
         raise ValueError("There is no Maintenance Task by that ID")
     
-    def checkIfMaintenanceIsClosed(self, ID) -> True:
+    def checkIfMaintenanceIsClosed(self, ID, schedule = None) -> True:
         """ This function checks if a Maintenance Task that we know we have in our DB is closed or still ongoing, returns true if maintenance is not closed otherwise raises KeyError """
         # Should not be called in isolation, needs prerequisite functionality (called in validation functions)
         task = self.getMaintenanceTaskByID(ID) # We know that if we call this function that the ID is already in the DB no need to check
         if task.statusMaintenance.lower() == "closed": # Checks if the status we got from id is closed or not
-            raise KeyError("You can not create a Maintenance Report on a closed Maintenance Task")
+            if schedule:
+                raise KeyError("You can not create a Maintenance Schedule for a closed Maintenance Task")
+            else:
+                raise KeyError("You can not create a Maintenance Report on a closed Maintenance Task")
         return True
     
     def checkIfEmployeeIDinDB(self, ID) -> True:
@@ -253,7 +258,7 @@ class LogicLayerMaintenanceLogic:
                 return True
         return False
 
-    def checkIfMaintenanceIsRecurring(self, maintenanceID) -> True:
+    def checkIfMaintenanceIsRecurring(self, maintenanceID, schedule = None) -> True:
         """ Function takes in maintenance ID, checks if that maintenance is recurring, if it is return True else raise KeyError """
         maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
         # Function should only be used in the validate functions, needs prerequisite functions to work properly
@@ -262,7 +267,10 @@ class LogicLayerMaintenanceLogic:
             if maint.maintenanceID == maintenanceID: # Find the maintenance specified in the DB
                 if maint.recurring.lower() == "true": # Check if that maintenance is recurring or not
                     return True
-        raise KeyError("You can not create duplicate Maintenance Reports on Maintenance Tasks that are not recurring")
+        if schedule: # For duplicate use of the function one for maintenance schedule validation
+            raise KeyError("You can not Schedule a Maintenance Task that is not recurring")
+        else: # one for maintenance report validation
+            raise KeyError("You can not create duplicate Maintenance Reports on Maintenance Tasks that are not recurring")
 
     def validateMaintenanceReportContractorInput(self, input, count, temp_maintenanceReport) -> True:
         """ Function checks for each attribute in the Maintenance Report the user changes as a contractor if it is of the desired format, returns True or raises ValuError"""

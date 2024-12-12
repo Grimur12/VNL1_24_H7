@@ -48,5 +48,15 @@
         "statusMaintenance": "Closed",
         "priority": "Now",
         "recurring": "False"
+    },
+    {
+        "maintenanceID": 6,
+        "propertyID": 5,
+        "description": "Add a Bath Tub",
+        "startDate": "02.10.2022.12:00",
+        "endDate": "04.10.2024.12:00",
+        "statusMaintenance": "Ongoing",
+        "priority": "ASAP",
+        "recurring": "False"
     }
 ]

@@ -13,26 +13,35 @@ class main:
         self.ViewUI = ViewUILogic()
         self.Displays = Displays()
 
+    def runProgram(self) -> None:
+        """Function takes in inital input for which UI he wishes to use going forward"""
+        invalid = False
+        while True: 
+            self.ViewUI.clearTerminal()
+            print(self.Displays.MainMenu())
+
+            if invalid:
+                print("Error: Invalid Input. Valid inputs are 1, 2 or 3 with no trailing commas or spaces\n")
+                invalid = False
+
+            initial_input = input("Choice: ")
+
+            if initial_input.lower() == "q":
+                print("Quitting")
+                return
+            # You can not back out of the main menu so you either pick a value or you quit, other UI's can pass q back into this function to quit aswell
+            elif initial_input == "1":
+                if self.ManagerUI.run() == "q": # Check if the user wants to quit
+                    return
+            elif initial_input == "2":
+                if self.EmployeeUI.run() == "q": # Check if the user wants to quit
+                    return
+            elif initial_input == "3":
+                if self.ContractorUI.run() == "q": # Check if the user wants to quit
+                    return
+            else:
+                invalid = True
+
 if __name__ == "__main__":
-    start = main()
-    invalid = False
-    while True: 
-        start.ViewUI.clearTerminal()
-        print(start.Displays.MainMenu())
-
-        if invalid:
-            print("Error: Invalid Input\n")
-
-        initial_input = input("Choice: ")
-        if initial_input.lower() == "q":
-            print("Quitting")
-            break
-        elif initial_input == "1":
-            start.ManagerUI.run()
-        elif initial_input == "2":
-            start.EmployeeUI.run()
-        elif initial_input == "3":
-            start.ContractorUI.run()
-        else:
-            invalid = True
+    main().runProgram()
             
