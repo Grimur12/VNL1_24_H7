@@ -709,7 +709,7 @@ Extra checklist for week 3
 - [ ] finish the wireframe according to our code
 - [ ] finish recording 10minute video
 - [ ] write comments in the code what couldve been better done if we had more time!!!
-- [ ] go over 
+- [ ] go over our pdf document
 
 
 ## [13/12/2024 - Dagur 5]
