@@ -722,13 +722,14 @@ Extra checklist for week 3
 
 Final Return TODO:
 - [ ] finish pdf document
-      - [x] User Group Analysis
-      - [ ] Functional Requirements   GO OVER!!
-      - [x] Wireframe / Happy paths
-      - [ ] UML diagram
-      - [x] Model Diagram
-      - [x] State Diagram
-      - [ ] Use cases      GO OVER!!
+ - [x] User Group Analysis
+ - [ ] Functional Requirements   GO OVER!!
+ - [x] Wireframe / Happy paths
+ - [ ] UML diagram
+ - [x] Model Diagram
+ - [x] State Diagram
+ - [ ] Use cases      GO OVER!!
+      
 - [ ] Finish Code / Program Completely
 - [x] READme.md file that contains information about our program and how to start it etc.
 - [x] Requirements.txt file that contain all pip install packages
