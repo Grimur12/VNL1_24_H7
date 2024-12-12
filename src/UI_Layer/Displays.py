@@ -343,6 +343,7 @@ class Displays:
         filter_destination_menu.add_row(["1: To view information about Employees at a specific Destination"])
         filter_destination_menu.add_row(["2: To view information about Contractors at a specific Destination"])
         filter_destination_menu.add_row(["3: To view information about Properties at a specific Destination"])
+        filter_destination_menu.add_row(["4: To view information about Maintenance Tasks at a specific Destination"])
         filter_destination_menu.add_row(["B: To Go Back"])
         filter_destination_menu.add_row(["Q: To Quit"])
         filter_destination_menu.align = "l"
