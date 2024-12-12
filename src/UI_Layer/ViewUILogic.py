@@ -242,7 +242,9 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForEmployeeID(ID, destination) # Gets all the tasks for a specified employee from logic layer
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
-                    self.dateFilter(tasks) # Open the dateFiter menu, see if user wants to do that aswell
+                    result = self.dateFilter(tasks) # Open the dateFiter menu, see if user wants to do that aswell
+                    if result == "q":
+                        return "q"
                 except ValueError as error:
                     error_message = error
                     self.clearTerminal()
@@ -308,7 +310,9 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForContractorID(ID, destination) # Takes in x amount of Maintenance Tasks a contractor has worked 
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
-                    self.dateFilter(tasks) # get the datefilter
+                    result = self.dateFilter(tasks) # get the datefilter
+                    if result == "q":
+                        return "q"
                 except ValueError as error:
                     error_message = error
                     self.clearTerminal()
@@ -370,7 +374,9 @@ class ViewUILogic:
                     tasks = self.LogicLayerWrapper.getTasksForPropertyID(ID, destination) # Takes in x amount of Maintenance Tasks done on specific property
                     for task in tasks:
                         self.Displays.printMaintenanceTask(task)
-                    self.dateFilter(tasks) # get the datefilter menu
+                    result = self.dateFilter(tasks) # get the datefilter 
+                    if result == "q":
+                        return "q"
                 except ValueError as error:
                     error_message = error
                     self.clearTerminal()
@@ -652,8 +658,18 @@ class ViewUILogic:
 
             elif user_choice == "1":
                 startDate = input("Start Date: ")
+                if startDate == "b":
+                    return "b"
+                elif startDate == "q":
+                    return "q"
                 endDate = input("End Date: ")
+                if endDate == "b":
+                    return "b"
+                elif endDate == "q":
+                    return "q"
+                
                 filtered_tasks = self.LogicLayerWrapper.filterMaintenanceTasksDates(tasks, startDate, endDate)
+                self.clearTerminal()
                 for filtered_task in filtered_tasks:
                     self.Displays.printMaintenanceTask(filtered_task)
             else:
