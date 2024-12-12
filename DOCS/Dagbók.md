@@ -705,11 +705,30 @@ Extra checklist for week 3
 - [ ] Make the layered class diagram match the code
 - [ ] Check all boxes in the Requirements list in the Design report
 - [ ] Change Priority values, need to be Emergency, now and soon as possible
-- [ ] finish state diagram according to our code
-- [ ] finish the wireframe according to our code
+- [ ] finish the wireframe /happy paths 
 - [ ] finish recording 10minute video
 - [ ] write comments in the code what couldve been better done if we had more time!!!
 - [ ] go over our pdf document
+
+
+Final Return TODO:
+- [ ] finish pdf document
+      - [x] User Group Analysis
+      - [ ] Functional Requirements   GO OVER!!
+      - [ ] Wireframe / Happy paths
+      - [ ] UML diagram
+      - [x] Model Diagram
+      - [x] State Diagram
+      - [ ] Use cases      GO OVER!!
+- [ ] Finish Code / Program Completely
+- [ ] READme.md file that contains information about our program and how to start it etc.
+- [ ] Requirements.txt file that contain all pip install packages
+- [ ] 10 minute introduction to the system video, best option is youtube file because files can be really big
+      - [ ] LINK TO THE VIDEO is suppposed to be on READ ME file
+- [ ] RETURN This book report
+
+
+      
 
 
 ## [13/12/2024 - Dagur 5]
