@@ -114,9 +114,9 @@ class LogicLayerAPI:
         """ Function creates a unique ID for MaintenanceReport, creates an empty one, and returns it to be filled out by user"""
         return self.LogicLayerMaintenancelogic.createTempMaintenanceReport()
     
-    def getMaintenanceTaskData(self) -> list[Maintenance]:
+    def getMaintenanceTaskData(self, destination = None) -> list[Maintenance]:
         """ Function loads all Maintenance's that are in the DB and returns a list of maintenances"""
-        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceData()
+        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceData(destination)
         return maintenanceTask
     
     def getMaintenanceScheduleData(self) -> list[MaintenanceSchedule]:
@@ -129,9 +129,9 @@ class LogicLayerAPI:
         maintenanceReports = self.LogicLayerMaintenancelogic.getMaintenanceReportData()
         return maintenanceReports
 
-    def getMaintenanceTaskByID(self, ID) -> Maintenance:
+    def getMaintenanceTaskByID(self, ID, destination = None) -> Maintenance:
         """ Function takes in ID of a Maintenance Task, loads up the maintenances in the DB and tries to find it, returns maintenance Task or raises ValueError"""
-        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceTaskByID(ID)
+        maintenanceTask = self.LogicLayerMaintenancelogic.getMaintenanceTaskByID(ID, destination)
         return maintenanceTask
     
     def getMaintenanceScheduleByID(self, ID) -> MaintenanceSchedule:
@@ -166,8 +166,8 @@ class LogicLayerAPI:
         """ Function takes in a schedule with updated values, and saves it in the maintenanceSchedule DB"""
         self.LogicLayerMaintenancelogic.updateMaintenanceSchedule(schedule)
 
-    def getReadyToBeClosedMaintenanceTasks(self) -> list[Maintenance]:
-        tasks = self.LogicLayerMaintenancelogic.getReadyToBeClosedMaintenanceTasks()
+    def getReadyToBeClosedMaintenanceTasks(self, destination = None) -> list[Maintenance]:
+        tasks = self.LogicLayerMaintenancelogic.getReadyToBeClosedMaintenanceTasks(destination)
         return tasks
     # functions that are about properties.
 

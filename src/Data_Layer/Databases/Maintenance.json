@@ -58,5 +58,15 @@
         "statusMaintenance": "Ongoing",
         "priority": "ASAP",
         "recurring": "False"
+    },
+    {
+        "maintenanceID": 7,
+        "propertyID": 2,
+        "description": "3",
+        "startDate": "02.10.2023.12:30",
+        "endDate": "02.11.2023.12:30",
+        "statusMaintenance": "Ongoing",
+        "priority": "ASAP",
+        "recurring": "false"
     }
 ]

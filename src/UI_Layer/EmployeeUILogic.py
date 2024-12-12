@@ -19,7 +19,7 @@ class EmployeeUILogic:
             if error_message:
                 print(f"Error: {error_message}")
                 error_message = None
-            user_choice = input("Choice ")
+            user_choice = input("Choice: ")
 
             if user_choice.lower() == "q": # Check if the user wants to quit
                 print("Qutting")
@@ -47,6 +47,7 @@ class EmployeeUILogic:
         error_message = None # An error message for if the user inputs something he shouldn't
         title_message = "Creating a new Maintenance Report"
         while count < 4: # The count here is to keep track of how many inputs the user should input when creating the Maintenance Report
+            self.ViewUI.clearTerminal()
             self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message, mode = "hints") # Display the MaintenanceReport to the user each time he updates an attribute so he can keep track of what he is changing in real time
             userInput = input("Information: ") # Actual user input here, he needs to input the information needed to create the maintenance report
             if userInput.lower() == "q": # Quit
@@ -65,8 +66,8 @@ class EmployeeUILogic:
                 error_message = error
                 continue
             except KeyError as error:  # This is a more serious error, for things like if the user is trying to create a maintenance report on a closed maintenance or on a maintenance that does not exist... Generally things which he shouldn't be able to do
-                print(error)
-                return "b"
+                error_message = error
+                continue
         
         self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message)
         self.LogicLayerWrapper.createMaintenanceReport(tempMaintenanceReport)

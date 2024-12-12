@@ -5,7 +5,7 @@ from prettytable import PrettyTable
 class Displays:
     def __init__(self):
         pass
-
+    
     def clearTerminal(self):
         if name == "nt":
             system("cls")

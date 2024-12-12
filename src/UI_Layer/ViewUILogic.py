@@ -52,25 +52,29 @@ class ViewUILogic:
                 self.clearTerminal()
 
     def displayEmployees(self, destination = None):
+        # For displaying employees in the pretty table we omit, Address and Home phone
+        # User can easily find that information through choosing to view additional information on a specific employee
         employeespretty = PrettyTable()
-        employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
         employees = self.LogicLayerWrapper.getEmployeeData(destination)
         for employee in employees:
-            employeespretty.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.address ,employee.atHomePhone, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)        
+            employeespretty.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)        
         employeespretty.align = 'l'
-        employeespretty.max_table_width = 120
+        employeespretty.max_table_width = 150
         employeespretty.min_table_width = 100
         employeespretty.max_width = 30
         print(employeespretty)
 
     def displayManagers(self, destination = None):
+        # For displaying managers in the pretty table we omit, Address and Home phone
+        # User can easily find that information through choosing to view additional information on a specific employee
         managerspretty = PrettyTable()
-        managerspretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "Address", "Home Phone", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        managerspretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
         managers = self.LogicLayerWrapper.getManagers(destination)
         for manager in managers:
-            managerspretty.add_row([manager.employeeID, manager.name, manager.socialSecurity, manager.address ,manager.atHomePhone, manager.gsmPhone, manager.email, manager.workLocation , manager.type], divider=True)        
+            managerspretty.add_row([manager.employeeID, manager.name, manager.socialSecurity, manager.gsmPhone, manager.email, manager.workLocation , manager.type], divider=True)        
         managerspretty.align = 'l'
-        managerspretty.max_table_width = 120
+        managerspretty.max_table_width = 150
         managerspretty.min_table_width = 100
         managerspretty.max_width = 30
         print(managerspretty)
@@ -109,8 +113,8 @@ class ViewUILogic:
   
         print(propertiespretty)
 
-    def displayMaintenanceTasks(self):
-        maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData()
+    def displayMaintenanceTasks(self, destination = None):
+        maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData(destination)
         tasks_pretty = PrettyTable()
         tasks_pretty.field_names = ["Task ID", "Property ID", "Description", "Start Date", "End Date", "Status", "Priority", "Recurring"]
         for task in maintenanceTasks:
@@ -163,9 +167,9 @@ class ViewUILogic:
             ])
 
         maintenance_reports_pretty.align = "l"  
-        maintenance_reports_pretty.max_width = 30 
+        maintenance_reports_pretty.max_width = 90
         maintenance_reports_pretty.min_table_width = 100 
-        maintenance_reports_pretty.max_table_width = 120 
+        maintenance_reports_pretty.max_table_width = 170
         maintenance_reports_pretty.hrules = True 
         maintenance_reports_pretty.vrules = True 
 
@@ -374,11 +378,11 @@ class ViewUILogic:
                 error_message = "Invalid Input"
                 self.clearTerminal()
     
-    def filterMaintenanceTasks(self):
+    def filterMaintenanceTasks(self, destination = None):
         self.clearTerminal()
         error_message = None
         while True:
-            self.displayMaintenanceTasks() #Show them the complete list and then ask if they want any more filtering....
+            self.displayMaintenanceTasks(destination) #Show them the complete list and then ask if they want any more filtering....
             print(self.Displays.filterMaintenanceMenu())
             if error_message:
                 print(f"Error: {error_message}")
@@ -404,7 +408,7 @@ class ViewUILogic:
                     continue
 
                 try:
-                    task = self.LogicLayerWrapper.getMaintenanceTaskByID(ID)
+                    task = self.LogicLayerWrapper.getMaintenanceTaskByID(ID, destination)
                     self.Displays.printMaintenanceTask(task)
                     done_looking = input("Press any button if you are done: ")
                     if done_looking == "q":
@@ -415,7 +419,7 @@ class ViewUILogic:
                     self.clearTerminal()
             elif user_choice == "2":
                 try:
-                    reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks()
+                    reports = self.LogicLayerWrapper.getReadyToBeClosedMaintenanceTasks(destination)
                     for report in reports:
                         self.Displays.printMaintenanceTask(report)
                 except ValueError as error:
@@ -590,6 +594,28 @@ class ViewUILogic:
                 try:
                     destination = self.LogicLayerWrapper.getDestinationByID(ID)
                     result = self.filterProperties(destination)
+                    if result.lower() == "q":
+                        return "q"
+                    elif result.lower() == "b":
+                        self.clearTerminal()
+                        continue
+                    # Try giving Display properties a list of properties on that location ? then call the filter properties ?
+                except ValueError as error:
+                    error_message = error
+                    self.clearTerminal()
+            elif user_choice == "4": # Filtering all maintenance tasks on a specific location
+                ID = input("ID of the Destination you want to show Maintenance Task information for ")
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    return "q"
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+
+                try:
+                    destination = self.LogicLayerWrapper.getDestinationByID(ID)
+                    result = self.filterMaintenanceTasks(destination)
                     if result.lower() == "q":
                         return "q"
                     elif result.lower() == "b":

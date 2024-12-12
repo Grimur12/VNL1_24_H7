@@ -4,7 +4,8 @@ from UI_Layer.ManagerUILogic import ManagerUILogic
 from UI_Layer.ViewUILogic import ViewUILogic
 from prettytable import PrettyTable
 from UI_Layer.Displays import Displays
-
+## We are going to pass relevant imported attributes to the other classes that need them
+# So that we can reserve resources.
 class main:
     def __init__(self):
         self.ContractorUI = ContractorUILogic()

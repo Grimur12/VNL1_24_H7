@@ -95,11 +95,11 @@ class LogicLayerMaintenanceLogic:
             raise ValueError("Can not edit a closed Maintenance Task")
         return True
 
-    def getMaintenanceTaskByID(self, ID) -> Maintenance:
+    def getMaintenanceTaskByID(self, ID, destination = None) -> Maintenance:
         """ Function loads all Maintenances and tries to find the specified employee by ID in the DB, returns Employee or raises ValueError"""
         # Check for maintenance Task by maintenance Task ID or name
         if self.Errors.checkNumber(ID): # Checks if id is a number
-            maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog() # Load all maintenances
+            maintenanceLog = self.getMaintenanceData(destination) # Load all maintenances and mabye depending on destination aswell
             index_to_update = -1
             for index, maintenance in enumerate(maintenanceLog):
                 if maintenance.maintenanceID == int(ID): # Find the index of the maintenance specified in the list of maintenances
@@ -285,7 +285,7 @@ class LogicLayerMaintenanceLogic:
             if self.checkIfMaintenanceIDinDB(maintenanceID): # Check if the Maintenance Task exists
                 if self.checkIfMaintenanceIsClosed(maintenanceID): # Can only create a report on an active maintenance
                     # We also need to check if a report already exists for that maintenance, if it exists and its not recurring we can not create another maintenance report on that task, if its recurring we can
-                    if self.checkIfMaintenanceReportExists:
+                    if self.checkIfMaintenanceReportExists(maintenanceID):
                         self.checkIfMaintenanceIsRecurring(maintenanceID) # If it passes we continue if not we abort the creating the maintenance report
                     temp_maintenanceReport.maintenanceID = maintenanceID
         elif count == 2: # Material Cost
@@ -298,7 +298,7 @@ class LogicLayerMaintenanceLogic:
             self.Errors.checkErrorContractorCost(input)
             temp_maintenanceReport.contractorCost = input
         return True
-        
+
     def filterMaintenanceTasksDates(self, tasks, startDate, endDate) -> list[Maintenance]:
         """ Takes in a list of maintenance tasks and filteres them based on a specified start and end date"""
         # First check if end and start date are correctly formatted
@@ -361,9 +361,20 @@ class LogicLayerMaintenanceLogic:
         """ Function takes in a maintenance schedule instance that already exists in our DB and we overwrite the old one"""
         self.DataLayerWrapper.updateMaintenanceSchedule(schedule)
 
-    def getMaintenanceData(self) -> list[Maintenance]:
+    def getMaintenanceData(self, destination = None) -> list[Maintenance]:
         """ Function Loads all the Maintenance Tasks from the maintenance DB and returns a list of those Maintenance Tasks"""
         maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
+        if destination:
+            properties = self.DataLayerWrapper.loadPropertiesLog()
+            dest_maintenances = []
+            propIDs = []
+            for prop in properties:
+                if prop.location == destination.destinationID:
+                    propIDs.append(prop.propertyID)
+            for maint in maintenanceLog:
+                if maint.maintenanceID in propIDs:
+                    dest_maintenances.append(maint)
+                return dest_maintenances
         return maintenanceLog
     
     def getMaintenanceScheduleData(self) -> list[MaintenanceSchedule]:
@@ -388,11 +399,11 @@ class LogicLayerMaintenanceLogic:
         """ Function takes in a Maintenance Report and stores it in the Maintenance Report DB"""
         self.DataLayerWrapper.createMaintenanceReport(maintenanceReport)
 
-    def getReadyToBeClosedMaintenanceTasks(self) -> list[Maintenance]:
+    def getReadyToBeClosedMaintenanceTasks(self, destination = None) -> list[Maintenance]:
         """ Function loads all maintenance reports finds all the maintenance ID's from them and returns the maintenance tasks that are ready to be closed via closing the maintenance report"""
         # Load the data from the DB's
         reportslog = self.DataLayerWrapper.loadMaintenanceReportLog()
-        maintenances = self.DataLayerWrapper.loadMaintenanceLog()
+        maintenances = self.getMaintenanceData(destination)
 
         maintenancesInReportsID = []
         readyToBeClosedTasks = []
