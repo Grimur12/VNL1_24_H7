@@ -28,7 +28,7 @@ VNL1_24_H7\src
 ```
   - The way you run the program is by typing:
 ```
-python3 -m main
+python3 main.py
 ```
   - Into the terminal where you have the correct path as specified above
   - This should open upp the main menu where you can choose if you are either a Manager, Employee or a Contractor
