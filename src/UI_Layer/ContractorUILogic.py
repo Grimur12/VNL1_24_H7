@@ -9,7 +9,7 @@ class ContractorUILogic:
     def __init__(self):
         self.LogicLayerWrapper = LogicLayerAPI() # Get the Wrapper from main, it was imported there
         self.ViewUI = ViewUILogic() # Get the ViewUI from main, it was imported there
-        self.Displays = Displays # Get the Display from main, it was imported there
+        self.Displays = Displays() # Get the Display from main, it was imported there
 
     def run(self):
         error_message = None
@@ -46,10 +46,11 @@ class ContractorUILogic:
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport() # Get a Temporary class Maintenance Report from the logic layer
         error_message = None # An error message for if the user inputs something he shouldn't
         title_message = "Creating a new Maintenance Report"
+        input_strings = ["Enter Maintenance Task Number: ", "Enter Cost Of Materials: ", "Enter A Contractor Number: ","Enter Cost Of Employing Contractor: "]
         while count < 5: # The count here is to keep track of how many inputs the user should input when creating the Maintenance Report
             self.ViewUI.clearTerminal()
             self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message, mode = "hints") # Display the MaintenanceReport to the user each time he updates an attribute so he can keep track of what he is changing in real time
-            userInput = input("Information: ") # Actual user input here, he needs to input the information needed to create the maintenance report
+            userInput = input(f"{input_strings[count-1]}") # Actual user input here, he needs to input the information needed to create the maintenance report
             if userInput.lower() == "q": # Quit
                 print("Quitting")
                 return "q"
@@ -68,10 +69,15 @@ class ContractorUILogic:
             except KeyError as error: # This is a more serious error, for things like if the user is trying to create a maintenance report on a closed maintenance or on a maintenance that does not exist... Generally things which he shouldn't be able to do
                 error_message = error
                 continue
-
+        self.ViewUI.clearTerminal()
         self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message)
         self.LogicLayerWrapper.createMaintenanceReport(tempMaintenanceReport)
         print("You have successfully created a new Maintenance Report")
+        done_looking = input("Press any button if you are done: ")
+        if done_looking == "q":
+            print("Quitting")
+            return "q"
+        self.ViewUI.clearTerminal()
 
 
        

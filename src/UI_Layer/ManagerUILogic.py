@@ -163,6 +163,7 @@ class ManagerUILogic:
         overWritten = False
         aborted = False # Flag to see if user has pressed b or does not want to overwrite manager
         title_message = ["Adding a new Employee","Adding a new Manager","Adding a new Contractor"] # Creating a list of the possible titles depending on what type of employee the user wants to create
+        input_message = ["Enter Name: ", "Enter Social Security Number: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email:", "Enter Work Location", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
         if type_of_employee == "3":
             max_parameters = 12
         else:
@@ -170,7 +171,7 @@ class ManagerUILogic:
         while count < max_parameters:
             self.ViewingUI.clearTerminal()
             self.Displays.printEmployee(temp, title_message[int(type_of_employee)-1], error_message, mode="hints") # The type of employee decides what the title message is, we reference it on the type of employee by indexing it through that in the list of possible titles
-            userInput = input("Information: ")
+            userInput = input(f"{input_message[count-1]}")
             if userInput.lower() == "q":
                 print("Quitting")
                 return "q"
@@ -226,10 +227,11 @@ class ManagerUILogic:
         tempProperty = self.LogicLayerWrapper.createTempProperty()
         error_message = None
         title_message = "Adding a new Property"
+        input_message = ["Enter Name: ", "Enter Location: ", "Enter Availability: ", "Enter Pool: ", "Enter Hot Tub: ", "Enter Ovens: "]
         while count < 7:
             self.ViewingUI.clearTerminal()
             self.Displays.printProperty(tempProperty, title_message, error_message, mode = "hints")
-            userInput = input("Information: ")
+            userInput = input(f"{input_message[count-1]}")
             if userInput.lower() == "q":
                 print("Quitting")
                 return "q"
@@ -256,10 +258,11 @@ class ManagerUILogic:
         tempMaintenanceTask = self.LogicLayerWrapper.createTempMaintenance()
         error_message = None
         title_message = "Adding a new Maintenance Task"
+        input_message = ["Enter Property Number: ", "Enter Description of Task: ", "Enter Start Date: ", "Enter End Date: ", "Enter Status Of Maintenance: ", "Enter Priority: ", "Enter Recurring: "]
         while count < 8:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceTask(tempMaintenanceTask, title_message, error_message, mode = "hints")
-            userInput = input("Information: ")
+            userInput = input(f"{input_message[count-1]}")
             if userInput.lower() == "q":
                 print("Quitting")
                 return "q"
@@ -286,10 +289,11 @@ class ManagerUILogic:
         tempMaintenanceSchedule = self.LogicLayerWrapper.createTempMaintenanceSchedule()
         error_message = None
         title_message = "Adding a new Maintenance Schedule"
+        input_message = ["Enter Maintenance Task Number: ", "Enter Type Of Maintenance Task: ", "Enter Frequency: ", "Enter Start Date: "]
         while count < 5:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceSchedule(tempMaintenanceSchedule, title_message, error_message, mode = "hints")
-            userInput = input("Information: ")
+            userInput = input(f"{input_message[count-1]}")
             if userInput.lower() == "q":
                 print("Quitting")
                 return "q"

@@ -5,5 +5,12 @@
         "taskType": "Normal",
         "frequency": "Monthly",
         "startDate": "12.02.2022.12:30"
+    },
+    {
+        "maintenanceScheduleID": 2,
+        "maintenanceID": 4,
+        "taskType": "Normal",
+        "frequency": "Yearly",
+        "startDate": "12.02.2024.12:30"
     }
 ]

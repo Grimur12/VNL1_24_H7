@@ -70,5 +70,14 @@
         "hasAPool": "False",
         "hasATub": "False",
         "hasOvens": "True"
+    },
+    {
+        "propertyID": 9,
+        "nameOfProperty": "Namet",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "False"
     }
 ]
