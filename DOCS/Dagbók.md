@@ -640,6 +640,8 @@ Iðunn and Pedro
 Grímur and Máni
   - Worked on fixing the Layered Class Diagram so that
   - Finished Destination filtering, the group worked together in changing the UI look (displays)
+  - Finished Restructuring the UI, taking exit() out of it, and deleting code that was no longer needed
+  - Made some functions dynamic, and made the display overall clearer with better clearTerminal commands
   - Fixed minor bugs in the program, with users not being able to go back on certain inputs.
   - Fixing other minor bugs found when testing the functional requirements
 
@@ -692,7 +694,9 @@ Iðunn and Pedro
  - Iðunn finished the updated wireframe / happy path 
 
 Máni and Grímur 
- - Grímur focused on updating the biggest mistakes we can upgrade before returning
+ - Grímur focused on updating the biggest mistakes we can upgrade before turning in the code
+ - Focused on fixing any bugs that were found during the more extensive testing
+ - Adding comments to the rest of the code that needs commenting
  - Máni focused on the UML Diagram, it is a huge diagram now so it is taking time
 
  TODO:
@@ -726,8 +730,8 @@ Final Return TODO:
       - [x] State Diagram
       - [ ] Use cases      GO OVER!!
 - [ ] Finish Code / Program Completely
-- [ ] READme.md file that contains information about our program and how to start it etc.
-- [ ] Requirements.txt file that contain all pip install packages
+- [x] READme.md file that contains information about our program and how to start it etc.
+- [x] Requirements.txt file that contain all pip install packages
 - [ ] 10 minute introduction to the system video, best option is youtube file because files can be really big
       - [ ] LINK TO THE VIDEO is suppposed to be on READ ME file
 - [ ] RETURN This book report
