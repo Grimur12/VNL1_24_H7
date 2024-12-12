@@ -634,7 +634,8 @@ Pairs and Layers EOD Results and Todays work:
 Iðunn and Pedro
   - The entire group worked together in changing the look of the UI (displays)
   - Added prettytables
-  - Fixed the Model Class diagram to match it with the code models 
+  - Fixed the Model Class diagram to match it with the code models
+  - Fixed the state diagram after the TA's opinion
 
 Grímur and Máni
   - Worked on fixing the Layered Class Diagram so that
@@ -670,7 +671,46 @@ Extra checklist for week 3
 
 ## [12/12/2024 - Dagur 4]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
+
+Pairs and Layers EOD Results and Todays work:
+
+Ólafur and Leonard
+
+Iðunn and Pedro
+ - pedro finished the model diagram completely
+ - iðunn finished the state diagram completely
+ - this group started testing the program completely to see if there were any visible errors.
+
+Máni and Grímur 
+
+ TODO:
+- [x] Layers are all completed
+- [x] Connection between layers are all completed
+- [x] Test the system in its entirety
+Extra checklist for week 3
+- [x] Finish Maintenance Report
+- [x] Add destinations
+- [x] Fix Model Classes attributes
+- [x] Finish Pretty Table UI
+- [x] Change Error checkers to match new model class attributes
+- [x] Finish all doc strings, returns type values and comments in the code
+- [x] Make the model class diagram match the new model classes
+- [ ] Make the layered class diagram match the code
+- [ ] Check all boxes in the Requirements list in the Design report
+- [ ] Change Priority values, need to be Emergency, now and soon as possible
+- [ ] finish state diagram according to our code
+- [ ] finish the wireframe according to our code
+- [ ] finish recording 10minute video
+- [ ] write comments in the code what couldve been better done if we had more time!!!
+- [ ] go over 
+
 
 ## [13/12/2024 - Dagur 5]
 
