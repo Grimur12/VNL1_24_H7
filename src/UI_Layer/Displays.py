@@ -491,9 +491,10 @@ class Displays:
 
     def displayMaintenanceReports(self) -> None:
         """ Function creates a table to display all of the maintenance reports in a specified format"""
+        # Omitted Ready to close and supervisor feedback
         maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
         maintenance_reports_pretty = PrettyTable()
-        maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Ready to Close", "Supervisor Closed", "Supervisor Feedback"]
+        maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Supervisor Closed"]
 
         # We need to change what the user sees based on whats inside the attribute
         for report in maintenanceReports:
@@ -504,9 +505,7 @@ class Displays:
             report.materialCost,
             report.contractorID if report.contractorID else "N/A",
             report.contractorCost if report.contractorCost else "N/A",
-            "Yes" if report.readyToClose else "No",
-            "Yes" if report.supervisorClosed.lower() == "true" else "No",
-            report.supervisorFeedback if report.supervisorFeedback else "No Feedback Yet"
+            "Yes" if report.supervisorClosed.lower() == "true" else "No"
             ])
 
         maintenance_reports_pretty.align = "l"  
@@ -528,7 +527,7 @@ class Displays:
         destinations_pretty.align = "l" 
         destinations_pretty.max_width = 30 
         destinations_pretty.min_table_width = 100 
-        destinations_pretty.max_table_width = 120 
+        destinations_pretty.max_table_width = 160 
         destinations_pretty.hrules = True 
 
         print(destinations_pretty)
