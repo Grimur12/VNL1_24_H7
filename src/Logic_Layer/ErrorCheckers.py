@@ -169,3 +169,12 @@ class ErrorCheckers:
         if not input.isnumeric():
             raise ValueError("Cost must be a valid number")
         return True
+    
+    def checkIfNumberIsNegative(self, input) -> True:
+        """ Function checks if an input is a negative number"""
+        self.checkNumber(input) # First check if its a number
+        num = int(input)
+        if num < 0:
+            raise ValueError("This can not be a negative number")
+        else:
+            return True

@@ -245,7 +245,7 @@ class LogicLayerMaintenanceLogic:
             self.checkIfEmployeeIDinDB(int(input))
             temp_maintenanceReport.employeeID = int(input)
         elif count == 3: # Material Cost
-            self.Errors.checkNumber(input)
+            self.Errors.checkIfNumberIsNegative(input)
             temp_maintenanceReport.materialCost = input
         return True
     
@@ -297,6 +297,7 @@ class LogicLayerMaintenanceLogic:
             temp_maintenanceReport.contractorID = int(input)
         elif count == 4: # Adding the Contractor Cost
             self.Errors.checkErrorContractorCost(input)
+            self.Errors.checkIfNumberIsNegative(input)
             temp_maintenanceReport.contractorCost = input
         return True
 
