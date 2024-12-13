@@ -161,7 +161,7 @@ class ErrorCheckers:
         # Frequency is going to be either Daily, Weekly, Monthly, Yearly
         if input.lower() in ["daily", "weekly", "monthly", "yearly"]:
             return True
-        raise ValueError("Frequency can only be: Daily, Weekly or Monthly")
+        raise ValueError("Frequency can only be: Daily, Weekly, Monthly or Yearly")
 
     def checkErrorContractorCost(self, input) -> True:
         """ Checks if contractor cost is a number, if so returns True, if not raises ValueError"""

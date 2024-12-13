@@ -24,7 +24,7 @@ class Displays:
         print(f"{edit_message}")
         print(f"Property Number: {property.propertyID}") # For all of these we get a property object from the logic layer and we display it
         print(f"1.Name: {property.nameOfProperty}" + ("              // Ex. Igloo" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
-        print(f"2.Description: {property.description}" + ("              // Ex. 4 Rooms, 100 m^2, Has an Ocean View" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
+        print(f"2.Description: {property.description}" + ("       // Ex. 4 Rooms, 100 m^2, Has an Ocean View" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
         print(f"3.Location: {property.location}" + ("          // Ex. 1 (Valid Destination Number)" if mode == "hints" else ""))
         print(f"4.Availability: {property.availability}" + ("      // Ex. True" if mode == "hints" else ""))
         print(f"5.Pool: {property.hasAPool}" + ("              // Ex. False" if mode == "hints" else ""))
