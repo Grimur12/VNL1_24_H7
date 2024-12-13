@@ -33,5 +33,26 @@
         "taskType": "normal",
         "frequency": "Weekly",
         "startDate": "13.12.2024.12:30"
+    },
+    {
+        "maintenanceScheduleID": 6,
+        "maintenanceID": 11,
+        "taskType": "Normal",
+        "frequency": "Weekly",
+        "startDate": "11.11.2024.12:30"
+    },
+    {
+        "maintenanceScheduleID": 7,
+        "maintenanceID": 13,
+        "taskType": "normal",
+        "frequency": "weekly",
+        "startDate": "12.12.2026.12:30"
+    },
+    {
+        "maintenanceScheduleID": 8,
+        "maintenanceID": 5,
+        "taskType": "Normal",
+        "frequency": "Monthly",
+        "startDate": "10.03.2025.12:30"
     }
 ]

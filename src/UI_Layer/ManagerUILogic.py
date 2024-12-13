@@ -171,7 +171,7 @@ class ManagerUILogic:
         aborted = False # Flag to see if user has pressed b or does not want to overwrite manager
         types_of_employees = ["Employee", "Manager", "Contractor"] # To display what the user created
         title_message = ["Adding a new Employee","Adding a new Manager","Adding a new Contractor"] # Creating a list of the possible titles depending on what type of employee the user wants to create
-        input_message = ["Enter Name: ", "Enter Social Security Number: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email: ", "Enter Work Location: ", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
+        input_message = ["Enter Name: ", "Enter Social Security ID: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email: ", "Enter Work Location: ", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
         if type_of_employee == "3":
             max_parameters = 12
         else:
@@ -270,7 +270,7 @@ class ManagerUILogic:
         tempMaintenanceTask = self.LogicLayerWrapper.createTempMaintenance()
         error_message = None
         title_message = "Adding a new Maintenance Task"
-        input_message = ["Enter Property Number: ", "Enter Description of Task: ", "Enter Start Date: ", "Enter End Date: ", "Enter Status Of Maintenance: ", "Enter Priority: ", "Enter Recurring: "]
+        input_message = ["Enter Property ID: ", "Enter Description of Task: ", "Enter Start Date: ", "Enter End Date: ", "Enter Status Of Maintenance: ", "Enter Priority: ", "Enter Recurring: "]
         while count < 8:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceTask(tempMaintenanceTask, title_message, error_message, mode = "hints")
@@ -302,7 +302,7 @@ class ManagerUILogic:
         tempMaintenanceSchedule = self.LogicLayerWrapper.createTempMaintenanceSchedule()
         error_message = None
         title_message = "Adding a new Maintenance Schedule"
-        input_message = ["Enter Maintenance Task Number: ", "Enter Type Of Maintenance Task: ", "Enter Frequency: ", "Enter Start Date: "]
+        input_message = ["Enter Maintenance Task ID: ", "Enter Type Of Maintenance Task: ", "Enter Frequency: ", "Enter Start Date: "]
         while count < 5:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceSchedule(tempMaintenanceSchedule, title_message, error_message, mode = "hints")
@@ -329,7 +329,7 @@ class ManagerUILogic:
         self.ViewingUI.clearTerminal()
         self.Displays.printMaintenanceSchedule(tempMaintenanceSchedule, title_message, error_message)
         self.LogicLayerWrapper.createMaintenanceSchedule(tempMaintenanceSchedule)
-        print("You have successfully created a new Maintenance Task")
+        print("You have successfully created a new Maintenance Schedule")
 
     def editEmployee(self, ID) -> None:
         """ Function handles the user input for editing an employee, returns str (q or b) for quit and back logic"""
@@ -357,7 +357,7 @@ class ManagerUILogic:
         while True:
             self.ViewingUI.clearTerminal()
             self.Displays.printEmployee(employee, title_message, error_message, edit_message, done_message) # Initially print the employee so the user can see what he wants to change
-            userInput = input("Number of the attribute you want to change: ")
+            userInput = input("ID of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
             if userInput.lower() == "q":
                 return "q"
@@ -463,7 +463,7 @@ class ManagerUILogic:
         while True:
             self.ViewingUI.clearTerminal()
             self.Displays.printProperty(property, title_message, error_message, done_message=done_message, edit_message=edit_message) # print the property for the user to see what he is changing and the numbers of the attributes
-            userInput = input("Number of the attribute you want to change: ")
+            userInput = input("ID of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
             if userInput.lower() == "q":
                 return "q"
@@ -494,7 +494,7 @@ class ManagerUILogic:
     def editMaintenanceTask(self, ID) -> None:
         """ Function handles the user input for editing a maintenance task, returns str (q or b) for quit and back logic"""
         done_message = "D: To Quit Changing and Save Changes\n"
-        edit_message = "You can not change the Number, Maintenance done on Property, Start- or EndDate, Status or if its recurring or not"
+        edit_message = "You can not change the ID, Maintenance done on Property, Start- or EndDate, Status or if its recurring or not"
         title_message = "Updating Maintenance Task Information"
         while True:
             try:
@@ -517,7 +517,7 @@ class ManagerUILogic:
         while True:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceTask(maintenanceTask, title_message, error_message, edit_message, done_message) # print the maintenance task for the user to see what he is changing and the numbers of the attributes
-            userInput = input("Number of the attribute you want to change: ")
+            userInput = input("ID of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
             if userInput.lower() == "q":
                 return "q"
@@ -547,7 +547,7 @@ class ManagerUILogic:
     def editMaintenanceSchedule(self, ID) -> None:
         """ Function handles the user input for editing a maintenance schedule, returns str (q or b) for quit and back logic"""
         done_message = "D: To Quit Changing and Save Changes\n"
-        edit_message = "You can not change Schedule Number, Scheduled Task, Type of Maintenance Task or the Start Date"
+        edit_message = "You can not change Schedule ID, Scheduled Task, Type of Maintenance Task or the Start Date"
         title_message = "Updating Maintenance Schedule Information"
         while True:
             try:
@@ -571,7 +571,7 @@ class ManagerUILogic:
         while True:
             self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceSchedule(maintenanceSchedule, title_message, error_message, edit_message, done_message) # print the maintenance schedule for the user to see what he is changing and the numbers of the attributes
-            userInput = input("Number of the attribute you want to change: ")
+            userInput = input("ID of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
             if userInput.lower() == "q":
                 return "q"

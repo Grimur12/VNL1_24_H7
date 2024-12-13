@@ -139,9 +139,9 @@ class ErrorCheckers:
     
     def checkErrorStatusMaintenance(self, input) -> True:
         """ Checks if input is either ongoing or closed, if so returns True, if not raises ValueError"""
-        if input.lower() in ["ongoing", "closed"]: # Checks if its one of the two inputs that should be possible
+        if input.lower() in ["ongoing"]: # Checks if its one of the two inputs that should be possible
             return True
-        raise ValueError("Maintenance Tasks can only either be Ongoing or Closed")
+        raise ValueError("Maintenance Tasks can only be Ongoing when creating")
 
     def checkErrorPriority(self, input) -> True:
         """ Checks if input (priority) is one of the three possible priorities, if so returns True, if not raises ValueError"""

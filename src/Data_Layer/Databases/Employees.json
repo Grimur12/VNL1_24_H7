@@ -316,5 +316,75 @@
         "performanceRating": "",
         "contractorContact": 1,
         "openingHours": "6:00AM-3:00PM"
+    },
+    {
+        "employeeID": 27,
+        "name": "Karl",
+        "socialSecurity": "021002-2490",
+        "address": "Brekkuvegur 20",
+        "atHomePhone": "+354 882 2233",
+        "gsmPhone": "883-2213",
+        "email": "karl@karl.is",
+        "workLocation": 1,
+        "type": "General"
+    },
+    {
+        "employeeID": 28,
+        "name": "James Bond",
+        "socialSecurity": "120202-3320",
+        "address": "Ha\u00f0arstigurr 8",
+        "atHomePhone": "778-8891",
+        "gsmPhone": "778-1234",
+        "email": "mani@gmail.com",
+        "workLocation": 1,
+        "type": "General"
+    },
+    {
+        "employeeID": 29,
+        "name": "James Bond",
+        "socialSecurity": "121212-2221",
+        "address": "fellsm\u00fali",
+        "atHomePhone": "581-2345",
+        "gsmPhone": "123-4567",
+        "email": "manimus@gmail.com",
+        "workLocation": 1,
+        "type": "General"
+    },
+    {
+        "ID": 30,
+        "name": "jonas",
+        "socialSecurity": "232312-1343",
+        "address": "fellsmuli 18",
+        "atHomePhone": "666-1234",
+        "gsmPhone": "444-8976",
+        "email": "gulli@gmail.com",
+        "workLocation": 1,
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "",
+        "contractorContact": 1,
+        "openingHours": "9-5"
+    },
+    {
+        "employeeID": 31,
+        "name": "Karl",
+        "socialSecurity": "021002-2590",
+        "address": "Kotavegur 10",
+        "atHomePhone": "+354 5554",
+        "gsmPhone": "778-3321",
+        "email": "k@gmail.com",
+        "workLocation": 3,
+        "type": "General"
+    },
+    {
+        "employeeID": 32,
+        "name": "Grimur",
+        "socialSecurity": "021088-2690",
+        "address": "Heimakot 20",
+        "atHomePhone": "+354 6678899",
+        "gsmPhone": "892-2333",
+        "email": "grimu@gmail.com",
+        "workLocation": 2,
+        "type": "General"
     }
 ]

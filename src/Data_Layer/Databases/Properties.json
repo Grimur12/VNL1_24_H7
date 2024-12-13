@@ -218,5 +218,45 @@
         "hasAPool": "False",
         "hasATub": "False",
         "hasOvens": "True"
+    },
+    {
+        "propertyID": 23,
+        "nameOfProperty": "House 1",
+        "description": "House is in great condition has an ocean view",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 24,
+        "nameOfProperty": "hotel",
+        "description": "good hotel",
+        "location": 1,
+        "availability": "true",
+        "hasAPool": "true",
+        "hasATub": "true",
+        "hasOvens": "false"
+    },
+    {
+        "propertyID": 25,
+        "nameOfProperty": "hotel holt",
+        "description": "Awesome hotel",
+        "location": 1,
+        "availability": "true",
+        "hasAPool": "true",
+        "hasATub": "true",
+        "hasOvens": "false"
+    },
+    {
+        "propertyID": 26,
+        "nameOfProperty": "Grimur house",
+        "description": "Very cozy home",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
     }
 ]

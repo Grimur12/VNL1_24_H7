@@ -31,5 +31,60 @@
         "readyToClose": "True",
         "supervisorClosed": "False",
         "supervisorFeedback": ""
+    },
+    {
+        "maintenanceReportID": 4,
+        "maintenanceID": 5,
+        "employeeID": "",
+        "materialCost": "2",
+        "contractorID": 5,
+        "contractorCost": "100000",
+        "readyToClose": "True",
+        "supervisorClosed": "False",
+        "supervisorFeedback": ""
+    },
+    {
+        "maintenanceReportID": 5,
+        "maintenanceID": 7,
+        "employeeID": "",
+        "materialCost": "5",
+        "contractorID": 5,
+        "contractorCost": "12300",
+        "readyToClose": "True",
+        "supervisorClosed": "True",
+        "supervisorFeedback": "Job well done"
+    },
+    {
+        "maintenanceReportID": 6,
+        "maintenanceID": 11,
+        "employeeID": 4,
+        "materialCost": "10000",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "True",
+        "supervisorFeedback": "Great job"
+    },
+    {
+        "maintenanceReportID": 7,
+        "maintenanceID": 13,
+        "employeeID": 4,
+        "materialCost": "2000",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "True",
+        "supervisorFeedback": "very good"
+    },
+    {
+        "maintenanceReportID": 8,
+        "maintenanceID": 14,
+        "employeeID": 3,
+        "materialCost": "100",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "True",
+        "supervisorFeedback": "Job well done"
     }
 ]
