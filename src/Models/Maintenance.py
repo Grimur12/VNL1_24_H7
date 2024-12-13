@@ -4,7 +4,7 @@ class Maintenance:
     def __init__(self, ID, propertyID = "", description = "", startDate = "", endDate = "", statusMaintenance = "", priority = "", recurring = "") -> None:
         """ Defines variables for Maintenances """
         # One employee / contractor per maintenance
-        self.maintenanceID = ID # Unique ID
+        self.maintenanceID = ID 
         self.propertyID = propertyID # Reference to a specific property by ID
         self.description = description # To say what the task is about
         self.startDate = startDate # Starting date of the maintenance Task

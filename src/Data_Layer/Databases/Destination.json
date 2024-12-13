@@ -7,7 +7,7 @@
         "airportName": "Keflavik-Airport",
         "phone number": "990-3030",
         "openingHours": "24/7",
-        "managerOfDestination": 1
+        "managerOfDestination": 2
     },
     {
         "destinationID": 2,
@@ -17,7 +17,7 @@
         "airportName": "Nuuk International Airport",
         "phone number": "+299 32 60 05",
         "openingHours": "24/7",
-        "managerOfDestination": 18
+        "managerOfDestination": 3
     },
     {
         "destinationID": 3,
@@ -27,7 +27,7 @@
         "airportName": "Nuuk International Airport",
         "phone number": "+299 98 69 88",
         "openingHours": "24/7",
-        "managerOfDestination": 21
+        "managerOfDestination": 4
     },
     {
         "destinationID": 4,
@@ -37,7 +37,7 @@
         "airportName": "Thorshofn Airport",
         "phone number": "468 1420",
         "openingHours": "24/7",
-        "managerOfDestination": 15
+        "managerOfDestination": 19
     },
     {
         "destinationID": 5,
@@ -47,7 +47,7 @@
         "airportName": "Tingwall Airport",
         "phone number": "+44 1595 840246",
         "openingHours": "24/7",
-        "managerOfDestination": 22
+        "managerOfDestination": 24
     },
     {
         "destinationID": 6,
@@ -57,6 +57,6 @@
         "airportName": "Svalbard Airport",
         "phone number": "+47 67 03 54 00",
         "openingHours": "24/7",
-        "managerOfDestination": 9
+        "managerOfDestination": 23
     }
 ]

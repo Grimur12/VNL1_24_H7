@@ -1,37 +1,16 @@
 [
     {
         "maintenanceScheduleID": 1,
-        "maintenanceID": 1,
-        "taskType": "Abnormal",
-        "frequency": "Weekly",
-        "startDate": "13.12.2024.10:00"
+        "maintenanceID": 2,
+        "taskType": "Normal",
+        "frequency": "Monthly",
+        "startDate": "12.02.2022.12:30"
     },
     {
         "maintenanceScheduleID": 2,
-        "maintenanceID": 2,
-        "taskType": "Normal",
-        "frequency": "yearly",
-        "startDate": "01.11.2024.12:30"
-    },
-    {
-        "maintenanceScheduleID": 3,
-        "maintenanceID": 3,
-        "taskType": "normal",
-        "frequency": "yearly",
-        "startDate": "15.07.2024.09:00"
-    },
-    {
-        "maintenanceScheduleID": 4,
         "maintenanceID": 4,
-        "taskType": "normal",
-        "frequency": "Weekly",
-        "startDate": "01.05.2024.09:00"
-    },
-    {
-        "maintenanceScheduleID": 5,
-        "maintenanceID": 5,
-        "taskType": "normal",
-        "frequency": "Weekly",
-        "startDate": "13.12.2024.12:30"
+        "taskType": "Normal",
+        "frequency": "Yearly",
+        "startDate": "12.02.2024.12:30"
     }
 ]
