@@ -54,26 +54,9 @@
         "propertyID": 1,
         "description": "Cleaning the toilets",
         "startDate": "02.10.2023.12:30",
-<<<<<<< Updated upstream
         "endDate": "02.10.2024.12:30",
         "statusMaintenance": "ongoing",
         "priority": "asap",
         "recurring": "true"
-=======
-        "endDate": "02.11.2023.12:30",
-        "statusMaintenance": "Ongoing",
-        "priority": "ASAP",
-        "recurring": "false"
-    },
-    {
-        "maintenanceID": 8,
-        "propertyID": 1,
-        "description": "Clean that shithole and check the pool, fools!",
-        "startDate": "13.12.2024.08:10",
-        "endDate": "13.12.2024.08:20",
-        "statusMaintenance": "ongoing",
-        "priority": "ASAP",
-        "recurring": "True"
->>>>>>> Stashed changes
     }
 ]

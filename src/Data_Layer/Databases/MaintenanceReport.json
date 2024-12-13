@@ -29,42 +29,6 @@
         "contractorID": "",
         "contractorCost": "",
         "readyToClose": "True",
-<<<<<<< Updated upstream
-=======
-        "supervisorClosed": "True",
-        "supervisorFeedback": "Good job"
-    },
-    {
-        "maintenanceReportID": 7,
-        "maintenanceID": 4,
-        "employeeID": "",
-        "materialCost": "1",
-        "contractorID": 5,
-        "contractorCost": "1000",
-        "readyToClose": "True",
-        "supervisorClosed": "False",
-        "supervisorFeedback": ""
-    },
-    {
-        "maintenanceReportID": 8,
-        "maintenanceID": 4,
-        "employeeID": "",
-        "materialCost": "8",
-        "contractorID": 5,
-        "contractorCost": "654",
-        "readyToClose": "True",
-        "supervisorClosed": "False",
-        "supervisorFeedback": ""
-    },
-    {
-        "maintenanceReportID": 9,
-        "maintenanceID": 4,
-        "employeeID": "",
-        "materialCost": "4",
-        "contractorID": 5,
-        "contractorCost": "54",
-        "readyToClose": "True",
->>>>>>> Stashed changes
         "supervisorClosed": "False",
         "supervisorFeedback": ""
     }

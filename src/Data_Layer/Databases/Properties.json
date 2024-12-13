@@ -137,19 +137,6 @@
         "availability": "True",
         "hasAPool": "False",
         "hasATub": "False",
-<<<<<<< Updated upstream
         "hasOvens": "False"
-=======
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 9,
-        "nameOfProperty": "Olafs place",
-        "location": 1,
-        "availability": "TRUE",
-        "hasAPool": "FalSE",
-        "hasATub": "fALSE",
-        "hasOvens": "True"
->>>>>>> Stashed changes
     }
 ]
