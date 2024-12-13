@@ -9,7 +9,8 @@ from Models.Property import Property
 from Models.Destination import Destination
 
 class LogicLayerAPI:
-    def __init__(self):
+    def __init__(self) -> None:
+        """ Holds the Logic Layer Classes"""
         self.LogicLayerEmployeelogic = LogicLayerEmployeeLogic()
         self.LogicLayerMaintenancelogic = LogicLayerMaintenanceLogic()
         self.LogicLayerPropertyLogic = LogicLayerPropertyLogic()

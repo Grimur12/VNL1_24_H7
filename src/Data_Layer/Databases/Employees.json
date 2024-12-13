@@ -93,7 +93,7 @@
         "gsmPhone": "333-1232",
         "email": "gr@gr.is",
         "workLocation": 5,
-        "type": "Manager"
+        "type": "General"
     },
     {
         "employeeID": 9,
@@ -126,7 +126,7 @@
         "gsmPhone": "123-2332",
         "email": "Manager@Svalbar\u00f0i.is",
         "workLocation": 6,
-        "type": "Manager"
+        "type": "General"
     },
     {
         "employeeID": 12,
@@ -251,14 +251,40 @@
         "type": "General"
     },
     {
-        "employeeID": 22,
-        "name": "me egsson",
-        "socialSecurity": "123456-2345",
-        "address": "classified 9",
-        "atHomePhone": "555-1234",
-        "gsmPhone": "888-1234",
-        "email": "karl@gmail,com",
+        "ID": 22,
+        "name": "Karl Finnnur J\u00f3nsson",
+        "socialSecurity": "202232-2333",
+        "address": "H\u00e1aleiti 30",
+        "atHomePhone": "883-1234",
+        "gsmPhone": "993-1234",
+        "email": "Kalli@Kalli.is",
         "workLocation": 1,
-        "type": "General"
+        "type": "Contractor",
+        "previousTask": "",
+        "performanceRating": "",
+        "contractorContact": 1,
+        "openingHours": "9-4"
+    },
+    {
+        "employeeID": 23,
+        "name": "grimur",
+        "socialSecurity": "021223-2333",
+        "address": "Kallagata",
+        "atHomePhone": "922-1122",
+        "gsmPhone": "992-2211",
+        "email": "gr@r.is",
+        "workLocation": 6,
+        "type": "Manager"
+    },
+    {
+        "employeeID": 24,
+        "name": "Grimur",
+        "socialSecurity": "021232-2333",
+        "address": "g",
+        "atHomePhone": "322-1222",
+        "gsmPhone": "333-1111",
+        "email": "g@",
+        "workLocation": 5,
+        "type": "Manager"
     }
 ]

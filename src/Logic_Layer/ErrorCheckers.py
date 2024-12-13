@@ -29,6 +29,16 @@ class ErrorCheckers:
             raise ValueError("Name must not be a number")
         return True
     
+    def errorCheckDescription(self, input) -> True:
+        """Checks if input is just or is bigger than 100 characters, returns ValueError or True"""
+        self.checkEmpty(input)
+        if input.isnumeric():
+            raise ValueError("Description can not be just a number")
+        elif len(input) > 100:
+            raise ValueError("Description can not be more than 100 characters")
+        else:
+            return True
+
     def errorCheckAddress(self, address) -> True:
         """ Checks if Address user input is valid, if so returns True, if not raises ValueError """
         self.checkEmpty(address) # Checks if the address is empty

@@ -5,7 +5,8 @@ from Models.Maintenance import Maintenance
 from Models.Destination import Destination
 
 class LogicLayerEmployeeLogic:
-    def __init__(self):
+    def __init__(self) -> None:
+        """ Holds the DataLayerAPI and ErrorCheckers"""
         self.DataLayerWrapper = DataLayerAPI()
         self.Errors = ErrorCheckers()
 

@@ -47,7 +47,7 @@
         "airportName": "Tingwall Airport",
         "phone number": "+44 1595 840246",
         "openingHours": "24/7",
-        "managerOfDestination": 8
+        "managerOfDestination": 24
     },
     {
         "destinationID": 6,
@@ -57,6 +57,6 @@
         "airportName": "Svalbard Airport",
         "phone number": "+47 67 03 54 00",
         "openingHours": "24/7",
-        "managerOfDestination": 11
+        "managerOfDestination": 23
     }
 ]

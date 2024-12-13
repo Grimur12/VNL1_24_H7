@@ -6,17 +6,19 @@ from .Displays import Displays
 from prettytable import PrettyTable
 
 class EmployeeUILogic:
-    def __init__(self):
+    def __init__(self) -> None:
+        """ Function holds LogicLayerWrapper so we can get the data we need from the logic layer, viewUI to view all the things we need and Displays for all user displays we need"""
         self.LogicLayerWrapper = LogicLayerAPI()
         self.ViewUI = ViewUILogic()
         self.Displays = Displays()
 
-    def run(self):
+    def run(self) -> str:
+        """ Function handles the UI user interaction for the employees,  returns str, q or b for back and quit purposes"""
         error_message = None
         while True:
             self.ViewUI.clearTerminal()
             print(self.Displays.EmployeeMenu())
-            if error_message:
+            if error_message: # Error message handling to keep the UI clean, display the error message while clearing the screen 
                 print(f"Error: {error_message}")
                 error_message = None
             user_choice = input("Choice: ")
@@ -30,18 +32,19 @@ class EmployeeUILogic:
                 return "b"
 
             if user_choice == "1": # If we user wants to create a maintenance report
-                result = self.createMaintenanceReport()
+                result = self.createMaintenanceReport() # Call the maintenance report view menu 
                 if result == "q": # Check if he wants to quit
                     return "q"
             elif user_choice == "2": # If the user wants to access the viewing features
-                result = self.ViewUI.viewMenu()
+                result = self.ViewUI.viewMenu() # Call the viewing functions menu
                 if result == "q": # Check if he wants to quit
                     return "q"
             else:
                 error_message = "Invalid Input"
                 self.ViewUI.clearTerminal()
 
-    def createMaintenanceReport(self):
+    def createMaintenanceReport(self) -> str: 
+        """ Functon is makes it available to the contractor (user) to create a maintenance report on a task, returns str, q or b for back and quit purposes"""
         count = 1
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport() # Get a Temporary class Maintenance Report from the logic layer
         error_message = None # An error message for if the user inputs something he shouldn't
@@ -69,12 +72,12 @@ class EmployeeUILogic:
             except KeyError as error:  # This is a more serious error, for things like if the user is trying to create a maintenance report on a closed maintenance or on a maintenance that does not exist... Generally things which he shouldn't be able to do
                 error_message = error
                 continue
-        self.ViewUI.clearTerminal()
-        self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message)
-        self.LogicLayerWrapper.createMaintenanceReport(tempMaintenanceReport)
-        print("You have successfully created a new Maintenance Report")
-        done_looking = input("Press any button if you are done: ")
-        if done_looking == "q":
+        self.ViewUI.clearTerminal() # All clear terminal commands are for user clarity, to not clutter the interface
+        self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message)# Final displaying of the report the user created
+        self.LogicLayerWrapper.createMaintenanceReport(tempMaintenanceReport)# Pass all the user inputted information along to the logic layer 
+        print("You have successfully created a new Maintenance Report")# Tell the user that the creation process was successful
+        done_looking = input("Press any button if you are done: ")# The press any button if you are done mechanics are just for user clarity, in this case so that the user can easily see what he did without automatically going back to the employee menu
+        if done_looking == "q": # Quit option
             print("Quitting")
             return "q"
-        self.ViewUI.clearTerminal()
+        self.ViewUI.clearTerminal()  # Finally clear the terminal before going back to the employee menu

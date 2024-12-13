@@ -2,6 +2,7 @@
     {
         "propertyID": 1,
         "nameOfProperty": "NAME CHANGED TEST HR",
+        "description": "Artifical description input",
         "location": 1,
         "availability": "True",
         "hasAPool": "True",
@@ -11,6 +12,7 @@
     {
         "propertyID": 2,
         "nameOfProperty": "Kaffistofan",
+        "description": "Artifical description input",
         "location": 2,
         "availability": "True",
         "hasAPool": "True",
@@ -20,6 +22,7 @@
     {
         "propertyID": 3,
         "nameOfProperty": "House 1",
+        "description": "Artifical description input",
         "location": 1,
         "availability": "True",
         "hasAPool": "false",
@@ -29,6 +32,7 @@
     {
         "propertyID": 4,
         "nameOfProperty": "Igloo",
+        "description": "Artifical description input",
         "location": 3,
         "availability": "True",
         "hasAPool": "False",
@@ -38,6 +42,7 @@
     {
         "propertyID": 5,
         "nameOfProperty": "Igloo 2",
+        "description": "Artifical description input",
         "location": 3,
         "availability": "False",
         "hasAPool": "True",
@@ -47,6 +52,7 @@
     {
         "propertyID": 6,
         "nameOfProperty": "Red Mansion",
+        "description": "Artifical description input",
         "location": 4,
         "availability": "False",
         "hasAPool": "True",
@@ -56,6 +62,7 @@
     {
         "propertyID": 7,
         "nameOfProperty": "Penguin Mansion",
+        "description": "Artifical description input",
         "location": 5,
         "availability": "False",
         "hasAPool": "True",
@@ -65,6 +72,7 @@
     {
         "propertyID": 8,
         "nameOfProperty": "Manager House",
+        "description": "Artifical description input",
         "location": 6,
         "availability": "False",
         "hasAPool": "False",
@@ -74,7 +82,28 @@
     {
         "propertyID": 9,
         "nameOfProperty": "Namet",
+        "description": "Artifical description input",
         "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 10,
+        "nameOfProperty": "t",
+        "description": "Artifical description input",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 11,
+        "nameOfProperty": "Mansion 2",
+        "description": "3 Rooms, Ocean View, Perfect Condition",
+        "location": 2,
         "availability": "True",
         "hasAPool": "False",
         "hasATub": "True",

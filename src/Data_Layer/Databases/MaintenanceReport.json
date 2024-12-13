@@ -112,10 +112,10 @@
     {
         "maintenanceReportID": 12,
         "maintenanceID": 4,
-        "employeeID": "",
-        "materialCost": "1000",
-        "contractorID": 5,
-        "contractorCost": "10000",
+        "employeeID": 6,
+        "materialCost": "10000000000000000000000000000",
+        "contractorID": "",
+        "contractorCost": "",
         "readyToClose": "True",
         "supervisorClosed": "False",
         "supervisorFeedback": ""
