@@ -749,8 +749,12 @@ Mættir / In attendance:
 
 Pairs and Layers EOD Results and Todays work:
 -Leonard and Ólafur 
+  - This group is focusing on testing the code and mentioning it to Grímur and Máni
 -Iðunn and Pedro
+  - This group needed to change the Model diagram again due to complications
+  - This group is also adjusting the pdf file we are going to return
 -Grímur and Máni
+  - This group is doing finishing touches and changes to our code
 
  TODO:
 - [x] Layers are all completed
@@ -764,7 +768,7 @@ Extra checklist for week 3
 - [x] Change Error checkers to match new model class attributes
 - [x] Finish all doc strings, returns type values and comments in the code
 - [x] Make the model class diagram match the new model classes
-- [ ] Make the layered class diagram match the code
+- [x] Make the layered class diagram match the code
 - [ ] Check all boxes in the Requirements list in the Design report
 - [x] Change Priority values, need to be Emergency, now and soon as possible
 - [x] finish the wireframe /happy paths 
