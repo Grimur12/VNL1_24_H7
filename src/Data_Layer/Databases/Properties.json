@@ -118,5 +118,25 @@
         "hasAPool": "True",
         "hasATub": "True",
         "hasOvens": "False"
+    },
+    {
+        "propertyID": 13,
+        "nameOfProperty": "Mansion 33",
+        "description": "5 Rooms, 3 bathrooms, beach view ",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 14,
+        "nameOfProperty": "Studio Apartment ",
+        "description": "1 Room, 60m2, downtown",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
     }
 ]
