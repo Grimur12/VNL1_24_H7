@@ -1,72 +1,62 @@
 [
     {
         "maintenanceID": 1,
-        "propertyID": 1,
-        "description": "Building a new basement on Property",
-        "startDate": "20.10.2023.12:00",
-        "endDate": "20.10.2024.12:00",
-        "statusMaintenance": "Closed",
-        "priority": "ASAP",
-        "recurring": "True"
+        "propertyID": 3,
+        "description": "maintenance on an OK-650VV reactor.",
+        "startDate": "13.12.2024.10:00",
+        "endDate": "13.12.2050.10:00",
+        "statusMaintenance": "ongoing",
+        "priority": "Emergency",
+        "recurring": "true"
     },
     {
         "maintenanceID": 2,
-        "propertyID": 2,
-        "description": "Fixing the Sink",
-        "startDate": "02.10.2021.12:30",
-        "endDate": "20.02.2023.12:30",
-        "statusMaintenance": "Closed",
-        "priority": "Now",
-        "recurring": "False"
+        "propertyID": 3,
+        "description": "Hanging christmas decorations.",
+        "startDate": "01.11.2024.12:30",
+        "endDate": "10.01.2025.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "ASAP",
+        "recurring": "true"
     },
     {
         "maintenanceID": 3,
-        "propertyID": 3,
-        "description": "Fixing the Sink",
-        "startDate": "02.10.2024.12:30",
-        "endDate": "03.10.2024.12:30",
-        "statusMaintenance": "Closed",
-        "priority": "ASAP",
-        "recurring": "False"
+        "propertyID": 1,
+        "description": "Maintaining the structure of the igloos at properties 64-3900 - 64-3910 by cooling.",
+        "startDate": "15.07.2024.09:00",
+        "endDate": "25.08.2024.09:00",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
     },
     {
         "maintenanceID": 4,
-        "propertyID": 1,
-        "description": "Gardening",
-        "startDate": "02.02.2023.12:00",
-        "endDate": "02.03.2023.12:00",
-        "statusMaintenance": "Ongoing",
-        "priority": "Now",
-        "recurring": "True"
+        "propertyID": 2,
+        "description": "cutting grass on properties roofs.",
+        "startDate": "01.05.2024.09:00",
+        "endDate": "30.09.2024.09:00",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
     },
     {
         "maintenanceID": 5,
         "propertyID": 2,
-        "description": "Cleaning",
-        "startDate": "02.03.2023.22:00",
-        "endDate": "03.04.2023.22:00",
-        "statusMaintenance": "Closed",
-        "priority": "Now",
-        "recurring": "False"
+        "description": "Window cleaning for properties ix-9331 - ix-9333.",
+        "startDate": "13.12.2024.12:30",
+        "endDate": "13.12.2050.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
     },
     {
         "maintenanceID": 6,
-        "propertyID": 5,
-        "description": "Add a Bath Tub",
-        "startDate": "02.10.2022.12:00",
-        "endDate": "04.10.2024.12:00",
-        "statusMaintenance": "Ongoing",
-        "priority": "ASAP",
-        "recurring": "False"
-    },
-    {
-        "maintenanceID": 7,
-        "propertyID": 2,
-        "description": "3",
+        "propertyID": 1,
+        "description": "Cleaning the toilets",
         "startDate": "02.10.2023.12:30",
-        "endDate": "02.11.2023.12:30",
-        "statusMaintenance": "Ongoing",
-        "priority": "ASAP",
-        "recurring": "false"
+        "endDate": "02.10.2024.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
     }
 ]

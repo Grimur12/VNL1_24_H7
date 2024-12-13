@@ -30,11 +30,11 @@ class ErrorCheckers:
         return True
     
     def errorCheckDescription(self, input) -> True:
-        """Checks if input is just or is bigger than 100 characters, returns ValueError or True"""
+        """Checks if input is just or is bigger than 250 characters, returns ValueError or True"""
         self.checkEmpty(input)
         if input.isnumeric():
             raise ValueError("Description can not be just a number")
-        elif len(input) > 100:
+        elif len(input) > 250:
             raise ValueError("Description can not be more than 100 characters")
         else:
             return True
@@ -161,7 +161,7 @@ class ErrorCheckers:
         # Frequency is going to be either Daily, Weekly, Monthly, Yearly
         if input.lower() in ["daily", "weekly", "monthly", "yearly"]:
             return True
-        raise ValueError("Frequency can only be: Daily, Weekly or Monthly")
+        raise ValueError("Frequency can only be: Daily, Weekly, Monthly or Yearly")
 
     def checkErrorContractorCost(self, input) -> True:
         """ Checks if contractor cost is a number, if so returns True, if not raises ValueError"""
@@ -169,3 +169,12 @@ class ErrorCheckers:
         if not input.isnumeric():
             raise ValueError("Cost must be a valid number")
         return True
+    
+    def checkIfNumberIsNegative(self, input) -> True:
+        """ Function checks if an input is a negative number"""
+        self.checkNumber(input) # First check if its a number
+        num = int(input)
+        if num < 0:
+            raise ValueError("This can not be a negative number")
+        else:
+            return True

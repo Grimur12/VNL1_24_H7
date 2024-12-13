@@ -145,6 +145,11 @@ class LogicLayerAPI:
         maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByID(ID)
         return maintenanceReport
     
+    def getMaintenanceReportByTaskID(self, ID) -> list[MaintenanceReport]:
+        """ Function takes in ID of a Maintenance Task, loads the maintenance reports inthe DB and tries to find the reports associated with that task ID, returns maintenance report or raises ValueError"""
+        maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByTaskID(ID)
+        return maintenanceReport
+    
     def filterMaintenanceTasksDates(self, tasks, startDate, endDate) -> list[Maintenance]:
         """ Function takes in a start and end date and a a list of tasks, filters the tasks based on the dates and returns a list of the filtered maintenance tasks or raises ValueError """
         filtered_tasks = self.LogicLayerMaintenancelogic.filterMaintenanceTasksDates(tasks, startDate, endDate)
@@ -202,6 +207,11 @@ class LogicLayerAPI:
         """ Function takes in ID of a Property, loads up the maintenances in the DB and tries to find the ones being done on that property, returns maintenance Tasks or raises ValueError"""
         tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID, destination)
         return tasks
+    
+    def getReportsForPropertyID(self,ID, destination = None) -> list[MaintenanceReport]:
+        """ Function takes in ID of a property, loads upp all the tasks for that property and tries to find a report on it, returns the reports or raises KeyError"""
+        reports = self.LogicLayerPropertyLogic.getReportsForPropertyID(ID, destination)
+        return reports
     
     def getDestinationData(self) -> list[Destination]:
         """ Function loads all destinations from DB """

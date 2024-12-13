@@ -49,7 +49,7 @@ class EmployeeUILogic:
         tempMaintenanceReport = self.LogicLayerWrapper.createTempMaintenanceReport() # Get a Temporary class Maintenance Report from the logic layer
         error_message = None # An error message for if the user inputs something he shouldn't
         title_message = "Creating a new Maintenance Report"
-        input_strings = ["Enter Maintenance Task Number: ", "Enter An Employee Number: ", "Enter Cost Of Materials: "]
+        input_strings = ["Enter Maintenance Task ID: ", "Enter An Employee ID: ", "Enter Cost Of Materials: "]
         while count < 4: # The count here is to keep track of how many inputs the user should input when creating the Maintenance Report
             self.ViewUI.clearTerminal()
             self.Displays.printMaintenanceReport(tempMaintenanceReport, title_message, error_message, mode = "hints") # Display the MaintenanceReport to the user each time he updates an attribute so he can keep track of what he is changing in real time

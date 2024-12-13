@@ -2,6 +2,7 @@ from Data_Layer.DataLayerAPI import DataLayerAPI
 from Models.Workers import *
 from Models.Property import Property
 from Models.Maintenance import Maintenance
+from Models.MaintenanceReport import MaintenanceReport
 from .ErrorCheckers import ErrorCheckers
 
 class LogicLayerPropertyLogic:
@@ -106,10 +107,30 @@ class LogicLayerPropertyLogic:
                 tasksDoneOnProperty.append(task)
         
         if len(tasksDoneOnProperty) == 0: # If we found no tasks on that property the list will be empty so raise the error
-            raise ValueError("No Maintenance has been done on this Property")
+            raise ValueError("No Maintenance has been done on this Property and therefor also no Maintenance Reports aswell")
         
         return tasksDoneOnProperty
         
+    def getReportsForPropertyID(self, ID, destination = None) -> list[MaintenanceReport]:
+        """ Function takes in ID of a property, loads upp all the tasks for that property and tries to find a report on it, returns the reports or raises KeyError"""
+        tasksForProperty = self.getTasksForPropertyID(ID, destination) # Get all the tasks for the property, will raise ValueError if not an int, and if no tasks exist
+        tasksforPropertIDs = []
+        for task in tasksForProperty:
+            tasksforPropertIDs.append(task.maintenanceID)
+        # Now that we have all the maintenance tasks done on the property we can load up the reports and try to find a report that matches any of those maintenance ids
+        maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog()
+        reportsForProperty = []
+        for report in maintenanceReportLog: # Now go through the list of reports
+            if report.maintenanceID in tasksforPropertIDs: # If a report has a maintenanceID that we found add it to the list
+                reportsForProperty.append(report)
+        
+        if len(reportsForProperty) == 0:
+            raise KeyError("Maintenance has been made on this property but no Maintenance Report has been submitted yet")
+        else:
+            return reportsForProperty
+
+
+
     #update the status of properties
     def updateProperty(self, property) -> None:
         """ Function takes in a property already in DB and overwrites it with the new attributes and saves it in Employee DB """

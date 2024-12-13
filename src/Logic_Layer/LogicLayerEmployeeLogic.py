@@ -56,7 +56,7 @@ class LogicLayerEmployeeLogic:
             self.Errors.errorCheckAddress(input)
             temp_employee.address = input
         elif count == 4:  # At Home Phone
-            self.Errors.errorCheckPhone(input)
+            self.Errors.checkEmpty(input) # We dont want to restrict the home phone so it can be something special, but we restrict the gsm to icelandic standard (even though these are not exclusively icelandic people)
             temp_employee.atHomePhone = input
         elif count == 5:  # GSM Phone
             self.Errors.errorCheckPhone(input)

@@ -229,7 +229,7 @@ class ViewUILogic:
                     error_message = error
                     self.clearTerminal()
             elif user_choice == "2": # User wants to view all maintenances done on a specific property
-                ID = input("ID of the Property you want to show tasks for: ") # We always need the user to specify the ID of the object he wants to view so we can pass that along to the logic layer 
+                ID = input("ID of the Property you want to show Maintenance Tasks for: ") # We always need the user to specify the ID of the object he wants to view so we can pass that along to the logic layer 
 
                 if ID.lower() == "q":
                     print("Quitting")
@@ -246,6 +246,30 @@ class ViewUILogic:
                     if result == "q":
                         return "q"
                 except ValueError as error: # Catch value errors from wrong input and display it to the user
+                    error_message = error
+                    self.clearTerminal()
+            elif user_choice == "3": # User wants to view all maintenance reports on a specific property
+                ID = input("ID of the Property you want to show Maintenance Reports for: ") # We always need the user to specify the ID of the object he wants to view so we can pass that along to the logic layer 
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    return "q"
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+
+                try:
+                    reports = self.LogicLayerWrapper.getReportsForPropertyID(ID, destination) # Try to get the tasks for the property ID the user inputted from the logic layer
+                    for report in reports:
+                        self.Displays.printMaintenanceReport(report) # Print them out, could be many, one or none so we have the loop
+                    done_looking = input("Press any button if you are done: ")# Done looking feature is implemented so that the user has time to view what he called after, he presses any button when he is done viewing to back to choose other options
+                    if done_looking == "q":
+                        return "q"
+                    self.clearTerminal()
+                except ValueError as error: # Catch value errors from wrong input and display it to the user
+                    error_message = error
+                    self.clearTerminal()
+                except KeyError as error:
                     error_message = error
                     self.clearTerminal()
             else:
@@ -386,6 +410,28 @@ class ViewUILogic:
                 try:
                     report = self.LogicLayerWrapper.getMaintenanceReportByID(ID) # Try to get the maintenance report specified by the user from the logic layer
                     self.Displays.printMaintenanceReport(report) # print it out for the user to see
+                    done_looking = input("Enter any button if you are done: ")# Done looking feature is implemented so that the user has time to view what he called after, he presses any button when he is done viewing to back to choose other options
+                    if done_looking == "q":
+                        print("Quitting")
+                        return "q"
+                    self.clearTerminal()
+                except ValueError as error: # Catch value errors from wrong input and display it to the user
+                    error_message = error
+                    self.clearTerminal()
+            elif user_choice == "2": # To view maintenance reports on a specific maintenance Task
+                ID = input("ID of the Maintenance Task you want to show Maintenance Reports for: ") # We always need the user to specify the ID of the object he wants to view so we can pass that along to the logic layer 
+
+                if ID.lower() == "q":
+                    print("Quitting")
+                    return "q"
+                elif ID.lower() == "b":
+                    self.clearTerminal()
+                    continue
+
+                try:
+                    reports = self.LogicLayerWrapper.getMaintenanceReportByTaskID(ID) # Try to get the maintenance report specified by the user from the logic layer
+                    for report in reports:
+                        self.Displays.printMaintenanceReport(report) # print it out for the user to see
                     done_looking = input("Enter any button if you are done: ")# Done looking feature is implemented so that the user has time to view what he called after, he presses any button when he is done viewing to back to choose other options
                     if done_looking == "q":
                         print("Quitting")

@@ -245,7 +245,7 @@ class LogicLayerMaintenanceLogic:
             self.checkIfEmployeeIDinDB(int(input))
             temp_maintenanceReport.employeeID = int(input)
         elif count == 3: # Material Cost
-            self.Errors.checkNumber(input)
+            self.Errors.checkIfNumberIsNegative(input)
             temp_maintenanceReport.materialCost = input
         return True
     
@@ -297,6 +297,7 @@ class LogicLayerMaintenanceLogic:
             temp_maintenanceReport.contractorID = int(input)
         elif count == 4: # Adding the Contractor Cost
             self.Errors.checkErrorContractorCost(input)
+            self.Errors.checkIfNumberIsNegative(input)
             temp_maintenanceReport.contractorCost = input
         return True
 
@@ -364,18 +365,18 @@ class LogicLayerMaintenanceLogic:
 
     def getMaintenanceData(self, destination = None) -> list[Maintenance]:
         """ Function Loads all the Maintenance Tasks from the maintenance DB and returns a list of those Maintenance Tasks"""
-        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
-        if destination:
-            properties = self.DataLayerWrapper.loadPropertiesLog()
+        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog() # Load the maintenances
+        if destination: # If we have a destination specified we need additional filtering
+            properties = self.DataLayerWrapper.loadPropertiesLog() # Get the properties since they maintenance is tied to property and property is tied to destination
             dest_maintenances = []
             propIDs = []
-            for prop in properties:
-                if prop.location == destination.destinationID:
+            for prop in properties: #
+                if prop.location == destination.destinationID: # if the location of the propert is the same as the destination then add it to the list
                     propIDs.append(prop.propertyID)
-            for maint in maintenanceLog:
-                if maint.maintenanceID in propIDs:
+            for maint in maintenanceLog: # Now go through all the maintenances and if that maintenance has any of those property id's tied to it, add it to the list
+                if maint.propertyID in propIDs:
                     dest_maintenances.append(maint)
-                return dest_maintenances
+            return dest_maintenances
         return maintenanceLog
     
     def getMaintenanceScheduleData(self) -> list[MaintenanceSchedule]:
@@ -423,4 +424,17 @@ class LogicLayerMaintenanceLogic:
         # Return all the maintenances that have reports on them, (meaning they are ready to be closed via closing the report)
         return readyToBeClosedTasks
 
-        
+    def getMaintenanceReportByTaskID(self, ID) -> list[MaintenanceReport]:
+        """ Function takes in ID of a Maintenance Report, loads up the maintenance Reports in the DB and tries to find it, returns maintenance Report or raises ValueError"""
+        if self.Errors.checkNumber(ID): # Checks if id is a number
+            self.checkIfMaintenanceIDinDB(int(ID))
+            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog() # Loads all the Maintenance Reports
+            # We need to go through the maintenance reports and see if any of them have that ID, there could be none many or one
+            maintenance_reports = []
+            for report in maintenanceReportLog:
+                if report.maintenanceID == int(ID): # If the maintenance repor references that maintenance task ID add it to the list
+                    maintenance_reports.append(report)
+            if len(maintenance_reports) == 0:
+                raise ValueError("No Maintenance Reports have been made on that Maintenance Task")
+            else:
+                return maintenance_reports
