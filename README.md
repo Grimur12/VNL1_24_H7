@@ -7,6 +7,9 @@ Verklegt 1 Hópur 7
   - Kynningar-Myndband
   - Skýrsla
 
+## Kynningar Mynband á Youtube
+https://youtu.be/TjUg-2Kfodw
+
 ## How to run the code
   - After opening this folder, VNL1_24_H7 you should see two main folders, one is src and the second one is docs
   - Before running the program, you will need to have the pip project prettytable installed
