@@ -440,12 +440,12 @@ class Displays:
 
     def displayProperties(self, destination = None) -> None:
         """ Function creates a table to display all of the properties in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of properties related to that destination"""
-        # Omitted from this table for clarity, Tub available
+        # Omitted from this table for clarity, Tub available and ovens available
         propertiespretty = PrettyTable()
-        propertiespretty.field_names = ["Property Number", "Property Name", "Description", "Available for rental", "Pool Available", "Ovens Available"]
+        propertiespretty.field_names = ["Property Number", "Property Name", "Description", "Location", "Available for rental", "Pool Available"]
         properties = self.LogicLayerWrapper.getPropertyData(destination)
         for property in properties:
-            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.description,property.availability,property.hasAPool, property.hasOvens])
+            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.description,property.location,property.availability,property.hasAPool])
         propertiespretty.align = 'l'
         propertiespretty.max_width = 30
         propertiespretty.max_table_width = 150

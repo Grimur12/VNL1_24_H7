@@ -28,5 +28,95 @@
         "hasAPool": "false",
         "hasATub": "false",
         "hasOvens": "true"
+    },
+    {
+        "propertyID": 4,
+        "nameOfProperty": "Redwood Mansion",
+        "description": "Great condition, Ocean view with a forest around it",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 5,
+        "nameOfProperty": "Ice Mansion",
+        "description": "A castle like structure built out of ice, perfect for a family looking to experience new things",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 6,
+        "nameOfProperty": "Sheep Hut",
+        "description": "A traditional sheep hut that has been turned into a rental house, has all of the luxuries of a new property but the feel of the old days",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 7,
+        "nameOfProperty": "Fishing Hut",
+        "description": "An old fishing Hut turned into a tiny apartment for rental",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 8,
+        "nameOfProperty": "The Faroe Special",
+        "description": "A traditional faroe islands house, small (40 m^2) but cozy",
+        "location": 4,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 9,
+        "nameOfProperty": "Tiny Igloo",
+        "description": "A way to experience how the eskimos live",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 10,
+        "nameOfProperty": "Large Igloo",
+        "description": "A way to experience how the eskimos live but with luxury",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 11,
+        "nameOfProperty": "Hostel",
+        "description": "Holds 3 rooms with bunkbeds, shared living space and lots of lively people",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 12,
+        "nameOfProperty": "Hotel Tingwall",
+        "description": "Large Hotel with 30 rooms, each room has its own toilet and comfortable beds",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
     }
 ]
