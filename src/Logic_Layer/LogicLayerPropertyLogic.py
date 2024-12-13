@@ -35,20 +35,23 @@ class LogicLayerPropertyLogic:
         if count == 1:  # Name Of Property
             self.Errors.errorCheckName(input)
             temp_property.nameOfProperty = input
-        elif count == 2:  # Location of property
+        elif count == 2: # Description of Property
+            self.Errors.errorCheckDescription(input)
+            temp_property.description = input
+        elif count == 3:  # Location of property
             self.Errors.checkNumber(input) # Check if its a number
             self.checkIfDestinationExists(int(input)) # Check if the destination exists in our DB
             temp_property.location = int(input)
-        elif count == 3:  # Availability of Property
+        elif count == 4:  # Availability of Property
             self.Errors.errorCheckBoolean(input)
             temp_property.availability = input
-        elif count == 4:  # HasAPool
+        elif count == 5:  # HasAPool
             self.Errors.errorCheckBoolean(input)
             temp_property.hasAPool = input
-        elif count == 5:  # HasATub
+        elif count == 6:  # HasATub
             self.Errors.errorCheckBoolean(input)
             temp_property.hasATub = input
-        elif count == 6:  # HasOvens
+        elif count == 7:  # HasOvens
             self.Errors.errorCheckBoolean(input)
             temp_property.hasOvens = input
         return True

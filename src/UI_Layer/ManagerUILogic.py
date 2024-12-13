@@ -237,8 +237,8 @@ class ManagerUILogic:
         tempProperty = self.LogicLayerWrapper.createTempProperty()
         error_message = None
         title_message = "Adding a new Property"
-        input_message = ["Enter Name: ", "Enter Location: ", "Enter Availability: ", "Enter Pool: ", "Enter Hot Tub: ", "Enter Ovens: "]
-        while count < 7:
+        input_message = ["Enter Name: ", "Enter Description: ", "Enter Location: ", "Enter Availability: ", "Enter Pool: ", "Enter Hot Tub: ", "Enter Ovens: "]
+        while count < 8:
             self.ViewingUI.clearTerminal()
             self.Displays.printProperty(tempProperty, title_message, error_message, mode = "hints")
             userInput = input(f"{input_message[count-1]}") # See the list of input messages, we keep track of what the user is inputing through count, so we reference the relevant enter message through that
@@ -354,6 +354,7 @@ class ManagerUILogic:
         # Once we have the specified employee from the logic layer we can start getting the user input to change the things he wants to change
         error_message = None
         while True:
+            self.ViewingUI.clearTerminal()
             self.Displays.printEmployee(employee, title_message, error_message, edit_message, done_message) # Initially print the employee so the user can see what he wants to change
             userInput = input("Number of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
@@ -406,6 +407,7 @@ class ManagerUILogic:
         # once we have the contractor the user specified from the logic layer we can start getting the user input to change the things he wants to change
         error_message = None
         while True:
+            self.ViewingUI.clearTerminal()
             self.Displays.printEmployee(employee, title_message, error_message, edit_message, done_message)
             userInput = input("Number of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
@@ -438,6 +440,7 @@ class ManagerUILogic:
         """ Function handles the user input for editing a property, returns str (q or b) for quit and back logic"""
         done_message = "D: To Quit Changing and Save Changes\n"
         title_message = "Updating Property Information"
+        edit_message = "You can not change Location of the property"
         while True:
             try:
                 property = self.LogicLayerWrapper.getPropertyByID(ID) # Get the property specified by the user from the logic layer
@@ -457,7 +460,8 @@ class ManagerUILogic:
         # once we have the property the user specified from the logic layer we can start getting the user input to change the things he wants to change
         error_message = None
         while True:
-            self.Displays.printProperty(property, title_message, error_message, done_message=done_message) # print the property for the user to see what he is changing and the numbers of the attributes
+            self.ViewingUI.clearTerminal()
+            self.Displays.printProperty(property, title_message, error_message, done_message=done_message, edit_message=edit_message) # print the property for the user to see what he is changing and the numbers of the attributes
             userInput = input("Number of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
             if userInput.lower() == "q":
@@ -470,7 +474,7 @@ class ManagerUILogic:
                 print("Saving Changes")
                 break
 
-            elif userInput in ["1", "3", "4", "5", "6"]: # List of the available attributes the user could potentially edit
+            elif userInput in ["1", "2", "4", "5", "6"]: # List of the available attributes the user could potentially edit
 
                 newParam = input("New Information: ").strip()
                 try:
@@ -481,6 +485,7 @@ class ManagerUILogic:
                     continue
             else:
                 error_message = "Not a Valid Choice, Try Again"
+
 
         if userInput.lower() == "d":
             self.LogicLayerWrapper.updateProperty(property)
@@ -509,6 +514,7 @@ class ManagerUILogic:
         # once we have the maintenance task the user specified from the logic layer we can start getting the user input to change the things he wants to change     
         error_message = None
         while True:
+            self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceTask(maintenanceTask, title_message, error_message, edit_message, done_message) # print the maintenance task for the user to see what he is changing and the numbers of the attributes
             userInput = input("Number of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back
@@ -562,6 +568,7 @@ class ManagerUILogic:
         # once we have the maintenance schedule the user specified from the logic layer we can start getting the user input to change the things he wants to change    
         error_message = None
         while True:
+            self.ViewingUI.clearTerminal()
             self.Displays.printMaintenanceSchedule(maintenanceSchedule, title_message, error_message, edit_message, done_message) # print the maintenance schedule for the user to see what he is changing and the numbers of the attributes
             userInput = input("Number of the attribute you want to change: ")
             # Need handling for if user wants to quit or go back

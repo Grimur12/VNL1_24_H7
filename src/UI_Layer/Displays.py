@@ -23,12 +23,13 @@ class Displays:
         print(f"\n--- {title_message} ---") 
         print(f"{edit_message}")
         print(f"Property Number: {property.propertyID}") # For all of these we get a property object from the logic layer and we display it
-        print(f"Name: {property.nameOfProperty}" + ("              // Ex. Igloo" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
-        print(f"Location: {property.location}" + ("          // Ex. 1 (Valid Destination Number)" if mode == "hints" else ""))
-        print(f"Availability: {property.availability}" + ("      // Ex. True" if mode == "hints" else ""))
-        print(f"Pool: {property.hasAPool}" + ("              // Ex. False" if mode == "hints" else ""))
-        print(f"Hot Tub: {property.hasATub}" + ("           // Ex. False" if mode == "hints" else ""))
-        print(f"Ovens: {property.hasOvens}" + ("             // Ex. True" if mode == "hints" else ""))
+        print(f"1.Name: {property.nameOfProperty}" + ("              // Ex. Igloo" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
+        print(f"2.Description: {property.description}" + ("              // Ex. 4 Rooms, 100 m^2, Has an Ocean View" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
+        print(f"3.Location: {property.location}" + ("          // Ex. 1 (Valid Destination Number)" if mode == "hints" else ""))
+        print(f"4.Availability: {property.availability}" + ("      // Ex. True" if mode == "hints" else ""))
+        print(f"5.Pool: {property.hasAPool}" + ("              // Ex. False" if mode == "hints" else ""))
+        print(f"6.Hot Tub: {property.hasATub}" + ("           // Ex. False" if mode == "hints" else ""))
+        print(f"7.Ovens: {property.hasOvens}" + ("             // Ex. True" if mode == "hints" else ""))
         print("--------------------------")
         print("B: To Go Back")
         print("Q: To Quit")
@@ -439,14 +440,15 @@ class Displays:
 
     def displayProperties(self, destination = None) -> None:
         """ Function creates a table to display all of the properties in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of properties related to that destination"""
+        # Omitted from this table for clarity, Tub available
         propertiespretty = PrettyTable()
-        propertiespretty.field_names = ["Property Number", "Property Name", "Available for rental", "Pool Available", "Tub Available", "Ovens Available"]
+        propertiespretty.field_names = ["Property Number", "Property Name", "Description", "Available for rental", "Pool Available", "Ovens Available"]
         properties = self.LogicLayerWrapper.getPropertyData(destination)
         for property in properties:
-            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.availability,property.hasAPool,property.hasATub,property.hasOvens])
+            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.description,property.availability,property.hasAPool, property.hasOvens])
         propertiespretty.align = 'l'
         propertiespretty.max_width = 30
-        propertiespretty.max_table_width = 140
+        propertiespretty.max_table_width = 150
         propertiespretty.min_table_width = 100
         propertiespretty.hrules = True 
         propertiespretty.vrules = True  

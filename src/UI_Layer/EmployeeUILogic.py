@@ -32,11 +32,11 @@ class EmployeeUILogic:
                 return "b"
 
             if user_choice == "1": # If we user wants to create a maintenance report
-                result = self.createMaintenanceReport()
+                result = self.createMaintenanceReport() # Call the maintenance report view menu 
                 if result == "q": # Check if he wants to quit
                     return "q"
             elif user_choice == "2": # If the user wants to access the viewing features
-                result = self.ViewUI.viewMenu()
+                result = self.ViewUI.viewMenu() # Call the viewing functions menu
                 if result == "q": # Check if he wants to quit
                     return "q"
             else:
