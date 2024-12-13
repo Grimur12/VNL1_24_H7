@@ -30,11 +30,11 @@ class ErrorCheckers:
         return True
     
     def errorCheckDescription(self, input) -> True:
-        """Checks if input is just or is bigger than 100 characters, returns ValueError or True"""
+        """Checks if input is just or is bigger than 250 characters, returns ValueError or True"""
         self.checkEmpty(input)
         if input.isnumeric():
             raise ValueError("Description can not be just a number")
-        elif len(input) > 100:
+        elif len(input) > 250:
             raise ValueError("Description can not be more than 100 characters")
         else:
             return True

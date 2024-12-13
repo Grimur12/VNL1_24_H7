@@ -49,13 +49,13 @@ class Displays:
             print(f"1.Name: {employee.name}" + ("                // Ex. Karl Jónsson" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
             print(f"2.Social Security: {employee.socialSecurity}" + ("     // Ex. 020398-2490" if mode == "hints" else ""))
             print(f"3.Address: {employee.address}" + ("             // Ex. Brekkuvegur 91" if mode == "hints" else ""))
-            print(f"4.Home Phone: {employee.atHomePhone}" + ("          // Ex. 662-1234" if mode == "hints" else ""))
+            print(f"4.Home Phone: {employee.atHomePhone}" + ("          // Ex. +242 32 66 21234" if mode == "hints" else ""))
             print(f"5.GSM Phone: {employee.gsmPhone}" + ("           // Ex. 882-1234" if mode == "hints" else ""))
             print(f"6.Email: {employee.email}" + ("               // Ex. Karl@gmail.com" if mode == "hints" else ""))
             print(f"7.Work Location: {employee.workLocation}" + ("       // Ex. 1 (Valid Destination Number)" if mode == "hints" else ""))
             print(f"Type: {employee.type}")
             print(f"8.Previous Task: {employee.previousTask}" + ("       // Ex. 1 or 1,2,3 (Valid Maintenance Task(s), Can Be Empty)" if mode == "hints" else ""))
-            print(f"9.Performance Rating: {employee.performanceRating}" + ("  // Ex. 9 (Can Be Empty If No Previous Tasks)" if mode == "hints" else ""))
+            print(f"9.Performance Rating: {employee.performanceRating}" + ("  // Ex. 9 (Can Be Empty If No Previous Tasks or a Performance Rating from the internet)" if mode == "hints" else ""))
             print(f"10.Contractor Contact: {employee.contractorContact}" + (" // Ex. 1 (Valid Employee Number)" if mode == "hints" else ""))
             print(f"11.Opening Hours: {employee.openingHours}" + ("      // Ex. 9-5" if mode == "hints" else ""))
 
@@ -65,7 +65,7 @@ class Displays:
             print(f"1.Name: {employee.name}" + ("                // Ex. Karl Jónsson" if mode == "hints" else "")) # These hints are for the creation process, for the other UI's to specify
             print(f"2.Social Security: {employee.socialSecurity}" + ("     // Ex. 020398-2490" if mode == "hints" else ""))
             print(f"3.Address: {employee.address}" + ("             // Ex. Brekkuvegur 91" if mode == "hints" else ""))
-            print(f"4.Home Phone: {employee.atHomePhone}" + ("          // Ex. 662-1234" if mode == "hints" else ""))
+            print(f"4.Home Phone: {employee.atHomePhone}" + ("          // Ex. +242 32 66 21234" if mode == "hints" else ""))
             print(f"5.GSM Phone: {employee.gsmPhone}" + ("           // Ex. 882-1234" if mode == "hints" else ""))
             print(f"6.Email: {employee.email}" + ("               // Ex. Karl@gmail.com" if mode == "hints" else ""))
             print(f"7.Work Location: {employee.workLocation}" + ("       // Ex. 1 (Valid Destination Number)" if mode == "hints" else ""))

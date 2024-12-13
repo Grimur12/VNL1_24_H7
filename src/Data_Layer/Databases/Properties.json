@@ -1,112 +1,32 @@
 [
     {
         "propertyID": 1,
-        "nameOfProperty": "NAME CHANGED TEST HR",
-        "description": "Artifical description input",
-        "location": 1,
-        "availability": "True",
-        "hasAPool": "True",
-        "hasATub": "True",
-        "hasOvens": "False"
+        "nameOfProperty": "Igloo-Ville",
+        "description": "Igloo-Ville is a recreation of a town that burned down in 2021. There are 10 igloos available for reservation. A reservation can be made through our front desk, that can include a dining hall open from 6am to 23pm.",
+        "location": 3,
+        "availability": "true",
+        "hasAPool": "true",
+        "hasATub": "true",
+        "hasOvens": "true"
     },
     {
         "propertyID": 2,
-        "nameOfProperty": "Kaffistofan",
-        "description": "Artifical description input",
-        "location": 2,
-        "availability": "True",
-        "hasAPool": "True",
-        "hasATub": "True",
-        "hasOvens": "False"
-    },
-    {
-        "propertyID": 3,
-        "nameOfProperty": "House 1",
-        "description": "Artifical description input",
-        "location": 1,
-        "availability": "True",
+        "nameOfProperty": "Hotel Mud",
+        "description": "Hotel Mud is a cluster of beautiful mud huts, with grassy walls and roofs. There is not a reception desk for the front 5 huts, however you can mame a reservation through our phone line at +298 351-445",
+        "location": 4,
+        "availability": "true",
         "hasAPool": "false",
-        "hasATub": "true",
+        "hasATub": "false",
         "hasOvens": "false"
     },
     {
-        "propertyID": 4,
-        "nameOfProperty": "Igloo",
-        "description": "Artifical description input",
-        "location": 3,
-        "availability": "True",
-        "hasAPool": "False",
-        "hasATub": "True",
-        "hasOvens": "False"
-    },
-    {
-        "propertyID": 5,
-        "nameOfProperty": "Igloo 2",
-        "description": "Artifical description input",
-        "location": 3,
-        "availability": "False",
-        "hasAPool": "True",
-        "hasATub": "True",
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 6,
-        "nameOfProperty": "Red Mansion",
-        "description": "Artifical description input",
-        "location": 4,
-        "availability": "False",
-        "hasAPool": "True",
-        "hasATub": "True",
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 7,
-        "nameOfProperty": "Penguin Mansion",
-        "description": "Artifical description input",
-        "location": 5,
-        "availability": "False",
-        "hasAPool": "True",
-        "hasATub": "True",
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 8,
-        "nameOfProperty": "Manager House",
-        "description": "Artifical description input",
+        "propertyID": 3,
+        "nameOfProperty": "Hotel Akula",
+        "description": "The hotel includes 30 rooms, including a sauna, gym, a game room with pool and a mini bar.",
         "location": 6,
-        "availability": "False",
-        "hasAPool": "False",
-        "hasATub": "False",
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 9,
-        "nameOfProperty": "Namet",
-        "description": "Artifical description input",
-        "location": 1,
         "availability": "True",
-        "hasAPool": "False",
-        "hasATub": "True",
-        "hasOvens": "False"
-    },
-    {
-        "propertyID": 10,
-        "nameOfProperty": "t",
-        "description": "Artifical description input",
-        "location": 2,
-        "availability": "True",
-        "hasAPool": "False",
-        "hasATub": "True",
-        "hasOvens": "True"
-    },
-    {
-        "propertyID": 11,
-        "nameOfProperty": "Mansion 2",
-        "description": "3 Rooms, Ocean View, Perfect Condition",
-        "location": 2,
-        "availability": "True",
-        "hasAPool": "False",
-        "hasATub": "True",
-        "hasOvens": "False"
+        "hasAPool": "false",
+        "hasATub": "false",
+        "hasOvens": "true"
     }
 ]
