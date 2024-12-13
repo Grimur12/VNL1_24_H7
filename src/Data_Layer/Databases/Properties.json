@@ -138,5 +138,85 @@
         "hasAPool": "False",
         "hasATub": "False",
         "hasOvens": "False"
+    },
+    {
+        "propertyID": 15,
+        "nameOfProperty": "BikiniHostel",
+        "description": "1 Room, 0 bathrooms, beach view",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 16,
+        "nameOfProperty": "HiHostel",
+        "description": "6 rooms, 1 bathroom, downtown",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 17,
+        "nameOfProperty": "Penthouse",
+        "description": "Huge house with all sorts of abilities",
+        "location": 6,
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 18,
+        "nameOfProperty": "BigBoyVilla",
+        "description": "3 rooms, 2 bathrooms, near the beach",
+        "location": 2,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 19,
+        "nameOfProperty": "HotelIceChill",
+        "description": "Relaxing hotel experience for long travelers",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 20,
+        "nameOfProperty": "MilanPuskarHotel",
+        "description": "A relaxing resort for our veterans",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 21,
+        "nameOfProperty": "Trent Van Robertson",
+        "description": "Hotel for all the family",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 22,
+        "nameOfProperty": "Ctrl Alt De Ligt",
+        "description": "Cheap hostel for our prestigous guests",
+        "location": 3,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
     }
 ]
