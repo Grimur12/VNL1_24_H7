@@ -739,6 +739,52 @@ Final Return TODO:
 
 ## [13/12/2024 - Dagur 5]
 
-....
+Mættir / In attendance:
+  - Grímur
+  - Leonard
+  - Máni
+  - Iðunn
+  - Pedro
+  - Olafur
 
+Pairs and Layers EOD Results and Todays work:
+-Leonard and Ólafur 
+-Iðunn and Pedro
+-Grímur and Máni
+
+ TODO:
+- [x] Layers are all completed
+- [x] Connection between layers are all completed
+- [x] Test the system in its entirety
+Extra checklist for week 3
+- [x] Finish Maintenance Report
+- [x] Add destinations
+- [x] Fix Model Classes attributes
+- [x] Finish Pretty Table UI
+- [x] Change Error checkers to match new model class attributes
+- [x] Finish all doc strings, returns type values and comments in the code
+- [x] Make the model class diagram match the new model classes
+- [ ] Make the layered class diagram match the code
+- [ ] Check all boxes in the Requirements list in the Design report
+- [x] Change Priority values, need to be Emergency, now and soon as possible
+- [x] finish the wireframe /happy paths 
+- [ ] finish recording 10minute video
+
+
+Final Return TODO:
+- [x] finish pdf document 
+  - [x] User Group Analysis
+  - [ ] Functional Requirements
+  - [x] Wireframe / Happypaths
+  - [x]  UML diagram
+  - [x] Model Diagram
+  - [x] State Diagram
+  - [ ] Use cases 
+
+- [ ] Finish Code / Program Completely
+- [x] READme.md file that contains information about our program and how to start it etc.
+- [x] Requirements.txt file that contain all pip install packages
+- [ ] 10 minute introduction to the system video, best option is youtube file because files can be really big
+      - [ ] LINK TO THE VIDEO is suppposed to be on READ ME file
+- [ ] RETURN This book report
 
