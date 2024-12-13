@@ -365,18 +365,18 @@ class LogicLayerMaintenanceLogic:
 
     def getMaintenanceData(self, destination = None) -> list[Maintenance]:
         """ Function Loads all the Maintenance Tasks from the maintenance DB and returns a list of those Maintenance Tasks"""
-        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog()
-        if destination:
-            properties = self.DataLayerWrapper.loadPropertiesLog()
+        maintenanceLog = self.DataLayerWrapper.loadMaintenanceLog() # Load the maintenances
+        if destination: # If we have a destination specified we need additional filtering
+            properties = self.DataLayerWrapper.loadPropertiesLog() # Get the properties since they maintenance is tied to property and property is tied to destination
             dest_maintenances = []
             propIDs = []
-            for prop in properties:
-                if prop.location == destination.destinationID:
+            for prop in properties: #
+                if prop.location == destination.destinationID: # if the location of the propert is the same as the destination then add it to the list
                     propIDs.append(prop.propertyID)
-            for maint in maintenanceLog:
-                if maint.maintenanceID in propIDs:
+            for maint in maintenanceLog: # Now go through all the maintenances and if that maintenance has any of those property id's tied to it, add it to the list
+                if maint.propertyID in propIDs:
                     dest_maintenances.append(maint)
-                return dest_maintenances
+            return dest_maintenances
         return maintenanceLog
     
     def getMaintenanceScheduleData(self) -> list[MaintenanceSchedule]:
