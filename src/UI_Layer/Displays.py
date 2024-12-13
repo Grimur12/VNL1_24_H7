@@ -182,7 +182,7 @@ class Displays:
         contractor_menu.title = "Contractor Menu"
         contractor_menu.header = False
         contractor_menu.add_row(["1: Create a Maintenance Report"]) # Add the relevant rows to the menu
-        contractor_menu.add_row(["2: Viewing features"])
+        contractor_menu.add_row(["2: Viewing Features"])
         contractor_menu.add_row(["B: Go Back"])
         contractor_menu.add_row(["Q: Quit"])
 
@@ -195,7 +195,7 @@ class Displays:
         employee_menu.title = " Employee Menu"
         employee_menu.header = False
         employee_menu.add_row(["1: Create a Maintenance Report"]) # Add the relevant rows to the menu
-        employee_menu.add_row(["2: Viewing features"])
+        employee_menu.add_row(["2: Viewing Features"])
         employee_menu.add_row(["B: Go Back"])
         employee_menu.add_row(["Q: Quit"])
         employee_menu.align = "l"
@@ -241,9 +241,9 @@ class Displays:
         manager_menu = PrettyTable()
         manager_menu.title = "Manager menu"
         manager_menu.header = False
-        manager_menu.add_row(["1: Create new Properties, Employees or Maintenance Tasks"]) # Add the relevant rows to the menu
-        manager_menu.add_row(["2: Edit Properties, Employees or Maintenance Tasks"])
-        manager_menu.add_row(["3: View Properties, Employess or Maintenance Tasks"])
+        manager_menu.add_row(["1: Creating Features"]) # Add the relevant rows to the menu
+        manager_menu.add_row(["2: Editing Features"])
+        manager_menu.add_row(["3: Viewing Features"])
         manager_menu.add_row(["B: Go Back"])
         manager_menu.add_row(["Q: Quit"])
         manager_menu.align = "l"
