@@ -208,6 +208,11 @@ class LogicLayerAPI:
         tasks = self.LogicLayerPropertyLogic.getTasksForPropertyID(ID, destination)
         return tasks
     
+    def getReportsForPropertyID(self,ID, destination = None) -> list[MaintenanceReport]:
+        """ Function takes in ID of a property, loads upp all the tasks for that property and tries to find a report on it, returns the reports or raises KeyError"""
+        reports = self.LogicLayerPropertyLogic.getReportsForPropertyID(ID, destination)
+        return reports
+    
     def getDestinationData(self) -> list[Destination]:
         """ Function loads all destinations from DB """
         destinations = self.LogicLayerEmployeelogic.getDestinationData()

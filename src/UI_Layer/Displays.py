@@ -317,7 +317,8 @@ class Displays:
         filter_properties_menu.title = "Specific Property Information"
         filter_properties_menu.header = False
         filter_properties_menu.add_row(["1: To view additional information of a specific Property"]) # Add the relevant rows to the menu
-        filter_properties_menu.add_row(["2: To view all Maintenance on a specific Property"])
+        filter_properties_menu.add_row(["2: To view all Maintenance Tasks on a specific Property"])
+        filter_properties_menu.add_row(["3: To view all Maintenance Reports on a specific Property"])
         filter_properties_menu.add_row(["B: To Go Back"])
         filter_properties_menu.add_row(["Q: To Quit"])
         filter_properties_menu.align = "l"
