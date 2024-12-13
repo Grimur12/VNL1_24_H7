@@ -108,5 +108,16 @@
         "readyToClose": "True",
         "supervisorClosed": "False",
         "supervisorFeedback": ""
+    },
+    {
+        "maintenanceReportID": 12,
+        "maintenanceID": 4,
+        "employeeID": "",
+        "materialCost": "1000",
+        "contractorID": 5,
+        "contractorCost": "10000",
+        "readyToClose": "True",
+        "supervisorClosed": "False",
+        "supervisorFeedback": ""
     }
 ]

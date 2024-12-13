@@ -249,5 +249,16 @@
         "email": "@",
         "workLocation": 6,
         "type": "General"
+    },
+    {
+        "employeeID": 22,
+        "name": "me egsson",
+        "socialSecurity": "123456-2345",
+        "address": "classified 9",
+        "atHomePhone": "555-1234",
+        "gsmPhone": "888-1234",
+        "email": "karl@gmail,com",
+        "workLocation": 1,
+        "type": "General"
     }
 ]
