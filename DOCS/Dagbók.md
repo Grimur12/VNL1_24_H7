@@ -756,6 +756,9 @@ Pairs and Layers EOD Results and Todays work:
 -Grímur and Máni
   - This group is doing finishing touches and changes to our code
 
+
+Today we finished everything we were supposed to finish.
+
  TODO:
 - [x] Layers are all completed
 - [x] Connection between layers are all completed
