@@ -355,6 +355,7 @@ class Displays:
         filter_maintenanceReport_menu.title = "Specific Maintenance Report Information"
         filter_maintenanceReport_menu.header = False
         filter_maintenanceReport_menu.add_row(["1: To view additional information of a specific Maintenance Report"]) # Add the relevant rows to the menu
+        filter_maintenanceReport_menu.add_row(["2: To view Maintenance Reports for a specific Maintenance Task"]) # Add the relevant rows to the menu
         filter_maintenanceReport_menu.add_row(["B: To Go Back"])
         filter_maintenanceReport_menu.add_row(["Q: To Quit"])
         filter_maintenanceReport_menu.align = "l"

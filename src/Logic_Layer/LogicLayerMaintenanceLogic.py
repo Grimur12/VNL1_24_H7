@@ -424,4 +424,17 @@ class LogicLayerMaintenanceLogic:
         # Return all the maintenances that have reports on them, (meaning they are ready to be closed via closing the report)
         return readyToBeClosedTasks
 
-        
+    def getMaintenanceReportByTaskID(self, ID) -> list[MaintenanceReport]:
+        """ Function takes in ID of a Maintenance Report, loads up the maintenance Reports in the DB and tries to find it, returns maintenance Report or raises ValueError"""
+        if self.Errors.checkNumber(ID): # Checks if id is a number
+            self.checkIfMaintenanceIDinDB(int(ID))
+            maintenanceReportLog = self.DataLayerWrapper.loadMaintenanceReportLog() # Loads all the Maintenance Reports
+            # We need to go through the maintenance reports and see if any of them have that ID, there could be none many or one
+            maintenance_reports = []
+            for report in maintenanceReportLog:
+                if report.maintenanceID == int(ID): # If the maintenance repor references that maintenance task ID add it to the list
+                    maintenance_reports.append(report)
+            if len(maintenance_reports) == 0:
+                raise ValueError("No Maintenance Reports have been made on that Maintenance Task")
+            else:
+                return maintenance_reports

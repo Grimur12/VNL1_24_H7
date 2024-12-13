@@ -145,6 +145,11 @@ class LogicLayerAPI:
         maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByID(ID)
         return maintenanceReport
     
+    def getMaintenanceReportByTaskID(self, ID) -> list[MaintenanceReport]:
+        """ Function takes in ID of a Maintenance Task, loads the maintenance reports inthe DB and tries to find the reports associated with that task ID, returns maintenance report or raises ValueError"""
+        maintenanceReport = self.LogicLayerMaintenancelogic.getMaintenanceReportByTaskID(ID)
+        return maintenanceReport
+    
     def filterMaintenanceTasksDates(self, tasks, startDate, endDate) -> list[Maintenance]:
         """ Function takes in a start and end date and a a list of tasks, filters the tasks based on the dates and returns a list of the filtered maintenance tasks or raises ValueError """
         filtered_tasks = self.LogicLayerMaintenancelogic.filterMaintenanceTasksDates(tasks, startDate, endDate)

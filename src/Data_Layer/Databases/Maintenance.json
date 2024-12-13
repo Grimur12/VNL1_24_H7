@@ -48,5 +48,15 @@
         "statusMaintenance": "ongoing",
         "priority": "asap",
         "recurring": "true"
+    },
+    {
+        "maintenanceID": 6,
+        "propertyID": 1,
+        "description": "Cleaning the toilets",
+        "startDate": "02.10.2023.12:30",
+        "endDate": "02.10.2024.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
     }
 ]
