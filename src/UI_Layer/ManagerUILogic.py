@@ -169,6 +169,7 @@ class ManagerUILogic:
         error_message = None
         overWritten = False
         aborted = False # Flag to see if user has pressed b or does not want to overwrite manager
+        types_of_employees = ["Employee", "Manager", "Contractor"] # To display what the user created
         title_message = ["Adding a new Employee","Adding a new Manager","Adding a new Contractor"] # Creating a list of the possible titles depending on what type of employee the user wants to create
         input_message = ["Enter Name: ", "Enter Social Security Number: ", "Enter Address: ", "Enter Home Phone: ", "Enter GSM Phone: ", "Enter Email: ", "Enter Work Location: ", "Enter Previous Task(s) (If Any): ", "Enter Performance Rating (If Any): ", "Enter Contractor Contact: ", "Enter Opening Hours: "]
         if type_of_employee == "3":
@@ -210,7 +211,7 @@ class ManagerUILogic:
             self.ViewingUI.clearTerminal()
             self.Displays.printEmployee(temp, title_message[int(type_of_employee)-1], error_message) # Final display of the employee he created
             self.LogicLayerWrapper.createEmployee(temp)
-            print("You have successfully created the employee")
+            print(f"You have successfully created the {types_of_employees[int(type_of_employee)-1]}")
 
     def overWriteManager(self, temp, userInput_previous) -> True:
         """ Returns True if user decides to overwrite manager and False otherwise"""
