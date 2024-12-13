@@ -52,158 +52,13 @@ class ViewUILogic:
                 error_message = "Invalid Input"
                 self.clearTerminal()
 
-    def displayEmployees(self, destination = None) -> None:
-        """ Function creates a table to display all of the employees in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of employees related to that destination"""
-        # For displaying employees in the pretty table we omit, Address and Home phone
-        # User can easily find that information through choosing to view additional information on a specific employee
-        employeespretty = PrettyTable()
-        employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
-        employees = self.LogicLayerWrapper.getEmployeeData(destination)
-        for employee in employees:
-            employeespretty.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)        
-        employeespretty.align = 'l'
-        employeespretty.max_table_width = 150
-        employeespretty.min_table_width = 100
-        employeespretty.max_width = 30
-        print(employeespretty)
-
-    def displayManagers(self, destination = None) -> None:
-        """ Function creates a table to display all of the managers in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of managers related to that destination"""
-        # For displaying managers in the pretty table we omit, Address and Home phone
-        # User can easily find that information through choosing to view additional information on a specific employee
-        managerspretty = PrettyTable()
-        managerspretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
-        managers = self.LogicLayerWrapper.getManagers(destination)
-        for manager in managers:
-            managerspretty.add_row([manager.employeeID, manager.name, manager.socialSecurity, manager.gsmPhone, manager.email, manager.workLocation , manager.type], divider=True)        
-        managerspretty.align = 'l'
-        managerspretty.max_table_width = 150
-        managerspretty.min_table_width = 100
-        managerspretty.max_width = 30
-        print(managerspretty)
-        
-    def displayContractors(self, destination=None) -> None:
-        """ Function creates a table to display all of the contractors in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of contractors related to that destination"""
-        # For displaying contractors in the pretty table we omit, Address, Home Phone, Previous Task and Performance Rating
-        # User can easily find that information through choosing to view additional information on that specific contractor
-        contractors_pretty = PrettyTable()
-        contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "GSM Phone", "Email", "Work Location", "Type", "Contractor Contact", "Opening Hours"]
-        contractors = self.LogicLayerWrapper.getContractorData(destination)
-
-        for contractor in contractors:
-            contractors_pretty.add_row([contractor.employeeID, contractor.name, contractor.socialSecurity, contractor.gsmPhone, contractor.email, contractor.workLocation, contractor.type,  contractor.contractorContact, contractor.openingHours])
-        contractors_pretty.align = 'l'  
-        contractors_pretty.max_table_width = 160 
-        contractors_pretty.min_table_width = 100  
-        contractors_pretty.max_width = 30  
-        contractors_pretty.hrules = True 
-        contractors_pretty.vrules = True
-
-        print(contractors_pretty)
-
-    def displayProperties(self, destination = None) -> None:
-        """ Function creates a table to display all of the properties in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of properties related to that destination"""
-        propertiespretty = PrettyTable()
-        propertiespretty.field_names = ["Property Number", "Property Name", "Available for rental", "Pool Available", "Tub Available", "Ovens Available"]
-        properties = self.LogicLayerWrapper.getPropertyData(destination)
-        for property in properties:
-            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.availability,property.hasAPool,property.hasATub,property.hasOvens])
-        propertiespretty.align = 'l'
-        propertiespretty.max_width = 30
-        propertiespretty.max_table_width = 140
-        propertiespretty.min_table_width = 100
-        propertiespretty.hrules = True 
-        propertiespretty.vrules = True  
-  
-        print(propertiespretty)
-
-    def displayMaintenanceTasks(self, destination = None) -> None:
-        """ Function creates a table to display all of the maintenance tasks in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of maintenance tasks related to that destination"""
-        maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData(destination)
-        tasks_pretty = PrettyTable()
-        tasks_pretty.field_names = ["Task ID", "Property ID", "Description", "Start Date", "End Date", "Status", "Priority", "Recurring"]
-        for task in maintenanceTasks:
-            tasks_pretty.add_row([task.maintenanceID,task.propertyID,task.description,task.startDate,task.endDate,task.statusMaintenance,task.priority,task.recurring])
-        tasks_pretty.align = "l"  
-        tasks_pretty.max_width = 30  
-        tasks_pretty.min_table_width = 100 
-        tasks_pretty.max_table_width = 150  
-        tasks_pretty.hrules = True 
-        tasks_pretty.vrules = True 
-
-        # Display the table
-        print(tasks_pretty)
-
-    def displayMaintenanceSchedules(self) -> None:
-        """ Function creates a table to display all of the maintenanceschedules in a specified format"""
-        maintenanceSchedules = self.LogicLayerWrapper.getMaintenanceScheduleData()
-        schedules_pretty = PrettyTable()
-        schedules_pretty.field_names = ["Schedule ID", "Maintenance ID", "Task Type", "Frequency", "Start Date"]
-        for schedule in maintenanceSchedules:
-            schedules_pretty.add_row([ schedule.maintenanceScheduleID, schedule.maintenanceID, schedule.taskType, schedule.frequency, schedule.startDate])
-        schedules_pretty.align = "l"  
-        schedules_pretty.max_width = 30  
-        schedules_pretty.min_table_width = 100  
-        schedules_pretty.max_table_width = 140
-        schedules_pretty.hrules = 1 
-        schedules_pretty.hrules = True 
-        schedules_pretty.vrules = True 
-
-        # Display the table
-        print(schedules_pretty)
-
-
-    def displayMaintenanceReports(self) -> None:
-        """ Function creates a table to display all of the maintenance reports in a specified format"""
-        maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
-        maintenance_reports_pretty = PrettyTable()
-        maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Ready to Close", "Supervisor Closed", "Supervisor Feedback"]
-
-        # We need to change what the user sees based on whats inside the attribute
-        for report in maintenanceReports:
-            maintenance_reports_pretty.add_row([
-            report.maintenanceReportID,
-            report.maintenanceID,
-            report.employeeID if report.employeeID else "N/A",
-            report.materialCost,
-            report.contractorID if report.contractorID else "N/A",
-            report.contractorCost if report.contractorCost else "N/A",
-            "Yes" if report.readyToClose else "No",
-            "Yes" if report.supervisorClosed.lower() == "true" else "No",
-            report.supervisorFeedback if report.supervisorFeedback else "No Feedback Yet"
-            ])
-
-        maintenance_reports_pretty.align = "l"  
-        maintenance_reports_pretty.max_width = 90
-        maintenance_reports_pretty.min_table_width = 100 
-        maintenance_reports_pretty.max_table_width = 150
-        maintenance_reports_pretty.hrules = True 
-        maintenance_reports_pretty.vrules = True 
-
-        print(maintenance_reports_pretty)
-
-    def displayDestinations(self) -> None:
-        """ Function creates a table to display all of the destinations in a specified format"""
-        destinations = self.LogicLayerWrapper.getDestinationData()
-        destinations_pretty = PrettyTable()
-        destinations_pretty.field_names = ["Destination ID", "Name", "Country", "Timezone", "Airport Name", "Phone Number", "Opening Hours", "Manager ID"]
-        for destination in destinations:
-            destinations_pretty.add_row([destination.destinationID, destination.name, destination.country, destination.timezone, destination.airportName, destination.phoneNumber, destination.openingHours, destination.managerOfDestination])
-        destinations_pretty.align = "l" 
-        destinations_pretty.max_width = 30 
-        destinations_pretty.min_table_width = 100 
-        destinations_pretty.max_table_width = 120 
-        destinations_pretty.hrules = True 
-
-        print(destinations_pretty)
-
     def filterEmployees(self, destination = None) -> str:
         """Function is responsible for handling all user inputs realted to viewing employees, returns str (q or b) for quit and back features"""
         self.clearTerminal()
         # Function can receive a destination, passed from filterDestination which would get that from the logic layer, if user is asking for specific employees at a specific destination
         error_message = None
         while True:
-            self.displayEmployees(destination) # Show them the complete list and then ask if they want any more filtering....
+            self.Displays.displayEmployees(destination) # Show them the complete list and then ask if they want any more filtering....
             print(self.Displays.filterEmployeesMenu()) # Always show the menu, even if an error was found
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -258,7 +113,7 @@ class ViewUILogic:
                     error_message = error
                     self.clearTerminal()
             elif user_choice == "3": # User wants to view the Manager(s)
-                self.displayManagers(destination)
+                self.Displays.displayManagers(destination)
                 done_looking = input("Press any button if you are done: ")# Done looking feature is implemented so that the user has time to view what he called after, he presses any button when he is done viewing to back to choose other options
                 if done_looking == "q":
                     return "q"
@@ -275,7 +130,7 @@ class ViewUILogic:
         error_message = None
         title_message = "Contractor Information"
         while True:
-            self.displayContractors(destination) # Show them the complete list and then ask if they want any more fliltering...
+            self.Displays.displayContractors(destination) # Show them the complete list and then ask if they want any more fliltering...
             print(self.Displays.filterContractorsMenu()) # Always show the menu, even if an error was found
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -337,7 +192,7 @@ class ViewUILogic:
         # Function can receive a destination, passed from filterDestination which would get that from the logic layer, if user is asking for specific Properties at a specific destination
         error_message = None
         while True:
-            self.displayProperties(destination) # Show them the complete list and then ask if they want any more filtering....
+            self.Displays.displayProperties(destination) # Show them the complete list and then ask if they want any more filtering....
             print(self.Displays.filterPropertiesMenu()) # Inital showing the user the options for viewing properties, always show the menu even when an error occurs
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -403,7 +258,7 @@ class ViewUILogic:
         # Function can receive a destination, passed from filterDestination which would get that from the logic layer, if user is asking for specific maintenance tasks at a specific destination
         error_message = None
         while True:
-            self.displayMaintenanceTasks(destination) #Show them the complete list and then ask if they want any more filtering....
+            self.Displays.displayMaintenanceTasks(destination) #Show them the complete list and then ask if they want any more filtering....
             print(self.Displays.filterMaintenanceMenu()) # Show the user the options to view maintenance tasks, keep showing even with errors until he chooses something
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -459,7 +314,7 @@ class ViewUILogic:
         self.clearTerminal()
         error_message = None
         while True:
-            self.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
+            self.Displays.displayMaintenanceSchedules() # Show them the complete list and then ask if they want any more filtering....
             print(self.Displays.filterMaintenanceScheduleMenu()) # Show the user the options he has for maintenance schedules
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -503,7 +358,7 @@ class ViewUILogic:
         self.clearTerminal()
         error_message = None
         while True:
-            self.displayMaintenanceReports() # Show them a complete list of maintenance reports before asking them what they want to do
+            self.Displays.displayMaintenanceReports() # Show them a complete list of maintenance reports before asking them what they want to do
             print(self.Displays.filterMaintenanceReportMenu()) # Show them the options they have on viewing the maintenance reports
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")
@@ -548,7 +403,7 @@ class ViewUILogic:
         self.clearTerminal()
         error_message = None
         while True:
-            self.displayDestinations() # Show them all the destinations 
+            self.Displays.displayDestinations() # Show them all the destinations 
             print(self.Displays.filterDestinationMenu()) # Show the user the options he has for viewing specific things at destinations
             if error_message: # Error message handling to make the error persistant even through clearing screens. Allows us to keep the UI clear but still show the user what he did wrong
                 print(f"Error: {error_message}")

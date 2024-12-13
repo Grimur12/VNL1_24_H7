@@ -1,11 +1,12 @@
 
 from os import system, name
 from prettytable import PrettyTable
+from Logic_Layer.LogicLayerAPI import LogicLayerAPI
 
 class Displays:
     def __init__(self) -> None:
         """ No attributes needed for this class it only holds our displays to print in the other UI's"""
-        pass
+        self.LogicLayerWrapper = LogicLayerAPI()
 
     def clearTerminal(self) -> None:
         """ Function is responsible for clearing the terminal the user is operating the system on """
@@ -385,3 +386,149 @@ class Displays:
         filter_date_menu.align = "l"
 
         return filter_date_menu 
+
+    # To display all the information we have in pretty tables
+    def displayEmployees(self, destination = None) -> None:
+        """ Function creates a table to display all of the employees in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of employees related to that destination"""
+        # For displaying employees in the pretty table we omit, Address and Home phone
+        # User can easily find that information through choosing to view additional information on a specific employee
+        employeespretty = PrettyTable()
+        employeespretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        employees = self.LogicLayerWrapper.getEmployeeData(destination)
+        for employee in employees:
+            employeespretty.add_row([employee.employeeID, employee.name, employee.socialSecurity, employee.gsmPhone, employee.email, employee.workLocation , employee.type], divider=True)        
+        employeespretty.align = 'l'
+        employeespretty.max_table_width = 150
+        employeespretty.min_table_width = 100
+        employeespretty.max_width = 30
+        print(employeespretty)
+
+    def displayManagers(self, destination = None) -> None:
+        """ Function creates a table to display all of the managers in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of managers related to that destination"""
+        # For displaying managers in the pretty table we omit, Address and Home phone
+        # User can easily find that information through choosing to view additional information on a specific employee
+        managerspretty = PrettyTable()
+        managerspretty.field_names = ["Employee Number", "Employee Name", "Social Security Number", "GSM Phone","Email", "Working at destination", "Type of Employee"]
+        managers = self.LogicLayerWrapper.getManagers(destination)
+        for manager in managers:
+            managerspretty.add_row([manager.employeeID, manager.name, manager.socialSecurity, manager.gsmPhone, manager.email, manager.workLocation , manager.type], divider=True)        
+        managerspretty.align = 'l'
+        managerspretty.max_table_width = 150
+        managerspretty.min_table_width = 100
+        managerspretty.max_width = 30
+        print(managerspretty)
+        
+    def displayContractors(self, destination=None) -> None:
+        """ Function creates a table to display all of the contractors in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of contractors related to that destination"""
+        # For displaying contractors in the pretty table we omit, Address, Home Phone, Previous Task and Performance Rating
+        # User can easily find that information through choosing to view additional information on that specific contractor
+        contractors_pretty = PrettyTable()
+        contractors_pretty.field_names = ["Contractor Number", "Name", "Social Security", "GSM Phone", "Email", "Work Location", "Type", "Contractor Contact", "Opening Hours"]
+        contractors = self.LogicLayerWrapper.getContractorData(destination)
+
+        for contractor in contractors:
+            contractors_pretty.add_row([contractor.employeeID, contractor.name, contractor.socialSecurity, contractor.gsmPhone, contractor.email, contractor.workLocation, contractor.type,  contractor.contractorContact, contractor.openingHours])
+        contractors_pretty.align = 'l'  
+        contractors_pretty.max_table_width = 160 
+        contractors_pretty.min_table_width = 100  
+        contractors_pretty.max_width = 30  
+        contractors_pretty.hrules = True 
+        contractors_pretty.vrules = True
+
+        print(contractors_pretty)
+
+    def displayProperties(self, destination = None) -> None:
+        """ Function creates a table to display all of the properties in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of properties related to that destination"""
+        propertiespretty = PrettyTable()
+        propertiespretty.field_names = ["Property Number", "Property Name", "Available for rental", "Pool Available", "Tub Available", "Ovens Available"]
+        properties = self.LogicLayerWrapper.getPropertyData(destination)
+        for property in properties:
+            propertiespretty.add_row([property.propertyID,property.nameOfProperty,property.availability,property.hasAPool,property.hasATub,property.hasOvens])
+        propertiespretty.align = 'l'
+        propertiespretty.max_width = 30
+        propertiespretty.max_table_width = 140
+        propertiespretty.min_table_width = 100
+        propertiespretty.hrules = True 
+        propertiespretty.vrules = True  
+  
+        print(propertiespretty)
+
+    def displayMaintenanceTasks(self, destination = None) -> None:
+        """ Function creates a table to display all of the maintenance tasks in a specified format, it is also used when the user is filtering on a destination, the logic layer only provides us with a list of maintenance tasks related to that destination"""
+        maintenanceTasks = self.LogicLayerWrapper.getMaintenanceTaskData(destination)
+        tasks_pretty = PrettyTable()
+        tasks_pretty.field_names = ["Task ID", "Property ID", "Description", "Start Date", "End Date", "Status", "Priority", "Recurring"]
+        for task in maintenanceTasks:
+            tasks_pretty.add_row([task.maintenanceID,task.propertyID,task.description,task.startDate,task.endDate,task.statusMaintenance,task.priority,task.recurring])
+        tasks_pretty.align = "l"  
+        tasks_pretty.max_width = 30  
+        tasks_pretty.min_table_width = 100 
+        tasks_pretty.max_table_width = 150  
+        tasks_pretty.hrules = True 
+        tasks_pretty.vrules = True 
+
+        # Display the table
+        print(tasks_pretty)
+
+    def displayMaintenanceSchedules(self) -> None:
+        """ Function creates a table to display all of the maintenanceschedules in a specified format"""
+        maintenanceSchedules = self.LogicLayerWrapper.getMaintenanceScheduleData()
+        schedules_pretty = PrettyTable()
+        schedules_pretty.field_names = ["Schedule ID", "Maintenance ID", "Task Type", "Frequency", "Start Date"]
+        for schedule in maintenanceSchedules:
+            schedules_pretty.add_row([ schedule.maintenanceScheduleID, schedule.maintenanceID, schedule.taskType, schedule.frequency, schedule.startDate])
+        schedules_pretty.align = "l"  
+        schedules_pretty.max_width = 30  
+        schedules_pretty.min_table_width = 100  
+        schedules_pretty.max_table_width = 140
+        schedules_pretty.hrules = 1 
+        schedules_pretty.hrules = True 
+        schedules_pretty.vrules = True 
+
+        # Display the table
+        print(schedules_pretty)
+
+
+    def displayMaintenanceReports(self) -> None:
+        """ Function creates a table to display all of the maintenance reports in a specified format"""
+        maintenanceReports = self.LogicLayerWrapper.getMaintenanceReportData()
+        maintenance_reports_pretty = PrettyTable()
+        maintenance_reports_pretty.field_names = ["Report ID", "Maintenance ID", "Employee ID", "Material Cost", "Contractor ID", "Contractor Cost", "Ready to Close", "Supervisor Closed", "Supervisor Feedback"]
+
+        # We need to change what the user sees based on whats inside the attribute
+        for report in maintenanceReports:
+            maintenance_reports_pretty.add_row([
+            report.maintenanceReportID,
+            report.maintenanceID,
+            report.employeeID if report.employeeID else "N/A",
+            report.materialCost,
+            report.contractorID if report.contractorID else "N/A",
+            report.contractorCost if report.contractorCost else "N/A",
+            "Yes" if report.readyToClose else "No",
+            "Yes" if report.supervisorClosed.lower() == "true" else "No",
+            report.supervisorFeedback if report.supervisorFeedback else "No Feedback Yet"
+            ])
+
+        maintenance_reports_pretty.align = "l"  
+        maintenance_reports_pretty.max_width = 90
+        maintenance_reports_pretty.min_table_width = 100 
+        maintenance_reports_pretty.max_table_width = 150
+        maintenance_reports_pretty.hrules = True 
+        maintenance_reports_pretty.vrules = True 
+
+        print(maintenance_reports_pretty)
+
+    def displayDestinations(self) -> None:
+        """ Function creates a table to display all of the destinations in a specified format"""
+        destinations = self.LogicLayerWrapper.getDestinationData()
+        destinations_pretty = PrettyTable()
+        destinations_pretty.field_names = ["Destination ID", "Name", "Country", "Timezone", "Airport Name", "Phone Number", "Opening Hours", "Manager ID"]
+        for destination in destinations:
+            destinations_pretty.add_row([destination.destinationID, destination.name, destination.country, destination.timezone, destination.airportName, destination.phoneNumber, destination.openingHours, destination.managerOfDestination])
+        destinations_pretty.align = "l" 
+        destinations_pretty.max_width = 30 
+        destinations_pretty.min_table_width = 100 
+        destinations_pretty.max_table_width = 120 
+        destinations_pretty.hrules = True 
+
+        print(destinations_pretty)
