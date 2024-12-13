@@ -1,0 +1,222 @@
+[
+    {
+        "propertyID": 1,
+        "nameOfProperty": "Igloo-Ville",
+        "description": "Igloo-Ville is a recreation of a town that burned down in 2021. There are 10 igloos available for reservation. A reservation can be made through our front desk, that can include a dining hall open from 6am to 23pm.",
+        "location": 3,
+        "availability": "true",
+        "hasAPool": "true",
+        "hasATub": "true",
+        "hasOvens": "true"
+    },
+    {
+        "propertyID": 2,
+        "nameOfProperty": "Hotel Mud",
+        "description": "Hotel Mud is a cluster of beautiful mud huts, with grassy walls and roofs. There is not a reception desk for the front 5 huts, however you can mame a reservation through our phone line at +298 351-445",
+        "location": 4,
+        "availability": "true",
+        "hasAPool": "false",
+        "hasATub": "false",
+        "hasOvens": "false"
+    },
+    {
+        "propertyID": 3,
+        "nameOfProperty": "Hotel Akula",
+        "description": "The hotel includes 30 rooms, including a sauna, gym, a game room with pool and a mini bar.",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "false",
+        "hasATub": "false",
+        "hasOvens": "true"
+    },
+    {
+        "propertyID": 4,
+        "nameOfProperty": "Redwood Mansion",
+        "description": "Great condition, Ocean view with a forest around it",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 5,
+        "nameOfProperty": "Ice Mansion",
+        "description": "A castle like structure built out of ice, perfect for a family looking to experience new things",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 6,
+        "nameOfProperty": "Sheep Hut",
+        "description": "A traditional sheep hut that has been turned into a rental house, has all of the luxuries of a new property but the feel of the old days",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 7,
+        "nameOfProperty": "Fishing Hut",
+        "description": "An old fishing Hut turned into a tiny apartment for rental",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 8,
+        "nameOfProperty": "The Faroe Special",
+        "description": "A traditional faroe islands house, small (40 m^2) but cozy",
+        "location": 4,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 9,
+        "nameOfProperty": "Tiny Igloo",
+        "description": "A way to experience how the eskimos live",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 10,
+        "nameOfProperty": "Large Igloo",
+        "description": "A way to experience how the eskimos live but with luxury",
+        "location": 2,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 11,
+        "nameOfProperty": "Hostel",
+        "description": "Holds 3 rooms with bunkbeds, shared living space and lots of lively people",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 12,
+        "nameOfProperty": "Hotel Tingwall",
+        "description": "Large Hotel with 30 rooms, each room has its own toilet and comfortable beds",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 13,
+        "nameOfProperty": "Mansion 33",
+        "description": "5 Rooms, 3 bathrooms, beach view ",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 14,
+        "nameOfProperty": "Studio Apartment ",
+        "description": "1 Room, 60m2, downtown",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 15,
+        "nameOfProperty": "BikiniHostel",
+        "description": "1 Room, 0 bathrooms, beach view",
+        "location": 3,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 16,
+        "nameOfProperty": "HiHostel",
+        "description": "6 rooms, 1 bathroom, downtown",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "False",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 17,
+        "nameOfProperty": "Penthouse",
+        "description": "Huge house with all sorts of abilities",
+        "location": 6,
+        "availability": "False",
+        "hasAPool": "True",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 18,
+        "nameOfProperty": "BigBoyVilla",
+        "description": "3 rooms, 2 bathrooms, near the beach",
+        "location": 2,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "False"
+    },
+    {
+        "propertyID": 19,
+        "nameOfProperty": "HotelIceChill",
+        "description": "Relaxing hotel experience for long travelers",
+        "location": 5,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 20,
+        "nameOfProperty": "MilanPuskarHotel",
+        "description": "A relaxing resort for our veterans",
+        "location": 1,
+        "availability": "True",
+        "hasAPool": "False",
+        "hasATub": "True",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 21,
+        "nameOfProperty": "Trent Van Robertson",
+        "description": "Hotel for all the family",
+        "location": 6,
+        "availability": "True",
+        "hasAPool": "True",
+        "hasATub": "False",
+        "hasOvens": "True"
+    },
+    {
+        "propertyID": 22,
+        "nameOfProperty": "Ctrl Alt De Ligt",
+        "description": "Cheap hostel for our prestigous guests",
+        "location": 3,
+        "availability": "False",
+        "hasAPool": "False",
+        "hasATub": "False",
+        "hasOvens": "True"
+    }
+]

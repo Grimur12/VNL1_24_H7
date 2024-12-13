@@ -1,0 +1,62 @@
+[
+    {
+        "maintenanceID": 1,
+        "propertyID": 3,
+        "description": "maintenance on an OK-650VV reactor.",
+        "startDate": "13.12.2024.10:00",
+        "endDate": "13.12.2050.10:00",
+        "statusMaintenance": "ongoing",
+        "priority": "Emergency",
+        "recurring": "true"
+    },
+    {
+        "maintenanceID": 2,
+        "propertyID": 3,
+        "description": "Hanging christmas decorations.",
+        "startDate": "01.11.2024.12:30",
+        "endDate": "10.01.2025.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "ASAP",
+        "recurring": "true"
+    },
+    {
+        "maintenanceID": 3,
+        "propertyID": 1,
+        "description": "Maintaining the structure of the igloos at properties 64-3900 - 64-3910 by cooling.",
+        "startDate": "15.07.2024.09:00",
+        "endDate": "25.08.2024.09:00",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
+    },
+    {
+        "maintenanceID": 4,
+        "propertyID": 2,
+        "description": "cutting grass on properties roofs.",
+        "startDate": "01.05.2024.09:00",
+        "endDate": "30.09.2024.09:00",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
+    },
+    {
+        "maintenanceID": 5,
+        "propertyID": 2,
+        "description": "Window cleaning for properties ix-9331 - ix-9333.",
+        "startDate": "13.12.2024.12:30",
+        "endDate": "13.12.2050.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
+    },
+    {
+        "maintenanceID": 6,
+        "propertyID": 1,
+        "description": "Cleaning the toilets",
+        "startDate": "02.10.2023.12:30",
+        "endDate": "02.10.2024.12:30",
+        "statusMaintenance": "ongoing",
+        "priority": "asap",
+        "recurring": "true"
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "maintenanceReportID": 1,
+        "maintenanceID": 6,
+        "employeeID": 2,
+        "materialCost": "10000",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "False",
+        "supervisorFeedback": ""
+    },
+    {
+        "maintenanceReportID": 2,
+        "maintenanceID": 6,
+        "employeeID": 3,
+        "materialCost": "102",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "False",
+        "supervisorFeedback": ""
+    },
+    {
+        "maintenanceReportID": 3,
+        "maintenanceID": 3,
+        "employeeID": 3,
+        "materialCost": "10000",
+        "contractorID": "",
+        "contractorCost": "",
+        "readyToClose": "True",
+        "supervisorClosed": "False",
+        "supervisorFeedback": ""
+    }
+]

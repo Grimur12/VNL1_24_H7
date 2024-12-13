@@ -1,19 +1,22 @@
 #defining the Maintenance schedule classes.
 
 class MaintenanceSchedule:
-    def __init__(self, maintenanceSchedule_ID, employee_ID, taskType, frequency):
+    def __init__(self, ID, maintenanceID = "", taskType = "", frequency = "", startDate = "") -> None:
         """ Defines variables for Maintenance Schedule """
-        self.maintenanceSchedule_ID = maintenanceSchedule_ID
-        self.employee_ID = employee_ID
-        self.taskType = taskType
-        self.frequency = frequency
+        # We reference the maintenanceID in the shcedule
+        self.maintenanceScheduleID = ID # Unique ID of the schedule
+        self.maintenanceID = maintenanceID # Reference to the maintenance that is being scheduled,
+        self.taskType = taskType # Type of maintenance is it normal (cleaning the sink) or abnormal (checking for leaks)
+        self.frequency = frequency # Daily, Weekly, Monthly
+        self.startDate = startDate # Starting Date of the schedule
 
-    def maintenanceSchedule_Dict(self) -> dict:
+    def MaintenanceSchedule_Dict(self) -> dict:
         """ Returns all the variables in our Maintenance Schedule class into a dictionary """
         return {
-        "maintenanceSchedule _ID": self.maintenanceSchedule_ID,
-        "employee_ID": self.employee_ID,
+        "maintenanceScheduleID": self.maintenanceScheduleID,
+        "maintenanceID": self.maintenanceID,
         "taskType": self.taskType,
-        "frequency": self.frequency
+        "frequency": self.frequency,
+        "startDate": self.startDate,
         }
 

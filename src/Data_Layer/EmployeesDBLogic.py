@@ -2,66 +2,66 @@
 import os
 import json
 from Models.Workers import Employee
-
- 
+from Models.Workers import Contractor
 
 class EmployeesDBLogic:
-    def __init__(self):
-        self.employees = []
-        self.base_dir = os.path.dirname(os.path.dirname(__file__)) 
-        self.file_path = os.path.join(self.base_dir, 'Data_Layer/Databases', 'Employees.json')
+    def __init__(self) -> None:
+        """ Holds reference to the Employees DB """
+        self.base_dir = os.path.dirname(os.path.dirname(__file__))
+        self.file_path = os.path.join(self.base_dir, "Data_Layer/Databases", "Employees.json")
 
-    def loadEmployeeLog(self) -> None:
-        """ Function loads all saved employees from DB and turns back into class instances of Employee and saves it internally """
-        with open(self.file_path, "r") as employeeDBOpen:
-            employees_list = json.load(employeeDBOpen)
-        
+    def loadEmployeeLog(self) -> list:
+        """ Function loads all saved employees from DB and turns back into class instances of Employee and returns a list of them """
+        employees_list = [] # Start off with an empty list
+        try:
+            with open(self.file_path, "r") as employeeDBOpen:
+                employees_list = json.load(employeeDBOpen) # Load all Employees from the DB
+        except FileNotFoundError: # Unless file is not found, we return an empty list anyways (basically assumes that the DB dosent exist so an empty list would make sense here)
+            return []
+        except json.JSONDecodeError: # And unless no Employees in the DB (or corrupt) so we return an empty list, because the DB is empty
+            return []
+        # We loaded in all of the Employee but they are dictionaries since we store them as such
+        employees = []
         for employee in employees_list:
-            self.employees.append(Employee(*employee.values()))
+            inCommonParameters = list(employee.values())[:9] # First 9 are both in contractor and employee
+            independantParameters = list(employee.values())[9:] # Last 4 are contractor specific
+            if inCommonParameters[8] == "Contractor":
+                employees.append(Contractor(*independantParameters, *inCommonParameters)) # If the employee dictionary in question is a Contractor we pass the common parameters and the contractor specific ones to create the contractor class
+            else:
+                employees.append(Employee(*inCommonParameters)) # Otherwise if a general employee or a manager just create the class normally with the common parameters
+        return employees
 
-        # Need to split into contractor logic
+    def saveEmployees(self, employees) -> None:
+        """ Function saves all instances of the employee class received in the employees (parameter) list, in dictionary form into json Database """
+        Employees = []
+        for employee in employees:
+            if employee.type == "Contractor": # We need to change the Employees into dictionaries to save them in the DB
+                Employees.append(employee.Contractor_dict()) # If its a contractor we use the contractor dict
+            else:
+                Employees.append(employee.Employee_dict()) # If manager or employee use the employee dict
 
-    def saveEmployees(self) -> None:
-        """ Function saves all instances of the employee class saved in self.employees in dictionary form into json Database """
-        Employees = [employee.Employee_dict() for employee in self.employees] 
-
-        with open(self.file_path, 'w') as file:
+        with open(self.file_path, "w") as file: # Save all the dictionaries into the DB
             json.dump(Employees, file, indent=4)
-        
-        # Need to split into contractor logic
 
-    def createEmployee(self, params, type) -> None:
-        """This function takes in a list of parameters and creates an employee and stores in the json DB"""
-        # Params should be a list of all the variables Employee() class needs to initialize in the correct order
-        if type != "Contractor":
-            self.employees.append(Employee(*params))
-            self.saveEmployees()
-        else:
-            # Contractor logic here
-            pass
+    def createEmployee(self, employee) -> None:
+        """ Function takes in an employee instance, loads all employees from DB, adds the employee to that list and saves it again into the DB  """
+        employees = self.loadEmployeeLog() # Load all employees (Class Object)
+        employees.append(employee) # Add the employee we just created to the list of Employees
+        self.saveEmployees(employees) # Save the updated list of employees to the DB
+    
+    def createContractor(self, contractor) -> None:
+        """ Function takes in a contractor instance, loads all employees from DB, adds the employee to that list and saves it again into the DB  """
+        employees = self.loadEmployeeLog() # Load all employees (Class Object)
+        employees.append(contractor) # Add the Contractor we just created to the list of Employees
+        self.saveEmployees(employees) # Save the updated list of employees to the DB
 
-    def updateEmployee(self, params) -> None:
-        """This function takes in a list of parameters, some may be new some may still be the older ones and stores them in the json DB"""
+    def updateEmployee(self, employee) -> None:
+        """ This function takes in an employee instance, finds old version of it by checking the ID, overwrites it and saves the employees again in the json DB"""
         # Need to split into instances of General Employee/Manger and Contractor as they have different parameters
-        for employee in self.employees:
-            if employee.employeeID == params[0]:
-                employee.employeeID =
-        
-    def removeEmployee(self, ID) -> None:
-        """ We take in the ID of the employee we want to remove, find it, delete it from the internal list and save the internal list to DB"""
-        # Start with finding the index of the employee we want to remove in the self.employees internal list
-        index_to_remove = -1
-        for index, employee in enumerate(self.employees):
-            if employee.employeeID == ID:
-                index_to_remove = index
+        employees = self.loadEmployeeLog() # Load all the employees (Class Objects)
+        for index, empl in enumerate(employees): # Find the employee we are udpating in the DB
+            if empl.employeeID == employee.employeeID: # If employee is the same (check on ID)
+                employees[index] = employee # Overwrite it in the list
                 break
-        # Remove that employee from the internal list
-        if index_to_remove != -1:
-            del self.employee[index_to_remove]
-        # Save the modified internal list to the DB
-        self.saveEmployees()
-
-
-ui = EmployeesDBLogic()
-#ui.saveEmployees()
-ui.loadEmployeeLog()
+        # Finally update the DB
+        self.saveEmployees(employees) # Save the list of employees to the DB, (including the newly updated one)
